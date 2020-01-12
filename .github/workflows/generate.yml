@@ -1,0 +1,23 @@
+name: Generate Output
+
+on: push
+
+jobs:
+  generate:
+    runs-on: ubuntu-18.04
+    container: pandoc/latex:2.9
+    steps:
+      - name: Install dependencies
+        run: |
+          apk --no-cache add make
+          tlmgr update --self
+          tlmgr install \
+            truncate tocloft wallpaper morefloats sectsty \
+            siunitx threeparttable l3packages l3kernel l3experimental
+      - uses: actions/checkout@v2
+      - name: Generate PDF 
+        run: make pdf
+      - uses: actions/upload-artifact@master
+        with:
+          name: thesis
+          path: output/thesis.pdf
