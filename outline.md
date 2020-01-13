@@ -24,33 +24,26 @@ Short history of P2P systems (e.g., Ripeanu, 2001). Analyze possible issues and 
 ## 2. Related Work
 
 ### 2.1. Infrastructure in the Digital Humanities
-Recogito, IIIF, …
+Enumerate various tools and platforms that build the foundational infrastructure in major parts of DH research. Then focus in platforms that allow for annotation, and embrace the distinction of institutional and personal data — Recogito, IIIF, etc.
 
-### 2.2. Hypertext Systems
-Xanadu
+### 2.2. Hypertext and Hypermedia Systems
+Hypertext as foundation of today’s web. Which are Xanadu’s basic principles? How does annotation relate? Introduce it as theoretical layer for distributed annotation and the distinction introduced in 2.1.
 
-### 2.2,5 Linked Data
-
-### 2.3. Collaboration Software (Similar to Kleppmann, 2019)
-Google Docs. Trello?
+### 2.3. Linked Data and Semantic Web
+Web Annotation Data Model and Protocol, JSON-LD, and their prospects.
 
 ### 2.4. Peer-to-Peer Technologies
-Survey of state-of-the-art P2P software and systems. Distinguish between multiple categories:
+Survey of state-of-the-art P2P software and systems. Basically a short outlook to chapter 4. Distinguish between multiple categories:
 * Fundamental P2P systems like IPFS and Dat (hypercore, libp2p, …)
-* 
-* IPFS, Dat
-	* uv.pub
-	* IIIF with IPFS, from Samuel Klein & at Vatican
-	* hypercore 
-	* Hyperswarm
-	* Automerge (Kleppmann et al.)
-	* Wong et al. (Approximate Matching with Cubit)
+* Related to DH research and publishing: uv.pub, IIIF with IPFS (from Samuel Klein et al. at Vatican)
+* CRDTs like Automerge (Kleppmann, 2017)
+* Hypertext-related P2P software (Wong, 2018)
 
 ## 3. Preliminary Survey
 In a preliminary survey, I collaborated with Professor Chiara Palladino from Furman University. We aimed to find out how students use Recogito, a platform for geo-spatial annotation of resources like texts and images.
 
 ### 3.1. Survey Design
-
+Design of both sessions, questionnaires, measurements.
 
 ### 3.2. Results: Derived Hypotheses
 Present an analysis of the results that have been measured during the survey: both recorded data and questionnaire data. Formulate hypotheses from these that are validated in chapter 7.
@@ -72,7 +65,7 @@ Conflict-Free Replicated Datatypes provide mechanisms for conflict-free merging 
 ## 5. Implementation of Hyperwell
 
 ### 5.1. Implementing and Designing a P2P System
-Describe the 
+Describe the architecture, design decisions, and which technology has been used.
 
 ### 5.2. Gateway: Implementation of a Service for Archival and Institutional Exposition
 Illustrate the architecture using gateways: Connecting annotations distributed via P2P with centralized infrastructures by using institutional gateways with optional pinning.
@@ -82,21 +75,25 @@ Describe how the Hyperwell notebook application has been developed for macOS and
 
 
 ## 6. Case Study: Recogito
+How does Hyperwell perform when being used and what pitfalls occur when existing systems are trying to adopt it?
 
-## 6.1. A Question of Reactivity: Adding Real-Time Support
+### 6.2. A Standard Annotation Server 
+As the Recogito text annotator showed, tools should be running smoothly when adapting the Hyperwell gateway.
+
+### 6.1. Adding Real-Time Support
+A Question of Reactivity: How well can real-time updates be implemented?
 
 
 ## 7. Validation
-Compare my work with the knowledge gathered from the preliminary survey: A) Architecture/implementation and B) case study.
+Compare my work with the knowledge gathered from the preliminary survey: a) Architecture/implementation and b) case study.
 
 
 ## 8. Future Prospects
 Summarize and give a future outlook, e.g., permission- or trustless systems that are realized with Blockchain technology and decentralize further.
-	8.1. Further integration with and feature parity for other systems (Dat, IPFS) and existing platforms (Brukeion)
-	8.2. Further integrations with Linked Data services
-	8.3. P2P HCI research
-	8.4. Improved functionality: Privacy (Marshall, 1998 in regard to privacy and anonymity of personal annotations)
-		* [Web of privacy](https://blog.datproject.org/2016/12/12/reader-privacy-on-the-p2p-web/)
+* Further integration with and feature parity for other systems (Dat, IPFS) and existing platforms (Brukeion)
+* Further integrations with Linked Data services like Thomas’ Hermes
+* P2P HCI research
+* Improved functionality: Privacy (Marshall, 1998 in regard to privacy and anonymity of personal annotations), [“web of privacy”](https://blog.datproject.org/2016/12/12/reader-privacy-on-the-p2p-web/).
 
 
 ## 9. Summary
@@ -104,6 +101,7 @@ Summarize and give a future outlook, e.g., permission- or trustless systems that
 
 ## 10. References
 * **Kleppmann**, Martin. 2019. “Local-First Software: You Own Your Data, in Spite of the Cloud.” https://doi.org/10.1145/3359591.3359737.
+* **Marshall**, Catherine C. 1998. “Toward an Ecology of Hypertext Annotation.” In Proceedings of the Ninth ACM Conference on Hypertext and Hypermedia : Links, Objects, Time and Space—Structure in Hypermedia Systems: Links, Objects, Time and Space—Structure in Hypermedia Systems, 40–49. HYPERTEXT ’98. New York, NY, USA: ACM. https://doi.org/10.1145/276627.276632.
 * **Maymounkov**, Petar, and David Mazières. 2002. “Kademlia: A Peer-to-Peer Information System Based on the XOR Metric.” In Peer-to-Peer Systems, edited by Peter Druschel, Frans Kaashoek, and Antony Rowstron, 2429:53–65. Berlin, Heidelberg: Springer Berlin Heidelberg. https://doi.org/10.1007/3-540-45748-8_5.
 * **McCarty**, Willard. 2016. “Collaborative Research in the Digital Humanities.” Collaborative Research in the Digital Humanities. May 23, 2016. https://doi.org/10.4324/9781315572659-5.
 * **Narayanan**, Arvind, Vincent Toubiana, Solon Barocas, Helen Nissenbaum, and Dan Boneh. 2012. “A Critical Look at Decentralized Personal Data Architectures.” ArXiv:1202.4503 [Cs], February. http://arxiv.org/abs/1202.4503.
