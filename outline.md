@@ -12,13 +12,13 @@ Outline draft of this thesis:
 ## 1. Introduction
 
 ### 1.1. Collaboration in the Digital Humanities
-Anatomy of annotations (e.g., Marshall, 1998)
+Anatomy of annotations (e.g., Marshall, 1998): Describe how annotations work digitally. Advance into how they are used in the Digital Humanities, and how collaboration happens in the DH domain (McCarty, 2016).
 
 ### 1.3. Digital Authoring with Hypertext
-Hypertext as foundation for the philosophical entity we’re working with. **Hypertext was designed with peer-to-peer in mind?** (Wiil et al., 2002; Wong et al., ). Hypertext annotations (Marshall, 1998)
+Hypertext as theoretical foundation of what we’re working with. Hypertext has been designed with peer-to-peer in mind (Wiil et al., 2002; Wong et al., 2008). Hypertext annotations (Marshall, 1998).
 
 ### 1.2. Peer-to-Peer Systems
-Analyze possible issues and problems of P2P systems (Narayanan, 2012; others) and sketch how a Master’s thesis could be realized in respect to certain possible issues and provide an MVP system (Kleppmann, 2019).
+Short history of P2P systems (e.g., Ripeanu, 2001). Analyze possible issues and problems of P2P systems (Narayanan, 2012; others) and sketch how a Master’s thesis could be realized in respect to certain possible issues and provide an MVP system (Kleppmann, 2019). Outlook to contemporary P2P technology such as CRDTs and append-only logs.
 
 
 ## 2. Related Work
@@ -29,9 +29,11 @@ Recogito, IIIF, …
 ### 2.2. Hypertext Systems
 Xanadu
 
+### 2.2,5 Linked Data
+
 ### 2.3. Collaboration Software (Similar to Kleppmann, 2019)
 Google Docs. Trello?
-		
+
 ### 2.4. Peer-to-Peer Technologies
 Survey of state-of-the-art P2P software and systems. Distinguish between multiple categories:
 * Fundamental P2P systems like IPFS and Dat (hypercore, libp2p, …)
@@ -47,35 +49,47 @@ Survey of state-of-the-art P2P software and systems. Distinguish between multipl
 ## 3. Preliminary Survey
 In a preliminary survey, I collaborated with Professor Chiara Palladino from Furman University. We aimed to find out how students use Recogito, a platform for geo-spatial annotation of resources like texts and images.
 
-### 3.1. Specification Requirements
+### 3.1. Survey Design
 
-### 3.2. Results
-Present an
+
+### 3.2. Results: Derived Hypotheses
+Present an analysis of the results that have been measured during the survey: both recorded data and questionnaire data. Formulate hypotheses from these that are validated in chapter 7.
 
 
 ## 4. Peer-to-Peer Systems
+Survey of contemporary peer-to-peer technology for my use.
 
 ### 4.1. DHTs and swarming (hyperswarm, libp2p)
+Distributed Hash Tables, such as the Kademlia DHT, provide a decentralized way of announcing data within a network (which might be considered a swarm of like-minded peers). Dat's hyperswarm offers a JavaScript implementation for Node.js.
 
 ### 4.2. Append-only logs (hypercore, libp2p)
+Append-only logs like Dat's hypercore provide a cryptographically secured, distributed single source of truth, similar to Git's log.
 
 ### 4.3. CRDTs (hypermerge, libp2p)
-	
-	
+Conflict-Free Replicated Datatypes provide mechanisms for conflict-free merging of distributed data streams in real-time. Hypermerge by Martin Kleppmann and Ink & Switch combines Dat's hyper core append-only log with Automerge, a JavaScript CRDT implementation for JSON objects.
+
+
 ## 5. Implementation of Hyperwell
 
 ### 5.1. Implementing and Designing a P2P System
+Describe the 
 
-### 5.2. Notebook: Implementation of a Local-First Annotation Application
+### 5.2. Gateway: Implementation of a Service for Archival and Institutional Exposition
+Illustrate the architecture using gateways: Connecting annotations distributed via P2P with centralized infrastructures by using institutional gateways with optional pinning.
 
-### 5.3. Gateway: Implementation of a Service for Archival and Institutional Exposition
+### 5.3. Notebook: Implementation of a Local-First Annotation Application
+Describe how the Hyperwell notebook application has been developed for macOS and iOS with React Native.
+
 
 ## 6. Case Study: Recogito
 
 ## 6.1. A Question of Reactivity: Adding Real-Time Support
 
+
 ## 7. Validation
-		
+Compare my work with the knowledge gathered from the preliminary survey: A) Architecture/implementation and B) case study.
+
+
 ## 8. Future Prospects
 Summarize and give a future outlook, e.g., permission- or trustless systems that are realized with Blockchain technology and decentralize further.
 	8.1. Further integration with and feature parity for other systems (Dat, IPFS) and existing platforms (Brukeion)
@@ -84,7 +98,9 @@ Summarize and give a future outlook, e.g., permission- or trustless systems that
 	8.4. Improved functionality: Privacy (Marshall, 1998 in regard to privacy and anonymity of personal annotations)
 		* [Web of privacy](https://blog.datproject.org/2016/12/12/reader-privacy-on-the-p2p-web/)
 
+
 ## 9. Summary
+
 
 ## 10. References
 * **Kleppmann**, Martin. 2019. “Local-First Software: You Own Your Data, in Spite of the Cloud.” https://doi.org/10.1145/3359591.3359737.
