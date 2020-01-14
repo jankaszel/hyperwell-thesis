@@ -1,4 +1,17 @@
+% ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+% font settings
+
 \usepackage{fontspec}
+% \usepackage{mathpazo}
+
+\usepackage[
+    final, % ignores document draft mode
+    protrusion=true,
+    % kerning=true,
+    factor=1100,
+    stretch=20, % this also controls shrink value
+]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 
 % works
 %\setmainfont{SangBleuRepublic-Regular} 
