@@ -1,11 +1,11 @@
-# From Me to You: Peer-to-Peer Collaboration Infrastructure with Linked Data Annotations (talk title)
-
+# Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation
 
 Master’s Thesis due 2020 by Jan Kaßel at Leipzig University. Supervised by Dr. Thomas Koentges and Prof. Gregory Crane at the Department of Computer Science, Leipzig University.
 
 Collection of alternative titles:
-* Transcending Sources: Local-First & Collaborative Annotating with Hyperwell
+* Transcluding Sources: Local-First & Collaborative Annotating with Hyperwell
 * Hyperwell: A P2P System for Local-First & Collaborative Annotating
+* From Me to You: Peer-to-Peer Collaboration Infrastructure with Linked Data Annotations (talk title)
 
 Outline draft of this thesis:
 
