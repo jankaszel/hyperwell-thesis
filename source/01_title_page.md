@@ -13,7 +13,7 @@
         \vspace{1.5cm}
         
         \Large
-        Firstname Surname
+        Jan Kaßel
 
         \vspace{1.5cm}
 

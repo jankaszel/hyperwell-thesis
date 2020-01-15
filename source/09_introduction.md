@@ -6,9 +6,13 @@ The Humanities are one of the world’s oldest research areas, gathering and dis
 
 Not only has the subject’s _habitus_ adopted this transformation: Most of humanities’ contemporary expression is of digital nature—take modern literature, for instance, where Silvia Hartmann populates the progress on her work in real-time via Google Docs [@kirschenbaum2016]. 
 
-But even more, the scholarly methodologies considering the matters of the pre-digital ages changed. With the advent of commonly approachable Machine Learning, (more about what’s currently possible, and since when. @terras2016 might be useful!).
+But even more, the scholarly methodologies considering the matters of the pre-digital ages changed. With the rise of Natural Language Processing (NLP) of commonly approachable Machine Learning, (more about what’s currently possible, and since when. @terras2016 might be useful!).
 
-Being an umbrella for various disciplines, the Humanities historically embraced academic collaboration to a great extend [@siemens2015]. 
+Being an umbrella for various disciplines, the Humanities historically embraced academic collaboration to a great extend [@siemens2015].
+
+Something on Linked Data [@simon2015; @simon2017]?
+
+Something on annotation [@marshall1997; @marshall1998; @sanderson2013]?
 
 ## Digital Authoring with Hypertext
 
