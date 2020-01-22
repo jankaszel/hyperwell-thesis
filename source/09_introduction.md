@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {#introduction}
 
 ## Collaboration in the Digital Humanities
 
@@ -8,6 +8,9 @@ Not only has the subject’s _habitus_ adopted this transformation: Most of huma
 
 But even more, the scholarly methodologies considering the matters of the pre-digital ages changed. With the rise of Natural Language Processing (NLP) of commonly approachable Machine Learning, (more about what’s currently possible, and since when. @terras2016 might be useful!).
 
+Physical artifacts became digital resources, analogue workflows became digital ones. The digital nature of the contemporary humanist’s work suddenly demanded additional, extensive knowledge of gathering, analyzing, and maintaining data repositories. Best practices were formed, namely the FAIR principles [@wilkinson2016]: Findable, Accessible, Interoperable, and Reusable data. 
+
+<!-- transitioning to collaboration -->
 Being an umbrella for various disciplines, the Humanities historically embraced academic collaboration to a great extend [@siemens2015].
 
 Something on Linked Data [@simon2015; @simon2017]?
@@ -21,7 +24,6 @@ Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan200
 The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. (…)
 
 The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
-
 
 ## Peer-to-Peer Systems
 

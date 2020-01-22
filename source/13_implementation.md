@@ -16,12 +16,20 @@ In the following, I will describe two attempts at an implementation for a system
 
 ## Resource Exhaustion: “Thick” Peers
 
+### Resource Discovery
+
+### Client SDK
+
 ## Institutional Governance with “Hyperwell”
 
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
 ### Notebook: Implementation of a Local-First Annotation Application
 
-## Adoption in Existing Environments
+### Adoption in Existing Environments
 
 ## Conclusion
+
+With many platforms involved—researchers, institutions, platforms, non-academic users—it’s difficult to find the perfect solution suiting all their needs. The “Thick Client” approach presented first ensures an annotator’s independence when publishing, but bears the quick exhaustion of their computational resources. The second approach, Hyperwell, performed well in testing due to a clear distinction of personal (individual) and institutional (centralized) computational resources, but takes the way of introducing quasi-centralized gateways.
+
+
