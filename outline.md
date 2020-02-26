@@ -104,7 +104,7 @@ Summarize and give a future outlook, e.g., permission- or trustless systems that
 
 ## 8. Summary
 
-
+ 
 ## References
 * **DeRose**, Steven J., David G. Durand, Elli Mylonas, and Allen H. Renear. 1997. “What Is Text, Really?” ACM SIGDOC Asterisk Journal of Computer Documentation 21 (3): 1–24. https://doi.org/10.1145/264842.264843.
 * **Kleppmann**, Martin. 2019. “Local-First Software: You Own Your Data, in Spite of the Cloud.” https://doi.org/10.1145/3359591.3359737.
