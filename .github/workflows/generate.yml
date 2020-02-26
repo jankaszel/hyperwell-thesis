@@ -13,7 +13,7 @@ jobs:
           tlmgr update --self
           tlmgr install \
             truncate tocloft wallpaper morefloats sectsty \
-            siunitx threeparttable l3packages l3kernel l3experimental
+            threeparttable l3packages l3kernel l3experimental
       - uses: actions/checkout@v2
       - name: Generate PDF 
         run: make pdf

@@ -37,7 +37,6 @@ There are some minor annoyances:
     sudo tlmgr install wallpaper
     sudo tlmgr install morefloats
     sudo tlmgr install sectsty
-    sudo tlmgr install siunitx
     sudo tlmgr install threeparttable
     sudo tlmgr update l3packages
     sudo tlmgr update l3kernel
