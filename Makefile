@@ -2,13 +2,25 @@ PY=python
 PANDOC=pandoc
 
 BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/source
+INPUTDIR=$(BASEDIR)/chapters
 OUTPUTDIR=$(BASEDIR)/output
 TEMPLATEDIR=$(INPUTDIR)/templates
 STYLEDIR=$(BASEDIR)/style
 
 CITATION_STYLE=apa
 BIBFILE=$(INPUTDIR)/references.bib
+
+pdf:
+	pandoc "$(INPUTDIR)"/*.md \
+	-o "$(OUTPUTDIR)/thesis.pdf" \
+	--template="template.tex" \
+	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--csl="$(STYLEDIR)/$(CITATION_STYLE).csl" \
+	--highlight-style pygments \
+	-N \
+	--pdf-engine=xelatex \
+	--top-level-division=chapter \
+	--verbose
 
 help:
 	@echo ' 																	  '
@@ -25,25 +37,9 @@ help:
 	@echo 'get local templates with: pandoc -D latex/html/etc	  				  '
 	@echo 'or generic ones from: https://github.com/jgm/pandoc-templates		  '
 
-pdf:
-	pandoc "$(INPUTDIR)"/*.md \
-	-o "$(OUTPUTDIR)/thesis.pdf" \
-	-H "$(STYLEDIR)/preamble.tex" \
-	--template="$(STYLEDIR)/template.tex" \
-	--bibliography="$(BIBFILE)" 2>pandoc.log \
-	--csl="$(STYLEDIR)/$(CITATION_STYLE).csl" \
-	--highlight-style pygments \
-	-V fontsize=12pt \
-	-V papersize=a4paper \
-	-V documentclass=report \
-	-N \
-	--pdf-engine=xelatex \
-	--verbose
-
 tex:
 	pandoc "$(INPUTDIR)"/*.md \
 	-o "$(OUTPUTDIR)/thesis.tex" \
-	-H "$(STYLEDIR)/preamble.tex" \
 	--bibliography="$(BIBFILE)" \
 	-V fontsize=12pt \
 	-V papersize=a4paper \
