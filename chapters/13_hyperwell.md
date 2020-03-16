@@ -1,4 +1,3 @@
-
 # Gateways in Distributed Systems
 
 > This will most likely be an argumentation why we need P2P gateways when working with P2P data in academia: Many platforms and tools are built with web technologies and hence are subject to the quasi-centralized architecture of the HTTP web.
@@ -31,6 +30,15 @@ Each aspect of a P2P system bears implications for usability, data availability,
 
 ## Resource Exhaustion: A “Think” Peer
 > Describe issues with the first iteration of Hyperwell, where the Gateway API was residing in each and every peer.
+
+```python
+mood = 'happy'
+if mood == 'happy':
+    print("I am a happy robot")
+```
+
+Alternatively, you can also use LaTeX to create a code block as shown in the Java example below:
+\lstinputlisting[style=javaCodeStyle, caption=Main.java]{chapters/code/HelloWorld.java}
 
 ### Resource Discovery
 

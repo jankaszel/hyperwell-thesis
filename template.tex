@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+\documentclass[a4paper]{report}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -42,6 +42,7 @@ $if(geometry)$
   \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
 
+\usepackage{csquotes}
 \usepackage{polyglossia}
 \setmainlanguage{english}
 
@@ -50,9 +51,6 @@ $if(biblio-files)$
   \bibliography{$biblio-files$}
 $endif$
 
-$if(listings)$
-  \usepackage{listings}
-$endif$
 
 $if(lhs)$
   \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
@@ -176,7 +174,6 @@ $endif$
 %Following line controls size of figure legends
 % \setsansfont[Scale=1.2]{Optima Regular}
 
-% CODE BLOCKS
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{color}
@@ -285,6 +282,19 @@ $endif$
   ItalicFont={*I},
   BoldItalicFont={*BI},
 ]{LinLibertine_R}
+
+\setmonofont[
+  Contextuals=Alternate,
+  Path=fonts/,
+  BoldFont={FiraCode-Bold}
+]{FiraCode-Regular}
+\usepackage{listings}
+\usepackage{lstfiracode} % https://ctan.org/pkg/lstfiracode
+\lstset{
+  language=C++,
+  style=FiraCodeStyle,   % Use predefined FiraCodeStyle
+  basicstyle=\ttfamily   % Use \ttfamily for source code listings
+}
 
 \begin{document}
 
