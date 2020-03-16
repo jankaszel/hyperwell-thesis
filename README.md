@@ -30,17 +30,12 @@ There are some minor annoyances:
 2. [Fork the repository](https://github.com/tompollard/phd_thesis_markdown/fork) on Github  
 3. Clone the repository onto your local computer (or [download the Zip file](https://github.com/tompollard/phd_thesis_markdown/archive/master.zip)).  
 4. Navigate to the directory that contains the Makefile and type "make pdf" (or "make html") at the command line to update the PDF (or HTML) in the output directory.  
-**In case of an error** (e.g. `make: *** [pdf] Error 43`) run the following commands:  
+**In case of an error** (e.g. `make: *** [pdf] Error 43`) run the following command:  
     ```
-    sudo tlmgr install truncate
-    sudo tlmgr install tocloft
-    sudo tlmgr install wallpaper
-    sudo tlmgr install morefloats
-    sudo tlmgr install sectsty
-    sudo tlmgr install threeparttable
-    sudo tlmgr update l3packages
-    sudo tlmgr update l3kernel
-    sudo tlmgr update l3experimental
+    sudo tlmgr install \
+        truncate tocloft wallpaper morefloats sectsty \
+        threeparttable l3packages l3kernel l3experimental \
+        lstfiracode
     ```
     
 5. Edit the files in the 'source' directory, then goto step 4.  

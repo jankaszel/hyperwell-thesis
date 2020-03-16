@@ -16,7 +16,8 @@ jobs:
           tlmgr update --self
           tlmgr install \
             truncate tocloft wallpaper morefloats sectsty \
-            threeparttable l3packages l3kernel l3experimental
+            threeparttable l3packages l3kernel l3experimental \
+            lstfiracode
       - uses: actions/checkout@v2
       - name: Generate PDF
         run: make pdf
