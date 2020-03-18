@@ -1,5 +1,11 @@
 # Introduction {#introduction}
 
+## The Web and Data Ownership
+
+The internet has historically considered the client-server architecture a natural part of its architecture.
+
+Issues on data ownership arise when storing personal data on centralized services.
+
 ## Collaboration in the Digital Humanities
 
 The Humanities are one of the world’s oldest research areas, gathering and discovering knowledge about our own history, being, and society [@davidson2008]. (Transition to digital humanities and, hence, a transition from analog to digital artifacts).
@@ -24,6 +30,7 @@ Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan200
 In the wake of the new web, the wake of technological development that happened after the bust of the dot-com bubble in 2001, the internet became more open and accessible to the common people, as opposed to purely experts (Davidson, 2008). Collaboration, again, has been facilitated by this change, as the web tended towards social media, sharing of resources, and semantic description of data.
 
 ## Recogito
+
 Using annotation to enhance source material with additional information is a practice commonly used in the Humanities, as it provides an environment for connecting sources with one’s personal thoughts. The emergence of digital tools in the Humanities then brought not only the likes of computational methods, but also made the social aspects of the internet more approachable to non-experts (Davidson, 2008).
 
 This caused two particular implications. Collaboration, an artifact of particular importance in the interdisciplinary nature of Humanities research, enabled working on the same resources with multiple people involved, exchanging their findings—though, digitally—in real-time. Furthermore, the rise of the Semantic Web with Linked Data actually imposed semantic meaning on data itself: Digital entities could reference each other and describe their relations in more depth.
@@ -47,8 +54,7 @@ The digital medium, however, lifts those physical limitations. Almost encouragin
 
 ## Peer-to-Peer Systems
 
-## Outline of This Thesis
+## Thesis Structure
 
-This is a brief outline of what went into each chapter. **Chapter 1** gives a background on duis tempus justo quis arcu consectetur sollicitudin.  **Chapter 2** discusses morbi sollicitudin gravida tellus in maximus.  **Chapter 3** discusses vestibulum eleifend turpis id turpis sollicitudin aliquet.  **Chapter 4** shows how phasellus gravida non ex id aliquet. Proin faucibus nibh sit amet augue blandit varius.
-
+The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Chapter [text-and-ownership] concerns the theory behind Hypertext and its relations for data ownership. Drawing conclusions from that, chapter [hyperwell-implementation] will 
 

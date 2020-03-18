@@ -37,9 +37,6 @@ if mood == 'happy':
     print("I am a happy robot")
 ```
 
-Alternatively, you can also use LaTeX to create a code block as shown in the Java example below:
-\lstinputlisting[style=javaCodeStyle, caption=Main.java]{chapters/code/HelloWorld.java}
-
 ### Resource Discovery
 
 ### Client SDK

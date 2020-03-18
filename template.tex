@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[a4paper,headings=standardclasses]{scrbook}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -21,6 +21,7 @@
 % TP: end hack
 
 \usepackage{setspace}
+\usepackage{minibox}
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -47,21 +48,9 @@ $endif$
 \setmainlanguage{english}
 
 \usepackage{biblatex}
-$if(biblio-files)$
-  \bibliography{$biblio-files$}
-$endif$
-
-
-$if(lhs)$
-  \lstnewenvironment{code}{\lstset{language=Haskell,basicstyle=\small\ttfamily}}{}
-$endif$
 
 $if(highlighting-macros)$
   $highlighting-macros$
-$endif$
-
-$if(verbatim-in-note)$
-  \usepackage{fancyvrb}
 $endif$
 
 $if(tables)$
@@ -118,16 +107,8 @@ $else$
   \setcounter{secnumdepth}{0}
 $endif$
 
-$if(verbatim-in-note)$
-  \VerbatimFootnotes % allows verbatim text in footnotes
-$endif$
-
 $if(title)$
   \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-$endif$
-
-$if(author)$
-  \author{$for(author)$$author$$sep$ \and $endfor$}
 $endif$
 
 \date{$date$}
@@ -142,11 +123,8 @@ $endif$
 \usepackage{fancyhdr}
 \pagestyle{plain}
 
-% Following package is used to add background image to front page
 \usepackage{wallpaper}
-
-% Table package
-\usepackage{ctable}% http://ctan.org/pkg/ctable
+\usepackage{ctable}
 
 % Deal with 'LaTeX Error: Too many unprocessed floats.'
 \usepackage{morefloats}
@@ -159,53 +137,16 @@ $endif$
 % \newcommand{\hsp}{\hspace{20pt}}
 % \titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
-% % Fonts and typesetting
-% \setmainfont[Scale=1.1]{Helvetica}
-% \setsansfont[Scale=1.1]{Verdana}
-
-% FONTS
-\usepackage{xunicode}
-\usepackage{xltxtra}
 \defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
-% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Palatino}
-% \setromanfont[Scale=1.01,Ligatures={Common},Numbers={OldStyle}]{Adobe Caslon Pro}
-%Following line controls size of code chunks
-% \setmonofont[Scale=0.9]{Monaco}
-%Following line controls size of figure legends
-% \setsansfont[Scale=1.2]{Optima Regular}
 
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{color}
 
-% JAVA CODE BLOCKS
-\definecolor{backcolour}{RGB}{242,242,242}
-\definecolor{javared}{rgb}{0.6,0,0}
-\definecolor{javagreen}{rgb}{0.25,0.5,0.35}
-\definecolor{javapurple}{rgb}{0.5,0,0.35}
-\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+\usepackage{listings}
+\usepackage{lstfiracode}
+\lstset{language=C++,style=FiraCodeStyle,basicstyle=\ttfamily}
 
-\lstdefinestyle{javaCodeStyle}{
-  language=Java,                         % the language of the code
-  backgroundcolor=\color{backcolour},    % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
-  basicstyle=\fontsize{10}{8}\sffamily,
-  breakatwhitespace=false,
-  breaklines=true,
-  keywordstyle=\color{javapurple}\bfseries,
-  stringstyle=\color{javared},
-  commentstyle=\color{javagreen},
-  morecomment=[s][\color{javadocblue}]{/**}{*/},
-  captionpos=t,                          % sets the caption-position to bottom
-  frame=single,                          % adds a frame around the code
-  numbers=left,
-  numbersep=10pt,                         % margin between number and code block
-  keepspaces=true,                       % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
-  columns=fullflexible,
-  showspaces=false,                      % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
-  showstringspaces=false,                % underline spaces within strings only
-  showtabs=false,                        % show tabs within strings adding particular underscores
-  tabsize=2                              % sets default tabsize to 2 spaces
-}
 
 %Attempt to set math size
 %First size must match the text size in the document or command will not work
@@ -228,7 +169,6 @@ $endif$
 % Adjust spacing between lines to 1.5
 \usepackage{setspace}
 \onehalfspacing
-% \doublespacing
 \raggedbottom
 
 % Set margins
@@ -279,9 +219,18 @@ $endif$
   Numbers=OldStyle,
   Path=fonts/,
   BoldFont={*B},
+  FontFace={sb}{n}{Font=*Z},
+  FontFace={sb}{i}{Font=*ZI},
   ItalicFont={*I},
   BoldItalicFont={*BI},
 ]{LinLibertine_R}
+
+\setsansfont[
+  Mapping=tex-text,
+  Path=fonts/,
+  BoldFont={*B},
+  ItalicFont={*I},
+]{LinBiolinum_R}
 
 \setmonofont[
   Contextuals=Alternate,
@@ -289,19 +238,72 @@ $endif$
   BoldFont={FiraCode-Bold}
 ]{FiraCode-Regular}
 
-\usepackage{listings}
-\usepackage{lstfiracode}
-\lstset{
-  language=C++,
-  style=FiraCodeStyle,
-  basicstyle=\ttfamily
-}
+% <https://tex.stackexchange.com/a/404395>
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
 
 \begin{document}
 
 $for(include-before)$
   $include-before$
 $endfor$
+
+% title page
+\begin{titlepage}
+  \begin{center}
+    \vspace*{2.5cm}
+    
+    {\huge Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation}
+    
+    \vspace{1.5cm}
+    
+    by \\
+    {\Large Jan Kaßel}
+
+    \vspace{1.5cm}
+
+    A thesis presented for the degree of \\
+    \textsc{\Large Master of Science}
+    
+    \vfill
+    
+    \begin{tabular}{cc}
+      \minibox[c,pad=10pt]{
+        \textsb{Primary Advisor:} \\
+        Dr. Thomas Köntges \\
+        Chair of Digital Humanities \\
+        Leipzig University
+      }
+
+      \minibox[c,pad=10pt]{
+        \textsb{Secondary Advisor:} \\
+        Prof. Gregory Crane \\
+        Department of Classical Studies \\
+        Tufts University
+      }
+    \end{tabular}
+
+    \vspace{0.8cm}
+
+    \includegraphics[width=0.5\textwidth]{style/leipzig-university.eps}
+    
+    \normalsize
+    Leipzig University, Germany\\
+    January 2015
+  \end{center}
+\end{titlepage}
+
+% licensing page
+\begin{center}
+  \begin{minipage}[t]{0.7\textwidth}
+    \includegraphics[width=0.4\textwidth]{style/cc-by.pdf} \\
+
+     Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. \\
+     Copyright 2020, Jan Kaßel.
+  \end{minipage}
+\end{center}
+\pagebreak
+
 
 $if(lot)$
 \listoftables
