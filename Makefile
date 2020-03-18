@@ -15,6 +15,7 @@ pdf:
 	-o "$(OUTPUTDIR)/thesis.pdf" \
 	--template="template.tex" \
 	--bibliography="$(BIBFILE)" 2>pandoc.log \
+	--resource-path="$(INPUTDIR)" \
 	--csl="$(STYLEDIR)/$(CITATION_STYLE).csl" \
 	--highlight-style pygments \
 	-N \

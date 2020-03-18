@@ -1,4 +1,4 @@
-\documentclass[a4paper,headings=standardclasses]{scrbook}
+\documentclass[a4paper,headings=standardclasses]{report}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -293,16 +293,21 @@ $endfor$
   \end{center}
 \end{titlepage}
 
-% licensing page
+% license
 \begin{center}
   \begin{minipage}[t]{0.7\textwidth}
-    \includegraphics[width=0.4\textwidth]{style/cc-by.pdf} \\
+    {\centering\includegraphics[width=0.4\textwidth]{style/cc-by.pdf}} \\
 
      Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. \\
      Copyright 2020, Jan Kaßel.
   \end{minipage}
 \end{center}
 \pagebreak
+
+% table of contents
+\pagenumbering{gobble}
+\tableofcontents
+\newpage
 
 
 $if(lot)$

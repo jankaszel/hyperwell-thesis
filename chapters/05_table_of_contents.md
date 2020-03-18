@@ -1,3 +1,0 @@
-\pagenumbering{gobble}
-\tableofcontents
-\newpage

@@ -1,10 +1,22 @@
 # Introduction {#introduction}
 
+
+
 ## The Web and Data Ownership
 
 The internet has historically considered the client-server architecture a natural part of its architecture.
 
+![Communication networks architectures](figures/network-architectures.png)
+
+_Introduce platforms_
+
 Issues on data ownership arise when storing personal data on centralized services.
+
+_Introduce federated systems_
+
+…
+
+_Introduce decentralized, distributed systems_
 
 ## Collaboration in the Digital Humanities
 
@@ -29,7 +41,36 @@ Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan200
 
 In the wake of the new web, the wake of technological development that happened after the bust of the dot-com bubble in 2001, the internet became more open and accessible to the common people, as opposed to purely experts (Davidson, 2008). Collaboration, again, has been facilitated by this change, as the web tended towards social media, sharing of resources, and semantic description of data.
 
-## Recogito
+
+## Nonlinear Documents with Hypertext
+
+The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. (…)
+
+The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
+
+## Peer-to-Peer Systems
+
+## Research Goals
+
+Throughout earlier phases of this work, the initial research question emerged out of a personal frustration about the status quo of platform-centric tools in the Digital Humanities:
+
+> How could a decentralized application for annotations be realized in the environment of tools and platforms in Digital Humanities research?
+
+This open-ended question carries a belief on the benefit of decentralized storage for users, computer scientists commonly tend to approach technical solutions before questioning user needs. However, research and feedback showed that platforms—as they are servers—are not necessarily evil: Federated services
+
+1. Is there a structural issue with personal data such as annotations in contemporary services on the web?
+1. How do users perceive real-time collaboration on digital annotation in contemporary Digital Humanities tools?
+2. What kind of architecture could provide personal, distributed storage, and fit the requirements of academic Digital Humanities research?
+
+
+## Thesis Structure
+
+The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Chapter [text-and-ownership] concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in chapter [collaboration-study]. Chapter [hyperwell-implementation] concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation.
+
+
+## Drafts Stuff
+
+### Recogito
 
 Using annotation to enhance source material with additional information is a practice commonly used in the Humanities, as it provides an environment for connecting sources with one’s personal thoughts. The emergence of digital tools in the Humanities then brought not only the likes of computational methods, but also made the social aspects of the internet more approachable to non-experts (Davidson, 2008).
 
@@ -42,19 +83,4 @@ Exploring historic artifacts in such ways provides new ways of perceiving histor
 The takeaways of this publication are two-fold: First, we present two modular dataset created by the participants during both sessions on the mentioned resources—the Iliad’s Catalog of Ships, and the Tabula Tabula Peutingeriana. They contain georeferences for many places as well as annotations relating to people, events, and general remarks. These datasets are available in various formats and can easily be imported into Recogito.
 
 Second, we present an overview of the survey and analytics results received during the sessions, focusing on the perceived benefits of spatial annotation and collaboration, as well as the general user experience.
-
-
-## Digital Authoring with Hypertext
-
-<!-- Enter the authoring model of Hypertext—and hence, some of the theoretical aspects of the Xanadu model. -->
-
-The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. (…)
-
-The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
-
-## Peer-to-Peer Systems
-
-## Thesis Structure
-
-The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Chapter [text-and-ownership] concerns the theory behind Hypertext and its relations for data ownership. Drawing conclusions from that, chapter [hyperwell-implementation] will 
 
