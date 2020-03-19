@@ -1,4 +1,4 @@
-# User Testing
+# User Testing Study
 
 ## Lorem Ipsum
 

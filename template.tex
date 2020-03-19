@@ -21,7 +21,6 @@
 % TP: end hack
 
 \usepackage{setspace}
-\usepackage{minibox}
 
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -72,29 +71,30 @@ $endif$
 \usepackage[
   setpagesize=false,
   unicode=false,
+  pdfusetitle,
   xetex
 ]{hyperref}
 
 \hypersetup{
   breaklinks=true,
   bookmarks=true,
-  pdfauthor={$author-meta$},
-  pdftitle={$title-meta$},
   colorlinks=true,
-  citecolor=$if(citecolor)$$citecolor$$else$blue$endif$,
-  urlcolor=$if(urlcolor)$$urlcolor$$else$blue$endif$,
-  linkcolor=$if(linkcolor)$$linkcolor$$else$magenta$endif$,
-  pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
+  linkcolor=teal,
+  filecolor=gray,
+  urlcolor=gray,
+  citecolor=cyan,
+  pdfborder={0 0 0},
+}
+
 $if(links-as-notes)$
-% Make links footnotes instead of hotlinks:
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+  % Make links footnotes instead of hotlinks:
+  \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 $endif$
 
 $if(strikeout)$
-\usepackage[normalem]{ulem}
-% avoid problems with \sout in headers with hyperref:
-\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+  \usepackage[normalem]{ulem}
+  % avoid problems with \sout in headers with hyperref:
+  \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
 $endif$
 
 \setlength{\parindent}{0pt}
@@ -145,8 +145,6 @@ $endif$
 
 \usepackage{listings}
 \usepackage{lstfiracode}
-\lstset{language=C++,style=FiraCodeStyle,basicstyle=\ttfamily}
-
 
 %Attempt to set math size
 %First size must match the text size in the document or command will not work
@@ -232,7 +230,7 @@ $endif$
   ItalicFont={*I},
 ]{LinBiolinum_R}
 
-\setmonofont[
+\newfontfamily\lstfont[
   Contextuals=Alternate,
   Path=fonts/,
   BoldFont={FiraCode-Bold}
@@ -242,23 +240,25 @@ $endif$
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
+\lstset{language=C++,style=FiraCodeStyle,basicstyle=\lstfont}
+
 \begin{document}
 
-$for(include-before)$
-  $include-before$
-$endfor$
+\author{Jan Kaßel}
+\title{Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation}
 
 % title page
+\makeatletter
 \begin{titlepage}
   \begin{center}
     \vspace*{2.5cm}
     
-    {\huge Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation}
+    {\huge\@title\unskip\strut\par}
     
-    \vspace{1.5cm}
+    \vspace{10mm}
     
-    by \\
-    {\Large Jan Kaßel}
+    \textit{by} \\ \vspace{2mm}
+    {\Large \@author}
 
     \vspace{1.5cm}
 
@@ -266,40 +266,48 @@ $endfor$
     \textsc{\Large Master of Science}
     
     \vfill
-    
+
+    \textit{at} \\ \vspace{0.5mm}
+    Leipzig University, Germany \\
+    \today \\
+
+    \vspace{3mm}
+    \includegraphics[width=0.5\textwidth]{layout/leipzig-university.eps}
+    \vspace{8mm}
+
+    % advisors  
+    \setlength{\tabcolsep}{10mm}
     \begin{tabular}{cc}
-      \minibox[c,pad=10pt]{
-        \textsb{Primary Advisor:} \\
+      \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \textsb{Primary Advisor} \\
         Dr. Thomas Köntges \\
         Chair of Digital Humanities \\
         Leipzig University
-      }
+      \end{minipage}
 
-      \minibox[c,pad=10pt]{
-        \textsb{Secondary Advisor:} \\
+      \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \textsb{Secondary Advisor} \\
         Prof. Gregory Crane \\
         Department of Classical Studies \\
         Tufts University
-      }
+      \end{minipage}
     \end{tabular}
 
-    \vspace{0.8cm}
-
-    \includegraphics[width=0.5\textwidth]{style/leipzig-university.eps}
-    
-    \normalsize
-    Leipzig University, Germany\\
-    January 2015
   \end{center}
 \end{titlepage}
+\makeatother
 
 % license
 \begin{center}
-  \begin{minipage}[t]{0.7\textwidth}
-    {\centering\includegraphics[width=0.4\textwidth]{style/cc-by.pdf}} \\
+  \begin{minipage}[t]{0.85\textwidth}
+    {\centering\includegraphics[width=0.2\textwidth]{layout/cc-by.pdf}} \\
 
-     Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (http://creativecommons.org/licenses/by/4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. \\
-     Copyright 2020, Jan Kaßel.
+    Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution 4.0 License (\url{https://creativecommons.org/licenses/by/4.0}), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. \\
+
+    \vspace{1mm}
+    Copyright 2020, Jan Kaßel.
   \end{minipage}
 \end{center}
 \pagebreak
@@ -309,21 +317,22 @@ $endfor$
 \tableofcontents
 \newpage
 
-
-$if(lot)$
-\listoftables
-$endif$
-
-$if(lof)$
-\listoffigures
-$endif$
+$for(include-before)$
+  $include-before$
+$endfor$
 
 $body$
 
-\printbibliography$if(biblio-title)$[title=$biblio-title$]$endif$
+{
+  \footnotesize
+  \chapter{References}
+  \printbibliography
+}
+\newpage
 
 $for(include-after)$
   $include-after$
 $endfor$
+
 
 \end{document}

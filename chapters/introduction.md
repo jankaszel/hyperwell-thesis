@@ -1,7 +1,5 @@
 # Introduction {#introduction}
 
-
-
 ## The Web and Data Ownership
 
 The internet has historically considered the client-server architecture a natural part of its architecture.

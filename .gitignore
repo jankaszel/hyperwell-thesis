@@ -59,7 +59,5 @@ target/
 # Node modules
 node_modules/
 
-# output directory
-output/
-!output/.gitkeep
-
+# output
+thesis.pdf

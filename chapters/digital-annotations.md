@@ -1,4 +1,4 @@
-# Hypertext Annotations
+# Digital Annotations
 
 ## Lorem Ipsum
 
