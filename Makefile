@@ -8,4 +8,7 @@ clean:
 test:
 	pdfx thesis.pdf -c
 
-.PHONY: pdf clean test
+stats:
+	wc -w chapters/*.md
+
+.PHONY: pdf clean test stats
