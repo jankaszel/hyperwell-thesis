@@ -46,8 +46,6 @@ $endif$
 \usepackage{polyglossia}
 \setmainlanguage{english}
 
-\usepackage{biblatex}
-
 $if(highlighting-macros)$
   $highlighting-macros$
 $endif$
@@ -71,12 +69,12 @@ $endif$
 \usepackage[
   setpagesize=false,
   unicode=false,
+  breaklinks=false,
   pdfusetitle,
   xetex
 ]{hyperref}
 
 \hypersetup{
-  breaklinks=true,
   bookmarks=true,
   colorlinks=true,
   linkcolor=teal,
@@ -85,6 +83,7 @@ $endif$
   citecolor=cyan,
   pdfborder={0 0 0},
 }
+%\hypersetup{colorlinks=false, linkcolor=black}
 
 $if(links-as-notes)$
   % Make links footnotes instead of hotlinks:
@@ -179,9 +178,10 @@ $endif$
 % \usepackage{parskip}
 % \setlength{\parskip}{\baselineskip}
 
-% Set colour of links to black so that they don't show up when printed
-\usepackage{hyperref}
-\hypersetup{colorlinks=false, linkcolor=black}
+\usepackage[style=apa,backend=biber]{biblatex}
+$for(bibliography)$
+  \addbibresource{$bibliography$}
+$endfor$
 
 % Tables
 \usepackage{booktabs}
@@ -230,8 +230,7 @@ $endif$
   ItalicFont={*I},
 ]{LinBiolinum_R}
 
-\newfontfamily\lstfont[
-  Contextuals=Alternate,
+\setmonofont[
   Path=fonts/,
   BoldFont={FiraCode-Bold}
 ]{FiraCode-Regular}
@@ -240,7 +239,7 @@ $endif$
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
-\lstset{language=C++,style=FiraCodeStyle,basicstyle=\lstfont}
+\lstset{language=C++,style=FiraCodeStyle,basicstyle=\ttstyle}
 
 \begin{document}
 

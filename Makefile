@@ -1,4 +1,11 @@
 pdf:
-	pandoc --defaults thesis.yaml --pdf-engine xelatex --verbose 2>pandoc.log 
+	pandoc --defaults thesis.yaml --verbose --biblatex 2>pandoc.log && \
+		latexmk -pdf -xelatex thesis.tex
 
-.PHONY: pdf
+clean:
+	latexmk -C
+
+test:
+	pdfx thesis.pdf -c
+
+.PHONY: pdf clean test

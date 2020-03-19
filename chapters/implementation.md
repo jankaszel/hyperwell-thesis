@@ -17,7 +17,7 @@ In the following, I will describe two attempts at an implementation for a system
 ## Bridging Into The Web
 
 Web applications leverage technologies planned, audited, and released by the World Wide Web Consortium (W3C). These technologies are known as _web technologies_ and are commonly supported by web browsers such as Mozilla Firefox, Google Chrome, and macOS Safari. Web applications are a popular way of providing tools and services, as opposed to native applications executed directly by the user’s operating system, due to three factors:
-* User Experience (UX): Websites are accessible by entering Uniform Resource Locators (URLs) such as `https://www.eff.org/`. Users don’t have to manually download an application bundle and run it on their machine, as browsers download the application code and assets in-promptu.
+* User Experience (UX): Websites are accessible by entering Uniform Resource Locators (URLs). Users don’t have to manually download an application bundle and run it on their machine, as browsers download the application code and assets in-promptu.
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 

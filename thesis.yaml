@@ -1,7 +1,7 @@
 from: markdown+emoji
 
 # files
-output-file: thesis.pdf
+output-file: thesis.tex
 input-files:
 - front/abstract.md
 - front/acknowledgements.md
@@ -22,12 +22,11 @@ resource-path:
 
 # latex
 template: template.tex
-pdf-engine: xelatex
 
 # document
 top-level-division: chapter
-number-sections: true
 highlight-style: pygments
+number-sections: true
 
-# citation
-csl: layout/apa.csl
+# cite
+cite-method: biblatex
