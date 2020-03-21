@@ -1,5 +1,7 @@
 # Introduction {#introduction}
 
+Ethereum, DAOs, and DApps.
+
 ## The Web and Data Ownership
 
 The internet has historically considered the client-server architecture a natural part of its architecture.
@@ -41,6 +43,8 @@ In the wake of the new web, the wake of technological development that happened 
 
 
 ## Nonlinear Documents with Hypertext
+
+> Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]
 
 The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. (…)
 

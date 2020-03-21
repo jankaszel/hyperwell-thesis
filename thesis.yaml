@@ -23,6 +23,10 @@ resource-path:
 # latex
 template: template.tex
 
+# filters
+filters:
+- pandoc-crossref
+
 # document
 top-level-division: chapter
 highlight-style: pygments
@@ -30,3 +34,13 @@ number-sections: true
 
 # cite
 cite-method: biblatex
+
+# crossref prefixes
+metadata:
+  # use `pairDelim` for ‘and’ as a delimeter between two refs?
+  figPrefix:
+  - "figure"
+  - "figures"
+  secPrefix:
+  - "section"
+  - "sections"
