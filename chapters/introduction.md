@@ -1,8 +1,12 @@
 # Introduction {#introduction}
 
-In mid-2019, I learned about a joint venture between two large digital libraries of US universities to create an interoperable annotation system for their digital reading environments. 
+In mid-2019, I learned about a joint venture between two large digital libraries of US universities to create an interoperable annotation system for their digital reading environments. While leveraging open web standards and Linked Data for this task sounded reasonable to me, 
 
-Interestingly, some communities—mainly economics, computer scientists, and sociologists—were still. Blockchain technology has been around for some years, with the Bitcoin whitepaper being around since 2008[^bitcoin]. Block Ethereum, DAOs, and DApps.
+Meanwhile, some communities in between economics, computer scientist, and sociology were following the ongoing hype of _decentralization_: 
+
+Thus, technologies for _theoretically_ decentralizing a system have been researched extensively, but the aspects of how to make this functionality accessible to users are still opaque.
+
+Some of these aspects can be reduced to the question of data availability: In a decentralized system, there is no single source of truth, no singular authority[^authority].
 
 Why doesn’t yet such a system exist, and how could it look like? It’s versatile, and not limited to academia. Standards exist!
 
@@ -77,4 +81,4 @@ This open-ended question carries a belief on the benefit of decentralized storag
 
 The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Chapter [text-and-ownership] concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in chapter [collaboration-study]. Chapter [hyperwell-implementation] concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation.
 
-[^bitcoin]: The original Bitcoin whitepaper by Satoshi Nakamoto: https://bitcoin.org/bitcoin.pdf
+[^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following9 if not noted otherwise.

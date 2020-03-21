@@ -14,7 +14,11 @@ How are resources treated in the Digital Humanities? Canonical text systems such
 
 In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, 
 
-The technologies used by this approach leverage contemporary P2P approaches. Blockchain could provide a good take on emerging high-tech, and federated systems also are of interest, if that doesn’t extend the section’s boundaries too much. Some previous attempts such as BitTorrent [@legout2007], Gnutella [@chawathe2003] and Skype [@guha2015].
+The technologies used by this approach leverage contemporary P2P approaches.
+
+Blockchain technology has been around for some years, with the Bitcoin whitepaper being published in 2008[^The initial design of Bitcoin is sketched in the 2008 Bitcoin whitepaper by Satoshi Nakamoto: https://bitcoin.org/bitcoin.pdf]. Further crypto currencies emerged, gaining popularity and worth throughout the second half of the 2010s. With Ethereum, the blockchain sphere gained a network to leverage a “world computer” for running code on the blockchain, so-called smart contracts—and for many, Ethereum with the associated Decentralized Autonomous Organizations (DAOs) and Decentralized Applications (DApps) became a starting point for experimenting with systems that model decentralized control structures.
+
+Some previous attempts such as BitTorrent [@legout2007], Gnutella [@chawathe2003] and Skype [@guha2015].
 
 > Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
 
