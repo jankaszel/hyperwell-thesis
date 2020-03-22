@@ -53,7 +53,6 @@ Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan200
 
 In the wake of the new web, the wake of technological development that happened after the bust of the dot-com bubble in 2001, the internet became more open and accessible to the common people, as opposed to purely experts (Davidson, 2008). Collaboration, again, has been facilitated by this change, as the web tended towards social media, sharing of resources, and semantic description of data.
 
-
 ## Nonlinear Documents with Hypertext
 
 > Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]

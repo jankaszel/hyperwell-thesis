@@ -13,7 +13,12 @@ For a proper usability study, further work is required.
 
 ## Architecture
 
-Identification within distributed networks via the Decentralized Identifiers standard [@did2019]. 
+Identification within distributed networks via the Decentralized Identifiers standard [@did2019].
+
+Some take-aways from both architectures:
+* The requirement for a centralized instance in order to bridge data from decentralized systems into the web cannot be rectified: Today’s web browsers can just connect to IP addresses and not join swarms, like with DHTs.
+* Federated systems: provide an alternative; yet, in federated systems such as Mastodon (refer to @sec:related?), instances don’t necessarily mirror each others’ data, but refer to it and build a cohesive network altogether.
+	* Mirrors: Kind of a federated systems where mirrors provide an dispensable infrastructure; they merely provide a mirror of the data, but can be taken offline. Also, detail in @sec:related.
 
 ## Implementation
 

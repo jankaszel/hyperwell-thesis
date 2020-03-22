@@ -1,4 +1,8 @@
-# Gateways in Distributed Systems
+# Architecture & Implementation
+
+Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
+
+## Gateways and P2P Systems
 
 > This will most likely be an argumentation why we need P2P gateways when working with P2P data in academia: Many platforms and tools are built with web technologies and hence are subject to the quasi-centralized architecture of the HTTP web.
 
@@ -21,13 +25,6 @@ Web applications leverage technologies planned, audited, and released by the Wor
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 
-# Gateways and P2P Systems
-
-Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
-
-
-# Design & Implementation of Hyperwell
-
 ## Resource Exhaustion: A “Think” Peer
 > Describe issues with the first iteration of Hyperwell, where the Gateway API was residing in each and every peer.
 
@@ -49,13 +46,13 @@ if mood == 'happy':
 
 > If there’s enough time to realize the local notebook application, write a small chapter about it here.
 
-### Adoption in Existing Environments
+## Adoption in Existing Environments
 
 > Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went.
 
-#### A Standard Annotation Server
+### A Standard Annotation Server
 
-#### Adding Real-Time Collaboration Support
+### Adding Real-Time Collaboration Support
 
 ## Conclusion
 
