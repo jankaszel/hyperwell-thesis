@@ -1,5 +1,9 @@
 # Drafts
 
+## Blockchain
+
+Blockchain technology has been around for some years, with the Bitcoin whitepaper being published in 2008[^The initial design of Bitcoin is sketched in the 2008 Bitcoin whitepaper by Satoshi Nakamoto: https://bitcoin.org/bitcoin.pdf]. Further crypto currencies emerged, gaining popularity and worth throughout the second half of the 2010s. With Ethereum, the blockchain sphere gained a network to leverage a “world computer” for running code on the blockchain, so-called smart contracts—and for many, Ethereum with the associated Decentralized Autonomous Organizations (DAOs) and Decentralized Applications (DApps) became a starting point for experimenting with systems that model decentralized control structures.
+
 ## Recogito
 
 Using annotation to enhance source material with additional information is a practice commonly used in the Humanities, as it provides an environment for connecting sources with one’s personal thoughts. The emergence of digital tools in the Humanities then brought not only the likes of computational methods, but also made the social aspects of the internet more approachable to non-experts (Davidson, 2008).

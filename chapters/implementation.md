@@ -1,4 +1,4 @@
-# Architecture & Implementation
+# Implementation
 
 Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
 

@@ -4,11 +4,17 @@ Considering the three aspects of this work’s research goals described in the i
 
 ## Hypertext Systems and Digital Text Theory {#sec:related:hypertext}
  
-In particular, work by @nelson1993.
+In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?)
  
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
+Something on Linked Data, its origin and principles [@bizer2011].
+
 How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+
+Web Annotation specification [@sanderson2013]. Hypothes.is[^https://hypothes.is/]. Dokieli[^https://dokie.li/] [@capadisli2017]. Annotea [@kahan2002].
+
+Tools using these—namely, Recogito [@simon2015; @simon2017].
 
 ## Local-First Applications {#sec:related:local-first}
 
@@ -16,9 +22,21 @@ In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applicatio
 
 The technologies used by this approach leverage contemporary P2P approaches.
 
-Blockchain technology has been around for some years, with the Bitcoin whitepaper being published in 2008[^The initial design of Bitcoin is sketched in the 2008 Bitcoin whitepaper by Satoshi Nakamoto: https://bitcoin.org/bitcoin.pdf]. Further crypto currencies emerged, gaining popularity and worth throughout the second half of the 2010s. With Ethereum, the blockchain sphere gained a network to leverage a “world computer” for running code on the blockchain, so-called smart contracts—and for many, Ethereum with the associated Decentralized Autonomous Organizations (DAOs) and Decentralized Applications (DApps) became a starting point for experimenting with systems that model decentralized control structures.
+Emphasize benefits of data ownership, self-hosting, whatever, with personal data and/or research data.
 
-Some previous attempts such as BitTorrent [@legout2007], Gnutella [@chawathe2003] and Skype [@guha2015].
+Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
+
+## P2P Technology {#sec:related:p2p}
+
+P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2015], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
+
+![Communication networks architectures [@baran1964]](figures/network-architectures.png){#fig:related:architectures}
+
+@Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2017].
+
+P2P systems such as the file sharing systems mentioned above establish less control structures and less authority: All peers in a network are alike and 
+
+Comparing to the way computers communicate in the web,
 
 > Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
 

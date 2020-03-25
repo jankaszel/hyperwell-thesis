@@ -16,8 +16,6 @@ Feedback showed that stakeholders and users are hard to convince: While centrali
 
 The internet has historically considered the client-server architecture a natural part of its architecture.
 
-![Communication networks architectures](figures/network-architectures.png)
-
 _Introduce platforms_ [@srnicek2017]
 
 Platforms bear a very strong notion of servers in the client-server model.

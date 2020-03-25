@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,headings=standardclasses]{report}
+\documentclass[12pt,a4paper,headings=standardclasses]{scrbook}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -55,6 +55,14 @@ $if(tables)$
 $endif$
 
 \usepackage{graphicx}
+
+% git hash
+\usepackage{xstring}
+\usepackage{catchfile}
+\CatchFileDef{\HEAD}{.git/refs/heads/master}{}
+\newcommand{\gitrevision}{%
+  \StrLeft{\HEAD}{7}%
+}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -164,12 +172,12 @@ $endif$
 \usepackage[font={footnotesize,sf}]{caption}
 
 % Adjust spacing between lines to 1.5
-\usepackage{setspace}
-\onehalfspacing
+% \usepackage{setspace}
+\setstretch{1.25}
+
 \raggedbottom
 
-% Set margins
-\usepackage[top=1.5in,bottom=1.5in,left=1.5in,right=1.4in]{geometry}
+% \usepackage[top=1.5in,bottom=1.5in,left=1.5in,right=1.4in]{geometry}
 % \setlength\parindent{0.4in} % indent at start of paragraphs (set to 0.3?)
 \setlength{\parskip}{9pt}
 
@@ -212,28 +220,28 @@ $endfor$
 ]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 
-\setmainfont[
-  Mapping=tex-text,
-  Numbers=OldStyle,
-  Path=fonts/,
-  BoldFont={*B},
-  FontFace={sb}{n}{Font=*Z},
-  FontFace={sb}{i}{Font=*ZI},
-  ItalicFont={*I},
-  BoldItalicFont={*BI},
-]{LinLibertine_R}
+%\setmainfont[
+%  Mapping=tex-text,
+%  Numbers=OldStyle,
+%  Path=fonts/,
+%  BoldFont={*B},
+%  FontFace={sb}{n}{Font=*Z},
+%  FontFace={sb}{i}{Font=*ZI},
+%  ItalicFont={*I},
+%  BoldItalicFont={*BI},
+%]{LinLibertine_R}
 
-\setsansfont[
-  Mapping=tex-text,
-  Path=fonts/,
-  BoldFont={*B},
-  ItalicFont={*I},
-]{LinBiolinum_R}
+%\setsansfont[
+%  Mapping=tex-text,
+%  Path=fonts/,
+%  BoldFont={*B},
+%  ItalicFont={*I},
+%]{LinBiolinum_R}
 
-\setmonofont[
-  Path=fonts/,
-  BoldFont={FiraCode-Bold}
-]{FiraCode-Regular}
+%\setmonofont[
+%  Path=fonts/,
+%  BoldFont={FiraCode-Bold}
+%]{FiraCode-Regular}
 
 % <https://tex.stackexchange.com/a/404395>
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
@@ -268,7 +276,7 @@ $endfor$
 
     \textit{at} \\ \vspace{0.5mm}
     Leipzig University, Germany \\
-    \today \\
+    \today\,— \texttt{\gitrevision} \\
 
     \vspace{3mm}
     \includegraphics[width=0.5\textwidth]{layout/leipzig-university.eps}
@@ -277,7 +285,7 @@ $endfor$
     % advisors  
     \setlength{\tabcolsep}{10mm}
     \begin{tabular}{cc}
-      \begin{minipage}[c]{0.4\textwidth}
+      \begin{minipage}[c]{0.45\textwidth}
         \centering
         \textsb{Primary Advisor} \\
         Dr. Thomas Köntges \\
@@ -285,7 +293,7 @@ $endfor$
         Leipzig University
       \end{minipage}
 
-      \begin{minipage}[c]{0.4\textwidth}
+      \begin{minipage}[c]{0.45\textwidth}
         \centering
         \textsb{Secondary Advisor} \\
         Prof. Gregory Crane \\
@@ -299,17 +307,16 @@ $endfor$
 \makeatother
 
 % license
-\begin{center}
-  \begin{minipage}[t]{0.85\textwidth}
-    {\centering\includegraphics[width=0.25\textwidth]{layout/cc-nc-nd.pdf}} \\
+Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License (\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}), which permits unrestricted use and distribution in any medium, provided the original work is properly cited and the material is not used for commercial purposes.
 
-    Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License (\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}), which permits unrestricted use and distribution in any medium, provided the original work is properly cited and the material is not used for commercial purposes. \\
+\vspace{2mm}
+\includegraphics[width=0.25\textwidth]{layout/cc-nc-nd.pdf} \\
 
-    The code of the Hyperwell project is available as open-source software and is licensed a permissive MIT License. \\
+The code of the Hyperwell project is available as open-source software and is licensed a permissive MIT License. \\
 
-    Copyright 2020, Jan Kaßel.
-  \end{minipage}
-\end{center}
+Copyright 2020, Jan Kaßel.
+
+
 \pagebreak
 
 % table of contents

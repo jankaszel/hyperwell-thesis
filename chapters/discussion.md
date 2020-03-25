@@ -22,7 +22,7 @@ Some take-aways from both architectures:
 
 ## Implementation
 
-The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways.
+The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways. Web Cryptography API.
 
 Missing performance measuring. Gateways will have many open UDP connections and can just serve a particular amount of peers to the web.
 
