@@ -9,6 +9,6 @@ test:
 	pdfx thesis.pdf -c
 
 stats:
-	wc -w chapters/*.md
+	(cd ./bin; ./stats.sh)
 
 .PHONY: pdf clean test stats
