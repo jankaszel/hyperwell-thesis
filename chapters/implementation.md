@@ -49,6 +49,11 @@ Depict and describe architecture of @fig:architecture.
 
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
+Main features:
+* Fully Web Annotation data model and protocol compliant
+* Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
+* TTL-based local caching of repositories
+
 ### Notebook: Implementation of a Local-First Annotation Application
 
 > If there’s enough time to realize the local notebook application, write a small chapter about it here.
@@ -65,6 +70,10 @@ Main features:
 ### A Standard Annotation Server
 
 ### Adding Real-Time Collaboration Support
+
+Emphasis: No need for an SDK, just use standard WebSockets. There exists an example annotation environment that shows the integration. 
+
+Learnings from the attempted integration with Recogito: Having reactive data flows in an application is good---also, being able to properly react to created/updated/deleted entities supports the integration. React and other libraries that use a virtual DOM, for instance, are well-suited for this task, but also other user interface libraries such as Svelte support updating the DOM based on mutations on the underlying data.
 
 ## Conclusion
 
