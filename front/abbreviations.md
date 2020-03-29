@@ -8,5 +8,3 @@ DHT, LAN, CRDT, P2P, DAO, CTS, IIIF.
 \end{tabbing}
 
 \newpage
-\setcounter{page}{1}
-\renewcommand{\thepage}{\arabic{page}}

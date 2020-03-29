@@ -9,4 +9,8 @@ Figure x.x  Short title of the figure . . .              \hfill{pp}
 
 \pagenumbering{roman}
 \setcounter{page}{3}
+
 \newpage
+
+\setcounter{page}{1}
+\renewcommand{\thepage}{\arabic{page}}
