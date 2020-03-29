@@ -16,7 +16,9 @@ Feedback showed that stakeholders and users are hard to convince: While centrali
 
 The internet has historically considered the client-server architecture a natural part of its architecture.
 
-_Introduce platforms_ [@srnicek2017]
+> When data is stored on “someone else’s computer”, that third party assumes a degree of control over that data. Cloud apps are provided as a service; if the service is unavailable, you cannot use the software, and you can no longer access your data created with that software. If the service shuts down, even though you might be able to export your data, without the servers there is normally no way for you to continue running your own copy of that software. Thus, you are at the mercy of the company providing the service. [@kleppmann2019]
+
+Introduce commercial platforms on the internet, also platform capitalism [@srnicek2017], and give a note on how the internet benefits businesses rather than individuals [@robinson2019].
 
 Platforms bear a very strong notion of servers in the client-server model.
 
