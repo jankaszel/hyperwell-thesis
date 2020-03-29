@@ -40,11 +40,23 @@ if mood == 'happy':
 
 ## Institutional Governance with “Hyperwell”
 
+Define terms:
+* Notebook
+
+![Hyperwell architecture](figures/architecture.pdf){#fig:architecture}
+
+Depict and describe architecture of @fig:architecture.
+
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
 ### Notebook: Implementation of a Local-First Annotation Application
 
 > If there’s enough time to realize the local notebook application, write a small chapter about it here.
+
+Main features:
+* Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
+* Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
+* Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
 ## Adoption in Existing Environments
 
