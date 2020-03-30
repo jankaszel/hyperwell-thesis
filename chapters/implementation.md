@@ -8,6 +8,8 @@ Each aspect of a P2P system bears implications for usability, data availability,
 
 Distributed P2P systems function fundamentally different from the classic client/server architectures (distributed governance figure?). The fundamental difference is explained by the treatment of data: In architectures following the established client-server distinction, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
 
+![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010].](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway}
+
 In P2P systems, this power over data is distributed. The distinction of clients and servers is being blurred as the centralization of governance is diminished: Clients become servers, forming a collection of alike peers, that provide and at the same time request data. Considering “the data” a system operates on as a database (with support for querying and mutation), in these kind of distributed systems, this database is distributed, sometimes even fragmented.
 
 This poses many questions when conceiving P2P architectures: Which parts do work well centralized? Which functionality does effectively when being distributed? How can certain control structures be realized?
@@ -25,20 +27,45 @@ Web applications leverage technologies planned, audited, and released by the Wor
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 
-## Resource Exhaustion: A “Think” Peer
-> Describe issues with the first iteration of Hyperwell, where the Gateway API was residing in each and every peer.
+## Resource Exhaustion: Thick Peers
 
-```python
-mood = 'happy'
-if mood == 'happy':
-    print("I am a happy robot")
-```
+For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:
+
+* Adapting Recogito to use an annotation server that implements the Web Annotation protocol.
+* Adding real-time collaboration functionality to Recogito.
+* Enabling users to discover annotations of others who work on the same resource. Resources could be identified by unique identifiers, such as HTTP URIs in IIIF[^iiif-id] and CTS URNs [^cts-urn] via the Linked Data `target` property of a Web Annotation item.
+* Make people serve their own annotations from their personal devices with technology that supports P2P data exchange as well as real-time processing and merging of changes without a central authority.
+
+Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
+
+> Have here an illustration of the architecture.
+
+Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of specific configurations. Hence, independent and decentralized publishing via HTTP is no viable approach, and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 85%[^market-share], widespread adoption of such protocols is still a long time in the coming.
+
+With WebRTC[^webrtc], however, the W3C offers a solution for realizing quasi-P2P applications built upon Web technologies. (encryption, discovery via ICE/STUN/TURN). The WebSocket[^websocket] protocol has proven itself much more stable and reliable and in the end led to a gateway-supported solution that bridges WebSocket connections into the Hyperswarm network.
+
+Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients.
+
+Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
+
+[^iiif-id]: <https://iiif.io/api/presentation/2.0/#technical-properties>
+[^cts-urn]: <https://www.homermultitext.org/hmt-docs/cite/cts-urn-overview.html>
+[^biiif]: `biiif` is a tool for independent publishing of IIIF manifests: <https://github.com/edsilv/biiif>
+[^opera-ipfs]: Opera has been branded as suited for "mainstream crypto-adoption", meaning to support Web3 technologies by interoperating with technologies such as the Ethereum blockchain and the IPFS network: <https://press.opera.com/2020/03/30/opera-introduces-major-updates-to-its-blockchain-browser-on-android/>
+[^market-share]: <https://gs.statcounter.com/browser-market-share#monthly-201902-202002>
+[^webrtc]: <https://www.w3.org/TR/webrtc/>
+[^web-socket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>
 
 ### Protocols
 
+By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
+
 Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer.
 
-[^protocol-buffers]: https://developers.google.com/protocol-buffers/
+Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
+
+[^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
+[^protocol-buffers]: <https://developers.google.com/protocol-buffers/>
 
 ### Resource Discovery
 
@@ -59,7 +86,7 @@ Discuss this more detailed in @sec:discussion.
 Define terms:
 * Notebook
 
-![Hyperwell architecture](figures/architecture.pdf){#fig:architecture}
+![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture}
 
 Depict and describe architecture of @fig:architecture.
 

@@ -10,11 +10,16 @@ In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take
 
 Something on Linked Data, its origin and principles [@bizer2011].
 
-How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS).
 
-Web Annotation specification [@sanderson2013]. Hypothes.is[^https://hypothes.is/]. Dokieli[^https://dokie.li/] [@capadisli2017]. Annotea [@kahan2002].
+Web Annotation specification [@sanderson2013]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2017]. Annotea [@kahan2002].
 
-Tools using these—namely, Recogito [@simon2015; @simon2017].
+Tools using these—namely, Recogito [@simon2015; @simon2017]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+
+[^hypothesis]: <https://hypothes.is/>
+[^dokieli]: <https://dokie.li/>
+
+## Research Data Management
 
 FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
@@ -49,6 +54,9 @@ certain primitives known from highly efficient enterprise systems are applied to
 
 > Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
 
-	Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^https://git-scm.com/]).
+Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]).
 
 Federated networks. Mirrors. P2P pinning.
+
+[^git]: <https://git-scm.com/>
+
