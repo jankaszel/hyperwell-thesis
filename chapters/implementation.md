@@ -34,9 +34,25 @@ if mood == 'happy':
     print("I am a happy robot")
 ```
 
+### Protocols
+
+Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer.
+
+[^protocol-buffers]: https://developers.google.com/protocol-buffers/
+
 ### Resource Discovery
 
 ### Client SDK
+
+### Architectural Issues
+
+This approach bears fundamental issues:
+
+* Request/response protocol implements a client-server architecture within a P2P network
+* Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
+* This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
+
+Discuss this more detailed in @sec:discussion.
 
 ## Institutional Governance with “Hyperwell”
 
@@ -50,6 +66,7 @@ Depict and describe architecture of @fig:architecture.
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
 Main features:
+
 * Fully Web Annotation data model and protocol compliant
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
 * TTL-based local caching of repositories
@@ -59,6 +76,7 @@ Main features:
 > If there’s enough time to realize the local notebook application, write a small chapter about it here.
 
 Main features:
+
 * Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
