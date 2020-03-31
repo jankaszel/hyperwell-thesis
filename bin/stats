@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-wc -w chapters/*.md
-
-if ! git diff-index --quiet HEAD --; then
-  DIFF = `./wc-diff.sh`
-  echo "\nWords diff to HEAD: $DIFF"
-fi
-
-
