@@ -23,11 +23,12 @@ In the following, I will describe two attempts at an implementation for a system
 ## Bridging Into The Web
 
 Web applications leverage technologies planned, audited, and released by the World Wide Web Consortium (W3C). These technologies are known as _web technologies_ and are commonly supported by web browsers such as Mozilla Firefox, Google Chrome, and macOS Safari. Web applications are a popular way of providing tools and services, as opposed to native applications executed directly by the user’s operating system, due to three factors:
+
 * User Experience (UX): Websites are accessible by entering Uniform Resource Locators (URLs). Users don’t have to manually download an application bundle and run it on their machine, as browsers download the application code and assets in-promptu.
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 
-## Resource Exhaustion: Thick Peers
+## Resource Exhaustion: Thick Peers {#sec:thick}
 
 For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:
 
@@ -60,7 +61,7 @@ Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
 
 By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
 
-Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer.
+Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
 
 Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
 
@@ -70,6 +71,10 @@ Emphasize the trade-off made here: In order to realize Hyperswarm compatibility,
 ### Resource Discovery
 
 ### Client SDK
+
+The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client SDK should provide these missing components for abstracting communication.
+
+> Have a figure with a brief overview of how the SDK interacted with both the gateway and the client software.
 
 ### Architectural Issues
 

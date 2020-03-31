@@ -1,10 +1,14 @@
 # Related Work {#sec:related}
 
-Considering the three aspects of this work’s research goals described in the introduction: usability, feasibility, and compatibility of a decentralized annotation system. Touching the foundation of the web as we know it today, but also notions of digital text in general, I will go into early work on Hypertext systems by Ted Nelson and others in @sec:related:hypertext, while also considering alternative approaches and early notions of digital annotation. [@Sec:related:ld-dh; @sec:related:hypertext] will do … .
+Considering the three aspects of this work’s research goals described in the introduction: _usability_, _feasibility_, and _interoperability_ of a decentralized annotation system. Touching the foundation of the Web as we know it today, but also notions of digital text in general, I will go into early work on Hypertext systems by Ted Nelson---most prominently, Xanadu---and others in @sec:related:hypertext, while discussing early notions of digital annotation and collaborative hypertext systems, including contemporary tools. [@Sec:related:ld-dh] will provide an overview of Linked Data, as well as a brief survey of digital tools in academic Digital Humanities research and how these tools integrate with Linked Data and the Semantic Web. More fundamental in Digital Humanities projects, research data management (RDM) is becoming increasingly important---in [@sec:related:rdm], I will thus discuss contemporary approaches to RDM and potential technical solutions to common issues in data repositories, such as versioning of changes. Subsequently, P2P technologies can benefit workflows in academic research, namely distributed networking and decentralized data exchange. Also considering further implications for RDM, fundamental P2P technologies as well as some exemplary systems are discussed in [@sec:related:p2p]. And finally, building upon the subjects explained before in this chapter, local-first applications draw prospects in terms of usability for data availability, data ownership, and real-time remote collaboration, among others, (...) by leveraging contemporary P2P technology. I will discuss local-first applications in @sec:related:local-first.
 
-## Hypertext Systems and Digital Text Theory {#sec:related:hypertext}
+## Collaborative Hypertext Systems {#sec:related:hypertext}
  
-In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?)
+In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?).
+
+Digital annotation and hypertext [@marshall1997; @marshall1999].
+
+Digital collaboration and hypertext [@klokmose2015].
  
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
@@ -19,19 +23,9 @@ Tools using these—namely, Recogito [@simon2015; @simon2017]. Give an overview 
 [^hypothesis]: <https://hypothes.is/>
 [^dokieli]: <https://dokie.li/>
 
-## Research Data Management
+## Research Data Management {#sec:related:rdm}
 
 FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
-
-## Local-First Applications {#sec:related:local-first}
-
-In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, 
-
-The technologies used by this approach leverage contemporary P2P approaches.
-
-Emphasize benefits of data ownership, self-hosting, whatever, with personal data and/or research data.
-
-Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 
 ## P2P Technology {#sec:related:p2p}
 
@@ -39,7 +33,7 @@ P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawath
 
 ![Communication networks architectures [@baran1964]](figures/network-architectures.png){#fig:related:architectures}
 
-@Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2017].
+@Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2018].
 
 P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
 
@@ -59,4 +53,16 @@ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet201
 Federated networks. Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>
+
+## Local-First Applications {#sec:related:local-first}
+
+Classic HTTP client-server architecture.
+
+In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, 
+
+The technologies used by this approach leverage contemporary P2P approaches.
+
+Emphasize benefits of data ownership, self-hosting, whatever, with personal data and/or research data.
+
+Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 
