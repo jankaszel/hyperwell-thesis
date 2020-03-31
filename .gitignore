@@ -338,3 +338,6 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# biber --tool -V
+*_bibertool.bib

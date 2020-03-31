@@ -6,7 +6,7 @@ clean:
 	latexmk -C
 
 test:
-	pdfx thesis.pdf -c
+	biber --tool -V references.bib && pdfx thesis.pdf -c
 
 stats:
 	(cd ./bin; ./stats.sh)
