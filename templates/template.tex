@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{book}
+\documentclass[11pt,a4paper]{book}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -32,7 +32,8 @@
 \usepackage{xltxtra,xunicode}
 \usepackage{eurosym}
 
-\setmainfont{Times New Roman}
+\setmainfont{SuisseWorks}
+\setsansfont{SuisseIntl-Regular}
 
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } 
 
@@ -43,6 +44,8 @@
 $if(geometry)$
   \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
+
+\usepackage{geometry}
 
 \usepackage{csquotes}
 \usepackage{polyglossia}
@@ -94,7 +97,6 @@ $endif$
   citecolor=cyan,
   pdfborder={0 0 0},
 }
-%\hypersetup{colorlinks=false, linkcolor=black}
 
 $if(links-as-notes)$
   % Make links footnotes instead of hotlinks:
@@ -123,8 +125,6 @@ $endif$
 
 \date{$date$}
 
-
-
 % Table of contents formatting
 \renewcommand{\contentsname}{Table of Contents}
 \setcounter{tocdepth}{3}
@@ -152,9 +152,6 @@ $endif$
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{color}
-
-\usepackage{listings}
-\usepackage{lstfiracode}
 
 %Attempt to set math size
 %First size must match the text size in the document or command will not work
@@ -224,54 +221,30 @@ $endfor$
 ]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 
-%\setmainfont[
-%  Mapping=tex-text,
-%  Numbers=OldStyle,
-%  Path=fonts/,
-%  BoldFont={*B},
-%  FontFace={sb}{n}{Font=*Z},
-%  FontFace={sb}{i}{Font=*ZI},
-%  ItalicFont={*I},
-%  BoldItalicFont={*BI},
-%]{LinLibertine_R}
-
-%\setsansfont[
-%  Mapping=tex-text,
-%  Path=fonts/,
-%  BoldFont={*B},
-%  ItalicFont={*I},
-%]{LinBiolinum_R}
-
-%\setmonofont[
-%  Path=fonts/,
-%  BoldFont={FiraCode-Bold}
-%]{FiraCode-Regular}
-
 % <https://tex.stackexchange.com/a/404395>
 \DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
 \DeclareTextFontCommand{\textsb}{\sbseries}
 
-\lstset{language=C++,style=FiraCodeStyle,basicstyle=\ttstyle}
-
 \begin{document}
 
 \author{Jan Kaßel}
-\title{Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation}
+\title{Hyperwell: Local-First, Collaborative Notebooks \\ for Digital Annotation}
 
 % title page
 \makeatletter
+\newgeometry{margin=1in}
 \begin{titlepage}
   \begin{center}
     \vspace*{2.5cm}
     
     {\huge\@title\unskip\strut\par}
     
-    \vspace{10mm}
+    \vspace{8mm}
     
     \textit{by} \\ \vspace{2mm}
     {\Large \@author}
 
-    \vspace{1.5cm}
+    \vspace{12mm}
 
     A thesis presented for the degree of \\
     \textsc{\Large Master of Science}
@@ -289,7 +262,7 @@ $endfor$
     % advisors  
     \setlength{\tabcolsep}{10mm}
     \begin{tabular}{cc}
-      \begin{minipage}[c]{0.45\textwidth}
+      \begin{minipage}[c]{0.5\textwidth}
         \centering
         \textsb{Primary Advisor} \\
         Dr. Thomas Köntges \\
@@ -297,7 +270,7 @@ $endfor$
         Leipzig University
       \end{minipage}
 
-      \begin{minipage}[c]{0.45\textwidth}
+      \begin{minipage}[c]{0.5\textwidth}
         \centering
         \textsb{Secondary Advisor} \\
         Prof. Gregory Crane \\
@@ -308,6 +281,7 @@ $endfor$
 
   \end{center}
 \end{titlepage}
+\restoregeometry
 \makeatother
 
 \pagenumbering{gobble}
@@ -318,7 +292,7 @@ Except where otherwise noted, content in this thesis is licensed under a Creativ
 \vspace{2mm}
 \includegraphics[width=0.25\textwidth]{layout/cc-nc-nd.pdf} \\
 
-The code of the Hyperwell project is available as open-source software and is licensed a permissive MIT License. \\
+The source code of all Hyperwell repositories is available as open-source software and is licensed under a more permissive MIT License. \\
 
 Copyright 2020, Jan Kaßel.
 
