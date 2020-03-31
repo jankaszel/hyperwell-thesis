@@ -2,7 +2,7 @@
 
 In the two previous chapters, I detailed the main work of this thesis: An explorative user testing study, and the design and implementation of a P2P system for collaborative annotation.
 
-## Usability
+## Usability Requirements
 
 The study was designed to explorative and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:
 
