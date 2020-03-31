@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,headings=standardclasses]{scrbook}
+\documentclass[12pt,a4paper]{book}
 
 % Overwrite \begin{figure}[htbp] with \begin{figure}[H]
 \usepackage{float}
@@ -31,6 +31,8 @@
 % \usepackage{mathspec}
 \usepackage{xltxtra,xunicode}
 \usepackage{eurosym}
+
+\setmainfont{Times New Roman}
 
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } 
 
@@ -159,12 +161,13 @@ $endif$
 %\DeclareMathSizes{display size}{text size}{script size}{scriptscript size}.
 \DeclareMathSizes{12}{13}{7}{7}
 
-% HEADINGS
 \usepackage{sectsty}
 \usepackage[normalem]{ulem}
+
 \sectionfont{\rmfamily\mdseries\Large}
 \subsectionfont{\rmfamily\mdseries\scshape\large}
-\subsubsectionfont{\rmfamily\bfseries\upshape\large}
+\subsubsectionfont{\rmfamily\mdseries\normalsize}
+
 % \sectionfont{\rmfamily\mdseries\Large}
 % \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
 % \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}

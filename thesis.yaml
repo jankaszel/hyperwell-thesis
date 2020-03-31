@@ -1,4 +1,5 @@
 from: markdown+emoji
+data-dir: .
 
 # files
 output-file: thesis.tex
@@ -18,7 +19,7 @@ include-after-body:
 
 bibliography: references.bib
 resource-path:
-- figures/
+- .
 
 # latex
 template: template.tex
