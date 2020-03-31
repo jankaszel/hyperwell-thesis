@@ -13,6 +13,7 @@ input-files:
 - chapters/study.md
 - chapters/implementation.md
 - chapters/discussion.md
+- chapters/conclusion.md
 
 include-after-body:
 - back/statement.tex
