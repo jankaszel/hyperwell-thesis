@@ -80,6 +80,7 @@ The above mentioned protocols resulted in a quite elaborate assembly: By equippi
 
 This approach bears fundamental issues:
 
+* Peers within the network are considered to be peoples' personal devices---commodity hardware: personal computers, tablets, smartphones. This poses two constraints: First, commodity hardware has limited computing power compared to enterprise, professional, or data center hardware. Second, personal devices don't share the amount of network bandwidth that is available for data center hardware---talking Megabit versus Gigabit connections.
 * Request/response protocol implements a client-server architecture within a P2P network
 * Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
 * This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
@@ -91,9 +92,11 @@ Discuss this more detailed in @sec:discussion.
 Define terms:
 * Notebook
 
+The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
+
 ![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture}
 
-Depict and describe architecture of @fig:architecture.
+Describe architecture of @fig:architecture.
 
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
