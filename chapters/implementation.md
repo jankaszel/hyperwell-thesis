@@ -55,7 +55,7 @@ Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
 [^opera-ipfs]: Opera has been branded as suited for "mainstream crypto-adoption", meaning to support Web3 technologies by interoperating with technologies such as the Ethereum blockchain and the IPFS network: <https://press.opera.com/2020/03/30/opera-introduces-major-updates-to-its-blockchain-browser-on-android/>
 [^market-share]: <https://gs.statcounter.com/browser-market-share#monthly-201902-202002>
 [^webrtc]: <https://www.w3.org/TR/webrtc/>
-[^web-socket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>
+[^websocket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>
 
 ### Protocols
 
@@ -95,8 +95,6 @@ Define terms:
 The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
 ![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture}
-
-Describe architecture of @fig:architecture.
 
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
