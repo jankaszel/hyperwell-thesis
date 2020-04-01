@@ -27,7 +27,9 @@ Tools using these—namely, Recogito [@simon2015; @simon2017]. Give an overview 
 
 FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
-## P2P Technology {#sec:related:p2p}
+## Peer-to-Peer Technology {#sec:related:p2p}
+
+TODO: Quick introduction on what _protocol_ means in this context---that is, a well-defined specification of how two or more computers should communicate in a network. More generally, this has implications on, first, how these machines connect (networking) and, second, how data is exchanged between these machines and distributed among a set of computers within the network.
 
 P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2015], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
 

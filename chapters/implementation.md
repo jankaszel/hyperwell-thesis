@@ -28,7 +28,7 @@ Web applications leverage technologies planned, audited, and released by the Wor
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 
-## Resource Exhaustion: Thick Peers {#sec:thick}
+## First Version: Resource Exhaustion and Thick Peers {#sec:thick}
 
 For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:
 
@@ -39,16 +39,27 @@ For the first iteration of this project, I focused on building an annotation pub
 
 Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
 
-> Have here an illustration of the architecture.
+_TODO:_ Have here an illustration of the architecture.
 
-Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of specific configurations. Hence, independent and decentralized publishing via HTTP is no viable approach, and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 85%[^market-share], widespread adoption of such protocols is still a long time in the coming.
+Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
 With WebRTC[^webrtc], however, the W3C offers a solution for realizing quasi-P2P applications built upon Web technologies. (encryption, discovery via ICE/STUN/TURN). The WebSocket[^websocket] protocol has proven itself much more stable and reliable and in the end led to a gateway-supported solution that bridges WebSocket connections into the Hyperswarm network.
 
-Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients.
+Integrating with the stack of Web technologies at hand, both the peer application running locally as well as the browser integration have been written in the JavaScript programming language. Modern versions of JavaScript---most notably, ECMAScript 7[^ecma7]---are widely supported by modern Web browsers. With the Node.js[^nodejs] JavaScript runtime, applications written in JavaScript can be executed locally via the V8 JavaScript runtime[^v8] developed by Google for the Chrome browser.
+
+_TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients.
+
+_TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates
 
 Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
 
+In the following, I will outline two characteristic contributions of this approach: First, a novel, HTTP-like protocol was intended to enable client-server connections over multiplexed duplex socket connections. This protocol leverages the Protocol Buffers standard and is detailed in @sec:thick:protocols. Second, as peers within the network transfer data without higher-level supernodes, a flat hierarchy is established. An approach for announcing work on particular resources with the intention of collaboration is described in @sec:thick:discovery. By establishing a new protocol for retrieving annotations from a distributed network, browsers need to be provided with libraries to support these protocols---one such library, a Software Development Kit (SDK), for integrating client applications, is detailed in @sec:thick:sdk.
+
+The approach of the first version, however, had several severe drawbacks. While an in-depth evaluation of this thesis' contributions will be discussed far below in @sec:discussion, I will give an outline of these drawbacks in the following @sec:thick:issues.
+
+[^ecma7]: <https://www.ecma-international.org/ecma-262/7.0/index.html>
+[^nodejs]: <https://nodejs.org/en/>
+[^v8]: <https://v8.dev/>
 [^iiif-id]: <https://iiif.io/api/presentation/2.0/#technical-properties>
 [^cts-urn]: <https://www.homermultitext.org/hmt-docs/cite/cts-urn-overview.html>
 [^biiif]: `biiif` is a tool for independent publishing of IIIF manifests: <https://github.com/edsilv/biiif>
@@ -57,26 +68,26 @@ Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
 [^webrtc]: <https://www.w3.org/TR/webrtc/>
 [^websocket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>
 
-### Protocols
+### Protocols {#sec:thick:protocols}
 
 By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
 
 Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
 
-Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
+_TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
 
 [^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
 [^protocol-buffers]: <https://developers.google.com/protocol-buffers/>
 
-### Resource Discovery
+### Resource Discovery {#sec:thick:discovery}
 
-### Client SDK
+### Client SDK {#sec:thick:sdk}
 
 The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client SDK should provide these missing components for abstracting communication.
 
-> Have a figure with a brief overview of how the SDK interacted with both the gateway and the client software.
+_TODO:_ Have a figure with a brief overview of how the SDK interacted with both the gateway and the client software.
 
-### Architectural Issues
+### Architectural Issues {#sec:thick:issues}
 
 This approach bears fundamental issues:
 
@@ -87,7 +98,7 @@ This approach bears fundamental issues:
 
 Discuss this more detailed in @sec:discussion.
 
-## Institutional Governance with “Hyperwell”
+## Second Version: Institutional Governance with “Hyperwell”
 
 Define terms:
 * Notebook
