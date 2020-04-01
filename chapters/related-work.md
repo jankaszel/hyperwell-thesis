@@ -6,7 +6,7 @@ Considering the three aspects of this work’s research goals described in the i
  
 In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?).
 
-Digital annotation and hypertext [@marshall1997; @marshall1999].
+Digital annotation and hypertext [@marshall1997; @marshall1998].
 
 Digital collaboration and hypertext [@klokmose2015].
  
@@ -31,9 +31,9 @@ FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and chan
 
 P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2015], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
 
-![Communication networks architectures [@baran1964]](figures/network-architectures.png){#fig:related:architectures}
+![Architectures of communication networks [@baran1964]](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
 
-@Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2018].
+@Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2017].
 
 P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
 

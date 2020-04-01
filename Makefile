@@ -1,6 +1,13 @@
 pdf:
-	pandoc --defaults thesis.yaml --verbose --biblatex 2>pandoc.log && \
-		latexmk -pdf -xelatex thesis.tex
+	pandoc \
+		--defaults thesis.yaml \
+		--verbose \
+		--biblatex \
+		--include-after-body back/statement.tex \
+		--template templates/template.tex \
+		-o thesis.tex \
+		2>pandoc.log && \
+	latexmk -pdf -xelatex thesis.tex
 
 clean:
 	latexmk -C

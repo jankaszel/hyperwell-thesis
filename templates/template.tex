@@ -20,21 +20,46 @@
 \usepackage{tocloft}
 % TP: end hack
 
-\usepackage{setspace}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{csquotes}
+\usepackage{polyglossia}
+\setmainlanguage{english}
 
+\usepackage{setspace}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage[utf8]{inputenc}
 
 \usepackage{fontspec}
-% \usepackage{mathspec}
 \usepackage{xltxtra,xunicode}
 \usepackage{eurosym}
 
+% typography
 \setmainfont{SuisseWorks}
 \setsansfont{SuisseIntl-Regular}
 \setmonofont{SuisseIntlMono}
+
+\usepackage[
+  final,
+  protrusion=true,
+  factor=1100,
+  stretch=20
+]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+
+% <https://tex.stackexchange.com/a/404395>
+\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
+\DeclareTextFontCommand{\textsb}{\sbseries}
+
+% footnotes
+% <https://tex.stackexchange.com/a/54706>
+\usepackage[hang]{footmisc}
+\setlength{\footnotemargin}{1.5mm}
+% <https://tex.stackexchange.com/a/141938>
+\addtolength{\footnotesep}{1mm}
 
 \DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ } 
 
@@ -45,12 +70,6 @@
 $if(geometry)$
   \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
 $endif$
-
-\usepackage{geometry}
-
-\usepackage{csquotes}
-\usepackage{polyglossia}
-\setmainlanguage{english}
 
 $if(highlighting-macros)$
   $highlighting-macros$
@@ -120,10 +139,6 @@ $else$
   \setcounter{secnumdepth}{0}
 $endif$
 
-$if(title)$
-  \title{$title$$if(subtitle)$\\\vspace{0.5em}{\large $subtitle$}$endif$}
-$endif$
-
 \date{$date$}
 
 % Table of contents formatting
@@ -150,10 +165,6 @@ $endif$
 
 \defaultfontfeatures{Mapping=tex-text} % converts LaTeX specials (``quotes'' --- dashes etc.) to unicode
 
-\usepackage[utf8]{inputenc}
-\usepackage{listings}
-\usepackage{color}
-
 %Attempt to set math size
 %First size must match the text size in the document or command will not work
 %\DeclareMathSizes{display size}{text size}{script size}{scriptscript size}.
@@ -166,12 +177,8 @@ $endif$
 \subsectionfont{\rmfamily\mdseries\scshape\large}
 \subsubsectionfont{\rmfamily\mdseries\normalsize}
 
-% \sectionfont{\rmfamily\mdseries\Large}
-% \subsectionfont{\rmfamily\mdseries\scshape\normalsize}
-% \subsubsectionfont{\rmfamily\bfseries\upshape\normalsize}
-
-% Set figure legends and captions to be smaller sized sans serif font
-\usepackage[font={footnotesize,sf}]{caption}
+% captions
+\usepackage[font={small,sf}]{caption}
 
 % Adjust spacing between lines to 1.5
 % \usepackage{setspace}
@@ -188,12 +195,13 @@ $endif$
 % \usepackage{parskip}
 % \setlength{\parskip}{\baselineskip}
 
+% references
 \usepackage[style=apa,backend=biber]{biblatex}
 $for(bibliography)$
-  \addbibresource{$bibliography$}
+\addbibresource{$bibliography$}
 $endfor$
 
-% Tables
+% tables
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{array}
@@ -214,22 +222,10 @@ $endfor$
   %\everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces$endif$}%
   {\par}
 
-\usepackage[
-  final,
-  protrusion=true,
-  factor=1100,
-  stretch=20
-]{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
-
-% <https://tex.stackexchange.com/a/404395>
-\DeclareRobustCommand{\sbseries}{\fontseries{sb}\selectfont}
-\DeclareTextFontCommand{\textsb}{\sbseries}
-
 \begin{document}
 
-\author{Jan Kaßel}
-\title{Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation}
+\author{$for(author)$$author$$sep$ \and $endfor$}
+\title{$title$}
 
 % title page
 \makeatletter

@@ -2,7 +2,6 @@ from: markdown+emoji
 data-dir: .
 
 # files
-output-file: thesis.tex
 input-files:
 - front/abstract.md
 - front/acknowledgements.md
@@ -15,30 +14,26 @@ input-files:
 - chapters/discussion.md
 - chapters/conclusion.md
 
-include-after-body:
-- back/statement.tex
-
 bibliography: references.bib
 resource-path:
 - .
 
-# latex
-template: template.tex
-
 # filters
 filters:
 - pandoc-crossref
+- filters/short-captions.lua
 
 # document
 top-level-division: chapter
 highlight-style: pygments
 number-sections: true
 
-# cite
-cite-method: biblatex
-
 # crossref prefixes
 metadata:
+  title: "Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation"
+  author:
+  - Jan Kaßel
+
   # use `pairDelim` for ‘and’ as a delimeter between two refs?
   figPrefix:
   - "figure"
