@@ -1,4 +1,4 @@
-# Implementation
+# Implementation {#sec:implementation}
 
 Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
 
@@ -116,39 +116,33 @@ This approach bears fundamental issues:
 
 Discuss this more detailed in @sec:discussion.
 
-## Second Version: Institutional Governance with “Hyperwell”
+## Second Version: Institutional Governance with Hyperwell {#sec:hyperwell}
 
-_TODO:_ Define terms: Notebook, ...
+_TODO:_ Define terms: Notebook, institution, governance---refer to discussion from @sec:annotation.
 
 The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
 ![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture short-caption="Architecture of Hyperwell using gateways"}
 
-### Gateway: Implementation of a Service for Archival and Institutional Exposition
+### Gateway Server
 
-_TODO:_ Main features:
+_TODO:_ Implementation of a Service for Archival and Institutional Exposition. Main features:
 
 * Fully Web Annotation data model and protocol compliant
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
 * TTL-based local caching of repositories
 
-### Notebook: Implementation of a Local-First Annotation Application
+### Notebook Application
 
-_TODO:_ If there’s enough time to realize the local notebook application, write a small chapter about it here.
-
-_TODO:_ Main features:
+_TODO:_ Implementation of a Local-First Annotation Application. Main features:
 
 * Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
-## Adoption in Existing Environments
+## Support in Client Applications
 
 _TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
-
-### A Standard Annotation Server
-
-### Adding Real-Time Collaboration Support
 
 Emphasis: No need for an SDK, just use standard WebSockets. There exists an example annotation environment that shows the integration. 
 

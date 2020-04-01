@@ -1,4 +1,4 @@
-# Conclusion
+# Conclusion {#sec:conclusion}
 
 ## Thesis Summary
 

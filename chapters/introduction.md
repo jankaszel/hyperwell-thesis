@@ -8,7 +8,7 @@ Thus, technologies for _theoretically_ decentralizing a system have been researc
 
 Some of these aspects can be reduced to the question of data availability: In a decentralized system, there is no single source of truth, no singular authority[^authority].
 
-Why doesn’t yet such a system exist, and how could it look like? It’s versatile, and not limited to academia. Standards exist!
+Why does such a system not exist yet, and how could it look like? It’s versatile, and not limited to academia. Standards exist!
 
 Feedback showed that stakeholders and users are hard to convince: While centralized platforms pose some threats towards privacy and data ownership, they work deterministically given that one offers them trust.
 
@@ -78,6 +78,6 @@ This open-ended question carries a belief on the benefit of decentralized storag
 
 ## Thesis Structure
 
-The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Chapter [text-and-ownership] concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in chapter [collaboration-study]. Chapter [hyperwell-implementation] concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation.
+The subsequent chapter [related-work] contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation. Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline future work.
 
 [^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following9 if not noted otherwise.

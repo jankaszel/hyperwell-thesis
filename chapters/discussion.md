@@ -2,15 +2,17 @@
 
 In the two previous chapters, I detailed the main work of this thesis: An explorative user testing study, and the design and implementation of a P2P system for collaborative annotation.
 
-## Usability Requirements
+## Usability Research
 
 The study was designed to explorative and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:
 
-* It wasn’t a strict lab setting. Offline collaboration in the classroom (chatter) has been mixed with online collaboration.
+* It has not been a strict lab setting. Offline collaboration in the classroom (chatter) has been mixed with online collaboration.
 * Students have been provided individual assistance.
 * The required tasks were intended to provide room for exploration, and thus, haven’t been expressed too strictly
 
 For a proper usability study, further work is required.
+
+_TODO:_ This study design has multiple drawbacks---it provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducability of the study's results. Outline these drawbacks.
 
 ## Architecture
 
