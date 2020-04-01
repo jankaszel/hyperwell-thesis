@@ -72,7 +72,7 @@ The approach of the first version, however, had several severe drawbacks. While 
 
 By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
 
-Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
+_TODO:_ Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
 
 _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
 
@@ -100,8 +100,7 @@ Discuss this more detailed in @sec:discussion.
 
 ## Second Version: Institutional Governance with “Hyperwell”
 
-Define terms:
-* Notebook
+_TODO:_ Define terms: Notebook, ...
 
 The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
@@ -109,7 +108,7 @@ The initial attempt at realizing a distributed annotation authoring system outli
 
 ### Gateway: Implementation of a Service for Archival and Institutional Exposition
 
-Main features:
+_TODO:_ Main features:
 
 * Fully Web Annotation data model and protocol compliant
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
@@ -117,9 +116,9 @@ Main features:
 
 ### Notebook: Implementation of a Local-First Annotation Application
 
-> If there’s enough time to realize the local notebook application, write a small chapter about it here.
+_TODO:_ If there’s enough time to realize the local notebook application, write a small chapter about it here.
 
-Main features:
+_TODO:_ Main features:
 
 * Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
@@ -127,7 +126,7 @@ Main features:
 
 ## Adoption in Existing Environments
 
-> Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went.
+_TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
 
 ### A Standard Annotation Server
 
