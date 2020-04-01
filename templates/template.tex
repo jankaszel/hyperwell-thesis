@@ -89,6 +89,10 @@ $endif$
   \StrLeft{\HEAD}{7}%
 }
 
+$for(header-includes)$
+$header-includes$
+$endfor$
+
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}

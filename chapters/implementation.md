@@ -72,12 +72,30 @@ The approach of the first version, however, had several severe drawbacks. While 
 
 By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
 
-_TODO:_ Use Protocol Buffers[^protocol-buffers] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
+_TODO:_ Use Protocol Buffers[^protobuf] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
+
+```{#lst:proto-request .protobuf caption="Protocol Buffer code for a request type message, resembling classic HTTP requests. Additional request methods are `SUB' and `CLOSE'."}
+enum RequestMethod {
+	GET = 1;
+	POST = 2;
+	PUT = 3;
+	DELETE = 4;
+	SUB = 5;
+  CLOSE = 6;
+}
+
+message RequestEvent {
+	required RequestMethod method = 1;
+  required bytes id = 2;
+	required string path = 3;
+	optional bytes data = 4;
+}
+```
 
 _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
 
 [^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
-[^protocol-buffers]: <https://developers.google.com/protocol-buffers/>
+[^protobuf]: <https://developers.google.com/protocol-buffers/>
 
 ### Resource Discovery {#sec:thick:discovery}
 
