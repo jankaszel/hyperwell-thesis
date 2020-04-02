@@ -10,11 +10,15 @@ Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
 
 ## Distributed Systems and Data Ownership
 
-_TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Annotations are social---commonly, annotations are personal notes onto something, and annotations are rarely public.
+> Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.” [@kleppmann2019]
 
-## Issues of Digital Walled Gardens
+_TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Solid, however, builds upon Web ID and RFD, among other standards issued by the W3C. Within the Web, IDs still are tied to servers, which again most people aren't able to provide for themselves.
+
+Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public.
 
 _TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
+
+_TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_ data.
 
 ## Prospects of Linked Data
 
