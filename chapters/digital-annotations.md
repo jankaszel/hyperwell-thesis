@@ -8,10 +8,15 @@ Hypothes.is. Browser Storage APIs.
 
 Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
 
-## Federated Systems
+## Distributed Systems and Data Ownership
+
+_TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Annotations are social---commonly, annotations are personal notes onto something, and annotations are rarely public.
 
 ## Issues of Digital Walled Gardens
 
+_TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
+
 ## Prospects of Linked Data
 
+_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto 
 

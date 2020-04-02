@@ -4,15 +4,18 @@ In the two previous chapters, I detailed the main work of this thesis: An explor
 
 ## Usability Research
 
+_TODO:_ This study design has multiple drawbacks---it provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducability of the study's results. Outline these drawbacks.
+
 The study was designed to explorative and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:
 
 * It has not been a strict lab setting. Offline collaboration in the classroom (chatter) has been mixed with online collaboration.
 * Students have been provided individual assistance.
 * The required tasks were intended to provide room for exploration, and thus, haven’t been expressed too strictly
 
-For a proper usability study, further work is required.
+For a proper usability study, further work is required. There already exists research and best-practices on data security and usability of data[^if-library] [^simply-secure-kb], yet there have been few publications on the dedicated environment of P2P applications (_TODO:_ Emphasize useful patterns for encryption, network status, multiple hosts, P2P as social instead of a technical problem, ...). However, Simply Secure, a US-registered 501(c)3 nonprofit organization, currently curates a selection of hands-on patterns and metaphors suited for applications that employ protocols and user interfaces with P2P technology.
 
-_TODO:_ This study design has multiple drawbacks---it provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducability of the study's results. Outline these drawbacks.
+[^if-library]: <https://catalogue.projectsbyif.com/>
+[^simply-secure-kb]: <https://simplysecure.org/knowledge-base/>
 
 ## Architecture
 

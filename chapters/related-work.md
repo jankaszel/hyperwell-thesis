@@ -12,16 +12,19 @@ Digital collaboration and hypertext [@klokmose2015].
  
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
-Something on Linked Data, its origin and principles [@bizer2011].
+Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
 
 How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS).
 
-Web Annotation specification [@sanderson2013]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2017]. Annotea [@kahan2002].
+Web Annotation specification [@sanderson2013]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2018]. Annotea [@kahan2002].
 
-Tools using these—namely, Recogito [@simon2015; @simon2017]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
+
+Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
 
 [^hypothesis]: <https://hypothes.is/>
 [^dokieli]: <https://dokie.li/>
+[^dariah]: <https://www.dariah.eu/>
 
 ## Research Data Management {#sec:related:rdm}
 
