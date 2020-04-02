@@ -14,7 +14,7 @@ Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
 
 _TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Solid, however, builds upon Web ID and RFD, among other standards issued by the W3C. Within the Web, IDs still are tied to servers, which again most people aren't able to provide for themselves.
 
-Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public.
+Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public. Annotations are related to a profile, and just rarely made with the authority of an institution or group. Annotations enable for sophisticated discussion [@marshall1997].
 
 _TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
 

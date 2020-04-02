@@ -140,6 +140,10 @@ _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
+### Annotation Environment
+
+_TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will allow for loading CTS-provided texts and annotating them, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
+
 ## Support in Client Applications
 
 _TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
