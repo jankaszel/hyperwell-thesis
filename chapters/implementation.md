@@ -81,12 +81,12 @@ enum RequestMethod {
 	PUT = 3;
 	DELETE = 4;
 	SUB = 5;
-  CLOSE = 6;
+	CLOSE = 6;
 }
 
 message RequestEvent {
 	required RequestMethod method = 1;
-  required bytes id = 2;
+	required bytes id = 2;
 	required string path = 3;
 	optional bytes data = 4;
 }
