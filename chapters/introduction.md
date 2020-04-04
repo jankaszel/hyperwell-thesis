@@ -16,21 +16,15 @@ Feedback showed that stakeholders and users are hard to convince: While centrali
 
 > Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]
 
-The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. (…)
+The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
 
-The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
-
-The internet has historically considered the client-server architecture a natural part of its architecture.
+The Web has historically considered the client-server architecture a natural part of its architecture.
 
 > When data is stored on “someone else’s computer”, that third party assumes a degree of control over that data. Cloud apps are provided as a service; if the service is unavailable, you cannot use the software, and you can no longer access your data created with that software. If the service shuts down, even though you might be able to export your data, without the servers there is normally no way for you to continue running your own copy of that software. Thus, you are at the mercy of the company providing the service. [@kleppmann2019]
 
-Introduce commercial platforms on the internet, also platform capitalism [@srnicek2017], and give a note on how the internet benefits businesses rather than individuals [@robinson2018].
+Introduce commercial platforms on the internet, also platform capitalism [@srnicek2017], and give a note on how the internet benefits businesses rather than individuals [@robinson2018]. Platforms bear a very strong notion of servers in the client-server model---technically as well as strategically. Issues on data ownership arise when storing personal data on centralized services.
 
-Platforms bear a very strong notion of servers in the client-server model.
-
-Issues on data ownership arise when storing personal data on centralized services.
-
-_Introduce federated systems_
+_TODO:_ Federated systems can overcome some of these limitations.
 
 _Introduce decentralized, distributed systems_
 
@@ -42,18 +36,13 @@ Not only have the subject’s habits been adapted to this transformation: Most o
 
 Physical artifacts became digital resources, analogue workflows became digital ones. The digital nature of the contemporary humanist’s work suddenly demanded additional, extensive knowledge of gathering, analyzing, and maintaining data repositories. Best practices were formed, namely the FAIR principles [@wilkinson2016]: Findable, Accessible, Interoperable, and Reusable data. 
 
-<!-- transitioning to collaboration -->
-Being an umbrella for various disciplines, the Humanities historically embraced academic collaboration to a great extend [@siemens2015].
-
-Something on Linked Data [@simon2015; @simon2017]?
-
-Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan2002]?
+_TODO:_ Transitioning to collaboration---offline as well as online. Being an umbrella for various disciplines, the Humanities historically embraced academic collaboration to a great extend [@siemens2015]. Something on Linked Data [@simon2015; @simon2017]? Something on annotation [@marshall1997; @marshall1998; @sanderson2013; @kahan2002]?
 
 In the wake of the new web, the wake of technological development that happened after the bust of the dot-com bubble in 2001, the internet became more open and accessible to the common people, as opposed to purely experts (Davidson, 2008). Collaboration, again, has been facilitated by this change, as the web tended towards social media, sharing of resources, and semantic description of data.
 
 ## Prospects of Peer-to-Peer Systems
 
-_TODO:_ As laid out before, the Web bears some fundamental issues concerning centralization and ownership of personal data; that's basically why Solid [@mansour2016] has been founded, as well as other initiatives. While not going into too much detail on P2P systems, explain roughly the history and prospects of P2P systems such as Dat, which critisize the status quo and impose novel technologies, backed by distributed systems research, for realizing locla-first systems.
+_TODO:_ As laid out before, the Web bears some fundamental issues concerning centralization and ownership of personal data; that's basically why Solid [@mansour2016] has been founded, as well as other initiatives. While not going into too much detail on P2P systems, explain roughly the history and prospects of P2P systems such as Dat, which criticise the status quo and impose novel technologies, backed by distributed systems research, for realizing local-first systems.
 
 ## Research Goals
 
