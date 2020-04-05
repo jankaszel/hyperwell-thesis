@@ -111,6 +111,7 @@ $endfor$
   xetex
 ]{hyperref}
 \usepackage{url}
+\urlstyle{rm}
 
 \hypersetup{
   bookmarks=true,
@@ -200,7 +201,7 @@ $endif$
 % \setlength{\parskip}{\baselineskip}
 
 % references
-\usepackage[style=apa,backend=biber]{biblatex}
+\usepackage[authordate,backend=biber]{biblatex-chicago}
 $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
