@@ -8,7 +8,7 @@ In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take
 
 Digital annotation and hypertext [@marshall1997; @marshall1998].
 
-Digital collaboration and hypertext [@klokmose2015].
+Digital collaboration and hypertext [@klokmose2015]. Collaboration in academia [@hunyadi2016]. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
  
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
