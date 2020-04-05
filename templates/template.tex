@@ -315,8 +315,10 @@ $body$
 
 {
   \footnotesize
-  \chapter{References}
-  \printbibliography
+  \hypertarget{references}{%
+    \chapter*{References}\label{references}}
+  \addcontentsline{toc}{chapter}{References}
+  \printbibliography[heading=none]
 }
 \newpage
 
