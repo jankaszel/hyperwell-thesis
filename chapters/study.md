@@ -1,27 +1,31 @@
 # User Testing Study {#sec:study}
 
-_TODO:_ Introduce into the study environment:
+Clearly, mainstream achievements in the development and engineering of computers led to what we know today as the Digital Humanities. As I've outlined before, the increasing computational powers brought us Humanities Computing---computational approaches for the Humanities---as well as an overall digital practice. Yet, the capabilities of computers are not yet limited by these terms: Devices are connected via a vast digital network with an increasing throughput. Contemporary computer networks allow not just for a mere exchange of discrete information, but rather for real-time exchange of virtual spaces.
 
-For the Digital Humanities, an increased usage of digital tools didn't stop at the scientific practice: 
+One modality of such a virtual space is video conferencing. As @hunyadi2016 notes, scheduling meetings online---with local and remote colleagues alike---has had an enormous impact on interdisciplinary collaboration in the Digital Humanities. In some academic Digital Humanities communities, video conferencing facilitated holding international events and local plenary discussions alike with little effort to great effect: Students could interact with internationally acclaimed researchers, and regular remote meetings emerged quickly.
 
-Reason to do this study: Explore how people commonly collaborate with online tools [@hunyadi2016]. What does a virtual space bring us, where people can collaborate in real-time [@dourish1992]? What are the prospects of real-time collaboration in the Digital Humanities? What's about the state of the art of digital collaboration environments [@kleppmann2019]?
+Remote collaboration does not end there, however. As workplaces can be understood as a collection of tools for particular tasks of work---being it physical or virtual---, video conferencing does not allow for using all of these tools collaboratively. By transmitting changes on a collaborative piece of work, however, progress can be achieved remotely between colleagues [@dourish1992; @schwartz1998].
+
+_TODO:_ Reason to do this study: What does a virtual space bring us, where people can collaborate in real-time [@dourish1992]? What are the prospects of real-time collaboration in the Digital Humanities? What's about the state of the art of digital collaboration environments [@kleppmann2019]?
 
 Why use Recogito?
-  * It's open source software.
-  * It can be self-hosted.
-  * It supports annotation of various materials.
-  * It's a popular tool for Classics and Digital Humanities research.
-  * The team has been communicative.
-  * It's commonly used, so finding classes for this study would have been easier.
-  * Chiara Palladino from Furman University is a member of the Pelagios initiative and related to Recogito.
-  * Recogito uses the Web Annotation data model (or, some derivate of it, but supports a major part of the data model)
-  * Recogito supports loading and annotating canonical content, such as texts from CTS services as well as image collections via IIIF manifests
-  * Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display fresh work of collaborators. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration.
+
+* It's open source software.
+* It can be self-hosted.
+* It supports annotation of various materials.
+* It's a popular tool for Classics and Digital Humanities research.
+* The team has been communicative.
+* It's commonly used, so finding classes for this study would have been easier.
+* Chiara Palladino from Furman University is a member of the Pelagios initiative and related to Recogito.
+* Recogito uses the Web Annotation data model (or, some derivate of it, but supports a major part of the data model)
+* Recogito supports loading and annotating canonical content, such as texts from CTS services as well as image collections via IIIF manifests
+* Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display fresh work of collaborators. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration. @schwartz1998 describe such a system more precisely in their patent.
 
 Aspects we wanted to learn about:
-  * Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work?
-  * Learning curve
-  * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
+
+* Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work?
+* Learning curve
+* Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
 
 It became a collaborative venture between Chiara and me, and resulted in an open publication as well as a blog post on the Pelagios blog, with an emphasis on using Recogito in the classroom.
 
