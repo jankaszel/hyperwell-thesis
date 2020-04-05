@@ -22,5 +22,7 @@ _TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_
 
 ## Prospects of Linked Data
 
-_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto 
+_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID^[webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
+
+[^web-id]: <https://www.w3.org/2005/Incubator/webid/spec/>
 
