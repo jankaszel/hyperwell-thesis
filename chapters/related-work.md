@@ -16,7 +16,24 @@ Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
 
 How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS).
 
-Web Annotation specification [@sanderson2013]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2018]. Annotea [@kahan2002].
+Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2018]. Annotea [@kahan2002].
+
+Listing: An example annotation in form of a JSON-LD-based Web Annotation, as provided by the Web Annotation data model technical report [@web-anno-data-model].
+
+```{#lst:web-annotation-model .json}
+{
+  "@context": "http://www.w3.org/ns/anno.jsonld",
+  "id": "http://example.org/anno5",
+  "type": "Annotation",
+  "body": {
+    "type" : "TextualBody",
+    "value" : "<p>j'adore !</p>",
+    "format" : "text/html",
+    "language" : "fr"
+  },
+  "target": "http://example.org/photo1"
+}
+```
 
 Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
 

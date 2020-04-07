@@ -56,7 +56,18 @@ This open-ended question carries a belief on the benefit of decentralized storag
 2. How do users perceive real-time collaboration on digital annotation in contemporary Digital Humanities tools?
 3. What kind of architecture could provide personal, distributed storage, and fit the requirements of academic Digital Humanities research?
 
+## Related Publications & Repositories
+
 Over the course of this whole project, I have had the opportunity to talk publicly about the architecture of Hyperwell, as laid out in @sec:hyperwell, as well as publish openly on particular results of this thesis---this additional work could not have been achieved with each its respective collaborators. First, I gave a talk titled "From Me to You: Peer-to-Peer Collaboration With Linked Data" at the second DARIAH[^dariah] Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the status quo of the Hyperwell architecture has been published in the conference proceedings [@kassel2020a] with substantial support of my thesis supervisor, Dr. Thomas Koentges, as an open publication on the new DARIAH Campus[^dariah-campus]. Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
+
+_TODO:_ List all related code repositories
+
+* Recogito Fork
+* Recogito User Testing
+* Recogito P2P Discovery
+* From Me to You
+* Hyperwell Gateway
+* Hyperwell Notebook
 
 [^dariah]: <https://www.dariah.eu/>
 [^dariah-campus]: <https://campus.dariah.eu/>

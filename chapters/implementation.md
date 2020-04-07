@@ -49,9 +49,11 @@ Integrating with the stack of Web technologies at hand, both the peer applicatio
 
 _TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients.
 
-_TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates
+_TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
 
 Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
+
+_TODO:_ Extending the Recogito UI has been possible, but required a lot of effort because of complicated tooling around the Scala-based backend. Hence, all extensions, such as the resource discovery mechanism detailed in @sec:thick:discovery, were designed as standalone modules and bundled appropriately.
 
 In the following, I will outline two characteristic contributions of this approach: First, a novel, HTTP-like protocol was intended to enable client-server connections over multiplexed duplex socket connections. This protocol leverages the Protocol Buffers standard and is detailed in @sec:thick:protocols. Second, as peers within the network transfer data without higher-level supernodes, a flat hierarchy is established. An approach for announcing work on particular resources with the intention of collaboration is described in @sec:thick:discovery. By establishing a new protocol for retrieving annotations from a distributed network, browsers need to be provided with libraries to support these protocols---one such library, a Software Development Kit (SDK), for integrating client applications, is detailed in @sec:thick:sdk.
 
@@ -99,6 +101,27 @@ _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compat
 
 ### Resource Discovery {#sec:thick:discovery}
 
+While evaluating the conditions on why Recogito has been chosen as a case study and reference environment for developing the technology presented in this chapter, several prospects around an open and distributed annotation storage have emerged. With Linked Data entities being available for client applications running locally, semantic relations could easily be examined outside of the annotation environment itself. Furthermore, as the UI of an application becomes increasingly _lean_ by decoupling from a heavy and centralized data-processing backend, user-facing functionality can be better integrated with workflows based on the data model itself.
+
+With that in mind, I have designed a functionality for discovering related work of other users based on the URL of the annotated resource. This approach is inherently decentralized: Each peer maintains its own ephemeral list of related work. By leveraging the decentralized networking of Hyperswarm similarly as in @sec:thick:protocols, peers join a swarm of peers based on a topic. In this case of discovering resources, this topic is a hashed representation of the annotated document's canonical identifier, such a CTS URN or a general URL. Once peers discover and connect to each other, they quickly exchange discovery messages. Such a message is defined more precisely in @lst:proto-discovery as a `DiscoveryEvent` message of type `ANNOUNCE`. Once a peer goes offline, it will broadcast an `UNANNOUNCE` type message.
+
+```{#lst:proto-discovery .protobuf caption="Protocol Buffer schema for a discovery message, announcing or unannouncing the availability of a resource on the sending peer."}
+enum DiscoveryEventType {
+	ANNOUNCE = 1;
+	UNANNOUNCE = 2;
+}
+
+message DiscoveryEvent {
+	required DiscoveryEventType type = 1;
+	required bytes id = 2;
+	required string url = 3;
+}
+```
+
+For unique identification, each peer within a discovery swarm assigns itself an UUID upon joining. This identifier corresponds to the `id` field of a `DiscoveryMessage` message. However, this ad-hoc approach for solving decentralized discovery is critically flawed, the message's origin is currently not verified deterministically. This issue will be discussed---among other matters---in @sec:discussion.
+
+_TODO_: Write about the modular UI extension, provide a screenshot, link to the work and (even more TODO) release the module via Zenodo!
+
 ### Client SDK {#sec:thick:sdk}
 
 The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client SDK should provide these missing components for abstracting communication.
@@ -139,6 +162,16 @@ _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 * Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
+
+_TODO:_ Have a screenshot.
+
+_TODO:_ Technical architecture:
+
+* It's an Electron-based[^electron] application: By shipping applications with a bundled copy of the Chromium web browser, application logic and the UI can be developed using web technologies such as HTML, CSS, and JavaScript. A backend process runs via an included Node.js runtime.
+* Akin to the gateway server, the application uses Hypermerge with Hyperswarm for exchanging distributed notebooks.
+* Search indexing?
+
+[^electron]: <https://www.electronjs.org/>
 
 ### Annotation Environment
 
