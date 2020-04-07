@@ -56,10 +56,15 @@ This open-ended question carries a belief on the benefit of decentralized storag
 2. How do users perceive real-time collaboration on digital annotation in contemporary Digital Humanities tools?
 3. What kind of architecture could provide personal, distributed storage, and fit the requirements of academic Digital Humanities research?
 
+Over the course of this whole project, I have had the opportunity to talk publicly about the architecture of Hyperwell, as laid out in @sec:hyperwell, as well as publish openly on particular results of this thesis---this additional work could not have been achieved with each its respective collaborators. First, I gave a talk titled "From Me to You: Peer-to-Peer Collaboration With Linked Data" at the second DARIAH[^dariah] Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the status quo of the Hyperwell architecture has been published in the conference proceedings [@kassel2020a] with substantial support of my thesis supervisor, Dr. Thomas Koentges, as an open publication on the new DARIAH Campus[^dariah-campus]. Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
+
+[^dariah]: <https://www.dariah.eu/>
+[^dariah-campus]: <https://campus.dariah.eu/>
+[^pelagios-blog-post]: Forthcoming.
 
 ## Thesis Structure
 
 The subsequent @sec:related contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation. Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline future work.
 
-[^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following9 if not noted otherwise.
+[^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following if not noted otherwise.
 
