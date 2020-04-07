@@ -28,12 +28,12 @@ top-level-division: chapter
 highlight-style: pygments
 number-sections: true
 
-# crossref prefixes
 metadata:
   title: "Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation"
   author:
   - Jan Kaßel
 
+  # pandoc-crossref prefixes
   # use `pairDelim` for ‘and’ as a delimeter between two refs?
   figPrefix:
   - "figure"

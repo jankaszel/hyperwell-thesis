@@ -3,6 +3,7 @@ pdf:
 		--defaults thesis.yaml \
 		--verbose \
 		--biblatex \
+		-M codeBlockCaptions=true \
 		--include-after-body back/statement.tex \
 		--template templates/template.tex \
 		-o thesis.tex \
