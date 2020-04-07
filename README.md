@@ -14,7 +14,7 @@ I wouldn't recommend anyone to attempt building this, as I've run into countless
 * Pandoc
 * LaTeX (with XeLaTeX---I would recommend against installing BasicTeX, as you'll need to install countless plugins. Rather opt for a complete TeX installation!).
 * Biber
-* Typefaces: This thesis is set in Suisse Works, Suisse Int'l, and Suisse Int'l Mono of the [Suisse family](https://www.swisstypefaces.com/fonts/suisse/). You'll need to purchase a license for these fonts and install them locally on your computer.
+* Typefaces: This thesis is set in Suisse Works and Suisse Int'l of the [Suisse family](https://www.swisstypefaces.com/fonts/suisse/), as well as IBM Plex Mono of the [IBM Plex family](https://github.com/IBM/plex). You'll need to purchase a license for Suisse family fonts and install them locally on your computer.
 
 Then, run `make` with various commands:
 
