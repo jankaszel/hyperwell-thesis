@@ -9,16 +9,15 @@ Remote collaboration does not end there, however. As workplaces can be understoo
 _TODO:_ Reason to do this study: What does a virtual space bring us, where people can collaborate in real-time [@dourish1992]? What are the prospects of real-time collaboration in the Digital Humanities? What's about the state of the art of digital collaboration environments [@kleppmann2019]?
 
 Why use Recogito?
+As for the study
 
-* It's open source software.
-* It can be self-hosted.
-* It supports annotation of various materials.
-* It's a popular tool for Classics and Digital Humanities research.
-* The team has been communicative.
-* It's commonly used, so finding classes for this study would have been easier.
+* **Technical and academic documentation:** The Recogito team has published about the development process [@simon2015; @simon2017] and the source code of Recogito is available publicly[^recogito-repo]. The web application's user interface is extensible, as it is written in JavaScript for browser use. While Pelagios provides an official instance of Recogito[^recogito-pelagios], providing an own instance by using the Docker[^docker] container virtualization environment is supported. Additionally, the team behind Recogito has been responsive and supported us while setting up our own instance as well as transferring data over to Pelagios' official instance.
+* **Web Annotation interoperability:** While Recogito does not support an external annotation storage, its annotation data model is _partially compliant_ with the Web Annotation data model. This would be of importance for eventual later stages of this project, when trying to integrate P2P storage into the annotation environment.
+* **Annotation capabilities:** Recogito provides an environment for annotating textual resources, including classic Greek or Latin texts, and annotating images. Furthermore, users can import canonical resources from CTS repositories and IIIF manifests. With a focus on georeferencing, _TODO_.
+* **Popularity:** Usage of Recogito is widespread among some Digital Humanities communities. Over the course of this thesis, the number of signed-up users went up to 5.000. Picking a renowned tool for the user testing has had a high priority, as finding collaborating scholars with proficiency in using that tool was easier. 
+
 * Chiara Palladino from Furman University is a member of the Pelagios initiative and related to Recogito.
-* Recogito uses the Web Annotation data model (or, some derivate of it, but supports a major part of the data model)
-* Recogito supports loading and annotating canonical content, such as texts from CTS services as well as image collections via IIIF manifests
+
 * Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display fresh work of collaborators. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration. @schwartz1998 describe such a system more precisely in their patent.
 
 Aspects we wanted to learn about:
@@ -28,6 +27,10 @@ Aspects we wanted to learn about:
 * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
 
 It became a collaborative venture between Chiara and me, and resulted in an open publication as well as a blog post on the Pelagios blog, with an emphasis on using Recogito in the classroom.
+
+[^recogito-repo]: <https://github.com/pelagios/recogito2>
+[^docker]: <https://www.docker.com/>
+[^recogito-pelagios]: <https://recogito.pelagios.org/>
 
 ## Study Design {#sec:study:design}
 
