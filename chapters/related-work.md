@@ -70,20 +70,27 @@ Certain primitives known from highly efficient enterprise systems are applied to
 
 > A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time. [@kreps2013]
 
-**TODO:** Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
+_TODO:_ Append-only logs [@kreps2013].
 
-Append-only logs.
+Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website].
 
-Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website]. \citeauthor{kleppmann2017} applied 
+\citeauthor{kleppmann2017} applied the methodologies of CRDTs to JSON data structures. ... . With web technologies becoming increasingly popular among web and application developers alike, being able to use CRDT capabilities on JSON data facilitates better real-time synchronization. With local-first applications, \citeauthor{kleppmann2019} provide a curation of features that can be leveraged to realize state-of-the-art, offline-capable applications. I will discuss these kinds of applications in @sec:related:local-first.
 
+_TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
 
+_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]). Build bridge over to supporting infrastructure for distributed networks.
 
-_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]).
+Federated systems pose an interesting trade-off between decentralization and full distribution by designing the system as distributed among several instances, yet still composing one singular social network. @esguerra2011 surveys such federated social networks, as issues around privacy and censorship of large-scale social networks such as Facebook and Twitter arose: "Federated social networks [...] are a vital step towards fulfilling values often lacking in the existing social networking ecosystem: user-control, diversity of services, innovation, and more." While the federated social network Diaspora[^diaspora] originally gained some traction, Mastodon[^mastodon] become increasingly popular over the recent years, with about 3.9 Million users across about 2.600 instances as of right now[^fediverse-network]. By implementing the ActivityPub protocol [@activitypub], 
 
-Federated networks: ActivityPub [@activitypub] and federated social networks [@esguerra2011; @antoniou2011]. Mirrors. P2P pinning.
+_TODO:_ Such federated systems strike the balance, as individuals can extend the network by hosting their own instances. These instances communicate with each other using the ActivityPub protocol via server-to-server communication---whereas in fully distributed networks, peers (and thus, clients) communicate directly without middlemen, this approach of federation supports the presence of servers while providing users with choices on where they want to store their data.
+
+_TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>
-[^crdt-website]: The `crdt.tech` website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
+[^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
+[^diaspora]: <https://diasporafoundation.org/>
+[^mastodon]: <https://joinmastodon.org/>
+[^fediverse-network]: The [fediverse.network](https://fediverse.network/) website provides various usage and network statistics on such as Mastodon, PeerTube, and WordPress: <https://fediverse.network/mastodon>. The statistics mentioned on Mastodon were current as of April 8, 2020.
 
 ## Local-First Applications {#sec:related:local-first}
 
