@@ -66,15 +66,24 @@ Comparing to the way computers communicate in the web, there are no definite sou
 
 P2P systems are often associated with distributed networking and distributed databases. Essentially, systems such as the aforementioned BitTorrent and Gnutella construct immensely scaled, distributed, and fragmented databases that communicate over a vast worldwide network instead of a Local Area Network (LAN).
 
-certain primitives known from highly efficient enterprise systems are applied to P2P systems,
+Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
 
-> Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
+> A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time. [@kreps2013]
 
-Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]).
+**TODO:** Describe the fundamental technologies first: Append-only logs [@kreps2013], Distributed Hash Tables (DHTs) [@maymounkov2002], Conflict-Free Replicated Data Types (CRDTs) [@shapiro2011; @kleppmann2017].
+
+Append-only logs.
+
+Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website]. \citeauthor{kleppmann2017} applied 
+
+
+
+_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]).
 
 Federated networks: ActivityPub [@activitypub] and federated social networks [@esguerra2011; @antoniou2011]. Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>
+[^crdt-website]: The `crdt.tech` website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
 
 ## Local-First Applications {#sec:related:local-first}
 
