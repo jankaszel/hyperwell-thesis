@@ -72,7 +72,7 @@ certain primitives known from highly efficient enterprise systems are applied to
 
 Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]).
 
-Federated networks. Mirrors. P2P pinning.
+Federated networks: ActivityPub [@activitypub] and federated social networks [@esguerra2011; @antoniou2011]. Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>
 
