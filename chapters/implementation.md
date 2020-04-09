@@ -8,7 +8,7 @@ Each aspect of a P2P system bears implications for usability, data availability,
 
 Distributed P2P systems function fundamentally different from the classic client/server architectures (distributed governance figure?). The fundamental difference is explained by the treatment of data: In architectures following the established client-server distinction, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
 
-![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010].](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
+![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
 
 In P2P systems, this power over data is distributed. The distinction of clients and servers is being blurred as the centralization of governance is diminished: Clients become servers, forming a collection of alike peers, that provide and at the same time request data. Considering “the data” a system operates on as a database (with support for querying and mutation), in these kind of distributed systems, this database is distributed, sometimes even fragmented.
 
@@ -64,7 +64,7 @@ The approach of the first version, however, had several severe drawbacks. While 
 [^v8]: <https://v8.dev/>
 [^iiif-id]: <https://iiif.io/api/presentation/2.0/#technical-properties>
 [^cts-urn]: <https://www.homermultitext.org/hmt-docs/cite/cts-urn-overview.html>
-[^biiif]: `biiif` is a tool for independent publishing of IIIF manifests: <https://github.com/edsilv/biiif>
+[^biiif]: `biiif` is a tool for independent publishing of IIIF manifests: <https://github.com/edsilv/biiif>. By generating a IIIF manifest from a filesystem-based image gallery and corresponding metadata, users can easily host IIIF galleries via P2P file-sharing protocols such as Dat or IPFS.
 [^opera-ipfs]: Opera has been branded as suited for "mainstream crypto-adoption", meaning to support Web3 technologies by interoperating with technologies such as the Ethereum blockchain and the IPFS network: <https://press.opera.com/2020/03/30/opera-introduces-major-updates-to-its-blockchain-browser-on-android/>
 [^market-share]: <https://gs.statcounter.com/browser-market-share#monthly-201902-202002>
 [^webrtc]: <https://www.w3.org/TR/webrtc/>
