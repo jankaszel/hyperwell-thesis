@@ -2,7 +2,7 @@
 
 Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
 
-## Gateways and P2P Systems
+## Gateways and Peer-to-Peer Systems
 
 > This will most likely be an argumentation why we need P2P gateways when working with P2P data in academia: Many platforms and tools are built with web technologies and hence are subject to the quasi-centralized architecture of the HTTP web.
 
@@ -122,11 +122,35 @@ For unique identification, each peer within a discovery swarm assigns itself an 
 
 _TODO_: Write about the modular UI extension, provide a screenshot, link to the work and (even more TODO) release the module via Zenodo!
 
-### Client SDK {#sec:thick:sdk}
+### Client Software Development Kit {#sec:thick:sdk}
 
-The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client SDK should provide these missing components for abstracting communication.
+The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client Software Development Kit (SDK) should provide these missing components for abstracting the communication.
 
 _TODO:_ Have a figure with a brief overview of how the SDK interacted with both the gateway and the client software.
+
+_TODO:_ Both the annotation API as well as the related work discovery functionality are available via the JavaScript SDK in form of a standalone bundle
+
+Listing: Example code using the JavaScript client SDK for interacting with decentralized annotations on a high-level API.
+
+```{#lst:sdk-example .js}
+const {RequestSwarm, DiscoverySwarm} =
+  require('from-me-to-you/browser')
+const swarm = new RequestSwarm(docUrl)
+
+swarm.on('ready', async () => {
+  const annotaitons = await swarm.getAnnotations()
+  const relatedNotebooks = await swarm.getRelated()
+
+  const subscription = await swarm.getAnnotations({
+    subscribe: true
+  })
+  subscription.on('pub', data => {
+    // handle pushed change
+  })
+})
+```
+
+The code in @lst:sdk-example shows an exemplary usage on how to use the JavaScript client SDK for retrieving annotations (`swarm.getAnnotations()`), querying for related work (`swarm.getRelated()`), and subscribing to changes of an annotation (`swarm.getAnnotations()` with a `subscribe` option). For a more complete documentation of the SDK, I refer to the respective code repository called `from-me-to-you`. The repository contains an example project using the SDK as well as a full documentation of the exposed SDK functionality.
 
 ### Architectural Issues {#sec:thick:issues}
 
