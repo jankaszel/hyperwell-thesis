@@ -4,7 +4,7 @@ Clearly, mainstream achievements in the development and engineering of computers
 
 One modality of such a virtual space is video conferencing. As @hunyadi2016 notes, scheduling meetings online---with local and remote colleagues alike---has had an enormous impact on interdisciplinary collaboration in the Digital Humanities. In some academic Digital Humanities communities, video conferencing facilitated holding international events and local plenary discussions alike with little effort to great effect: Students could interact with internationally acclaimed researchers, and regular remote meetings emerged quickly.
 
-Remote collaboration does not end there, however. As workplaces can be understood as a collection of tools for particular tasks of work---being it physical or virtual---, video conferencing does not allow for using all of these tools collaboratively. By transmitting changes on a collaborative piece of work, however, progress can be achieved remotely between colleagues [@dourish1992; @schwartz1998].
+Remote collaboration does not end there, however. As workplaces can be understood as a collection of tools for particular tasks of work---physical or virtual---, video conferencing does not allow for using all of these tools collaboratively. By transmitting changes on a collaborative piece of work, however, progress can be achieved remotely between colleagues [@dourish1992; @schwartz1998].
 
 _TODO:_ Reason to do this study: What does a virtual space bring us, where people can collaborate in real-time [@dourish1992]? What are the prospects of real-time collaboration in the Digital Humanities? What's about the state of the art of digital collaboration environments [@kleppmann2019]?
 
@@ -45,7 +45,10 @@ The study has been designed with two sessions in mind. During these sessions, vo
 ### Technical Evaluation
 
 * Docker setup
+
 * Telemetry/tracking setup (API, SDK, database)
+* illustration which events where sent, describe which actions they should express in detail
+
 * Implementing tracking into Recogito
 * Evaluation of all tracking data via Jupyter Notebooks (with a Node.js backend)
 

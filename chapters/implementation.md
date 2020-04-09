@@ -39,7 +39,7 @@ For the first iteration of this project, I focused on building an annotation pub
 
 Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
 
-_TODO:_ Have here an illustration of the architecture.
+![Architecture of the 'Thick Peer' approach during the first iteration.](figures/thick-architecture.pdf)
 
 Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
@@ -171,7 +171,7 @@ The initial attempt at realizing a distributed annotation authoring system outli
 
 ![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture short-caption="Architecture of Hyperwell using gateways"}
 
-### Gateway Server
+### Gateway Server {#sec:hyperwell:gateway}
 
 _TODO:_ Implementation of a Service for Archival and Institutional Exposition. Main features:
 
@@ -179,7 +179,7 @@ _TODO:_ Implementation of a Service for Archival and Institutional Exposition. M
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
 * TTL-based local caching of repositories
 
-### Notebook Application
+### Notebook Application {#sec:hyperwell:notebook}
 
 _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 

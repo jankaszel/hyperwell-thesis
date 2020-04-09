@@ -56,22 +56,36 @@ This open-ended question carries a belief on the benefit of decentralized storag
 2. How do users perceive real-time collaboration on digital annotation in contemporary Digital Humanities tools?
 3. What kind of architecture could provide personal, distributed storage, and fit the requirements of academic Digital Humanities research?
 
-## Related Publications & Repositories
+## Related Publications & Repositories {#sec:publications}
 
-Over the course of this whole project, I have had the opportunity to talk publicly about the architecture of Hyperwell, as laid out in @sec:hyperwell, as well as publish openly on particular results of this thesis---this additional work could not have been achieved with each its respective collaborators. First, I gave a talk titled "From Me to You: Peer-to-Peer Collaboration With Linked Data" at the second DARIAH[^dariah] Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the status quo of the Hyperwell architecture has been published in the conference proceedings [@kassel2020a] with substantial support of my thesis supervisor, Dr. Thomas Koentges, as an open publication on the new DARIAH Campus[^dariah-campus]. Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
+Over the course of this whole project, I have had the opportunity to talk publicly about the architecture of Hyperwell, as laid out in @sec:hyperwell, as well as publish openly on particular results of this thesis---this additional work could not have been achieved with each its respective collaborators. First, I gave a talk titled "From Me to You: Peer-to-Peer Collaboration With Linked Data" at the second DARIAH[^dariah] Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the status quo of the Hyperwell architecture has been published in the conference proceedings [@kassel2020a] with substantial support of my thesis supervisor, Dr. Thomas Koentges, as an open publication on the new DARIAH Campus[^dariah-campus]. 
 
-_TODO:_ List all related code repositories
+Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
 
-* Recogito Fork
-* Recogito User Testing
-* Recogito P2P Discovery
-* From Me to You
-* Hyperwell Gateway
-* Hyperwell Notebook
+I have utilized  user interface design and software development for building prototypes of novel technology and architectures---mainly of the P2P systems discussed in @sec:implementation. While all of the respective code repositories are included on the digital media attached to the official print version of this thesis, a subset of these repositories---standalone software that is subject to future development sketched in @sec:future-work---are published online and are being mirrored by the Zenodo open-access repository for long-term archival. These repositories are provided with each its Digital Object Identifier[^doi] (DOI).
+
+`from-me-to-you` (DOI: 10.xxx/foobar)
+: Does things.
+
+`hyperwell-gateway` (DOI: 10.xxx/foobar)
+: HTTP gateway server implementation as designed in the Hyperwell architecture. This architecture is being discussed in @sec:hyperwell.
+
+`hyperwell-notebook` (DOI: 10.xxx/foobar)
+: Local-first application for managing and storing notebooks, i.e., collections of digital annotations of the Web Annotation data model. I outline this application in more detail in @sec:hyperwell:notebook.
+
+`recogito-p2p-discovery`
+: Standalone user interface module that provides a frontend for the discovery protocol of the first iteration, outlined in @sec:thick:discovery.
+
+`recogito-user-testing` (DOI: 10.xxx/foobar)
+: Suite of analytics and evaluation tools for digital recordings of users' actions during the collaborative annotation user testing study. The use of these analytics are being discussed in more depth in @sec:study:design.
+
+`recogito2-p2p`
+: Modified version of the Recogito annotation environment.
 
 [^dariah]: <https://www.dariah.eu/>
 [^dariah-campus]: <https://campus.dariah.eu/>
 [^pelagios-blog-post]: Forthcoming.
+[^doi]: <http://doi.org/>
 
 ## Thesis Structure
 

@@ -2,14 +2,16 @@
 
 Considering the three aspects of this work’s research goals described in the introduction: _usability_, _feasibility_, and _interoperability_ of a decentralized annotation system. Touching the foundation of the Web as we know it today, but also notions of digital text in general, I will go into early work on Hypertext systems by Ted Nelson---most prominently, Xanadu---and others in @sec:related:hypertext, while discussing early notions of digital annotation and collaborative hypertext systems, including contemporary tools. [@Sec:related:ld-dh] will provide an overview of Linked Data, as well as a brief survey of digital tools in academic Digital Humanities research and how these tools integrate with Linked Data and the Semantic Web. More fundamental in Digital Humanities projects, research data management (RDM) is becoming increasingly important---in [@sec:related:rdm], I will thus discuss contemporary approaches to RDM and potential technical solutions to common issues in data repositories, such as versioning of changes. Subsequently, P2P technologies can benefit workflows in academic research, namely distributed networking and decentralized data exchange. Also considering further implications for RDM, fundamental P2P technologies as well as some exemplary systems are discussed in [@sec:related:p2p]. And finally, building upon the subjects explained before in this chapter, local-first applications draw prospects in terms of usability for data availability, data ownership, and real-time remote collaboration, among others, (...) by leveraging contemporary P2P technology. I will discuss local-first applications in @sec:related:local-first.
 
-## Collaborative Hypertext Systems {#sec:related:hypertext}
+## Collaboration in Hypertext Systems {#sec:related:hypertext}
  
 In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?).
 
 Digital annotation and hypertext [@marshall1997; @marshall1998].
 
 Digital collaboration and hypertext [@klokmose2015]. Collaboration in academia [@hunyadi2016]. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
- 
+
+Technological aspects of collaboration in hypertext---that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
+
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
 Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].

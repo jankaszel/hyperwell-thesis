@@ -1,13 +1,14 @@
 \documentclass[11pt,a4paper]{book}
 
-% Overwrite \begin{figure}[htbp] with \begin{figure}[H]
+% figure placement
+% <https://stackoverflow.com/a/33801326>
 \usepackage{float}
-\let\origfigure=\figure
-\let\endorigfigure=\endfigure
-\renewenvironment{figure}[1][]{%
-  \origfigure[b]
-}{%
-  \endorigfigure
+\let\origfigure\figure
+\let\endorigfigure\endfigure
+\renewenvironment{figure}[1][2] {
+    \expandafter\origfigure\expandafter[H]
+} {
+    \endorigfigure
 }
 
 % fix for pandoc 1.14
