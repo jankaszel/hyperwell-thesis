@@ -44,7 +44,9 @@ The study has been designed with two sessions in mind. During these sessions, vo
 
 ### Technical Evaluation
 
-* Docker setup
+In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be less determining and the amount of participants has been relatively large, video recording was not suitable for this study. Instead, we opted for real-time aggregation of user events, i.e., particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. This workflow is depicted in @fig:recogito-workflow.
+
+![Workflow for (collaborative) annotation in Recogito.](figures/recogito-workflow.pdf){#fig:recogito-workflow}
 
 * Telemetry/tracking setup (API, SDK, database)
 * illustration which events where sent, describe which actions they should express in detail

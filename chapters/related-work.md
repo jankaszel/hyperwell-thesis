@@ -18,7 +18,7 @@ Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
 
 How are resources treated in the Digital Humanities? Canonical text systems such as CTS have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS).
 
-Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2018]. Annotea [@kahan2002].
+Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
 
 Listing: An example annotation in form of a JSON-LD-based Web Annotation, as provided by the Web Annotation data model technical report [@web-anno-data-model].
 
