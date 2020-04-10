@@ -12,6 +12,8 @@ Why does such a system not exist yet, and how could it look like? It’s versati
 
 Feedback showed that stakeholders and users are hard to convince: While centralized platforms pose some threats towards privacy and data ownership, they work deterministically given that one offers them trust.
 
+This thesis is aimed at readers with an affinity for computer technology, but not _necessarily_ computer scientists. While my own practice resides in computer science, this work involved research on collaborative systems as well as collaboration in the Digital Humanities, conducting studies, and raising questions on digital ownership. Furthermore, by presenting novel technologies that affect research data management, I want to _convince_ readers with a non-technical background to reflect on their digital practice. Parts of this thesis with less technical ambition will be highlighted below in @sec:structure.
+
 ## The Web and Data Ownership
 
 > Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]
@@ -79,7 +81,7 @@ I have utilized  user interface design and software development for building pro
 `recogito-user-testing` (DOI: 10.xxx/foobar)
 : Suite of analytics and evaluation tools for digital recordings of users' actions during the collaborative annotation user testing study. The use of these analytics are being discussed in more depth in @sec:study:design.
 
-`recogito2-p2p`
+`recogito2-p2p` {#sec:structure}
 : Modified version of the Recogito annotation environment.
 
 [^dariah]: <https://www.dariah.eu/>
@@ -87,7 +89,7 @@ I have utilized  user interface design and software development for building pro
 [^pelagios-blog-post]: Forthcoming.
 [^doi]: <http://doi.org/>
 
-## Thesis Structure
+## Thesis Structure {#sec:structure}
 
 The subsequent @sec:related contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation. Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline future work.
 
