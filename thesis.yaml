@@ -13,6 +13,8 @@ input-files:
 - chapters/implementation.md
 - chapters/discussion.md
 - chapters/conclusion.md
+- chapters/references.md
+- appendix/questionnaires.md
 
 bibliography: references.bib
 resource-path:
