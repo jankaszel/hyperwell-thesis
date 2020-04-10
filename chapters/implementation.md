@@ -187,7 +187,7 @@ _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
-_TODO:_ Have a screenshot.
+![UI of the Notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the Notebook applications.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Notebook application when inspecting a topic-related notebook"}
 
 _TODO:_ Technical architecture:
 
