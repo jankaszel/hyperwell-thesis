@@ -25,6 +25,7 @@ Aspects we wanted to learn about:
 * Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work?
 * Learning curve
 * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
+  * How did they experience the collaborativ environment in regard to their own thoughts?
 
 It became a collaborative venture between Chiara and me, and resulted in an open publication as well as a blog post on the Pelagios blog, with an emphasis on using Recogito in the classroom.
 
@@ -48,8 +49,11 @@ In order to evaluate the _actual_ use of a particular tool while performing task
 
 ![Workflow for (collaborative) annotation in Recogito.](figures/recogito-workflow.pdf){#fig:recogito-workflow}
 
-* Telemetry/tracking setup (API, SDK, database)
 * illustration which events where sent, describe which actions they should express in detail
+
+For tracking these 
+
+* Telemetry/tracking setup (API, SDK, database)
 
 * Implementing tracking into Recogito
 * Evaluation of all tracking data via Jupyter Notebooks (with a Node.js backend)
@@ -66,6 +70,10 @@ In order to evaluate the _actual_ use of a particular tool while performing task
 ## Results {#sec:study:results}
 
 _TODO:_ To be continued. I didn't yet calculate final results and formulate hypotheses. However, these should be applied to one of the implementations of @sec:implementation, and be discussed further in @sec:discussion.
+
+While students verbally collaborated with each other within the group room, digital collaboration has just been measurable to a small extent: _TODO_. As it has been mentioned before, Recogito does not support real-time collaboration and will require a refresh of the website---similar to a restart of an application running natively---in order to display collaborators' recent changes. @dourish1992 note, that in order to realize environments for remote collaboration, colleagues' awareness has to be coordinated in real-time across the shared workspace.
+
+Annotating resources is a semi-synchronous task, one might argue, due to the fact that it requires focused, solitary insights into a particular resource. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate usage of communication channels depending on the nature of the workspace---being it private or actively shared. The results of this study clearly show a two-fold lack of awareness on collaborative work in Recogito if used in an shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
 
 _TODO:_ Open publication containing the students' work; exported into various formats. However, Recogito is yet missing an import functionality that is easily accessible.
 
