@@ -1,8 +1,8 @@
 # References {.unnumbered}
 
-{
-  \footnotesize
-  \printbibliography[heading=none]
-}
+
+\footnotesize
+\printbibliography[heading=none]
+\normalsize
 
 \newpage
