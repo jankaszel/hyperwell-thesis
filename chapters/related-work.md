@@ -39,7 +39,7 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pro
 
 Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
 
-Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
 
 [^hypothesis]: <https://hypothes.is/>
 [^dokieli]: <https://dokie.li/>

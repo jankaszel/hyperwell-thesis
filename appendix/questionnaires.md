@@ -1,5 +1,5 @@
 \appendix
 
-# Study Questionnaires {#app:questionnaires}
+# Study Questionnaires {#sec:questionnaires}
 
 Hi!
