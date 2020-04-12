@@ -64,18 +64,58 @@ The second questionnaire emphasized feedback on the participants' scholarly expe
 
 ### Digital Tracking {#sec:study:tracking}
 
-In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be less determining and the amount of participants has been relatively large, video recording was not suitable for this study. Instead, we opted for real-time aggregation of user events, i.e., particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. This workflow is depicted in @fig:recogito-workflow.
+In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be less determining and the amount of participants has been relatively large, video recording was not suitable for this study. Instead, we opted for real-time aggregation of user events, i.e., particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
 
-![Workflow for (collaborative) annotation in Recogito.](figures/recogito-workflow.pdf){#fig:recogito-workflow}
+![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization, creation, opening, editing, closing, and deleting.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
 
-* illustration which events where sent, describe which actions they should express in detail
+This workflow is depicted in @fig:recogito-workflow and consists of the following six events:
 
-For tracking these 
+* **Initialization:** An `init` event gets tracked when Recogito initializes, i.e., either when opening a resource in Recogito after selecting it from the browser or reloading the annotation environment of that resource.
+* **Create annotation:** A `create` event gets tracked when a user creates a _new_ annotation on the current resource.
+* **Open annotation:** An `open` event gets tracked when a user accesses an _existing_ annotation on the current resource, which will open an editing overlay for that annotation in Recogito. This event is getting tracked independently of who created the annotation.
+* **Edit annotation:** An `edit` event gets tracked when a user edits an existing annotation independently of its creator. Within the context of Recogito, editing entails either the original annotation, adding a subordinate annotation to this annotation, editing a subordinate annotation, or deleting a subordinate annotation.
+* **Close annotation:** A `close` event gets tracked when a user closes the editing overlay for an annotation.
+* **Delete annotation:** A `delete` event gets tracked when a user deletes a parent annotation (and thus, any subordinate annotation).
+
+For tracking these, we adapted parts of Recogito to our needs. As the UI of Recogito is written in JavaScript, we could easily identify the modules controlling Recogito's annotation editor and inject function calls to send the respective events to a backend server via HTTPS. _TODO:_ Explain tracking API architecture. Refer to @lst:tracking-event.
 
 * Telemetry/tracking setup (API, SDK, database)
 
-* Implementing tracking into Recogito
-* Evaluation of all tracking data via Jupyter Notebooks (with a Node.js backend)
+Listing: Example JSON-encoded excerpt of a tracking event after querying from the CouchDB database. In this event, `user1` opens an annotation created by `user2`.
+
+```{.js #lst:tracking-event}
+{
+  "_id": "000c6fd0-1530-11ea-8886-214517bdac3a",
+  "type": "open",
+  "userId": "user1",
+  "annotation": {
+    "annotation_id": "5c136455-c514-472a-8d33-4756e23b70e9",
+    "version_id": "6d693d8e-58a0-4c38-abe0-47a7523003c2",
+    "annotates": { ... },
+    "contributors": ["user2"],
+    "anchor": "tbox:x=2840,y=746,a=0.19528139809489925,l=93,h=-23",
+    "last_modified_by": "user2",
+    "last_modified_at": "2019-11-15T18:07:45+00:00",
+    "bodies": [
+      {
+        "type": "TRANSCRIPTION",
+        "last_modified_by": "user2",
+        "last_modified_at": "2019-11-15T18:07:45+00:00",
+        "value": "Bandritum"
+      }
+    ]
+  },
+  "timestamp": 1575310649165
+}
+```
+
+For evaluating the events, we wrote an interactive notebook using the Jupyter Notebook[^jupyter] environment with the Node.js-based IJavascript[^ijavascript] kernel for running JavaScript code inbetween text blocks [@kassel2020b]. After providing the notebook with a JSON-based dump of the CouchDB database used for storing events, it will guide users through preparation and processing of the data and ultimately present key insights into participants' workflows:
+
+_TODO:_ Enumerate the key insights (such as, number of `init` events, accessing others' annotations, etc.)
+
+[^jupyter]: <https://jupyter.org/>
+[^ijavascript]: <https://github.com/n-riesco/ijavascript>
+
 
 ## Setting and Testing Group {#sec:study:setting}
 

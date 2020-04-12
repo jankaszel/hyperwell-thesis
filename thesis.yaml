@@ -43,3 +43,6 @@ metadata:
   secPrefix:
   - "section"
   - "sections"
+  lstPrefix:
+  - "listing"
+  - "listings"
