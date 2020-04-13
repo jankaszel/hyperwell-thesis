@@ -148,7 +148,28 @@ _TODO:_ To be continued. I didn't yet calculate final results and formulate hypo
 
 While students verbally collaborated with each other within the group room, digital collaboration has just been measurable to a small extent: _TODO_. As it has been mentioned before, Recogito does not support real-time collaboration and will require a refresh of the website---similar to a restart of an application running natively---in order to display collaborators' recent changes. @dourish1992 note, that in order to realize environments for remote collaboration, colleagues' awareness has to be coordinated in real-time across the shared workspace.
 
+Overall, students created $X$ annotations during the first session (median: $X_1$ per student) and $Y$ annotations during the second session (median: $Y_1$ per student). 
+
 _TODO:_ Have graphs showing the results of the Likert scale experience-related questions---either boxplot charts, or stacked diverging bar charts.
+
+First questionnaire:
+
+* How motivated (stagnated/enthusiastic)
+* Intellectual privacy (intruded/overprotected)
+* Interactivity (static/energetic)
+* Communicative (isolated/talkative)
+
+Second questionnaire:
+
+* Georeferencing has been beneficial (worthless/greatly helpful)
+* Recogito: Comprehensible (complicated/intuitive)
+* Recogito: Innovative (conservative/revolutionary)
+* Recogito: Attractive (repulsive/pretty)
+* Recogito: Pragmatic (inhibitive/self-propelling)
+* Recogito: Cluttered (minimalist/overcharged)
+* Recogito: Creative (fanciless/stimulating)
+
+![Results of the second questionnaire](figures/charts/survey-2.pdf)
 
 Annotating resources is a semi-synchronous task, one might argue, due to the fact that it requires focused, solitary insights into a particular resource. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate usage of communication channels depending on the nature of the workspace---being it private or actively shared. The results of this study clearly show a two-fold lack of awareness on collaborative work in Recogito if used in an shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
 
