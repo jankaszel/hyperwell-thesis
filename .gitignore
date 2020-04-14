@@ -341,3 +341,6 @@ TSWLatexianTemp*
 
 # biber --tool -V
 *_bibertool.bib
+
+# raw results
+results/

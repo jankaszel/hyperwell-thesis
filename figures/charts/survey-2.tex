@@ -2,28 +2,12 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{pgfplots}
-\usepackage{filecontents}
 \usepackage{grffile}
 \usepackage{amsmath}
 
 \pgfplotsset{compat=newest}
 \usetikzlibrary{plotmarks}
 \usepgfplotslibrary{patchplots}
-
-\begin{filecontents}{testdata.dat}
-0 10 12 4 15 2
-1 20 23 15 27 10
-2 7 14 5 19 1
-\end{filecontents}
-
-\begin{filecontents}{testdata2.dat}
-x whiskerbottom boxbottom median boxtop whiskertop 
-1 42            45        47     47.5     48 
-2 36            39        40     41     43 
-3 41            44        45     46     47 
-4 20            29        31     36     38 
-5 31            32        34     36     39 
-\end{filecontents}
 
 \pgfplotsset{
     box plot/.style={
@@ -103,15 +87,7 @@ x whiskerbottom boxbottom median boxtop whiskertop
 \begin{document}
 \begin{tikzpicture}
 \begin{axis} [box plot width=2mm]
-\boxplot [forget plot, red] {testdata.dat}
-\boxplot [
-    forget plot,
-    box plot whisker bottom index=1,
-    box plot whisker top index=5,
-    box plot box bottom index=2,
-    box plot box top index=4,
-    box plot median index=3
-] {testdata2.dat}
+\boxplot [forget plot, red] {survey-2.txt}
 \addplot [domain=-2:6, thick, cyan] {-x+25+rnd}; \addlegendentry{Some line}
 \end{axis}
 \end{tikzpicture}
