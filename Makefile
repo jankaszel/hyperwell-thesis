@@ -14,7 +14,7 @@ pdf: thesis.tex references.bib
 	latexmk -pdf -xelatex thesis.tex
 
 thesis.tex: thesis.yaml $(CHAPTERS) $(FIGURES) $(CHARTS)
-	pandoc $< -o $@ $(TEXFLAGS) 2>pandoc.log 
+	pandoc -o $@ $(TEXFLAGS) 2>pandoc.log 
 
 figures/charts/%.pdf: figures/charts/%.tex
 	latexmk -pdf -outdir=figures/charts/ $<
