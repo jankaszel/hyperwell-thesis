@@ -12,6 +12,8 @@ Digital collaboration and hypertext [@klokmose2015]. Collaboration in academia [
 
 Technological aspects of collaboration in hypertext---that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
 
+Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
+
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
 Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
@@ -100,11 +102,10 @@ _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 Classic HTTP client-server architecture.
 
-In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, 
+In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors ...
 
 The technologies used by this approach leverage contemporary P2P approaches.
 
 Emphasize benefits of data ownership, self-hosting, whatever, with personal data and/or research data.
 
-Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 

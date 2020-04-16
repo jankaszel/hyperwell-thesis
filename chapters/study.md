@@ -31,6 +31,10 @@ Aspects we wanted to learn about:
 * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
   * How did they experience the collaborativ environment in regard to their own thoughts?
 
+_TODO:_ Qualitative and quantitative feedback, implicit as well as explicit---meaning the qualitative feedback from surveys, as well as the technical analytics.
+
+_TODO:_ Emphasize the trade-off of controlling the session versus generating creative input (and simulating the class environment).
+
 _TODO:_ It became a collaborative venture between Chiara and me, and resulted in an open publication as well as a blog post on the Pelagios blog, with an emphasis on using Recogito in the classroom.
 
 In the following, I present the study in its entirety. First, in @sec:study:framework, I will introduce the fundamental study framework that consistent of two distinct sessions, during which participants were asked to collaborate within Recogito. During each sessions, participants actions have been tracked digitally and stored in a database. This allowed us to reconstruct each participants' workflow afterwards. The actual setting of the study with brief summaries of both sessions is outlined in @sec:study:setting. Finally, I present the results in @sec:study:results.
@@ -66,7 +70,7 @@ The second questionnaire emphasized feedback on the participants' scholarly expe
 
 In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be less determining and the amount of participants has been relatively large, video recording was not suitable for this study. Instead, we opted for real-time aggregation of user events, i.e., particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
 
-![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization, creation, opening, editing, closing, and deleting.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
+![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization (1), creation (2), opening (3), editing (4), closing (5), and deleting (6). While opening or creating  will open the annotation editor overlay window, editing, closing, or deleting will close this window.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
 
 This workflow is depicted in @fig:recogito-workflow and consists of the following six events:
 
@@ -170,6 +174,8 @@ Second questionnaire:
 * Recogito: Creative (fanciless/stimulating)
 
 ![Results of the second questionnaire](figures/charts/survey-2.pdf)
+
+_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison.
 
 Annotating resources is a semi-synchronous task, one might argue, due to the fact that it requires focused, solitary insights into a particular resource. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate usage of communication channels depending on the nature of the workspace---being it private or actively shared. The results of this study clearly show a two-fold lack of awareness on collaborative work in Recogito if used in an shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
 
