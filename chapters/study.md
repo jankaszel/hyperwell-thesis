@@ -29,9 +29,9 @@ Aspects we wanted to learn about:
 * Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work?
 * Learning curve
 * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
-  * How did they experience the collaborativ environment in regard to their own thoughts?
+  * How did they experience the collaborative environment in regard to their own thoughts?
 
-_TODO:_ Qualitative and quantitative feedback, implicit as well as explicit---meaning the qualitative feedback from surveys, as well as the technical analytics.
+In order to learn about these experiences and achieve further insights into the more complex aspects of collaboration, we have imposed qualitative as well as quantitative feedback, implicitly as well as explicitly. First, in order to learn the qualitative aspects of collaboration, feedback questionnaires have been handed out to participants ... _TODO_. We describe these questionnaires in @sec:study:framework. Implicit insights were achieved by tracking participants' workflows digitally during study sessions. The technology behind this approach is outlined in @sec:study:tracking.
 
 _TODO:_ Emphasize the trade-off of controlling the session versus generating creative input (and simulating the class environment).
 
@@ -68,11 +68,11 @@ The second questionnaire emphasized feedback on the participants' scholarly expe
 
 ### Digital Tracking {#sec:study:tracking}
 
-In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be less determining and the amount of participants has been relatively large, video recording was not suitable for this study. Instead, we opted for real-time aggregation of user events, i.e., particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
+In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 have utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be not limiting participants' creativity and the expected sample size has been relatively large---it would be hard to make out an individuals' actions in a group of ten people or more---, video recording was not suitable for this study. Instead, we opted for real-time aggregation of particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
 
-![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization (1), creation (2), opening (3), editing (4), closing (5), and deleting (6). While opening or creating  will open the annotation editor overlay window, editing, closing, or deleting will close this window.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
+![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization (1), creation (2), opening (3), editing (4), closing (5), and deleting (6). While opening or creating  will open the annotation editor overlay window, editing, closing, or deleting will close this window and reveal the underlying resource.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
 
-This workflow is depicted in @fig:recogito-workflow and consists of the following six events:
+This workflow is visualized in @fig:recogito-workflow and consists of the following six events:
 
 * **Initialization:** An `init` event gets tracked when Recogito initializes, i.e., either when opening a resource in Recogito after selecting it from the browser or reloading the annotation environment of that resource.
 * **Create annotation:** A `create` event gets tracked when a user creates a _new_ annotation on the current resource.
@@ -81,9 +81,7 @@ This workflow is depicted in @fig:recogito-workflow and consists of the followin
 * **Close annotation:** A `close` event gets tracked when a user closes the editing overlay for an annotation.
 * **Delete annotation:** A `delete` event gets tracked when a user deletes a parent annotation (and thus, any subordinate annotation).
 
-For tracking these, we adapted parts of Recogito to our needs. As the UI of Recogito is written in JavaScript, we could easily identify the modules controlling Recogito's annotation editor and inject function calls to send the respective events to a backend server via HTTPS. _TODO:_ Explain tracking API architecture. Refer to @lst:tracking-event.
-
-* Telemetry/tracking setup (API, SDK, database)
+For tracking these, we adapted parts of Recogito to our needs. As the UI of Recogito is written in JavaScript, we could easily identify the modules controlling Recogito's annotation editor and inject function calls to send the respective events to a backend server via HTTPS. Such an event---depicted in @lst:tracking-event---would include the event type, the acting user's ID, a timestamp, and the respective annotation to which the the event is related. On the server, a HTTP server written in JavaScript, too, and running on the Node.js runtime, would receive the events and insert them as JSON-encoded entry into a CouchDB[^couchdb] NoSQL database. In that database, all events would remain for later evaluation.
 
 Listing: Example JSON-encoded excerpt of a tracking event after querying from the CouchDB database. In this event, `user1` opens an annotation created by `user2`.
 
@@ -113,12 +111,13 @@ Listing: Example JSON-encoded excerpt of a tracking event after querying from th
 }
 ```
 
-For evaluating the events, we wrote an interactive notebook using the Jupyter Notebook[^jupyter] environment with the Node.js-based IJavascript[^ijavascript] kernel for running JavaScript code inbetween text blocks [@kassel2020b]. After providing the notebook with a JSON-based dump of the CouchDB database used for storing events, it will guide users through preparation and processing of the data and ultimately present key insights into participants' workflows:
+For evaluating the events, we utilized two contemporary approaches for interactive notebooks. The Jupyter[^jupyter] notebook environment with a Node.js-based kernel[^ijavascript]for exploring the vast amount of events recorded during both study sessions [@kassel2020b]. After providing the notebook with a JSON-encoded dump of the CouchDB database used for storing events, it will guide users through preparation and processing of the data and ultimately present key insights into participants' workflows, as detailed in the results section below. With browser-based notebooks on Observable[^observable], we then generated visual insights into survey feedback we received from participants by exporting the Google Forms survey feedback to CSV-based data and processing it with D3[^d3].
 
-_TODO:_ Enumerate the key insights (such as, number of `init` events, accessing others' annotations, etc.)
-
+[^couchdb]: <https://couchdb.apache.org/>
 [^jupyter]: <https://jupyter.org/>
-[^ijavascript]: <https://github.com/n-riesco/ijavascript>
+[^ijavascript]: The Jupyter notebook environment supports various kernels for programming languages other than Python. `IJavaScript` is a kernel for running JavaScript snippets via the Node.js runtime: <https://github.com/n-riesco/ijavascript>
+[^observable]: <https://observablehq.com/>
+[^d3]: D3 is a JavaScript library for manipulating web documents based on data: <https://d3js.org/>. With interactive notebooks on Observable, pre-processed data can be visualized easily using D3.
 
 
 ## Setting and Testing Group {#sec:study:setting}
@@ -175,7 +174,7 @@ Second questionnaire:
 
 ![Results of the second questionnaire](figures/charts/survey-2.pdf)
 
-_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison.
+_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992.
 
 Annotating resources is a semi-synchronous task, one might argue, due to the fact that it requires focused, solitary insights into a particular resource. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate usage of communication channels depending on the nature of the workspace---being it private or actively shared. The results of this study clearly show a two-fold lack of awareness on collaborative work in Recogito if used in an shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
 
