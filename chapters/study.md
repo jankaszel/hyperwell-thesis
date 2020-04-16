@@ -117,7 +117,7 @@ For evaluating the events, we utilized two contemporary approaches for interacti
 [^d3]: D3 is a JavaScript library for manipulating web documents based on data: <https://d3js.org/>. With interactive notebooks on Observable, pre-processed data can be visualized easily using D3.
 
 
-## Setting and Testing Group {#sec:study:setting}
+## Setting and Observations {#sec:study:setting}
 
 Through her teaching at Furman University, Chiara Palladino recruited a group of students who were interested in participating in the study. They have been offered extra credits on their coursework when participating in both sessions and providing the required feedback. A group of size $n = 11$ students with various backgrounds among classics, politics, and social science, signed up for the study. The students had diverse experience with annotation: While all of them were undergraduate students at Furman University, almost all of them frequently annotate resources by hand. When asked about their use of real-time collaboration software, such as Google Docs, a majority stated a frequent use of such software, but with a varying degree of collaboration. Annotating documents digitally has been less common, as just $54.5%$ of the students stated that they use digital annotation at least infrequently. None of them had any prior experience with Recogito itself.
 
