@@ -18,9 +18,7 @@ Instead of developing a novel annotation environment---which would have extended
 * **Annotation capabilities:** Recogito provides an environment for annotating textual resources, including classic Greek or Latin texts, and annotating images. Furthermore, users can import canonical resources from CTS repositories and IIIF manifests. With a focus on georeferencing, Recogito emphasizes the usage of Linked Data references for annotations.
 * **Popularity:** Usage of Recogito is widespread among some Digital Humanities communities. Over the course of this thesis, the number of signed-up users went up to 5.000. Picking a renowned tool for the user testing has had a high priority, as finding collaborating scholars with proficiency in using that tool was easier. 
 
-After a round of initial inquiries, Chiara Palladino, Assistant Professor of Classics at Furman University, USA, has been excited to draw a joint project in 
-
-* Chiara Palladino from Furman University is a member of the Pelagios Commons and is involved in the development and planning of Recogito.
+After reaching out to scholars with a background on Digital Humanities and digital annotation, Chiara Palladino, Assistant Professor of Classics at Furman University, USA, announced interest on launching a joint project on this matter. Chiara Palladino teaches Classics with a focus on Digital Humanities and, as a member of the Pelagios Commons, previously conducted research on the use of Linked Open Data (LOD) tools in the classroom[^chiara-lod-post]. She motivated a group of undergraduate students at Furman University to participate in the study and managed both study sessions overseas. While I designed this study as part of this thesis, we have curated a joint open publication including the students' annotations and notes on the overall feedback (_TODO:_ add reference). This publication has been accompanied by an article on the Pelagios blog (_TODO:_ add reference).
 
 * Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display fresh work of collaborators. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration. @schwartz1998 describe such a system more precisely in their patent.
 
@@ -35,13 +33,12 @@ In order to learn about these experiences and achieve further insights into the 
 
 _TODO:_ Emphasize the trade-off of controlling the session versus generating creative input (and simulating the class environment).
 
-_TODO:_ It became a collaborative venture between Chiara and me, and resulted in an open publication as well as a blog post on the Pelagios blog, with an emphasis on using Recogito in the classroom.
-
 In the following, I present the study in its entirety. First, in @sec:study:framework, I will introduce the fundamental study framework that consistent of two distinct sessions, during which participants were asked to collaborate within Recogito. During each sessions, participants actions have been tracked digitally and stored in a database. This allowed us to reconstruct each participants' workflow afterwards. The actual setting of the study with brief summaries of both sessions is outlined in @sec:study:setting. Finally, I present the results in @sec:study:results.
 
 [^recogito-repo]: <https://github.com/pelagios/recogito2>
 [^docker]: <https://www.docker.com/>
 [^recogito-pelagios]: <https://recogito.pelagios.org/>
+[^chiara-lod-post]: In a course on Classical Archeology, Chiara Palladino conducted an experimental project to learn about the use of Linked Open Data (LOD) collections and an LOD search engine while researching historical Graeco-Roman sites: <https://medium.com/pelagios/linked-open-data-to-navigate-the-past-using-peripleo-in-class-4286b3089bf3>
 
 ## Study Framework {#sec:study:framework}
 
@@ -122,9 +119,19 @@ For evaluating the events, we utilized two contemporary approaches for interacti
 
 ## Setting and Testing Group {#sec:study:setting}
 
-* No participant used Recogito prior to this study
-* Only a fraction of the participants had frequent experience with digital annotation
-* IDs, accounts, and sign-ups caused confusion among students, and did cost us some time during the first session.
+Through her teaching at Furman University, Chiara Palladino recruited a group of students who were interested in participating in the study. They have been offered extra credits on their coursework when participating in both sessions and providing the required feedback. A group of size $n = 11$ students with various backgrounds among classics, politics, and social science, signed up for the study. The students had diverse experience with annotation: While all of them were undergraduate students at Furman University, almost all of them frequently annotate resources by hand. When asked about their use of real-time collaboration software, such as Google Docs, a majority stated a frequent use of such software, but with a varying degree of collaboration. Annotating documents digitally has been less common, as just $54.5%$ of the students stated that they use digital annotation at least infrequently. None of them had any prior experience with Recogito itself.
+
+During both sessions, the students worked all together in the Common Room of the classics department at Furman University, which is accommodated with a large screen and a table with multiple chairs.
+
+In the first session, the students have been introduced to the study subject of collaborative annotation with Recogito and have been set up with their accounts and the respective sources to annotate. In the following 45 minutes of 
+
+They received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito. In the first session, they were instructed to look for named entities in their sources, transcribe or translate them with appropriate tags, and they georeferenced their findings in the second session.
+
+They were supervised by Chiara Palladino and monitored by Jan Kaßel on video, but the work assignment was intentionally very loose, to allow them a “face-to-face” approach to the concrete issues of annotating primary sources.
+
+To stimulate comradery, and also as a partial reward for the effort, we provided an abundant dose of pizza for everyone. During the whole time of the experiment, they lively engaged in discussions and helped each other as well, occasionally providing feedback on the spot and asking “big picture” questions about the sources. 
+
+
 
 monitored by Chiara Palladino, who has been present in the room, and me, who joined remotely from Leipzig via video
 
@@ -135,13 +142,9 @@ Additionally, participants had to sign up for an account on a private website ru
 
   * and were each asked to sign up for an account with a
   * install a recent version of either the Mozilla Firefox or Google Chrome web browsers, as Recogito and our tracking functionality rely on modern versions of the JavaScript programming language.
-
-The students worked all together in the Common Room of the classics department, which is accommodated with a large screen and a table with multiple chairs. They received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito. In the first session, they were instructed to look for named entities in their sources, transcribe or translate them with appropriate tags, and they georeferenced their findings in the second session. They were supervised by Chiara Palladino and monitored by Jan Kassel on video, but the work assignment was intentionally very loose, to allow them a “face-to-face” approach to the concrete issues of annotating primary sources. To stimulate comradery, and also as a partial reward for the effort, we provided an abundant dose of pizza for everyone. During the whole time of the experiment, they lively engaged in discussions and helped each other as well, occasionally providing feedback on the spot and asking “big picture” questions about the sources. 
-
 * Liberal setting during class (although it has not been _regular_ class for students)
 * Testing group has been a group of X students; mostly freshmen and -women at Furman University. While a majority of them had stated an experience with digital annotation and collaboration (e.g., Google Docs)
 * Students have been compensated with extra credits when "successfully" participating---that means, being present on all sessions.
-* Students have been sitting on a single large desk at some room of the Furman University Classics department.
 * I have been present via video; more specificially, my video stream was being played back on a big screen directly in front of that table.
 * Students have been talking during both sessions; even more, they were encouraged to collaborate physically (by talking---not using others' computers) and creating annotations, exploring the user interface
 
