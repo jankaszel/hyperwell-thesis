@@ -79,7 +79,7 @@ I have utilized  user interface design and software development for building pro
 : Standalone user interface module that provides a frontend for the discovery protocol of the first iteration, outlined in @sec:thick:discovery.
 
 `recogito-user-testing` (DOI: 10.xxx/foobar)
-: Suite of analytics and evaluation tools for digital recordings of users' actions during the collaborative annotation user testing study. The use of these analytics are being discussed in more depth in @sec:study:design.
+: Suite of analytics and evaluation tools for digital recordings of users' actions during the collaborative annotation user testing study. The use of these analytics are being discussed in more depth in @sec:study:tracking.
 
 `recogito2-p2p` {#sec:structure}
 : Modified version of the Recogito annotation environment.
