@@ -18,7 +18,15 @@ Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 
 Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
 
-How are resources treated in the Digital Humanities? Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS).
+How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
+
+Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
+
+Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
+
+_TODO:_ Have a screenshot of Recogito.
+
+Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
 
 Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
 
@@ -38,12 +46,6 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pro
   "target": "http://example.org/photo1"
 }
 ```
-
-Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
-
-_TODO:_ Have a screenshot of Recogito.
-
-Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
 
 [^hypothesis]: <https://hypothes.is/>
 [^dokieli]: <https://dokie.li/>
@@ -74,13 +76,11 @@ P2P systems are often associated with distributed networking and distributed dat
 
 Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
 
-> A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time. [@kreps2013]
+> A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time.
+> 
+> — @kreps2013
 
-_TODO:_ Append-only logs [@kreps2013].
-
-Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website].
-
-\citeauthor{kleppmann2017} applied the methodologies of CRDTs to JSON data structures. ... . With web technologies becoming increasingly popular among web and application developers alike, being able to use CRDT capabilities on JSON data facilitates better real-time synchronization. With local-first applications, \citeauthor{kleppmann2019} provide a curation of features that can be leveraged to realize state-of-the-art, offline-capable applications. I will discuss these kinds of applications in @sec:related:local-first.
+‘The Log’—or more precisely, the append-only log—is a list-based data structure that exclusively allows the addition of entries but no other mutations [@kreps2013]. Popularized by stream processing frameworks like Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well replication in databases cluster, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. A fundamental property of append-only logs is their distribution: Entries of a log reference to each other via their content-addressing hashes, and thus, if an actor of a distributed systems mutates a prior entry, all following hashes will change and the log will break. _TODO:_ Elaborate more?
 
 _TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
 
@@ -93,19 +93,25 @@ _TODO:_ Such federated systems strike the balance, as individuals can extend the
 _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>
-[^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
 [^diaspora]: <https://diasporafoundation.org/>
 [^mastodon]: <https://joinmastodon.org/>
 [^fediverse-network]: The [fediverse.network](https://fediverse.network/) website provides various usage and network statistics on such as Mastodon, PeerTube, and WordPress: <https://fediverse.network/mastodon>. The statistics mentioned on Mastodon were current as of April 8, 2020.
+
+[^apache-kafka]: <https://kafka.apache.org/>
+[^apache-samza]: <https://samza.apache.org/>
 
 ## Local-First Applications {#sec:related:local-first}
 
 Classic HTTP client-server architecture.
 
-In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors ...
+In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors propose a set of requirements for a type of application that overcomes common issues of contemporary collaboration software: As businesses increasingly rely on cloud-backend infrastructure for their applications, … . 
 
-The technologies used by this approach leverage contemporary P2P approaches.
+Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website].
 
-Emphasize benefits of data ownership, self-hosting, whatever, with personal data and/or research data.
+\citeauthor{kleppmann2017} applied the methodologies of CRDTs to JSON data structures. ... . With web technologies becoming increasingly popular among web and application developers alike, being able to use CRDT capabilities on JSON data facilitates better real-time synchronization.
 
+_TODO:_ The technologies used by this approach leverage contemporary P2P primitives. I have visited some of them before in this chapter (@sec:related:p2p)—most fundamentally, a distributed system for sharing of data can be reduced to the issues of discovery, 
 
+Emphasize prospects of data ownership, self-hosting, whatever, with personal data and/or research data.
+
+[^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
