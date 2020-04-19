@@ -28,6 +28,8 @@ Web applications leverage technologies planned, audited, and released by the Wor
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
 
+_TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
+
 ## First Version: Resource Exhaustion and Thick Peers {#sec:thick}
 
 For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:

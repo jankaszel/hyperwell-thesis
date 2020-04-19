@@ -33,6 +33,7 @@ Identification within distributed networks via the Decentralized Identifiers sta
 
 Some take-aways from both architectures:
 
+* Cloud computing and Content Delivery Networks (CDNs) have made data constantly available, commonly driven by economic interests (such as, increasing profit on scale by reducing load times). This shifted a majority of computation on the web over to cloud providers such as AWS or GCP. While that can still benefit a legal entity, a corporation, or an institution, users accessing a website will still expect similar data availability—regarding response times as well as consistent availability—as for cloud-hosted content. Missing this caused a severe bottleneck during the first version of the implementation.
 * The requirement for a centralized instance in order to bridge data from decentralized systems into the web cannot be rectified: Today’s web browsers can just connect to IP addresses and not join swarms, like with DHTs.
 * Federated systems: provide an alternative; yet, in federated systems such as Mastodon (refer to @sec:related?), instances don’t necessarily mirror each others’ data, but refer to it and build a cohesive network altogether.
 	* Mirrors: Kind of a federated systems where mirrors provide an dispensable infrastructure; they merely provide a mirror of the data, but can be taken offline. Also, detail in @sec:related.
