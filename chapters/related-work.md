@@ -84,7 +84,7 @@ Certain primitives known from highly efficient enterprise systems are applied to
 
 _TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
 
-_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]). Build bridge over to supporting infrastructure for distributed networks.
+_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]). Build bridge over to supporting infrastructure for distributed networks. Secure Scuttlebutt [@tarr2019].
 
 Federated systems pose an interesting trade-off between decentralization and full distribution by designing the system as distributed among several instances, yet still composing one singular social network. @esguerra2011 surveys such federated social networks, as issues around privacy and censorship of large-scale social networks such as Facebook and Twitter arose: "Federated social networks [...] are a vital step towards fulfilling values often lacking in the existing social networking ecosystem: user-control, diversity of services, innovation, and more." While the federated social network Diaspora[^diaspora] originally gained some traction, Mastodon[^mastodon] become increasingly popular over the recent years, with about 3.9 Million users across about 2.600 instances as of right now[^fediverse-network]. By implementing the ActivityPub protocol [@activitypub], 
 
