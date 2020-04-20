@@ -22,6 +22,7 @@ Then, run `make` with various commands:
 * `make clean`: Clean all LaTeX output files.
 * `make test`: Check bibliography consistency and validate all (HTTP) hyperlinks from the output PDF.
 * `make stats`: Run a wordcount (`wc -w`) on the Markdown input files.
+* `make diff`: Calculate a wordcount diff for all uncommitted changes.
 
 ## Legacy Instructions
 

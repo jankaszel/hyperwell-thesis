@@ -22,7 +22,10 @@ clean:
 test:
 	biber --tool -V references.bib && pdfx thesis.pdf -c
 
+diff:
+	(cd bin && ./stats.sh)
+
 stats:
-	(cd ./bin; ./stats.sh)
+	wc -w chapters/*.md
 
 .PHONY: pdf clean test stats
