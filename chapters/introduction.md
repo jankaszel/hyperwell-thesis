@@ -91,7 +91,11 @@ I have utilized  user interface design and software development for building pro
 
 ## Thesis Structure {#sec:structure}
 
-The subsequent @sec:related contains a discussion of related work: research on digital annotation, decentralized applications, and Digital Humanities infrastructure. @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. Focusing on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this work with Hyperwell, an architecture for decentralized, collaborative annotation. Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline future work.
+The subsequent @sec:related contains a discussion of related work and discusses research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Covering scholarly research, I will there not go into detail with all (fundamental) technology used in this thesis and rather clarify technological decisions in the footnotes during later parts of this thesis.
+
+@Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. With a focus on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this this with two iterations of an architecture for decentralized, collaborative annotation called Hyperwell.
+
+Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline possible future work.
 
 [^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following if not noted otherwise.
 

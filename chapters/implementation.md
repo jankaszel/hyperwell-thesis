@@ -171,7 +171,7 @@ _TODO:_ Define terms: Notebook, institution, governance---refer to discussion fr
 
 The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
-![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:architecture short-caption="Architecture of Hyperwell using gateways"}
+![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:hyperwell-architecture short-caption="Architecture of Hyperwell using gateways"}
 
 ### Gateway Server {#sec:hyperwell:gateway}
 
@@ -181,13 +181,15 @@ _TODO:_ Implementation of a Service for Archival and Institutional Exposition. M
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
 * TTL-based local caching of repositories
 
+![Architecture of the gateway server.](figures/gateway-architecture.pdf){#fig:gateway-architecture short-caption="Architecture of the gateway server."}
+
 ### Notebook Application {#sec:hyperwell:notebook}
 
 _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 
 * Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
-* Searching notebooks: As all data is available, it's searchable. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
+* Searching notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
 ![UI of the Notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the Notebook applications.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Notebook application when inspecting a topic-related notebook"}
 
@@ -201,7 +203,7 @@ _TODO:_ Technical architecture:
 
 ### Annotation Environment
 
-_TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will allow for loading CTS-provided texts and annotating them, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
+_TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will display an example text and use the RecogitoJS library for annotating the plain text, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
 
 ## Support in Client Applications
 

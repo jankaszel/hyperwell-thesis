@@ -44,9 +44,7 @@ Some take-aways from both architectures:
 
 ## Implementation {#sec:discussion:implementation}
 
-
-
-The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways. Web Cryptography API.
+The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways, while privacy and security still are at large for local-first applications [@hardenberg2020]. Web Cryptography API could be a solution, but this doesn’t solve the architectural issue that we have with Hyperwell: Will encryption be terminated? If not—maintaining end-to-end encryption—, this will require us to find a solution that adheres both to Linked Data principles as well as ensure end-to-end encryption. Most ideally for security, encryption would not be terminated within the gateway (i.e., not within the architecture depicted in fig:gateway-architecture).
 
 Missing performance measuring. Gateways will have many open UDP connections and can just serve a particular amount of peers to the web.
 

@@ -1,6 +1,6 @@
 # Abbreviations {.unnumbered}
 
-DHT, LAN, CRDT, P2P, DAO, CTS, IIIF, W3C, WebRTC, DNS, HTTP, JSON, UUID, SDK, API, DH, LD (Linked Data), RDM (Research Data Management), IPC (Inter-Process Communication).
+DHT, LAN, CRDT, P2P, DAO, CTS, IIIF, W3C, WebRTC, DNS, HTTP, JSON, UUID, SDK, API, DH, LD (Linked Data), LOD (Linked Open Data), RDM (Research Data Management), IPC (Inter-Process Communication), CDN (Content Delivery Network)
 
 \begin{tabbing}
 \textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\  

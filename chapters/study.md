@@ -24,10 +24,12 @@ After reaching out to scholars with a background on Digital Humanities and digit
 
 Aspects we wanted to learn about:
 
-* Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work?
-* Learning curve
+* Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work? Acquire these insights quantitatively and implicitly.
+	* Record actions
+	* Count annotations 
 * Explore their personal experiences with the sessions; how did they perceive the collaboration in an online & offline way
-  * How did they experience the collaborative environment in regard to their own thoughts?
+	* Qualitatively: Receive individual feedback on this
+	* Quantitatively: Use HCI research based questions (UEQ and Likert scales) to quantify their experience—focused on Recogito itself (or, more specific, impressions of Recogito related to collaboration) as well as the collaborative experience
 
 In order to learn about these experiences and achieve further insights into the more complex aspects of collaboration, we have imposed qualitative as well as quantitative feedback, implicitly as well as explicitly. First, in order to learn the qualitative aspects of collaboration, feedback questionnaires have been handed out to participants ... _TODO_. We describe these questionnaires in @sec:study:framework. Implicit insights were achieved by tracking participants' workflows digitally during study sessions. The technology behind this approach is outlined in @sec:study:tracking.
 

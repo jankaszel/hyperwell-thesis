@@ -26,7 +26,7 @@ Digital Humanities---being an inherently digital discipline---concerns various i
 
 _TODO:_ Have a screenshot of Recogito.
 
-Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit, to emphasize the distinction between institutional and personal research data.
+Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
 
 Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
 
