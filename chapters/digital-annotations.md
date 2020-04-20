@@ -8,6 +8,12 @@ Hypothes.is. Browser Storage APIs.
 
 Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
 
+## Prospects of Linked Data
+
+_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
+
+[^web-id]: <https://www.w3.org/2005/Incubator/webid/spec/>
+
 ## Distributed Systems and Data Ownership
 
 > Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.” [@kleppmann2019]
@@ -18,11 +24,4 @@ Annotations are of a personal, and even a social nature---commonly, annotations 
 
 _TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
 
-_TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_ data.
-
-## Prospects of Linked Data
-
-_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
-
-[^web-id]: <https://www.w3.org/2005/Incubator/webid/spec/>
-
+_TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_ data. Thus, impose the notions of _notebooks_ (personal collections of annotations) and _institutional services_ (such as archiving, mirroring, and gateways).

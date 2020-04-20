@@ -53,6 +53,8 @@ _TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and 
 
 _TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
 
+* Introduce the terms of repositories (collections of notebooks) and documents (notebooks), and distinguish them from a single annotation.
+
 Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
 
 _TODO:_ Extending the Recogito UI has been possible, but required a lot of effort because of complicated tooling around the Scala-based backend. Hence, all extensions, such as the resource discovery mechanism detailed in @sec:thick:discovery, were designed as standalone modules and bundled appropriately.
@@ -167,21 +169,41 @@ Discuss this more detailed in @sec:discussion.
 
 ## Second Version: Institutional Governance with Hyperwell {#sec:hyperwell}
 
-_TODO:_ Define terms: Notebook, institution, governance---refer to discussion from @sec:annotation.
+The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects on independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially putting a strain onto a minority of peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_ has to be externalized in terms of infrastructure and governance. Such gateways can translate between both networks, and be scaled separately. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
-The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects around independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially exhausting peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_---a gateway, basically---has to be externalized in terms of infrastructure and governance. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
+![Architecture of Hyperwell: Peers exchange their notebooks in real-time (1). Gateways, run by institutions, archive selected notebooks and bridge them into the web (2). Web applications can access annotations via gateways, as they implement the Web Annotation protocol (3). These applications can load canonical resources via services such as CTS or IIIF (4) [@kassel2020a].](figures/architecture.pdf){#fig:hyperwell-architecture short-caption="Architecture of Hyperwell using gateways"}
 
-![Architecture of Hyperwell: Peers on the left side exchange data directly via a P2P network. The center gateway then translates requests between Web applications and the P2P system, allowing for end-to-end referenced resources in annotation environments that support annotating canonical resources such as CTS texts or IIIF galleries.](figures/architecture.pdf){#fig:hyperwell-architecture short-caption="Architecture of Hyperwell using gateways"}
+Progressing from the first approach outlined in @sec:thick, separating the component that translates between the P2P system and the web resulted in a second iteration of the architecture, which is illustrated in @fig:hyperwell-architecture: With this approach, a dedicated middle layer receives connections from both sides, acting as a peer in the decentralized network and as a HTTP server on the web.
 
 ### Gateway Server {#sec:hyperwell:gateway}
 
-_TODO:_ Implementation of a Service for Archival and Institutional Exposition. Main features:
+The gateway server implementation represents the separation of that translating component as well as the manifestation of an institutional entity in a P2P system.
 
 * Fully Web Annotation data model and protocol compliant
 * Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
 * TTL-based local caching of repositories
 
-![Architecture of the gateway server.](figures/gateway-architecture.pdf){#fig:gateway-architecture short-caption="Architecture of the gateway server."}
+ Primarily, the gateway provides the following functionalities for peers:
+
+* **Long-term archival**: Gateways support peers
+* **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade resources.
+* **Professional attribution**: In the web, domains issued via DNS can impose _TODO (attribution?)_. Especially in academia, professional attribution via domains such as `xyz.edu` can _TODO (provide a name?)_.
+
+![Architecture of the Hyperwell gateway server. While real-time replication of repositories happens via the Hyperswarm network (1), changes are also persisted to disk (2). Hypermerge (3) then applies uses the Automerge CRDT to merge different versions of a repository. The gateway caches recently accessed repositories (4) and performs a diff (5) if sequential updates are requested. Annotation IDs are then translated into LOD URIs (6) and served via HTTP (7) or WebSocket (8) connections.](figures/gateway-architecture.pdf){#fig:gateway-architecture short-caption="Architecture of the Hyperwell gateway server"}
+
+@Fig:gateway-architecture elaborates components of this implementation. While some components could be adapted from the thick peer approach, such as _TODO ?_, introducing an institution as a neutral entity to the architecture caused some other components to appear. I will detail these components in the following while referring to each component of @fig:gateway-architecture by its number.
+
+Similar to the thick peer prototype, documents are exchanged via the Hyperswarm network over TCP or UTP connections … .
+
+Bridging into the web, the gateway serves HTTP requests as well as WebSocket connections. It uses the hapi[^hapi] web framework for handling both connection types. The HTTP interface implements the Web Annotation Protocol [@web-anno-protocol] by employing a particular URL scheme: `https://www.example.com/annotations/<container>/<annotation>`. The container, as defined by the Web Annotation Protocol specification[^ldp-containers], corresponds with a hexadecimal encoding of the document URL issued by hypermerge. The hexadecimal encoding should ensure an easy approach safety of URLs with an arbitrary content while being reversible—as opposed to hashing functions. _TODO (provide an example HTTP request)_
+
+Other than with the thick peer approach, gateways don’t have all corresponding users’ notebooks available locally. This might be possible for small institutions, but depending on the amount of users, hypermerge repositories can grow in size quickly as they maintain their complete history. However, removing repositories from a gateway promptly after replicating it from the swarm—for example, to add an annotation—To ensure scalability of gateways, they 
+
+By its design, the hypermerge library allows to listen for updates on a particular document via `repo.watch(url, (doc) => {…})`. However, this event handler will receive the complete document state instead of just the changes. In the context of subscriptions on real-time changes in notebooks of Hyperwell, this means sending each subscriber the complete, updated notebook instead of a list of changes—additions, edits, and deletions. 
+
+[^hapi]: Hapi is a production-ready web framework: <https://hapi.dev/>. Hapi is written in JavaScript and runs in the Node.js runtime. With a variety of plugins, its functionality can be extended, for example by adding support for the WebSocket protocol.
+[^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically: “Each resource created in the application or site is created within an instance of one of these container-like entities, and users can list the existing artifacts within one.”
+
 
 ### Notebook Application {#sec:hyperwell:notebook}
 
@@ -191,7 +213,7 @@ _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 * Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * Searching notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
-![UI of the Notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the Notebook applications.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Notebook application when inspecting a topic-related notebook"}
+![UI of the notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the notebook application.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Hyperwell notebook application"}
 
 _TODO:_ Technical architecture:
 
@@ -199,11 +221,19 @@ _TODO:_ Technical architecture:
 * Akin to the gateway server, the application uses Hypermerge with Hyperswarm for exchanging distributed notebooks.
 * Search indexing?
 
-[^electron]: <https://www.electronjs.org/>
+[^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
 
 ### Annotation Environment
 
 _TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will display an example text and use the RecogitoJS library for annotating the plain text, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
+
+[^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>
+
+### Gateway Performance
+
+_TODO:_ If time is left, run some artillery[^artillery] penetration tests on the gateway.
+
+[^artillery]: <https://artillery.io/>
 
 ## Support in Client Applications
 
