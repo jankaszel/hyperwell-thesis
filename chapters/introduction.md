@@ -91,7 +91,7 @@ I have utilized  user interface design and software development for building pro
 
 ## Thesis Structure {#sec:structure}
 
-The subsequent @sec:related contains a discussion of related work and discusses research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Covering scholarly research, I will there not go into detail with all (fundamental) technology used in this thesis and rather clarify technological decisions in the footnotes during later parts of this thesis.
+The subsequent @sec:related contains a discussion of related work and discusses research on digital annotation, decentralized applications, and Digital Humanities infrastructure. Covering scholarly research, I will there not go into detail with all fundamental and mostly non-academic technology used in this thesis and rather clarify technological decisions in the footnotes during later parts of this thesis.
 
 @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. With a focus on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this this with two iterations of an architecture for decentralized, collaborative annotation called Hyperwell.
 
