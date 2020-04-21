@@ -1,12 +1,12 @@
 # Implementation {#sec:implementation}
 
-Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers. 
+Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers.
 
-## Gateways and Peer-to-Peer Systems
+In the following, I will first outline the role of gateways and overlay networks in P2P systems in @sec:gateways. @Sec:bridging will then build upon the notion of gateways and apply them to the ongoing compatibility issue with standardized web technologies such as WebRTC. I then detail two approaches on designing and implementing P2P systems: First, a system focused on independent, personal annotation publishing called ‘From Me to You’ (@sec:thick). After facing severe architectural drawbacks in that system, a redesigned system called Hyperwell emerged (@sec:hyperwell) and solved performance bottlenecks by introducing institutional mirroring of annotation collections.
 
-> This will most likely be an argumentation why we need P2P gateways when working with P2P data in academia: Many platforms and tools are built with web technologies and hence are subject to the quasi-centralized architecture of the HTTP web.
+## Gateways and Peer-to-Peer Systems {#sec:gateways}
 
-Distributed P2P systems function fundamentally different from the classic client/server architectures (distributed governance figure?). The fundamental difference is explained by the treatment of data: In architectures following the established client-server distinction, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
+Distributed P2P systems function fundamentally different from established architectures that separate between clients and servers in a network. The fundamental difference is explained by how the participants treat data: In architectures following the established client-server separation, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on-demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
 
 ![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
 
@@ -20,7 +20,7 @@ One trade-off of theoretically “pure” P2P systems is, considering all data i
 
 In the following, I will describe two attempts at an implementation for a system that bears a critical burden: Realizing a distributed system that bridges its data into the web via HTTP. The question of where to put that bridge shapes the distinction between both attempts: With the first attempt described in section X, the “Thick” Peer, that bridging is provided from within each peer, effectively ensuring the realization of distributed, independent publishing of one’s annotations. As I will lay out in the following, putting that much liability, and hence, network load, onto an independent peer, will quickly exhaust the given resources and hinder the scalability of this approach. With the second, more successful attempt presented in section Y, this liability is moved into institutional governance: While peers exchange their data within the P2P network, the task of bridging that data into the web is done by institutions who run quasi-centralized gateways. As tests showed, this attempt scales well with real-time updates, while individual peers are excused from responding to a growing number of HTTP requests.
 
-## Bridging Swarms and the Web
+## Bridging Swarms and the Web {#sec:bridging}
 
 Web applications leverage technologies planned, audited, and released by the World Wide Web Consortium (W3C). These technologies are known as _web technologies_ and are commonly supported by web browsers such as Mozilla Firefox, Google Chrome, and macOS Safari. Web applications are a popular way of providing tools and services, as opposed to native applications executed directly by the user’s operating system, due to three factors:
 
@@ -30,12 +30,14 @@ Web applications leverage technologies planned, audited, and released by the Wor
 
 _TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
 
+_TODO:_ Emphasize the limitations for modern JavaScript applications: With the Node.js runtime—in theory—,the same code can be executed isomorphically on both directly on a devices as well as in the browser. However, both platforms serve different environments: Node.js supports bindings to native code, such as libraries written in C++, while browsers provide separate APIs of the web platform, such as WebGL graphics and access to device sensors. Thus, having 
+
 _TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
 
 ![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.pdf){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
 
 1. Connecting web clients via WebRTC and using WebRTC duplex connections to replicate data. Did not work, as WebRTC failed during testing and Hypermerge has dependencies that don’t work in web browsers (footnote on what that exactly means, comparing it to Node.js and native C++ libraries).
-2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers
+2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers and using an overlay network for requesting resources.
 3. Enforcing a “hard” separation between both networks and making the gateway properly translate between both protocols rather that “repacking” it. This will make the gateway act like a full peer in the decentralized network and would enable the use of HTTP and an implementation of the REST-based Web Annotation Protocol.
 
 ## First Version: Resource Exhaustion and Thick Peers {#sec:thick}
@@ -53,21 +55,21 @@ Considering research around bridging data into the web from within a P2P system,
 
 Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
-With WebRTC[^webrtc], however, the W3C offers a solution for realizing quasi-P2P applications built upon Web technologies. (encryption, discovery via ICE/STUN/TURN). The WebSocket[^websocket] protocol has proven itself much more stable and reliable and in the end led to a gateway-supported solution that bridges WebSocket connections into the Hyperswarm network.
+With WebRTC[^webrtc], however, the W3C offers a solution for realizing decentralized communication in applications that are built upon web technologies. (_TODO:_ encryption, discovery via ICE/STUN/TURN). The WebSocket[^websocket] protocol has proven itself more stable and reliable during my testing and in the end led to a gateway-supported solution that bridges WebSocket connections into the Hyperswarm network.
 
 Integrating with the stack of Web technologies at hand, both the peer application running locally as well as the browser integration have been written in the JavaScript programming language. Modern versions of JavaScript---most notably, ECMAScript 7[^ecma7]---are widely supported by modern Web browsers. With the Node.js[^nodejs] JavaScript runtime, applications written in JavaScript can be executed locally via the V8 JavaScript runtime[^v8] developed by Google for the Chrome browser.
 
-_TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients.
+_TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients [@frazee2019].
 
 _TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
 
 * Introduce the terms of repositories (collections of notebooks) and documents (notebooks), and distinguish them from a single annotation.
 
-Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers].
+Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers], as explained in @sec:thick:protocols.
 
 _TODO:_ Extending the Recogito UI has been possible, but required a lot of effort because of complicated tooling around the Scala-based backend. Hence, all extensions, such as the resource discovery mechanism detailed in @sec:thick:discovery, were designed as standalone modules and bundled appropriately.
 
-In the following, I will outline two characteristic contributions of this approach: First, a novel, HTTP-like protocol was intended to enable client-server connections over multiplexed duplex socket connections. This protocol leverages the Protocol Buffers standard and is detailed in @sec:thick:protocols. Second, as peers within the network transfer data without higher-level supernodes, a flat hierarchy is established. An approach for announcing work on particular resources with the intention of collaboration is described in @sec:thick:discovery. By establishing a new protocol for retrieving annotations from a distributed network, browsers need to be provided with libraries to support these protocols---one such library, a Software Development Kit (SDK), for integrating client applications, is detailed in @sec:thick:sdk.
+In the following, I will outline two characteristic contributions of this approach: First, a novel, HTTP-like protocol was created to enable client-server connections over multiplexed duplex socket connections. This protocol leverages the Protocol Buffers standard and is detailed in @sec:thick:protocols. Second, as peers within the network transfer data without higher-level supernodes—despite an overlay network—, a flat hierarchy is established. An approach for announcing work on particular resources with the intention of collaboration is described in @sec:thick:discovery. By establishing a new protocol for retrieving annotations from a distributed network, browsers need to be provided with libraries to support these protocols---one such library, a Software Development Kit (SDK), for integrating client applications, is detailed in @sec:thick:sdk.
 
 The approach of the first version, however, had several severe drawbacks. While an in-depth evaluation of this thesis' contributions will be discussed far below in @sec:discussion, I will give an outline of these drawbacks in the following @sec:thick:issues.
 
@@ -84,9 +86,17 @@ The approach of the first version, however, had several severe drawbacks. While 
 
 ### Protocols {#sec:thick:protocols}
 
-By utilizing a server that bridges WebSocket connections into the Hyperswarm network, `hyperswarm-proxy`[^hyperswarm-proxy], Web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm.
+By utilizing a server that bridges WebSocket connections into the TCP or uTP socket-based Hyperswarm network connections, web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm. This has been achieved by utilizing the fact that the WebSocket protocol establishes a duplex stream—that is, readable as well as writable—between client and server. By using the `hyperswarm-proxy`[^hyperswarm-proxy] library, this duplex stream can then be forwarded to peers of the respective Hyperswarm peers.
 
-_TODO:_ Use Protocol Buffers[^protobuf] in order to develop a custom protocol that resembles HTTP, but facilitates parsing. It supported multiplexing of multiple request-response actions over the same connection within a swarm or, rather, a swarm connection to another peer. Furthermore, it supports subscriptions on particular resources, similar to HTTP long-polling.
+In @sec:bridging, I have outlined possible approaches for connecting web clients into the Hyperswarm network. A major limitation of the CRDT-backed Hypermerge library is its incompatibility with the web platform, as it entails native code dependencies. Hence, using WebRTC connections to directly connect web clients with Hyperswarm peers—approach 1 of @fig:bridging-approaches—is not a viable solution for this context. However, creating a separate overlay network enabled web clients to communicate with Hyperswarm peers independently of Hypermerge.
+
+In order to request and mutate resources on this network, a separate application protocol was then required. The HTTP protocol would actually have met the needs of this overlay network, as it is a well-established and extensively documented foundation of the web. HTTP would furthermore have allowed for an actual implementation of the Web Annotation Protocol between participants of this network. However, I have faced two severe issues: First, there exist no established JavaScript-based implementations of HTTP parsers that could be utilized on web clients[^http-parser]. Second, the nature of Hyperswarm connections is not deterministic as peers continuously join and leave a swarm—thus, connections can not be established on-demand as easily as directly via DNS-based URLs and should be used as efficiently as possible. HTTP supports pipelining of multiple requests over the same TCP connection, yet it is explicitly advised against this practice [@fielding1999, p. 46].
+
+By creating a separate, HTTP-inspired protocol, compatibility could be ensured for exchanging annotations on the overlay network between web clients and Hyperswarm peers. The protocol is using the standardized Protocol Buffers[^protobuf] scheme in order to express custom protocol messages and events that cover a subset of features of HTTP. Protocol Buffers simplify parsing of protocol messages and allow the protocol to multiplex several request-response sequences over the same connection in parallel.
+
+I would like to emphasize that this approach of using an HTTP-like protocol will relinquish the bidirectional nature of a duplex stream as compared to stream-based replication of Hypercore logs: While the connection itself is bidirectional, the semantics of the protocol are not. A web client selectively requests data from a peer, which will render it a server. This imposition bears heterogeneities for P2P systems, which I will discuss in @sec:thick:discussion. In the following, I will increasingly refer to peers as clients and servers to highlight their functional distinction.
+
+@Lst:proto-request shows the implementation of the `RequestEvent` message: The protocol resembles an HTTP request with a request method, a path, and an optional data-carrying body. Other than HTTP, this implementation is a stateful protocol where messages can refer to each other by their unique ID. Additionally to basic HTTP methods such as GET, POST, and PUT, the protocol supports long-running subscriptions which can be opened (`SUB`) as well as closed (`CLOSE`). Similar to the method of long-polling[^long-polling], subscriptions demand the server to push new data over the existing connection as changes occur on the resource specified in the initial `SUB` request.
 
 ```{#lst:proto-request .protobuf caption="Protocol Buffer code for a request type message, resembling classic HTTP requests. Additional request methods are `SUB' and `CLOSE'."}
 enum RequestMethod {
@@ -110,6 +120,7 @@ _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compat
 
 [^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
 [^protobuf]: <https://developers.google.com/protocol-buffers/>
+[^long-polling]: In contrast to conventional "short-polling", where clients send requests to servers on-demand, "long-polling" requests will hold a client-initiated connection open for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>
 
 ### Resource Discovery {#sec:thick:discovery}
 
@@ -136,11 +147,11 @@ For unique identification, each peer within a discovery swarm assigns itself an 
 
 _TODO_: Write about the modular UI extension, provide a screenshot, link to the work and (even more TODO) release the module via Zenodo!
 
+[^http-parser]: The code of the Node.js runtime’s built-in HTTP parser  is publicly available, yet written in C++: <https://github.com/nodejs/http-parser>
+
 ### Client Software Development Kit {#sec:thick:sdk}
 
 The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client Software Development Kit (SDK) should provide these missing components for abstracting the communication.
-
-_TODO:_ Have a figure with a brief overview of how the SDK interacted with both the gateway and the client software.
 
 _TODO:_ Both the annotation API as well as the related work discovery functionality are available via the JavaScript SDK in form of a standalone bundle
 
