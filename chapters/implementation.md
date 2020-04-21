@@ -30,7 +30,9 @@ Web applications leverage technologies planned, audited, and released by the Wor
 
 _TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
 
-_TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers:
+_TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
+
+![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.pdf){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
 
 1. Connecting web clients via WebRTC and using WebRTC duplex connections to replicate data. Did not work, as WebRTC failed during testing and Hypermerge has dependencies that don’t work in web browsers (footnote on what that exactly means, comparing it to Node.js and native C++ libraries).
 2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers
