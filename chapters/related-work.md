@@ -6,6 +6,8 @@ Considering the three aspects of this work’s research goals described in the i
  
 In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?).
 
+![Documents created by transclusion of units from xanalogical storage [@nelson1993]. These units can be standalone pieces of text or media and have links inbetween them.](figures/nelson-xanalogical-storage.png){#fig:xanalogical-storage short-caption="Documents created by transclusion of units from xanalogical storage"}
+
 Digital annotation and hypertext [@marshall1997; @marshall1998].
 
 Digital collaboration and hypertext [@klokmose2015]. Collaboration in academia [@hunyadi2016]. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
@@ -104,7 +106,9 @@ _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 Classic HTTP client-server architecture.
 
-In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors propose a set of requirements for a type of application that overcomes common issues of contemporary collaboration software: As businesses increasingly rely on cloud-backend infrastructure for their applications, … . With a proof-of-concept application called ‘PushPin’, @hardenberg2020 created an implementation of a local-first application by utilizing hypermerge as foundation for the application’s data storage. Several take-aways emerged from this approach, including the benefits of Functional Reactive Programming (FRP) for user interfaces displaying real-time updates as well as persisting issues around privacy, security, and usability.
+In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors propose a set of requirements for a type of application that overcomes common issues of contemporary collaboration software: As businesses increasingly rely on cloud-backend infrastructure for their applications, … . 
+
+With a follow-up, proof-of-concept application called ‘PushPin’, \citeauthor{hardenberg2020} implemented a local-first application by utilizing hypermerge as foundation for the application’s data storage. Several take-aways emerged from their work, including the benefits of Functional Reactive Programming (FRP) for user interfaces displaying real-time updates and ongoing issues around privacy, security, and usability [@hardenberg2020].
 
 Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website].
 

@@ -30,6 +30,12 @@ Web applications leverage technologies planned, audited, and released by the Wor
 
 _TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
 
+_TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers:
+
+1. Connecting web clients via WebRTC and using WebRTC duplex connections to replicate data. Did not work, as WebRTC failed during testing and Hypermerge has dependencies that don’t work in web browsers (footnote on what that exactly means, comparing it to Node.js and native C++ libraries).
+2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers
+3. Enforcing a “hard” separation between both networks and making the gateway properly translate between both protocols rather that “repacking” it. This will make the gateway act like a full peer in the decentralized network and would enable the use of HTTP and an implementation of the REST-based Web Annotation Protocol.
+
 ## First Version: Resource Exhaustion and Thick Peers {#sec:thick}
 
 For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:
@@ -41,7 +47,7 @@ For the first iteration of this project, I focused on building an annotation pub
 
 Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
 
-![Architecture of the 'Thick Peer' approach during the first iteration.](figures/thick-architecture.pdf)
+![Architecture of the 'Thick Peer' approach during the first iteration.](figures/thick-architecture.pdf){#fig:thick-peer short-caption="Architecture of the 'Thick Peer' approach during the first iteration"}
 
 Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
@@ -108,6 +114,8 @@ _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compat
 While evaluating the conditions on why Recogito has been chosen as a case study and reference environment for developing the technology presented in this chapter, several prospects around an open and distributed annotation storage have emerged. With Linked Data entities being available for client applications running locally, semantic relations could easily be examined outside of the annotation environment itself. Furthermore, as the UI of an application becomes increasingly _lean_ by decoupling from a heavy and centralized data-processing backend, user-facing functionality can be better integrated with workflows based on the data model itself.
 
 With that in mind, I have designed a functionality for discovering related work of other users based on the URL of the annotated resource. This approach is inherently decentralized: Each peer maintains its own ephemeral list of related work. By leveraging the decentralized networking of Hyperswarm similarly as in @sec:thick:protocols, peers join a swarm of peers based on a topic. In this case of discovering resources, this topic is a hashed representation of the annotated document's canonical identifier, such a CTS URN or a general URL. Once peers discover and connect to each other, they quickly exchange discovery messages. Such a message is defined more precisely in @lst:proto-discovery as a `DiscoveryEvent` message of type `ANNOUNCE`. Once a peer goes offline, it will broadcast an `UNANNOUNCE` type message.
+
+Explicitely broadcasting these messages is required, as opposed to implcitely announcing the available of a resource by joining the respective swarm based on the resource URL: By introducing 'consuming' peers 
 
 ```{#lst:proto-discovery .protobuf caption="Protocol Buffer schema for a discovery message, announcing or unannouncing the availability of a resource on the sending peer."}
 enum DiscoveryEventType {
@@ -177,13 +185,9 @@ Progressing from the first approach outlined in @sec:thick, separating the compo
 
 ### Gateway Server {#sec:hyperwell:gateway}
 
-The gateway server implementation represents the separation of that translating component as well as the manifestation of an institutional entity in a P2P system.
+The Hyperwell gateway server represents the separation of that translating component as well as the manifestation of an institutional entity in a P2P system. In a proof-of-concept implementation, I have outlined how such a gateway could be realized and meet both users’ as well as institution’s requirements. Most fundamentally, the gateway translates JSON-encoded annotations of the Web Annotation Data Model between decentralized swarms of Hyperswarm and the web. Thus, it exposes an HTTP API that complies with the HTTP- and REST-based Web Annotation Protocol and extends this with further functionalities subscribing to real-time updates of annotations via WebSocket connections as well as bulk operations.
 
-* Fully Web Annotation data model and protocol compliant
-* Additional support for 1) real-time updates via WebSockets and 2) batch updates via HTTP
-* TTL-based local caching of repositories
-
- Primarily, the gateway provides the following functionalities for peers:
+Primarily, the gateway provides the following functionalities for peers of the decentralized network:
 
 * **Long-term archival**: Gateways support peers
 * **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade resources.
@@ -201,6 +205,8 @@ Other than with the thick peer approach, gateways don’t have all corresponding
 
 By its design, the hypermerge library allows to listen for updates on a particular document via `repo.watch(url, (doc) => {…})`. However, this event handler will receive the complete document state instead of just the changes. In the context of subscriptions on real-time changes in notebooks of Hyperwell, this means sending each subscriber the complete, updated notebook instead of a list of changes—additions, edits, and deletions. 
 
+Some feature, such as archiving, rely on an identity system. While the Hypercore append-only log uses public key encryption for identity and security, Hypermerge currently does not expose such functionality out-of-the-box. With a focus on Linked Data and web technology, I will discuss this matter—among other shortcomings—in @sec:discussion.
+
 [^hapi]: Hapi is a production-ready web framework: <https://hapi.dev/>. Hapi is written in JavaScript and runs in the Node.js runtime. With a variety of plugins, its functionality can be extended, for example by adding support for the WebSocket protocol.
 [^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically: “Each resource created in the application or site is created within an instance of one of these container-like entities, and users can list the existing artifacts within one.”
 
@@ -215,13 +221,17 @@ _TODO:_ Implementation of a Local-First Annotation Application. Main features:
 
 ![UI of the notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the notebook application.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Hyperwell notebook application"}
 
+![Architecture of the Hyperwell notebook application.](figures/notebook-architecture.pdf){#fig:notebook-architecture short-caption="Architecture of the Hyperwell notebook application"}
+
 _TODO:_ Technical architecture:
 
 * It's an Electron-based[^electron] application: By shipping applications with a bundled copy of the Chromium web browser, application logic and the UI can be developed using web technologies such as HTML, CSS, and JavaScript. A backend process runs via an included Node.js runtime.
+* The user interface is being realized with the JavaScript-based React[^react] framework.
 * Akin to the gateway server, the application uses Hypermerge with Hyperswarm for exchanging distributed notebooks.
 * Search indexing?
 
 [^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
+[^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming principles and uses a virtual DOM for only patching changed parts of the user interface. Next.js builds upon React and provides ready-to-use solutions for many common scenarios, such as pre-rendering and CSS-in-JS styling: <https://nextjs.org/>.
 
 ### Annotation Environment
 
