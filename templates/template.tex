@@ -41,7 +41,7 @@
 % typography
 \setmainfont{SuisseWorks}
 \setsansfont{SuisseIntl-Regular}
-\setmonofont{IBMPlexMono}
+\setmonofont[Scale=0.95]{IBMPlexMono}
 
 \usepackage[
   final,
@@ -115,6 +115,9 @@ $endfor$
   xetex
 ]{hyperref}
 \usepackage{url}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 \urlstyle{rm}
 
 \hypersetup{

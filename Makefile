@@ -13,7 +13,7 @@ TEXFLAGS =  \
 pdf: thesis.tex references.bib
 	latexmk -pdf -xelatex thesis.tex
 
-thesis.tex: thesis.yaml $(CHAPTERS) $(FIGURES) $(CHARTS)
+thesis.tex: thesis.yaml templates/template.tex $(CHAPTERS) $(FIGURES) $(CHARTS)
 	pandoc -o $@ $(TEXFLAGS) 2>pandoc.log 
 
 clean:
