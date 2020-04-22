@@ -2,6 +2,12 @@
 
 Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers.
 
+_TODO:_
+
+* Use of Web Annotation as a standard for annotating resources and leveraging LOD principles.
+* The subsequent need for supporting the Web Annotation Protocol, although there exist other solutions.
+* Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
+
 In the following, I will first outline the role of gateways and overlay networks in P2P systems in @sec:gateways. @Sec:bridging will then build upon the notion of gateways and apply them to the ongoing compatibility issue with standardized web technologies such as WebRTC. I then detail two approaches on designing and implementing P2P systems: First, a system focused on independent, personal annotation publishing called ‘From Me to You’ (@sec:thick). After facing severe architectural drawbacks in that system, a redesigned system called Hyperwell emerged (@sec:hyperwell) and solved performance bottlenecks by introducing institutional mirroring of annotation collections.
 
 ## Gateways and Peer-to-Peer Systems {#sec:gateways}
@@ -204,9 +210,9 @@ The Hyperwell gateway server represents the separation of that translating compo
 
 Primarily, the gateway provides the following functionalities for peers of the decentralized network:
 
-* **Long-term archival**: Gateways support peers
-* **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade resources.
-* **Professional attribution**: In the web, domains issued via DNS can impose _TODO (attribution?)_. Especially in academia, professional attribution via domains such as `xyz.edu` can _TODO (provide a name?)_.
+* **Long-term archival**: Gateways support associated peers by continuously replicate their repositories for backup and archival.
+* **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade hardware. These environments can ensure high availability of repositories
+* **Professional affiliation**: On the web, domains resolved via DNS can express affiliations with an official institution and hence, secure credibility. For example, domains in the context of academia commonly follow schemes such  `xyz.edu` or `uni-xyz.de`. Consequently, institutional gateways can assure a researcher’s or repository’s affiliation by following these naming schemes with, for example, `service.xyz.edu`.
 
 ![Architecture of the Hyperwell gateway server. While real-time replication of repositories happens via the Hyperswarm network (1), changes are also persisted to disk (2). Hypermerge (3) then applies uses the Automerge CRDT to merge different versions of a repository. The gateway caches recently accessed repositories (4) and performs a diff (5) if sequential updates are requested. Annotation IDs are then translated into LOD URIs (6) and served via HTTP (7) or WebSocket (8) connections.](figures/gateway-architecture.pdf){#fig:gateway-architecture short-caption="Architecture of the Hyperwell gateway server"}
 
@@ -214,7 +220,21 @@ Primarily, the gateway provides the following functionalities for peers of the d
 
 Similar to the thick peer prototype, documents are exchanged via the Hyperswarm network over TCP or UTP connections … .
 
-Bridging into the web, the gateway serves HTTP requests as well as WebSocket connections. It uses the hapi[^hapi] web framework for handling both connection types. The HTTP interface implements the Web Annotation Protocol [@web-anno-protocol] by employing a particular URL scheme: `https://www.example.com/annotations/<container>/<annotation>`. The container, as defined by the Web Annotation Protocol specification[^ldp-containers], corresponds with a hexadecimal encoding of the document URL issued by hypermerge. The hexadecimal encoding should ensure an easy approach safety of URLs with an arbitrary content while being reversible—as opposed to hashing functions. _TODO (provide an example HTTP request)_
+Bridging into the web, the gateway serves HTTP requests as well as WebSocket connections. It uses the hapi[^hapi] web framework for handling both connection types. The HTTP interface implements the Web Annotation Protocol [@web-anno-protocol] by employing a particular URL scheme:
+
+`https://www.example.com/annotations/<notebook>`.
+: REST endpoint for operations on an entire notebook. This endpoint supports retrieval of all of its annotations (`GET`) and creation of new a new annotation (`POST`).
+
+`https://www.example.com/annotations/<notebook>/<annotation>`.
+: REST endpoint for operations on a particular annotation within that notebook. This endpoint supports retrieval (`GET`), editing (`PUT`), and deletion (`DELETE`).
+
+`https://www.example.com/annotations/batch/<notebook>`.
+: REST endpoint for batch operations on that notebook. This endpoint supports batch creation (`POST`), batch edits (`PUT`), and batch deletions (`DELETE`).
+
+`https://www.example.com/annotations/subscribe/<notebook>`.
+: WebSocket endpoint for subscribing to changes on a notebook. _TODO_!.
+
+ The container, as defined by the Web Annotation Protocol specification[^ldp-containers], corresponds with a hexadecimal encoding of the document URL issued by hypermerge. The hexadecimal encoding should ensure an easy approach safety of URLs with an arbitrary content while being reversible—as opposed to hashing functions. _TODO (provide an example HTTP request)_
 
 Other than with the thick peer approach, gateways don’t have all corresponding users’ notebooks available locally. This might be possible for small institutions, but depending on the amount of users, hypermerge repositories can grow in size quickly as they maintain their complete history. However, removing repositories from a gateway promptly after replicating it from the swarm—for example, to add an annotation—To ensure scalability of gateways, they 
 

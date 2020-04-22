@@ -74,7 +74,7 @@ Comparing to the way computers communicate in the web, there are no definite sou
 * Validity: As datasets are distributed among several nodes in the network, 
 * Authority
 
-P2P systems are often associated with distributed networking and distributed databases. Essentially, systems such as the aforementioned BitTorrent and Gnutella construct immensely scaled, distributed, and fragmented databases that communicate over a vast worldwide network instead of a Local Area Network (LAN).
+P2P systems are often associated with distributed networking and distributed databases. Essentially, systems such as the aforementioned BitTorrent [@legout2007; @loewenstern2020] and Gnutella [@chawathe2003] construct immensely scaled, distributed, and fragmented databases that communicate over a vast worldwide network instead of a Local Area Network (LAN).
 
 Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
 
