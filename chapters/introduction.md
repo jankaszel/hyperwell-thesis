@@ -14,6 +14,8 @@ Feedback showed that stakeholders and users are hard to convince: While centrali
 
 This thesis is aimed at readers with an affinity for computer technology, but not _necessarily_ computer scientists. While my own practice resides in computer science, this work involved research on collaborative systems as well as collaboration in the Digital Humanities, conducting studies, and raising questions on digital ownership. Furthermore, by presenting novel technologies that affect research data management, I want to _convince_ readers with a non-technical background to reflect on their digital practice. Parts of this thesis with less technical ambition will be highlighted below in @sec:structure.
 
+In many parts of this thesis, I will use a technological vocabulary. _P2P, DHT, TCP_—most of these abbreviations describe concepts and technology related to (decentralized) networks, while other terms relate to more abstract ideas. I aspire to introduce this vocabulary consequentially throughout this thesis, yet readers may find it helpful to conduct either the list of abbreviations (@sec:abbreviations) or the glossary (_TODO_).
+
 ## The Web and Data Ownership
 
 > Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]
@@ -98,4 +100,3 @@ The subsequent @sec:related contains a discussion of related work and discusses 
 Revisiting issues and drawbacks faced during the work on this project, I will discuss possible shortcomings in @sec:discussion. @Sec:conclusion will then provide a short summary of this thesis, as well as outline possible future work.
 
 [^authority]: This certainly depends on the particular design of a decentralized system. For the sake of consistency, I assume such a system of completely decentralized authority in the following if not noted otherwise.
-
