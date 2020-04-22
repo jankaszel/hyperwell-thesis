@@ -238,6 +238,8 @@ Bridging into the web, the gateway serves HTTP requests as well as WebSocket con
 
 Other than with the thick peer approach, gateways don’t have all corresponding users’ notebooks available locally. This might be possible for small institutions, but depending on the amount of users, hypermerge repositories can grow in size quickly as they maintain their complete history. However, removing repositories from a gateway promptly after replicating it from the swarm—for example, to add an annotation—To ensure scalability of gateways, they 
 
+![Calculating differences between sets by hashing their values.](figures/notebook-diffing.pdf){#fig:notebook-diffing short-caption="Calculating differences between sets by hashing their values"}
+
 By its design, the hypermerge library allows to listen for updates on a particular document via `repo.watch(url, (doc) => {…})`. However, this event handler will receive the complete document state instead of just the changes. In the context of subscriptions on real-time changes in notebooks of Hyperwell, this means sending each subscriber the complete, updated notebook instead of a list of changes—additions, edits, and deletions. 
 
 Some feature, such as archiving, rely on an identity system. While the Hypercore append-only log uses public key encryption for identity and security, Hypermerge currently does not expose such functionality out-of-the-box. With a focus on Linked Data and web technology, I will discuss this matter—among other shortcomings—in @sec:discussion.
