@@ -18,7 +18,7 @@ Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
-Something on Linked Data, its origin and principles [@bizer2011; @mansour2016].
+Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP.
 
 How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
 
