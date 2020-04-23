@@ -1,14 +1,19 @@
 # Digital Annotation {#sec:annotation}
 
+_TODO/Commentary:_ This chapter is still pretty rough. It’s partly related work/lit review, part argumentation. What I want to convey here is:
+
+* _What is digital annotation?_ Discuss how Hypertext can be collaborative, what’s in for annotation and how digital annotation could benefit from e.g. links [@nelson1993; @marshall1997].
+	* How can LOD benefit this? What are the prospects of LOD annotations as, opposed to e.g. simple text-based annotations
+* Transitioning to decentralized systems and ownership: What are gateways in P2P systems, how can they connect to the web and LOD?
+* Finally, questioning ownership on the web and proposing the _quintessential_ concepts of **notebooks** and **institutions**.
+
 The way we treat annotations today is wrong, and by considering how tools for annotating PDFs and websites work we can learn about the issues. Coming from the Related Work section, this chapter should give a theoretical introduction into issues of text theory and how annotations fits in there. By leveraging a comparison of OHCO and Hypertext (or, Ted Nelson’s Xanadu), we should derive an architecture for annotations, and be able to show how annotations work in the Web’s notion of hypertext.
 
 Hypothes.is. Browser Storage APIs.
 
-## Hypertext
+## Hypertext Annotation
 
 Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
-
-## Prospects of Linked Data
 
 _TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
 
