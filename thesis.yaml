@@ -8,8 +8,8 @@ input-files:
 - front/list-of-figures.md
 - chapters/introduction.md
 - chapters/related-work.md
-- chapters/digital-annotations.md
 - chapters/study.md
+- chapters/digital-annotations.md
 - chapters/implementation.md
 - chapters/discussion.md
 - chapters/conclusion.md
