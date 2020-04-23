@@ -257,15 +257,34 @@ _TODO:_ Technical architecture:
 
 ### Supporting Hyperwell in Annotation Environments
 
+In order to validate the gateway implementation and its compliance with the Web Annotation specification, … . 
+
+_TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
+
+Learnings from the attempted integration with Recogito: Having reactive data flows in an application is good---also, being able to properly react to created/updated/deleted entities supports the integration. React and other libraries that use a virtual DOM, for instance, are well-suited for this task, but also other user interface libraries such as Svelte support updating the DOM based on mutations on the underlying data.
+
+Listing: Accessing the APIs of a Hyperwell gateway via the HTTP and WebSocket protocols using commonly browser-supported JavaScript APIs.
+
+```{#lst:hyperwell-support .js}
+const res = await fetch(
+  `https://${host}/annotations/${notebookId}/`,
+  { headers: { "Content-Type": "application/json" } }
+)
+const annotations = await res.json()
+
+const ws = new WebSocket(
+  `wss://${host}/annotations/subscribe/${notebookId}/`
+);
+ws.onmessage = (event) => {
+  const diff = JSON.parse(event.data);
+}
+```
+
 _TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will display an example text and use the RecogitoJS library for annotating the plain text, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
 
 ![Test environment for annotating the first chapter of Goethe’s Faust.](figures/test-environment.png){#fig:test-environment}
 
-_TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
-
 Emphasis: No need for an SDK, just use standard WebSockets. There exists an example annotation environment that shows the integration. 
-
-Learnings from the attempted integration with Recogito: Having reactive data flows in an application is good---also, being able to properly react to created/updated/deleted entities supports the integration. React and other libraries that use a virtual DOM, for instance, are well-suited for this task, but also other user interface libraries such as Svelte support updating the DOM based on mutations on the underlying data.
 
 [^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>
 
