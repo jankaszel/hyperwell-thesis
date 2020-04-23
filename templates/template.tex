@@ -57,7 +57,7 @@
 
 % footnotes
 % <https://tex.stackexchange.com/a/54706>
-\usepackage[hang,multiple]{footmisc}
+\usepackage[hang,multiple,bottom]{footmisc}
 \setlength{\footnotemargin}{1.5mm}
 % <https://tex.stackexchange.com/a/141938>
 \addtolength{\footnotesep}{1mm}
@@ -249,30 +249,32 @@ $endfor$
     {\huge\@title\unskip\strut\par}
     
     \vspace{8mm}
-    
-    \textit{by} \\ \vspace{2mm}
-    {\Large \@author}
 
-    % \vspace{12mm}
-
-    \vspace{6mm}
     \includegraphics[width=0.075\textwidth]{layout/asterism-ulysses.png}
     \vspace{3mm}
 
     A thesis presented for the degree of \\ \vspace{2mm}
     {\Large Master of Science}
     
-    \vfill
+    \vspace{5mm}
+
+    \textit{by} \\ \vspace{2mm}
+    {\Large \@author} \\ \vspace{1mm}
+    jk43rije@studserv.uni-leipzig.de \\
+    \texttt{1234567}
+    
+    \vspace{5mm}
 
     \textit{at the} \\ \vspace{1mm}
     Institute of Computer Science \\
-    Leipzig University, Germany \\ \vspace{3mm}
+    Universität Leipzig, Germany \\ \vspace{3mm}
 
     \today\,— \texttt{\gitrevision} \\
 
     \vspace{3mm}
     \includegraphics[width=0.5\textwidth]{layout/leipzig-university.eps}
-    \vspace{8mm}
+
+    \vfill
 
     % advisors  
     \begin{tabular}{cc}
@@ -298,10 +300,11 @@ $endfor$
 \restoregeometry
 \makeatother
 
+
 \pagenumbering{gobble}
 
 % license
-Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License (\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}), which permits unrestricted use and distribution in any medium, provided the original work is properly cited and the material is not used for commercial purposes.
+Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License\footnote{\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}}, which permits unrestricted use and distribution in any medium, provided the original work is properly cited and the material is not used for commercial purposes.
 
 \vspace{2mm}
 \includegraphics[width=0.25\textwidth]{layout/cc-nc-nd.pdf} \\
@@ -310,8 +313,8 @@ The source code of all Hyperwell repositories is available as open-source softwa
 
 Copyright 2020, Jan Kaßel.
 
-
 \pagebreak
+
 
 % table of contents
 \pagenumbering{gobble}
