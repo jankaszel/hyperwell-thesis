@@ -1,32 +1,14 @@
 # Implementation {#sec:implementation}
 
-Each aspect of a P2P system bears implications for usability, data availability, and user emancipation: As described in the previous chapters, P2P networks can effectively use certain network structures to enforce power structures and hierarchies among peers.
+When approaching the design and subsequent implementation of a system that corresponds to the concepts on digital notebooks introduced in @sec:annotation, I have settled with the technical assumption that web is a predominant way of interacting with data for a majority of people. Hence, the system should support contemporary web protocols. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should comply with the specification for enabling interoperable semantic annotation.
 
-_TODO:_
+Design decisions on P2P systems commonly entail implications on usability, data availability, and user emancipation: As described in @sec:gateways, minor technical adjustments on network structures can affect peers and data on such a system. _TODO:_ Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
 
-* Use of Web Annotation as a standard for annotating resources and leveraging LOD principles.
-* The subsequent need for supporting the Web Annotation Protocol, although there exist other solutions.
-* Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
+I have previously discussed the role of gateways and overlay networks in P2P systems. The following @sec:bridging builds upon this perception and continues to put gateways in context with bridging decentralized networks and the web. With a focus on widely supported web technologies and protocols, I will suggest three strategies for realizing bridging web protocols and the Hyperswarm network.
 
-In the following, I will first outline the role of gateways and overlay networks in P2P systems in @sec:gateways. @Sec:bridging will then build upon the notion of gateways and apply them to the ongoing compatibility issue with standardized web technologies such as WebRTC. I then detail two approaches on designing and implementing P2P systems: First, a system focused on independent, personal annotation publishing called ‘From Me to You’ (@sec:thick). After facing severe architectural drawbacks in that system, a redesigned system called Hyperwell emerged (@sec:hyperwell) and solved performance bottlenecks by introducing institutional mirroring of annotation collections.
+Drawing from these strategies, I then detail two designs of P2P systems for personal, local-first annotation, and their respective implementations: First, a system that emphasizes independent publishing of notebooks (@sec:thick) by leveraging an HTTP-inspired overlay network protocol and deep integration into Recogito. A redesigned system called Hyperwell emerged (@sec:hyperwell) after encountering architectural issues with the overlay network of the previous approach. Hyperwell solves performance bottlenecks by introducing institutional replication of personal notebooks.
 
-## Gateways and Peer-to-Peer Systems {#sec:gateways}
-
-Distributed P2P systems function fundamentally different from established architectures that separate between clients and servers in a network. The fundamental difference is explained by how the participants treat data: In architectures following the established client-server separation, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on-demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
-
-![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
-
-In P2P systems, this power over data is distributed. The distinction of clients and servers is being blurred as the centralization of governance is diminished: Clients become servers, forming a collection of alike peers, that provide and at the same time request data. Considering “the data” a system operates on as a database (with support for querying and mutation), in these kind of distributed systems, this database is distributed, sometimes even fragmented.
-
-This poses many questions when conceiving P2P architectures: Which parts do work well centralized? Which functionality does effectively when being distributed? How can certain control structures be realized?
-
-One trade-off of theoretically “pure” P2P systems is, considering all data is exchanged between genuine peers, that each peer is running on commodity hardware—regular consumer devices. Especially in these days, where an increasing number of our interactions with the digital world occurs via handheld devices such as smartphones, their lack of processing power compared to the enormous computational resources of a dedicated cluster is troublesome. Yet, with the wake of the more mature, “smarter” P2P systems, these inequalities were to be addressed. Skype, for instance, as research by @guha2015 showed, analyzed peers’ network performance and promoted particular peers to supernodes. These supernodes “maintain an overlay network network among themselves” [@guha2015, p. 2] and effectively outbalance the weaknesses of less powerful peers [@chawathe2003].
-
-(Textile cafés?). Scuttlebut pubs [@tarr2019].
-
-In the following, I will describe two attempts at an implementation for a system that bears a critical burden: Realizing a distributed system that bridges its data into the web via HTTP. The question of where to put that bridge shapes the distinction between both attempts: With the first attempt described in section X, the “Thick” Peer, that bridging is provided from within each peer, effectively ensuring the realization of distributed, independent publishing of one’s annotations. As I will lay out in the following, putting that much liability, and hence, network load, onto an independent peer, will quickly exhaust the given resources and hinder the scalability of this approach. With the second, more successful attempt presented in section Y, this liability is moved into institutional governance: While peers exchange their data within the P2P network, the task of bridging that data into the web is done by institutions who run quasi-centralized gateways. As tests showed, this attempt scales well with real-time updates, while individual peers are excused from responding to a growing number of HTTP requests.
-
-## Bridging Swarms and the Web {#sec:bridging}
+## Bridging Decentralized Networks and the Web {#sec:bridging}
 
 Web applications leverage technologies planned, audited, and released by the World Wide Web Consortium (W3C). These technologies are known as _web technologies_ and are commonly supported by web browsers such as Mozilla Firefox, Google Chrome, and macOS Safari. Web applications are a popular way of providing tools and services, as opposed to native applications executed directly by the user’s operating system, due to three factors:
 
@@ -171,7 +153,7 @@ const {RequestSwarm, DiscoverySwarm} =
 const swarm = new RequestSwarm(docUrl)
 
 swarm.on('ready', async () => {
-  const annotaitons = await swarm.getAnnotations()
+  const annotations = await swarm.getAnnotations()
   const relatedNotebooks = await swarm.getRelated()
 
   const subscription = await swarm.getAnnotations({
