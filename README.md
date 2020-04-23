@@ -44,8 +44,8 @@ There are some minor annoyances:
     sudo tlmgr install \
         truncate tocloft wallpaper morefloats sectsty \
         threeparttable l3packages l3kernel l3experimental \
-        lstfiracode tlmgr csquotes footmisc pgfplots xstring \
-        catchfile biblatex-chicago biblatex biber
+        csquotes footmisc pgfplots xstring \
+        biblatex-chicago biblatex biber
     ```
     
 5. Edit the files in the 'source' directory, then goto step 4.  
@@ -54,4 +54,6 @@ There are some minor annoyances:
 
 Some useful points, in a random order:
 - add two spaces at the end of a line to force a line break.
+
+### How to cite
 
