@@ -161,6 +161,15 @@ $endif$
 
 % Headers and page numbering
 \usepackage{fancyhdr}
+
+% FIXME: header with chapter & page number
+% \renewcommand{\headrulewidth}{0.3mm}
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+% \fancyhf{}
+% \fancyhead[RE]{\chaptername~\thechapter}
+% \fancyhead[LO]{\leftmark}
+% \fancyhead[LE,RO]{\hspace{1mm}\thepage\hspace{1mm}}
+
 \pagestyle{plain}
 
 \usepackage{wallpaper}
@@ -301,8 +310,12 @@ $endfor$
 \restoregeometry
 \makeatother
 
+\pagebreak
 
-\pagenumbering{gobble}
+
+% FIXME: force empty page?
+% \newpage\null\thispagestyle{empty}\newpage
+
 
 % license
 Except where otherwise noted, content in this thesis is licensed under a Creative Commons Attribution-NonCommercial-NoDerivs 4.0 License\footnote{\url{https://creativecommons.org/licenses/by-nc-nd/4.0/}}, which permits unrestricted use and distribution in any medium, provided the original work is properly cited and the material is not used for commercial purposes.
@@ -314,6 +327,7 @@ The source code of all Hyperwell repositories is available as open-source softwa
 
 Copyright 2020, Jan Kaßel.
 
+\pagestyle{fancy}
 \pagebreak
 
 
