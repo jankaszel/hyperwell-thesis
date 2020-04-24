@@ -41,7 +41,7 @@ For the first iteration of this project, I focused on building an annotation pub
 
 Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
 
-![Architecture of the 'Thick Peer' approach during the first iteration.](figures/thick-architecture.pdf){#fig:thick-peer short-caption="Architecture of the 'Thick Peer' approach during the first iteration"}
+![Architecture of the 'Thick Peer' approach during the first iteration.](figures/thick-architecture.png){#fig:thick-peer short-caption="Architecture of the 'Thick Peer' approach during the first iteration"}
 
 Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
@@ -233,6 +233,43 @@ Some features such as archiving rely on an identity system. While the Hypercore 
 [^hypermerge-watch]: Automerge, the underlying CRDT of Hypermerge, provides a more low-level API that poses little assumption on how exactly changes are transmitted. With the `Automerge.getChanges()` method, changeset between two states can be propagated explicitly.
 [^uuid]: UUIDs have been specified on RFC 4122: <https://www.ietf.org/rfc/rfc4122.txt>
 
+### Supporting Hyperwell in Annotation Environments
+
+In order to validate the functionality of the Hyperwell gateway and its compliance with the Web Annotation specification, I have continuously attempted to feed existing annotation environments with the gateway annotation server. Initially, and due to the experience from the user testing study outlined in @sec:study, I have chosen Recogito for a proof-of-concept of supporting Hyperwell via the gateway.
+
+Listing: Accessing the APIs of a Hyperwell gateway via the HTTP and WebSocket protocols using commonly supported browser APIs in JavaScript.
+
+```{#lst:hyperwell-support .js}
+const res = await fetch(
+  `https://${host}/annotations/${notebookId}/`,
+  { headers: { "Content-Type": "application/json" } }
+)
+const annotations = await res.json()
+
+const ws = new WebSocket(
+  `wss://${host}/annotations/subscribe/${notebookId}/`
+);
+ws.onmessage = (event) => {
+  const diff = JSON.parse(event.data);
+}
+```
+
+First attempts at realizing this support went successful: In Recogito, a base class[^js-prototypes] called `baseApp` provides the fundamental functionality for retrieving and mutating annotation objects of various editor types supported in Recogito, such as editors for annotation of images or CTS-based documents. By replacing calls to Recogito’s own backend API—such as `API.storeAnnotation(annotation)`—with simple HTTP requests to the gateway’s Web Annotation REST endpoints, since the gateway abstracts the decentralized network. This standard-compliant approach facilitates adoption as opposed to the first implementation approach, which required further software to support the overlay network protocols. Eventually after retrieving annotations from the gateway via HTTP, at least the _initial_ state—i.e., at load time—of the annotation editor could be propagated with annotations originating from the decentralized network. @Lst:hyperwell-support illustrates how resources can be accessed on a Hyperwell gateway using standard browser APIs.
+
+Further supporting WebSocket-based subscriptions from the gateway entailed making Recogito capable of real-time collaborative annotation. This requires receiving and sending changes on annotations as their occur and subsequently reflecting these changes in the UI. By supporting the standard WebSocket protocol without any further subprotocols, the actual connection for exchanging real-time updates can be easily established. However, translating these updates into mutations on the browser’s DOM through Recogito became cumbersome, because various components of Recogito—such as the annotation editor and the text highlighter—were encapsulate and intended to reflect user-issued changes on the annotations, but not changes originating from the backend.
+
+\citeauthor{hardenberg2020} clarify their approach on evaluating methods for translating frequent backend-issued changes to a UI: With the approach of Functional Reactive Programming (FRP), the (visual) rendering of a UI component is considered a deterministic mapping of the components’ state to the respective target, such as DOM nodes. Without any side effects while rendering, the UI will reflect its state exclusively and thus could straightforwardly incorporate external changes on its state.
+
+I eventually ceased work on the Recogito integration, as its complex code base would have required a substantial amount changes in order to make real-time collaborative annotation work. Meanwhile, Dr. Rainer Simon, lead developer of Recogito, extracted the annotation mechanisms of Recogito and created a new library called RecogitoJS[^recogito-js]. For displaying the annotation editor on top of a source RecogitoJS uses React[^react], a web UI development framework created at Facebook. 
+
+![Annotation environment for testing the Hyperwell gateway. Users can collaboratively annotate the first chapter of Goethe’s Faust, as changes on the provided notebook are transmitted in real-time.](figures/test-environment.png){#fig:test-environment short-caption=“Annotation environment for testing the Hyperwell gateway”}
+
+In an experimental, yet simple annotation environment application for testing the Hyperwell gateway, RecogitoJS is utilized for annotating the first chapter of Goethe’s Faust. The UI of the application is pictured in @fig:test-environment. Prior to annotating the source, users have to specify an annotation server where they want to load annotations from. If this server is a Hyperwell gateway, the environment will establish a WebSocket connection and enable real-time collaboration of the source.
+
+[^js-prototypes]: The JavaScript specification just gained support for syntactic classes in recent years. While the referred object in Recogito functions as a class with instance methods and an instance-based state, JavaScript classes essentially are an abstraction of prototype-based objects: <https://tc39.es/ecma262/#sec-objects>.
+[^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>
+[^react]: <https://reactjs.org/>.
+
 ### Notebook Application {#sec:hyperwell:notebook}
 
 _TODO:_ Implementation of a Local-First Annotation Application. Main features:
@@ -255,39 +292,6 @@ _TODO:_ Technical architecture:
 [^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
 [^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming principles and uses a virtual DOM for only patching changed parts of the user interface. Next.js builds upon React and provides ready-to-use solutions for many common scenarios, such as pre-rendering and CSS-in-JS styling: <https://nextjs.org/>.
 
-### Supporting Hyperwell in Annotation Environments
-
-In order to validate the gateway implementation and its compliance with the Web Annotation specification, … . 
-
-_TODO:_ Explicate how our approach on adding Hyperwell support to the Recogito semantic annotation platform went. We rely on particular technologies such as the WebSocket protocol, but don't actually introduce new application protocols---swarming is handled by the gateway, which ensures compatibility with common Web standards.
-
-Learnings from the attempted integration with Recogito: Having reactive data flows in an application is good---also, being able to properly react to created/updated/deleted entities supports the integration. React and other libraries that use a virtual DOM, for instance, are well-suited for this task, but also other user interface libraries such as Svelte support updating the DOM based on mutations on the underlying data.
-
-Listing: Accessing the APIs of a Hyperwell gateway via the HTTP and WebSocket protocols using commonly browser-supported JavaScript APIs.
-
-```{#lst:hyperwell-support .js}
-const res = await fetch(
-  `https://${host}/annotations/${notebookId}/`,
-  { headers: { "Content-Type": "application/json" } }
-)
-const annotations = await res.json()
-
-const ws = new WebSocket(
-  `wss://${host}/annotations/subscribe/${notebookId}/`
-);
-ws.onmessage = (event) => {
-  const diff = JSON.parse(event.data);
-}
-```
-
-_TODO:_ Sketch the experimental, yet simple annotation environment for testing Hyperwell. This system will display an example text and use the RecogitoJS library for annotating the plain text, while annotations are stored on a Web Annotation supported server---ideally, via a Hyperwell gateway.
-
-![Test environment for annotating the first chapter of Goethe’s Faust.](figures/test-environment.png){#fig:test-environment}
-
-Emphasis: No need for an SDK, just use standard WebSockets. There exists an example annotation environment that shows the integration. 
-
-[^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>
-
 ### Gateway Performance
 
 _TODO:_ If time is left, run some artillery[^artillery] penetration tests on the gateway.
@@ -296,6 +300,6 @@ _TODO:_ If time is left, run some artillery[^artillery] penetration tests on the
 
 ## Conclusion
 
-With many stakeholders involved—such as researchers, institutions, platforms, non-academic users—it’s difficult to find the perfect solution suiting all their needs. The “Thick Client” approach presented first ensures an annotator’s independence when publishing, but bears the quick exhaustion of their computational resources. The second approach, Hyperwell, performed well in testing due to a clear distinction of personal (individual) and institutional (centralized) computational resources, but takes the way of introducing quasi-centralized gateways.
+In @sec:bridging, I have outlined three approaches on bridging the web and decentralized networks for real-time replication of annotations. Two of these approaches utilize additional, centralized services—i.e., proxies or gateways—in order to translate network traffic into protocols commonly supported on the web. The former of these two approach involved  taking connections from web clients via the WebSocket protocol and forwarding an underlying novel HTTP-inspired protocol via duplex streams to peers on the decentralized network. This allows peers to publish annotations independently of any _particular_ bridge but entails the requirement of SDKs in order to support web applications using the above communication capabilities. The latter approach puts an even larger emphasis on a centralized network extension: With gateways, institutions can reliably provide annotations from affiliated users to annotation environments on the web.
 
-I have outlined three approaches on bridging the web and decentralized networks for real-time exchange of annotations in @sec:bridging. Two of these approaches utilize additional, centralized services—i.e., proxies or gateways—in order to translate network traffic into protocols commonly supported on the web. The former of these two approach involved  taking connections from web clients via the WebSocket protocol and forwarding the underlying novel HTTP-inspired protocol via duplex streams to peers on the decentralized network. This allows peers to publish annotations independently of any particular bridge but entailed the requirement of SDKs in order for web applications to support the above communication capabilities.
+With many stakeholders involved—i.e., researchers, institutions, platforms, non-academic users—it becomes increasingly difficult to settle with a solution suiting all their needs. The implementations derived from the above concepts draw a multifaceted picture of possible solutions to P2P annotation. The first presented “thick client” approach attempts to ensure server-independent publishing of digital notebooks. However, the overlay network for bridging the decentralized network to web clients can cause an unexpected amount of network requests on individuals’, putting a strain on their commonly limited computational resources. With a system named Hyperwell, the second implementation performed well during initial testing due to a clear distinction between personal (individual) and centralized (institutional) computational resources and introduces an institutionally-governed gateway server for bringing distributed personal notebooks to the web.
