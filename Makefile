@@ -1,4 +1,4 @@
-CHAPTERS = $(shell find chapters -name '*.md')
+CHAPTERS = $(shell find front chapters appendix -name '*.md')
 FIGURES = $(shell find figures)
 CHARTS = $(shell find figures/charts -name '*.pdf')
 
