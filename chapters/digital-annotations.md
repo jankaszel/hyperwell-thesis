@@ -45,7 +45,7 @@ Annotations are of a personal, and even a social nature---commonly, annotations 
 
 _TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
 
-![Separation of annotations as personal data and resources as institutional data.](figures/ownership-separation.pdf){@fig:separation short-caption="Separation of personal and institutional data"}
+![Separation of annotations as personal data and resources as institutional data.](figures/ownership-separation.pdf){#fig:separation short-caption="Separation of personal and institutional data"}
 
 _TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_ data. Thus, impose the notions of _notebooks_ (personal collections of annotations) and _institutional services_ (such as archiving, mirroring, and gateways) or _collections_. Libraries are akin to this notion of institutions; they provide a (majorly) static collection of resources that are properly indexed and accessible via canonical identifiers. Examples for such institutions are the Perseus Digital Library[^perseus-dl] and the British Library[^british-library].
 
