@@ -1,5 +1,9 @@
 # Implementation {#sec:implementation}
 
+> _I will comfort you / I'll take your part / When darkness comes / And pain is all around / Like a bridge over troubled water / I will lay me down_
+>
+> --- Simon & Garfunkel: “Bridge Over Troubled Water”
+
 When approaching the design and subsequent implementation of a system that corresponds to the concepts on digital notebooks introduced in @sec:annotation, I have settled with the technical assumption that web is a predominant way of interacting with data for a majority of people. Hence, the system should support contemporary web protocols. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should comply with the specification for enabling interoperable semantic annotation.
 
 Design decisions on P2P systems commonly entail implications on usability, data availability, and user emancipation: As described in @sec:gateways, minor technical adjustments on network structures can affect peers and data on such a system. _TODO:_ Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
@@ -15,6 +19,8 @@ Web applications leverage technologies planned, audited, and released by the Wor
 * User Experience (UX): Websites are accessible by entering Uniform Resource Locators (URLs). Users don’t have to manually download an application bundle and run it on their machine, as browsers download the application code and assets in-promptu.
 * Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
 * Business Benefits: ...
+
+![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
 
 _TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
 
@@ -262,7 +268,7 @@ Further supporting WebSocket-based subscriptions from the gateway entailed makin
 
 I eventually ceased work on the Recogito integration, as its complex code base would have required a substantial amount changes in order to make real-time collaborative annotation work. Meanwhile, Dr. Rainer Simon, lead developer of Recogito, extracted the annotation mechanisms of Recogito and created a new library called RecogitoJS[^recogito-js]. For displaying the annotation editor on top of a source RecogitoJS uses React[^react], a web UI development framework created at Facebook. 
 
-![Annotation environment for testing the Hyperwell gateway. Users can collaboratively annotate the first chapter of Goethe’s Faust, as changes on the provided notebook are transmitted in real-time.](figures/test-environment.png){#fig:test-environment short-caption=“Annotation environment for testing the Hyperwell gateway”}
+![Annotation environment for testing the Hyperwell gateway. Users can collaboratively annotate the first chapter of Goethe’s Faust, as changes on the provided notebook are transmitted in real-time.](figures/test-environment.png){#fig:test-environment short-caption="Annotation environment for testing the Hyperwell gateway"}
 
 In an experimental, yet simple annotation environment application for testing the Hyperwell gateway, RecogitoJS is utilized for annotating the first chapter of Goethe’s Faust. The UI of the application is pictured in @fig:test-environment. Prior to annotating the source, users have to specify an annotation server where they want to load annotations from. If this server is a Hyperwell gateway, the environment will establish a WebSocket connection and enable real-time collaboration of the source.
 

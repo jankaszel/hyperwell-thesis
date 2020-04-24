@@ -1,5 +1,9 @@
 # Digital Annotation {#sec:annotation}
 
+> _Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.”_
+> 
+> --- @kleppmann2019
+
 _TODO/Commentary:_ This chapter is still pretty rough. It’s partly related work/lit review, part argumentation. What I want to convey here is:
 
 * _What is digital annotation?_ Discuss how Hypertext can be collaborative, what’s in for annotation and how digital annotation could benefit from e.g. links [@nelson1993; @marshall1997].
@@ -9,21 +13,31 @@ _TODO/Commentary:_ This chapter is still pretty rough. It’s partly related wor
 
 The way we treat annotations today is wrong, and by considering how tools for annotating PDFs and websites work we can learn about the issues. Coming from the Related Work section, this chapter should give a theoretical introduction into issues of text theory and how annotations fits in there. By leveraging a comparison of OHCO and Hypertext (or, Ted Nelson’s Xanadu), we should derive an architecture for annotations, and be able to show how annotations work in the Web’s notion of hypertext.
 
-Hypothes.is. Browser Storage APIs.
+## Annotating Hypertext
 
-## Hypertext Annotation
+_TODO:_ Summary: What sources are we actually talking about when considering digital annotation? Well, it’s hypertext, quite likely. Even if it weren’t, it was quite likely a superset of what we consider physical documents. Yet, this section will examine what hypertext is made of and what considerations have been voiced so far on annotating hypertext.
 
-Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993].
+Explicate Nelson’s work on Hypertext and Xanadu [@nelson1993]. What is distinctive of Xanadu? Hyperlinks and transclusion. The Xanadu will be the foundation for a new era of digital text.
 
-_TODO:_ Go further from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
+What components of Xanadu have been incorporated into Berners-Lee’s web? What did change? For example, content addressing is missing. Instead, we have LOD and LDPs.
+
+What else can be considered? OHCO [@derose1997]? CTS [@koentges2020]?
+
+Networking aspects of hypertext---the web is decentralized, yet we continuously face scandals of data silos, privacy violations, and so forth. What went wrong?
+
+Continue from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
+
+Finally, come to a conclusion (I’m not sure yet on which exactly). Make it concern digital libraries as manifestation of well-indexed, static sources.
 
 [^web-id]: <https://www.w3.org/2005/Incubator/webid/spec/>
 
-## Gateways and Peer-to-Peer Systems {#sec:gateways}
+## Public Infrastructure in Peer-to-Peer Systems {#sec:gateways}
+
+Supernodes, relays, pubs, proxies, pinning, seeding: Many popular decentralized networks leverage infrastructures that provide resources for sustaining the networks’ operation. For establishing a stable and reliable overlay network, nodes can be promoted to _supernodes_ (or: relays) by their  available resources, such as computational power, uptime, and bandwidth [@guha2015]. This can be beneficial for real-time systems with high demands on bandwidth such as Skype. For systems that rather focus on file-sharing, mirroring (or: replicating) and indexing of data becomes highly relevant as opposed to an overlay network, because if the last node 
+
+In the following, I will use some terms interchangeably. While peers concern the abstract notion of homogeneous participants in a system, nodes are connoted rather technical. Supernodes commonly _relay_ or _tunnel_ data to a multitude of nodes. In file-sharing systems, data can be _replicated_ or _mirrored_, as multiple nodes provide a copy of a resource that is indexed under the same address, e.g., in a DHT. I call these kinds of services _public_: They often are of a _volatile_ or _ephemeral_ nature, but help to maintain a complex, distributed system.
 
 Distributed P2P systems function fundamentally different from established architectures that separate between clients and servers in a network. The fundamental difference is explained by how the participants treat data: In architectures following the established client-server separation, such as HTTP, servers hold a monopoly of the contained data while clients request parts of this data on-demand. This provides several benefits for businesses: They are able to govern the singular source of their services’ data by properly “owning” it. This means, businesses are effectively controlling aspects such as data availability, access to data, its versioning, and basically any kind of operation on it, ensuring commercial exploitation. (Something on providing guaranteed uptime, data backups, etc.).
-
-![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
 
 In P2P systems, this power over data is distributed. The distinction of clients and servers is being blurred as the centralization of governance is diminished: Clients become servers, forming a collection of alike peers, that provide and at the same time request data. Considering “the data” a system operates on as a database (with support for querying and mutation), in these kind of distributed systems, this database is distributed, sometimes even fragmented.
 
@@ -37,13 +51,13 @@ In the following, I will describe two attempts at an implementation for a system
 
 ## Distributed Systems and Data Ownership
 
-> Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.” [@kleppmann2019]
-
 _TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Solid, however, builds upon Web ID and RFD, among other standards issued by the W3C. Within the Web, IDs still are tied to servers, which again most people aren't able to provide for themselves.
+
+_TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
 
 Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public. Annotations are related to a profile, and just rarely made with the authority of an institution or group. Annotations enable for sophisticated discussion [@marshall1997].
 
-_TODO:_ Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
+Analogies with libraries and personal notes [@wilensky2000].
 
 ![Separation of annotations as personal data and resources as institutional data.](figures/ownership-separation.pdf){#fig:separation short-caption="Separation of personal and institutional data"}
 
@@ -51,4 +65,3 @@ _TODO:_ Make a stretch towards the distinction of _personal_ and _institutional_
 
 [^perseus-dl]: The Perseus Digital Library provides a large amount of classic texts online [@smith2000]. The library’s Scaife Viewer allows for browsing its growing collection of texts available via CTS: <https://scaife.perseus.org/>.
 [^british-library]: The British Library uses the IIIF standard for offering some of their digitized items: <https://www.bl.uk/subjects>.
-

@@ -78,9 +78,9 @@ P2P systems are often associated with distributed networking and distributed dat
 
 Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
 
-> A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time.
+> _A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time._
 > 
-> — @kreps2013
+> --- @kreps2013
 
 ‘The Log’—or more precisely, the append-only log—is a list-based data structure that exclusively allows the addition of entries but no other mutations [@kreps2013]. Popularized by stream processing frameworks like Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well replication in databases cluster, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. A fundamental property of append-only logs is their distribution: Entries of a log reference to each other via their content-addressing hashes, and thus, if an actor of a distributed systems mutates a prior entry, all following hashes will change and the log will break. _TODO:_ Elaborate more?
 
