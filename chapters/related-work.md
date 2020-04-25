@@ -6,21 +6,31 @@ In the following, I will outline the background of this thesis in a brief review
 
 ## Collaboration in Hypertext Systems {#sec:related:hypertext}
  
-In particular, work by @nelson1993. Talk about success of hyperlinks (maybe take Notion as an editing environment?).
+The concept of hypertext has initially been defined by early work of \citeauthor{nelson1965}
 
-![Documents created by transclusion of units from xanalogical storage [@nelson1993]. These units can be standalone pieces of text or media and have links inbetween them.](figures/nelson-xanalogical-storage.png){#fig:xanalogical-storage short-caption="Documents created by transclusion of units from xanalogical storage"}
+In "\citetitle{nelson1993}"—a print publication designed as hypertext—\citeauthor{nelson1993} sketches a system called *Xanadu* that processes chunks of digital texts into entire documents backed by a system of servers for managing these units (@fig:xanalogical-storage). As opposed to earlier notions of hypertext documents
+
+![Documents created by transclusion of units from xanalogical storage in Xanadu [@nelson1993]. These units can be standalone pieces of text or digital media and have links inbetween them.](figures/nelson-xanalogical-storage.png){#fig:xanalogical-storage short-caption="Documents created by transclusion of units from xanalogical storage"}
+
+While there had been work on a multitude of hypertext systems[^hypertext-timeline], the World Wide Web (WWW), invented by Tim Berners-Lee, became to what we today refer to as 'the web' [@berners-lee1990]. He subsequently realized into a dedicated protocol, HTTP [@fielding1999], and a specialized, hypertext-capable markup language, HTML [@berners-lee1995].
 
 Digital annotation and hypertext [@marshall1997; @marshall1998].
 
-Digital collaboration and hypertext [@klokmose2015]. Collaboration in academia [@hunyadi2016]. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
-
-Technological aspects of collaboration in hypertext---that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
-
-Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
+[^hypertext-timeline]: <http://jakobvoss.de/hypertext-timeline/>.
 
 ## Linked Data and Digital Humanities {#sec:related:ld-dh}
 
+The initial design of \citeauthor{berners-lee1995} didn't pay much attention to annotations and semantic data in general. With the 'semantic web', ...
+
 Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP.
+
+Collaboration in academia [@hunyadi2016]: The web is not just limited to text documents. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
+
+Technological aspects of collaboration in hypertext---that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
+
+Digital collaboration and hypertext [@klokmose2015].
+
+Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
 
 How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
 
@@ -51,11 +61,11 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pro
 }
 ```
 
-[^hypothesis]: <https://hypothes.is/>
-[^dokieli]: <https://dokie.li/>
-[^dariah]: <https://www.dariah.eu/>
+[^hypothesis]: <https://hypothes.is/>.
+[^dokieli]: <https://dokie.li/>.
+[^dariah]: <https://www.dariah.eu/>.
 
-## Research Data Management {#sec:related:rdm}
+## File-Sharing Systems {#sec:related:rdm}
 
 FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
@@ -63,7 +73,7 @@ FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and chan
 
 TODO: Quick introduction on what _protocol_ means in this context---that is, a well-defined specification of how two or more computers should communicate in a network. More generally, this has implications on, first, how these machines connect (networking) and, second, how data is exchanged between these machines and distributed among a set of computers within the network.
 
-P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2015], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
+P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2005], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
 
 ![Architectures of communication networks [@baran1964]](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
 
@@ -71,7 +81,7 @@ P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawath
 
 P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
 
-Comparing to the way computers communicate in the web, there are no definite sources of authority, and hence knowledge, on where to find which piece of data—a web browser can simply translate a domain name such as `eff.org` via the Dynamic Name System (DNS) into an IP address, connect to the respective machine via TCP/IP, and request data via the Hypertext Transfer Protocol (HTTP). Consequently, it boils down to three particular issues for decentralized systems:
+Comparing to the way computers communicate in the web, there are no definite sources of authority, and hence knowledge, on where to find which piece of data—a web browser can simply translate a domain name such as `eff.org` via the Dynamic Name System (DNS) into an IP address, connect to the respective machine via TCP/IP, and request data via the Hypertext Transport Protocol (HTTP). Consequently, it boils down to three particular issues for decentralized systems:
 * Discovery: Where to find particular pieces of data?
 * Validity: As datasets are distributed among several nodes in the network, 
 * Authority
@@ -96,13 +106,13 @@ _TODO:_ Such federated systems strike the balance, as individuals can extend the
 
 _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
-[^git]: <https://git-scm.com/>
-[^diaspora]: <https://diasporafoundation.org/>
-[^mastodon]: <https://joinmastodon.org/>
+[^git]: <https://git-scm.com/>.
+[^diaspora]: <https://diasporafoundation.org/>.
+[^mastodon]: <https://joinmastodon.org/>.
 [^fediverse-network]: The [fediverse.network](https://fediverse.network/) website provides various usage and network statistics on such as Mastodon, PeerTube, and WordPress: <https://fediverse.network/mastodon>. The statistics mentioned on Mastodon were current as of April 8, 2020.
 
-[^apache-kafka]: <https://kafka.apache.org/>
-[^apache-samza]: <https://samza.apache.org/>
+[^apache-kafka]: <https://kafka.apache.org/>.
+[^apache-samza]: <https://samza.apache.org/>.
 
 ## Local-First Applications {#sec:related:local-first}
 
@@ -120,4 +130,4 @@ _TODO:_ The technologies used by this approach leverage contemporary P2P primiti
 
 Emphasize prospects of data ownership, self-hosting, whatever, with personal data and/or research data.
 
-[^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>
+[^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>.
