@@ -1,48 +1,57 @@
 # Related Work {#sec:related}
 
-In the following, I will outline the background of this thesis in a brief review of related literature and projects. As opposed to the later @sec:annotation, in this chapter I attempt to draw a cohesive, non-judgmental picture of related work.
+In the following, I will outline the background of this thesis in a brief review of related literature and projects. As opposed to the later @sec:annotation, in this chapter I attempt to draw a cohesive, non-judgmental picture of related work. The discussed works are _intertwingled_[^intertwingled] to a certain degree, but I will try to cover them in chronological order.
 
 ... I will examine the three aspects of this work’s research goals: _usability_, _feasibility_, and _interoperability_ of a decentralized annotation system. Touching the foundation of the Web as we know it today, but also notions of digital text in general, I will go into early work on Hypertext systems by Ted Nelson---most prominently, Xanadu---and others in @sec:related:hypertext, while discussing early notions of digital annotation and collaborative hypertext systems, including contemporary tools. [@Sec:related:ld-dh] will provide an overview of Linked Data, as well as a brief survey of digital tools in academic Digital Humanities research and how these tools integrate with Linked Data and the Semantic Web. More fundamental in Digital Humanities projects, research data management (RDM) is becoming increasingly important---in [@sec:related:rdm], I will thus discuss contemporary approaches to RDM and potential technical solutions to common issues in data repositories, such as versioning of changes. Subsequently, P2P technologies can benefit workflows in academic research, namely distributed networking and decentralized data exchange. Also considering further implications for RDM, fundamental P2P technologies as well as some exemplary systems are discussed in [@sec:related:p2p]. And finally, building upon the subjects explained before in this chapter, local-first applications draw prospects in terms of usability for data availability, data ownership, and real-time remote collaboration, among others, (...) by leveraging contemporary P2P technology. I will discuss local-first applications in @sec:related:local-first.
 
-## Collaboration in Hypertext Systems {#sec:related:hypertext}
- 
-The concept of hypertext has initially been defined by early work of \citeauthor{nelson1965}
+[^intertwingled]: \citeauthor{nelson1987b} coined this term in his 1974 book, "\citetitle{nelson1987b}", in order to describe the complex relations of human knowledge.
 
-In "\citetitle{nelson1993}"—a print publication designed as hypertext—\citeauthor{nelson1993} sketches a system called *Xanadu* that processes chunks of digital texts into entire documents backed by a system of servers for managing these units (@fig:xanalogical-storage). As opposed to earlier notions of hypertext documents
+## Hypertext and Annotation {#sec:related:hypertext}
+ 
+The concept of hypertext has initially been defined in early work of \citeauthor{nelson1965}: "hypertext [means] non-sequential writing---text that branches and allows choices to the reader, best read at an interactive screen" [@nelson1965]. In "\citetitle{nelson1993}"—a print publication actually designed as hypertext—\citeauthor{nelson1993} sketches a system called *Xanadu* that processes chunks of digital texts into entire documents backed by a system of servers for managing these units (@fig:xanalogical-storage). As opposed to earlier notions of hypertext documents, Xanadu ... .
 
 ![Documents created by transclusion of units from xanalogical storage in Xanadu [@nelson1993]. These units can be standalone pieces of text or digital media and have links inbetween them.](figures/nelson-xanalogical-storage.png){#fig:xanalogical-storage short-caption="Documents created by transclusion of units from xanalogical storage"}
 
-While there had been work on a multitude of hypertext systems[^hypertext-timeline], the World Wide Web (WWW), invented by Tim Berners-Lee, became to what we today refer to as 'the web' [@berners-lee1990]. He subsequently realized into a dedicated protocol, HTTP [@fielding1999], and a specialized, hypertext-capable markup language, HTML [@berners-lee1995].
+While there had been work on a multitude of hypertext systems[^hypertext-timeline], the World Wide Web (WWW), invented by Tim Berners-Lee, became to what we today refer to as 'the web' [@berners-lee1989a]. He subsequently realized into a dedicated protocol, HTTP [@fielding1999], and a specialized, hypertext-capable markup language, HTML [@berners-lee1995].
 
-Digital annotation and hypertext [@marshall1997; @marshall1998].
+![Analysis of various types of annotation curated by @marshall1997.](figures/marshall-annotation.png){#fig:marshall-annotation short-caption="Analysis of various types of annotation"}
+
+With the advent of world-scale hypertext systems as well as advancements in digitization of documents, the first digital libraries emerged. One such library emerged from the Perseus Project, spanning a collection of _TODO_ [@smith2000]. These digital collections of text suggested promising opportunities for digital annotation, since bodies of annotations can be related to the source virtually and thus make a publicly-accessible collection of derived semantic knowledge. For her pioneering work, \citeauthor{marshall1997} predicted such prospects and analyzed over 150 pre-owned students' books that have been shared and annotated by various generations of students [@marshall1997]. She categorized the observed annotations—e.g., underlining, high-level highlighting, marginal notes—into functional categories—e.g., abc—pictured in @fig:marshall-annotation. In a follow-up paper, \citeauthor{marshall1998} provides an outlook of how these observations could be related to hypertext annotation.
+
+Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
 
 [^hypertext-timeline]: <http://jakobvoss.de/hypertext-timeline/>.
 
-## Linked Data and Digital Humanities {#sec:related:ld-dh}
+## Digital Real-Time Collaboration
+
+Technological aspects of collaboration in hypertext, coming from annotation.
+
+Digital collaboration and hypertext [@klokmose2015].
+
+that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
+
+Real-time collaboration? Figma[^figma], Google Docs[^google-docs], Trello[^trello], Git[^git], Miro[^miro]. Notion[^notion].
+
+[^figma]: <https://figma.com/>.
+[^google-docs]: <https://docs.google.com/>.
+[^trello]: <https://trello.com/>.
+[^git]: <https://www.git-scm.com/>.
+[^miro]: <https://miro.com/>.
+[^notion]: <https://notion.so/>.
+
+## Linked Data and the Digital Humanities {#sec:related:ld-dh}
+
+Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups.
+
+Collaboration in academia [@hunyadi2016]: The web is not just limited to text documents. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space). The Digital Humanities---and academic research in general---has a higher demand for semantically tagged data than the 'consumer web' does.
 
 The initial design of \citeauthor{berners-lee1995} didn't pay much attention to annotations and semantic data in general. With the 'semantic web', ...
 
 Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP.
 
-Collaboration in academia [@hunyadi2016]: The web is not just limited to text documents. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space).
-
-Technological aspects of collaboration in hypertext---that is, WebSocket connections or WebRTC, and how these can be leveraged to realize real-time collaboration.
-
-Digital collaboration and hypertext [@klokmose2015].
-
-Real-time collaboration? Figma, Google Docs, Trello, Git, Miro, Screen.so, …
-
 How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
 
-Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
-
-Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups. 
-
-_TODO:_ Have a screenshot of Recogito.
-
-Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
-
-Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model]. Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
+Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model].
 
 Listing: An example annotation in form of a JSON-LD-based Web Annotation, as provided by the Web Annotation data model technical report [@web-anno-data-model].
 
@@ -61,13 +70,15 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pro
 }
 ```
 
+Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
+
+![Annotating an ancient map, the Tabulatur Peutingeriana, with Recogito. Recogito allows to annotate sources, establish semantic relations, e.g., to places, and share these collections with other users.](figures/recogito-annotation.png){#fig:recogito-annotation short-caption="Annotating an ancient map, the Tabulatur Peutingeriana, with Recogito"}
+
+Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
+
 [^hypothesis]: <https://hypothes.is/>.
 [^dokieli]: <https://dokie.li/>.
 [^dariah]: <https://www.dariah.eu/>.
-
-## File-Sharing Systems {#sec:related:rdm}
-
-FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
 ## Peer-to-Peer Technology {#sec:related:p2p}
 
@@ -113,6 +124,10 @@ _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 [^apache-kafka]: <https://kafka.apache.org/>.
 [^apache-samza]: <https://samza.apache.org/>.
+
+## Sharing and Archiving Files {#sec:related:rdm}
+
+FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
 ## Local-First Applications {#sec:related:local-first}
 
