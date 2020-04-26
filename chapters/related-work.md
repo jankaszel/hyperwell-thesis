@@ -49,19 +49,13 @@ The widespread support for such technologies in current web browsers sparked a w
 
 ## Linked Data and the Digital Humanities {#sec:related:ld-dh}
 
-Digital Humanities---being an inherently digital discipline---concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a dedicated overvier. However, initiatives such as the EU-funded DARIAH[^dariah] set out to collect as well as increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups.
+Digital Humanities, being an inherently digital discipline, concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a coherent overview. Initiatives such as the EU-funded DARIAH[^dariah] set out to increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups.
 
-Collaboration in academia [@hunyadi2016]: The web is not just limited to text documents. Collaboration and virtual spaces in general---what is real-time collaboration? (maybe find something that leads to a definition of some sort, like: commonly synchronized actions resemble the actions within a physical space). The Digital Humanities---and academic research in general---has a higher demand for semantically tagged data than the 'consumer web' does.
+\citeauthor{hinyadi2016} notes that due to its interdisciplinarity Digital Humanities communities frequently collaborate remotely. Using software for real-time video conferencing, researchers quickly established video-based plenary talks and virtual conferences [@hunyadi2016]. Scholarly collaboration continues with shared digital infrastructures among labs and projects 
 
-The initial design of \citeauthor{berners-lee1995} didn't pay much attention to annotations and semantic data in general. With the 'semantic web', ...
+The initial design of \citeauthor{berners-lee1995} didn't pay much attention to annotations and semantic data in general. With the 'semantic web', ... . Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP. How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
 
-Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP.
-
-How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
-
-Web Annotation specification [@sanderson2013; @web-anno-protocol; @web-anno-data-model].
-
-Listing: An example annotation in form of a JSON-LD-based Web Annotation, as provided by the Web Annotation data model technical report [@web-anno-data-model].
+Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pictured by the Web Annotation data model technical report [@web-anno-data-model]. This annotation adds a textual annotation containing the text _j'adore !_ to a web resource.
 
 ```{#lst:web-annotation-model .json}
 {
@@ -78,15 +72,24 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pro
 }
 ```
 
-Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019]. Annotea [@kahan2002].
+The Web Annotation specification emerged from ... TODO and builds upon the previously defined concepts of LOD and LDPs [@sanderson2013]. The specification consists of two components: First, the Web Annotation Data Model, in which annotations are expressed using the JSON-LD schema. Following a versatile ontology similar to the observations from \citeauthor{marshall1997}, an annotation fundamentally consists of three properties, as pictured in @lst:web-annotation-model:
 
-![Annotating an ancient map, the Tabulatur Peutingeriana, with Recogito. Recogito allows to annotate sources, establish semantic relations, e.g., to places, and share these collections with other users.](figures/recogito-annotation.png){#fig:recogito-annotation short-caption="Annotating an ancient map, the Tabulatur Peutingeriana, with Recogito"}
+* The annotation's ID, which is a web resource specified via its Internationalized Uniform Identifier (IRI, similar to an URI).
+* The target, which is a web resource, also specified via its IRI.
+* An annotation body, which again can be a web resource. Alternatively, as stated in @lst:web-annotation-model, the body can be an inlined JSON object that provides 
+
+The Web Annotation Protocol, as the second component, defines the Application Programming Interface (API) of an annotation server and thus, how client applications can transmit Web Annotations via HTTP. The API identifies annotations by their IRI[^annotation-iri] and consists of four basic verbs known from REST-based APIs: Clients can retrieve annotations (`GET`), create annotations (`POST`), update annotations (`PUT`), and delete annotations (`DELETE`). These actions can be executed on collections of annotations---semantic groups of items called _containers_ on the LDP---or the respective annotation, referred to by each their respective IRI.
+
+Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019].
+
+![Annotating an ancient map---the Tabulatur Peutingeriana---on Recogito. Recogito allows to annotate sources, establish semantic relations---e.g., referencing places---and share these collections with other users.](figures/recogito-annotation.png){#fig:recogito-annotation short-caption="Annotating an ancient map on Recogito"}
 
 Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
 
+[^dariah]: <https://www.dariah.eu/>.
+[^annotation-iri]: An example IRI would be: <https://www.example.com/container-name/annotation-id>
 [^hypothesis]: <https://hypothes.is/>.
 [^dokieli]: <https://dokie.li/>.
-[^dariah]: <https://www.dariah.eu/>.
 
 ## Peer-to-Peer Technology {#sec:related:p2p}
 

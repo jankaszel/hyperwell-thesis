@@ -14,5 +14,5 @@ Future prospects:
   * WebID
 * Resource Discovery: While working on the 'thick peer' approach, a discovery mechanism has been developed for the protocol that has been used in this particular approach: Users working on a resource could easily spot other users' notebooks that target this resource.
 * Research into pinning in conjunction with institution-provided gateways
-* Referencing of particular versions via an extension of the Web Annotation Protocol, e.g., `https://xyz.edu/annotations/<doc>/<annotation>/<version>`
+* Referencing of particular versions via an extension of the Web Annotation Protocol, e.g., `https://xyz.edu/annotations/<doc>/<annotation>/<version>`. Or, simply use the approach of @vandesompel2010.
 
