@@ -4,14 +4,14 @@
 > 
 > --- @kleppmann2019
 
+
+
 The way we treat annotations (_TODO_ or, more generally, personal/social data!) today is wrong, and by considering how tools for annotating PDFs and websites work we can learn about the issues. Coming from the Related Work section, this chapter should give a theoretical introduction into issues of text theory and how annotations fits in there. By leveraging a comparison of OHCO and Hypertext (or, Ted Nelson’s Xanadu), we should derive an architecture for annotations, and be able to show how annotations work in the Web’s notion of hypertext.
 
 * _What is digital annotation?_ Discuss how Hypertext can be collaborative, what’s in for annotation and how digital annotation could benefit from e.g. links [@nelson1993; @marshall1997].
 	* How can LOD benefit this? What are the prospects of LOD annotations as, opposed to e.g. simple text-based annotations
 * Transitioning to decentralized systems and ownership: What are gateways in P2P systems, how can they connect to the web and LOD?
 * Finally, questioning ownership on the web and proposing the _quintessential_ concepts of **notebooks** and **institutions**.
-
-> While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content. [@capadisli2017]
 
 In the following, I will argue for embracing an architectural separation between personal annotation and the respective annotated sources. @Sec:annotation:web will revisit characteristics of the network that we know as World Wide Web. Questioning the role of the _cloud_ in today's internet services, I discuss the prospects of decentralization via Linked Data and P2P systems on digital annotation. However, P2P systems commonly rely on high-availability infrastructures known as _supernodes_, _relays_, or _gateways_ for replication and indexing. @Sec:annotation:infrastructure pictures these infrastructures and draws conclusions from institutions on the web.
 
@@ -25,6 +25,8 @@ What is wrong with that? How does centralization of power and, thus, governance
 * Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
 * @kleppmann2019 has good takes on this, as seen in the above quote
   * Networking aspects of hypertext---the web is decentralized, yet we continuously face scandals of data silos, privacy violations, and so forth. What went wrong?
+
+> While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content. [@capadisli2017]
 
 Linked Data principles for ensuring decentralized interoperability
 * Continue from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.

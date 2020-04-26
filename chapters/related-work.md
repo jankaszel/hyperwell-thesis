@@ -94,7 +94,7 @@ Yet, the capabilities of Web Annotation are not limited to social interactions o
 
 [^dariah]: <https://www.dariah.eu/>.
 [^fair-principles]: <https://www.go-fair.org/fair-principles/>.
-[^rdf-example]: In RDF, objects are identified by their URIs. In an example given by \citeauthor{bizer2009}, an subject (http://dig.csail.mit.edu/data#DIG) relates via a predicate (http://xmlns.com/foaf/0.1/member) to an object (http://www.w3.org/People/Berners-Lee/card#i).
+[^rdf-example]: In RDF, objects are identified by their URIs. In an example given by \citeauthor{bizer2009}, an subject (<http://dig.csail.mit.edu/data#DIG>) relates via a predicate (<http://xmlns.com/foaf/0.1/member>) to an object (<http://www.w3.org/People/Berners-Lee/card#i>).
 [^solid]: Although started by Berners-Lee at MIT, the Solid project is now managed by an affiliated commercial startup called Inrupt: <https://solidproject.org/>.
 [^rest-api]: API is an acronym for Application Programming Interface. With APIs that adhere to Representional State Transfer (REST), applications can execute common actions such as creating, retrieving, and editing data via HTTP.
 [^annotation-iri]: An example IRI would be: <https://www.example.com/container-name/annotation-id>.
