@@ -22,7 +22,7 @@ While there had been work on a multitude of hypertext systems[^hypertext-timelin
 
 With the advent of world-scale hypertext systems as well as advancements in digitization of documents, the first digital libraries emerged. One such library emerged from the Perseus Project, spanning a collection of _TODO_ [@smith2000]. These digital collections of text suggested promising opportunities for digital annotation, since bodies of annotations can be related to the source virtually and thus make a publicly-accessible collection of derived semantic knowledge. For her pioneering work, \citeauthor{marshall1997} predicted such prospects and analyzed over 150 pre-owned students' books that have been shared and annotated by various generations of students [@marshall1997]. She categorized the observed annotations—e.g., underlining, high-level highlighting, marginal notes—into functional categories—e.g., abc—pictured in @fig:marshall-annotation. In a follow-up paper, \citeauthor{marshall1998} provides an outlook of how these observations could be related to hypertext annotation.
 
-Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
+TODO: Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
 
 [^hypertext-timeline]: Jakob Voß prepared an interactive visualization of the timeline of hypertext, backend by structured knowledge on Wikidata: <http://jakobvoss.de/hypertext-timeline/>.
 
@@ -55,7 +55,7 @@ Digital Humanities, being an inherently digital discipline, concerns various int
 
 Linked Open Data (LOD) could meet all of these four requirements. While HTML provides elements for semantically tagging content, such  as titles, descriptions, and marginal notes, it lacked describing _pure_ data without markup. Linked Data (LD) and, more generally, the Semantic Web, aims to . The LD stack is build upon established web technologies, such as HTTP and URLs, and imposes semantic relations via triples modeled after the Resource Description Framework (RDF). With RDF triples, an external party can express the semantic relation between two entities by specifying a _subject_, a _predicate_, and an _object_[^rdf-example] [@bizer2009]. Linked Open Data continues even further and makes publicly accessible Linked Data.
 
-With the Solid project[^solid], a team around Berners-Lee conceived an architecture for managing personal data separately from applications and services on the web on online storage called _pubs_ [@mansour2016]. Solid introduces Linked Data Platforms (LDPs), which are services that exclusively manage Linked Data containers---i.e., semantic collections of LD items---and their related media assets. Furthermore, LDPs specify how clients can interact with the stored data via REST-based APIs[^rest-api].
+With the Solid project[^solid], a group led by Berners-Lee conceived an architecture for managing personal data separately from applications and services on the web on online storage called _pubs_ [@mansour2016]. Solid introduces Linked Data Platforms (LDPs), which are services that exclusively manage Linked Data containers---i.e., semantic collections of LD items---and their related media assets. Furthermore, LDPs specify how clients can interact with the stored data via REST-based APIs[^rest-api].
 
 LOD can play a crucial role on the realization of FAIR with data in the Digital Humanities. As LOD is publicly accessible, researchers can prepapre collections of data accordingly and publish them via HTTP, each with their own URI for referencing them as a Linked Data item. Shared online gazetters, for example, provide collections of LD-formatted places and can be semantically onto other resources, such as ancient maps and classic texts [@simon2015].
 
@@ -76,19 +76,21 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pic
 }
 ```
 
+Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data. Hypothes.is!
+
 The Web Annotation specification emerged from ... TODO and builds upon the previously defined concepts of LOD and LDPs [@sanderson2013]. The specification consists of two components: First, the Web Annotation Data Model, in which annotations are expressed using the JSON-LD schema. Following a versatile ontology similar to the observations from \citeauthor{marshall1997}, an annotation fundamentally consists of three properties, as pictured in @lst:web-annotation-model:
 
-* The annotation's ID, which is a web resource specified via its Internationalized Uniform Identifier (IRI, similar to an URI).
-* The target, which is a web resource, also specified via its IRI.
-* An annotation body, which again can be a web resource. Alternatively, as stated in @lst:web-annotation-model, the body can be an inlined JSON object that provides 
+* The annotation's _identifier_, which is a web resource specified via its Internationalized Uniform Identifier (IRI, similar to an URI).
+* Its _target_, which is a web resource, also specified via its IRI.
+* An annotation _body_, which again can be a web resource. Alternatively, as done in @lst:web-annotation-model, the body can be provided as an inlined JSON object. For expressing a specific portion of the target resource---e.g., a piece of text, or a section of an image---a wide range of standardized _fragment selectors_ can be used.
 
 The Web Annotation Protocol, as the second component, defines the Application Programming Interface (API) of an annotation server and thus, how client applications can transmit Web Annotations via HTTP. The API identifies annotations by their IRI[^annotation-iri] and consists of four basic verbs known from REST-based APIs: Clients can retrieve annotations (`GET`), create annotations (`POST`), update annotations (`PUT`), and delete annotations (`DELETE`). These actions can be executed on collections of annotations---semantic groups of items called _containers_ on the LDP---or the respective annotation, referred to by each their respective IRI.
 
-Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019].
+With dokieli[^dokieli], \citeauthor{capadisli2017} created a publishing environment that supports storing documents on loosely-connected datastores---i.e., documents created on dokieli are not necessarily tied to it. By adhering to a multitude of LD protocols and supporting the LDP, dokieli is compliant with the aforementioned Solid architecture and attempts to support a separation between datastores and the respective applications operating on these stores. Furthermore, dokieli provides social interactions such as _liking_ sections of text and commenting by leveraging the Web Annotation protocol and data model.
 
-![Annotating an ancient map---the Tabulatur Peutingeriana---on Recogito. Recogito allows to annotate sources, establish semantic relations---e.g., referencing places---and share these collections with other users.](figures/recogito-annotation.png){#fig:recogito-annotation short-caption="Annotating an ancient map on Recogito"}
+![Annotating an ancient map on Recogito. Recogito allows to annotate sources, establish semantic relations---e.g., referencing places or people---and share these collections with other users.](figures/recogito-annotation.png){#fig:recogito-annotation short-caption="Annotating an ancient map on Recogito"}
 
-Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
+Yet, the capabilities of Web Annotation are not limited to social interactions on text. Initiated by the Pelagios project[^pelagios], Recogito is a platform that has been created purposely for _semantic_ annotation [@simon2015; @simon2017]. In order to provide semantic annotation, Recogito leverages LD principles and allows to semantically tag portions of a source with LD collections, such as the aforementioned gazetteers or historic individuals. Besides text, Recogito also supports annotating static images and canonical resources, such as documents identified by CTS URNs or large-scale image galleries via International Image Interoperability Framework (IIIF).
 
 [^dariah]: <https://www.dariah.eu/>.
 [^fair-principles]: <https://www.go-fair.org/fair-principles/>.
@@ -96,8 +98,8 @@ Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking 
 [^solid]: Although started by Berners-Lee at MIT, the Solid project is now managed by an affiliated commercial startup called Inrupt: <https://solidproject.org/>.
 [^rest-api]: API is an acronym for Application Programming Interface. With APIs that adhere to Representional State Transfer (REST), applications can execute common actions such as creating, retrieving, and editing data via HTTP.
 [^annotation-iri]: An example IRI would be: <https://www.example.com/container-name/annotation-id>.
-[^hypothesis]: <https://hypothes.is/>.
 [^dokieli]: <https://dokie.li/>.
+[^pelagios]: <https://pelagios.org/>.
 
 ## Peer-to-Peer Technology {#sec:related:p2p}
 
@@ -145,10 +147,6 @@ _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 [^apache-kafka]: <https://kafka.apache.org/>.
 [^apache-samza]: <https://samza.apache.org/>.
-
-## Sharing and Archiving Files {#sec:related:rdm}
-
-FAIR principles [@wilkinson2016]. But, ‘reference rot’—dead links and changing data—is a serious issue [@robinson2018], which could be fixed by introducing new technologies for storing and distributing data. I will go into more detail on that in @sec:related:p2p.
 
 ## Local-First Applications {#sec:related:local-first}
 

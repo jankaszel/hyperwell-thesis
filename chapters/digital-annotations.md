@@ -11,6 +11,8 @@ The way we treat annotations (_TODO_ or, more generally, personal/social data!) 
 * Transitioning to decentralized systems and ownership: What are gateways in P2P systems, how can they connect to the web and LOD?
 * Finally, questioning ownership on the web and proposing the _quintessential_ concepts of **notebooks** and **institutions**.
 
+> While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content. [@capadisli2017]
+
 In the following, I will argue for embracing an architectural separation between personal annotation and the respective annotated sources. @Sec:annotation:web will revisit characteristics of the network that we know as World Wide Web. Questioning the role of the _cloud_ in today's internet services, I discuss the prospects of decentralization via Linked Data and P2P systems on digital annotation. However, P2P systems commonly rely on high-availability infrastructures known as _supernodes_, _relays_, or _gateways_ for replication and indexing. @Sec:annotation:infrastructure pictures these infrastructures and draws conclusions from institutions on the web.
 
 In @sec:annotation:ownership, I then define the distinctive terms of _notebooks_ and _institution_ for embracing a separation between personal data and public services. Subsequently, in the following @sec:implementation (TODO chapter), I will discuss proof-of-concept designs and implementations on how such a separation can be realized with today's technology.
