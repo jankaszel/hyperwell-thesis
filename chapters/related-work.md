@@ -51,9 +51,13 @@ The widespread support for such technologies in current web browsers sparked a w
 
 Digital Humanities, being an inherently digital discipline, concerns various interdisciplinary fields of research such as digital archeology, digital history, and digital classics. Hence, the landscape of tools and infrastructure in Digital Humanities research is vast and yet lacks a coherent overview. Initiatives such as the EU-funded DARIAH[^dariah] set out to increase literacy in digital tools, providing a dedicated infrastructure available to a pan-European audience of research groups.
 
-\citeauthor{hinyadi2016} notes that due to its interdisciplinarity Digital Humanities communities frequently collaborate remotely. Using software for real-time video conferencing, researchers quickly established video-based plenary talks and virtual conferences [@hunyadi2016]. Scholarly collaboration continues with shared digital infrastructures among labs and projects 
+\citeauthor{hinyadi2016} notes that due to its interdisciplinarity, communities in the Digital Humanities frequently collaborate remotely. Using software for real-time video conferencing, researchers quickly established video-based plenary talks and virtual conferences [@hunyadi2016]. Scholarly collaboration continues with shared digital infrastructures among labs and projects. By embracing best-practices guidelines on research data management such as the FAIR principles[^fair-principles], emancipation in the handling of digital assets is disseminated among scholars: Findability, Accessibility, Interoperability, and Reusability of research data all shall ensure that data measured, processed, and evaluated in research is properly managed [@wilkinson2016].
 
-The initial design of \citeauthor{berners-lee1995} didn't pay much attention to annotations and semantic data in general. With the 'semantic web', ... . Something on Linked Data, its origin and principles [@bizer2011]. Solid [@mansour2016] and Linked Data Platforms (LDPs). Distinguish LOD and LDP. How are resources treated in the Digital Humanities? Which prospects does LOD have for DH?
+Linked Open Data (LOD) could meet all of these four requirements. While HTML provides elements for semantically tagging content, such  as titles, descriptions, and marginal notes, it lacked describing _pure_ data without markup. Linked Data (LD) and, more generally, the Semantic Web, aims to . The LD stack is build upon established web technologies, such as HTTP and URLs, and imposes semantic relations via triples modeled after the Resource Description Framework (RDF). With RDF triples, an external party can express the semantic relation between two entities by specifying a _subject_, a _predicate_, and an _object_[^rdf-example] [@bizer2009]. Linked Open Data continues even further and makes publicly accessible Linked Data.
+
+With the Solid project[^solid], a team around Berners-Lee conceived an architecture for managing personal data separately from applications and services on the web on online storage called _pubs_ [@mansour2016]. Solid introduces Linked Data Platforms (LDPs), which are services that exclusively manage Linked Data containers---i.e., semantic collections of LD items---and their related media assets. Furthermore, LDPs specify how clients can interact with the stored data via REST-based APIs[^rest-api].
+
+LOD can play a crucial role on the realization of FAIR with data in the Digital Humanities. As LOD is publicly accessible, researchers can prepapre collections of data accordingly and publish them via HTTP, each with their own URI for referencing them as a Linked Data item. Shared online gazetters, for example, provide collections of LD-formatted places and can be semantically onto other resources, such as ancient maps and classic texts [@simon2015].
 
 Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pictured by the Web Annotation data model technical report [@web-anno-data-model]. This annotation adds a textual annotation containing the text _j'adore !_ to a web resource.
 
@@ -87,7 +91,11 @@ Hypothes.is[^hypothesis]. Dokieli [^dokieli] [@capadisli2019].
 Tools using Web Annotation—namely, Recogito [@simon2015; @simon2017]. Talking about Recogito, it leverages the prospect of referencing places via Linked Data principles, as Recogito supports importing shared online gazetteers with each place of a gazetteers being assigned a Uniform Resource Identifier (URI) [@simon2015]. Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data.
 
 [^dariah]: <https://www.dariah.eu/>.
-[^annotation-iri]: An example IRI would be: <https://www.example.com/container-name/annotation-id>
+[^fair-principles]: <https://www.go-fair.org/fair-principles/>.
+[^rdf-example]: In RDF, objects are identified by their URIs. In an example given by \citeauthor{bizer2009}, an subject (http://dig.csail.mit.edu/data#DIG) relates via a predicate (http://xmlns.com/foaf/0.1/member) to an object (http://www.w3.org/People/Berners-Lee/card#i).
+[^solid]: Although started by Berners-Lee at MIT, the Solid project is now managed by an affiliated commercial startup called Inrupt: <https://solidproject.org/>.
+[^rest-api]: API is an acronym for Application Programming Interface. With APIs that adhere to Representional State Transfer (REST), applications can execute common actions such as creating, retrieving, and editing data via HTTP.
+[^annotation-iri]: An example IRI would be: <https://www.example.com/container-name/annotation-id>.
 [^hypothesis]: <https://hypothes.is/>.
 [^dokieli]: <https://dokie.li/>.
 
