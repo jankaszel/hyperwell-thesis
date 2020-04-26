@@ -22,7 +22,7 @@ While there had been work on a multitude of hypertext systems[^hypertext-timelin
 
 With the advent of world-scale hypertext systems as well as advancements in digitization of documents, the first digital libraries emerged. One such library emerged from the Perseus Project, spanning a collection of _TODO_ [@smith2000]. These digital collections of text suggested promising opportunities for digital annotation, since bodies of annotations can be related to the source virtually and thus make a publicly-accessible collection of derived semantic knowledge. For her pioneering work, \citeauthor{marshall1997} predicted such prospects and analyzed over 150 pre-owned students' books that have been shared and annotated by various generations of students [@marshall1997]. She categorized the observed annotations—e.g., underlining, high-level highlighting, marginal notes—into functional categories—e.g., abc—pictured in @fig:marshall-annotation. In a follow-up paper, \citeauthor{marshall1998} provides an outlook of how these observations could be related to hypertext annotation.
 
-TODO: Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
+TODO: Canonical identifiers. By incorporating end-to-end, persistent references with technologies such as Digital Object Identifiers (DOIs), contemporary digital publishing takes on these frameworks. Thereby, references to particular versions of data can be resolved. Canonical text systems such as CTS [@koentges2020] have been available for a couple of years, and IIIF is currently emerging and becoming more popular among GLAM institutions. CTS and IIIF both support addressing canonical resources via unique identifiers, being it HTTP URIs (IIIF) or CTS URNs (CTS). Another method of canonically referencing sources would be content addressing, such as IPFS---is that worth mentioning?
 
 [^hypertext-timeline]: Jakob Voß prepared an interactive visualization of the timeline of hypertext, backend by structured knowledge on Wikidata: <http://jakobvoss.de/hypertext-timeline/>.
 
@@ -103,42 +103,38 @@ Yet, the capabilities of Web Annotation are not limited to social interactions o
 
 ## Peer-to-Peer Technology {#sec:related:p2p}
 
-TODO: Quick introduction on what _protocol_ means in this context---that is, a well-defined specification of how two or more computers should communicate in a network. More generally, this has implications on, first, how these machines connect (networking) and, second, how data is exchanged between these machines and distributed among a set of computers within the network.
+The earliest concepts of hypertext established client-server architectures for storing hypertext documents distributed among an array of hypertext servers [@nelson1993; @berners-lee1990]. TODO Explain different network architectures.
 
-P2P systems take a peculiar role in popular culture: Napster, Gnutella [@chawathe2003], and Bitcoin [@legout2007] all are P2P systems that became hugely popular for sharing copyrighted content. Despite the question of the legality of their application in that context, they were pretty efficient. Mainly because of the following two properties: First, if individuals or a group of users share data in real-time, such as during a Skype video call [@guha2005], centralized systems pose a huge bottleneck. Second, if resources are distributed among a network of computers, their joined computing power and bandwidth can be more efficient than having one high-tier centralized service.
+![Architectures of communication networks [@baran1964].](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
 
-![Architectures of communication networks [@baran1964]](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
+TODO Explain what components of such a system requires: Discovery, security, ..., mechanisms for replication, protocols in general.
 
 @Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2017].
-
-P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
 
 Comparing to the way computers communicate in the web, there are no definite sources of authority, and hence knowledge, on where to find which piece of data—a web browser can simply translate a domain name such as `eff.org` via the Dynamic Name System (DNS) into an IP address, connect to the respective machine via TCP/IP, and request data via the Hypertext Transport Protocol (HTTP). Consequently, it boils down to three particular issues for decentralized systems:
 * Discovery: Where to find particular pieces of data?
 * Validity: As datasets are distributed among several nodes in the network, 
 * Authority
 
+_TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
+
+P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
+
 P2P systems are often associated with distributed networking and distributed databases. Essentially, systems such as the aforementioned BitTorrent [@legout2007; @loewenstern2020] and Gnutella [@chawathe2003] construct immensely scaled, distributed, and fragmented databases that communicate over a vast worldwide network instead of a Local Area Network (LAN).
 
 Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
 
-> _A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time._
-> 
-> --- @kreps2013
-
-_The Log_—or more precisely, the append-only log—is a list-based data structure that exclusively allows the addition of entries but no other mutations [@kreps2013]. Popularized by stream processing frameworks like Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well replication in databases cluster, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. A fundamental property of append-only logs is their distribution: Entries of a log reference to each other via their content-addressing hashes, and thus, if an actor of a distributed systems mutates a prior entry, all following hashes will change and the log will break. _TODO:_ Elaborate more?
+_The Log_—or more precisely, the append-only log—is a list-based data structure that exclusively allows the addition of entries but no other mutations: "A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time" [@kreps2013]. Popularized by stream processing frameworks like Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well replication in databases cluster, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. A fundamental property of append-only logs is their distribution: Entries of a log reference to each other via their content-addressing hashes, and thus, if an actor of a distributed systems mutates a prior entry, all following hashes will change and the log will break. _TODO:_ Elaborate more?
 
 Interestingly, append-only logs can be compared to Nelson's early concept of document processing on Xanadu, where documents were stored as their editing changes rather than an entire document for each version.
 
-_TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
+CRDTs. Automerge.
 
 _TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]). Build bridge over to supporting infrastructure for distributed networks. Secure Scuttlebutt [@tarr2019].
 
 Federated systems pose an interesting trade-off between decentralization and full distribution by designing the system as distributed among several instances, yet still composing one singular social network. @esguerra2011 surveys such federated social networks, as issues around privacy and censorship of large-scale social networks such as Facebook and Twitter arose: "Federated social networks [...] are a vital step towards fulfilling values often lacking in the existing social networking ecosystem: user-control, diversity of services, innovation, and more." While the federated social network Diaspora[^diaspora] originally gained some traction, Mastodon[^mastodon] become increasingly popular over the recent years, with about 3.9 Million users across about 2.600 instances as of right now[^fediverse-network]. By implementing the ActivityPub protocol [@activitypub], 
 
 _TODO:_ Such federated systems strike the balance, as individuals can extend the network by hosting their own instances. These instances communicate with each other using the ActivityPub protocol (_TODO:_ explicate!) via server-to-server communication---whereas in fully distributed networks, peers (and thus, clients) communicate directly without middlemen, this approach of federation supports the presence of servers while providing users with choices on where they want to store their data.
-
-_TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 [^git]: <https://git-scm.com/>.
 [^diaspora]: <https://diasporafoundation.org/>.
@@ -150,20 +146,16 @@ _TODO:_ @antoniou2011 on distributed social networks? Mirrors. P2P pinning.
 
 ## Local-First Applications {#sec:related:local-first}
 
-Classic HTTP client-server architecture.
-
-Interestingly, few to none of the collaboration tools mentioned in @sec:related:collaboration work when not connected the internet or, more specificially, the _cloud_.
-
-In 2019, \citeauthor{kleppmann2019} coined the term of ‘local-first applications’. In a paper called \citetitle{kleppmann2019}, the authors propose a set of requirements for a type of application that overcomes common issues of contemporary collaboration software: As businesses increasingly rely on cloud-backend infrastructure for their applications, … . 
-
-With a follow-up, proof-of-concept application called ‘PushPin’, \citeauthor{hardenberg2020} implemented a local-first application by utilizing hypermerge as foundation for the application’s data storage. Several take-aways emerged from their work, including the benefits of Functional Reactive Programming (FRP) for user interfaces displaying real-time updates and ongoing issues around privacy, security, and usability [@hardenberg2020].
+In \citeyear{kleppmann2019}, \citeauthor{kleppmann2019} coined the term of _local-first applications_. In a paper called \citetitle{kleppmann2019}, the authors propose a set of requirements for a novel type of application that overcomes common issues of contemporary real-time collaboration software: As businesses increasingly rely on cloud providers to manage and provision their technical infrastructure, fewer applications work when not connected to the internet, or, even severe, the company actually goes out of business. Most profoundly, local-first applications require _all_ respective data to be stored locally---that could be text documents or structured databases. By cherishing local data, operations on these happen instantaneous and network connections become optional. Yet, real-time updates are still transmitted and reflected on the user interface.
 
 Issues commonly arise when two actors change the same property on a piece of data: If two people were to edit a paragraph of text collaboratively in the same shared document, and they edited the same word at the same time before synchronizing, this situation would cause a conflict. A centralized authority can occasionally solve such conflicts by applying particular sets of rules for conflict resolution, but distributing authority over a data structure ... . For use in such environments were changes and conflicts can occur frequently, Conflict-free Replicated Data Types (CRDTs) can be used. They have been documented by [@shapiro2011] and first emerged from large-scale distributed databases, but CRDTs are flexible and can be applied to a variety of circumstances, such as distributed collaborative systems. CRDTs consist of these components: ... . As CRDTs gained popularity among developers for building apps with offline capabilities among other features, implementations for various platforms and programming environments emerged[^crdt-website].
 
 \citeauthor{kleppmann2017} applied the methodologies of CRDTs to JSON data structures. ... [@kleppmann2017; @kleppmann2018]. With web technologies becoming increasingly popular among web and application developers alike, being able to use CRDT capabilities on JSON data facilitates better real-time synchronization.
 
-_TODO:_ The technologies used by this approach leverage contemporary P2P primitives. I have visited some of them before in this chapter (@sec:related:p2p)—most fundamentally, a distributed system for sharing of data can be reduced to the issues of discovery, 
+TODO Hypermerge[^hypermerge]. The technologies used by this approach leverage contemporary P2P primitives. I have visited some of them before in this chapter (@sec:related:p2p)—most fundamentally, a distributed system for sharing of data can be reduced to the issues of discovery, 
 
-Emphasize prospects of data ownership, self-hosting, whatever, with personal data and/or research data.
+In a follow-up work, \citeauthor{hardenberg2020} implemented a proof-of-concept, local-first application called _PushPin_ by utilizing the hypermerge library as foundation for the application’s data storage. Several take-aways emerged from their work, including the benefits of Functional Reactive Programming (FRP) for user interfaces displaying real-time updates and ongoing issues around privacy, security, and usability [@hardenberg2020].
 
 [^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>.
+[^hypermerge]: <https://github.com/hypermerge>.
+
