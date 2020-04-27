@@ -4,48 +4,50 @@
 > 
 > --- @kleppmann2019
 
+<!-- introduction - ? -->
 
+In the following, I will argue for embracing an architectural separation between personal annotation and the respective annotated sources based on the assumption that annotations are social data. @Sec:annotation:web revisits characteristics of web. Questioning the role of the _cloud_ in today's internet services, I discuss the prospects of decentralization in federated networks and P2P systems on digital annotation. P2P systems commonly rely on high-availability infrastructures known as _supernodes_ or _mirrors_ for replication and indexing. @Sec:annotation:infrastructure examines these infrastructures and draws inspiration from public services such as libraries.
 
-The way we treat annotations (_TODO_ or, more generally, personal/social data!) today is wrong, and by considering how tools for annotating PDFs and websites work we can learn about the issues. Coming from the Related Work section, this chapter should give a theoretical introduction into issues of text theory and how annotations fits in there. By leveraging a comparison of OHCO and Hypertext (or, Ted Nelson’s Xanadu), we should derive an architecture for annotations, and be able to show how annotations work in the Web’s notion of hypertext.
-
-* _What is digital annotation?_ Discuss how Hypertext can be collaborative, what’s in for annotation and how digital annotation could benefit from e.g. links [@nelson1993; @marshall1997].
-	* How can LOD benefit this? What are the prospects of LOD annotations as, opposed to e.g. simple text-based annotations
-* Transitioning to decentralized systems and ownership: What are gateways in P2P systems, how can they connect to the web and LOD?
-* Finally, questioning ownership on the web and proposing the _quintessential_ concepts of **notebooks** and **institutions**.
-
-In the following, I will argue for embracing an architectural separation between personal annotation and the respective annotated sources. @Sec:annotation:web will revisit characteristics of the network that we know as World Wide Web. Questioning the role of the _cloud_ in today's internet services, I discuss the prospects of decentralization via Linked Data and P2P systems on digital annotation. However, P2P systems commonly rely on high-availability infrastructures known as _supernodes_, _relays_, or _gateways_ for replication and indexing. @Sec:annotation:infrastructure pictures these infrastructures and draws conclusions from institutions on the web.
-
-In @sec:annotation:ownership, I then define the distinctive terms of _notebooks_ and _institution_ for embracing a separation between personal data and public services. Subsequently, in the following @sec:implementation (TODO chapter), I will discuss proof-of-concept designs and implementations on how such a separation can be realized with today's technology.
+In @sec:annotation:ownership, I then define the distinctive terms of _notebook_ and _public institution_ for establishing a separation between personal data and public services in P2P networks. Subsequently, in the following chapter~\ref{sec:implementation}, I discuss proof-of-concept designs and implementations on how such a separation can be realized with P2P technology.
 
 ## What's (Not) Wrong With Servers? {#sec:annotation:web}
 
-WWW client/server architecture: How does the Berners-Lee's WWW work? HTTP. Inhowfar is hypertext tied to network protocols?
+The web establishes a decentralized network, as I have reported previously in this thesis, and hypertext systems commonly leverage a client-server model in order to distribute hypertext documents among a multitude of servers [@berners-lee1989a; @nelson1993]. This architectural decision brings its benefits and its flaws; smaller networks can benefit from this model by being easily scalable and predictable, yet large-scale networks---or even world-wide ones---can quickly outgrow their intention of being open, accessible, and collaborative:
 
-What is wrong with that? How does centralization of power and, thus, governance 
-* Cite @srnicek2017 with issues of 'digital walled gardens' and, more generally, platforms.
-* @kleppmann2019 has good takes on this, as seen in the above quote
-  * Networking aspects of hypertext---the web is decentralized, yet we continuously face scandals of data silos, privacy violations, and so forth. What went wrong?
+> _While the Web has the potential to enable full open access to knowledge, the code that powers the Web is not built for that. Instead, the Web uses a centralized data model optimized for use by commercial organizations. In other words, today’s Web values the access and voices of people who are valuable to corporate interests._ [@robinson2018]
 
-> While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content. [@capadisli2017]
+<!-- web's issues with personal data -->
+Besides questionable practices on data privacy . Businesses became increasingly interested in harvesting personal data, which provides them with training data for targeted advertising. Data becoming economic assets for businesses spoon-fed the development of Big Data and the assembly of data silos [@srnicek2017]. This inequality led to a fundamental shift of the distribution of resources on the web:
 
-Linked Data principles for ensuring decentralized interoperability
-* Continue from @sec:related:ld-dh and relate the prospects of Linked Data onto annotation and P2P systems. Linked Data has a point, as the Solid project of @mansour2016 shows: it allows for standardizing personal storage by exposing semantic relations of data. WebID[^webid] specification allows for distributed, standardized, and platform-less logins using the web technology stack.
+> _While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content._ [@capadisli2017]
 
-Philosophical/ontological/epistemologic? discussion of annotation 
-* Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public. Annotations are related to a profile, and just rarely made with the authority of an institution or group. Annotations enable for sophisticated discussion [@marshall1997].
+<!-- personal data / static data -->
+I'd like to highlight while the web arguably lacks support for managing personal data. Yet, as work of @kleppmann2019 and @hardenberg2020 showed, local-first data can successfully be synchronized among peer-to-peer networks and benefit from sharing.
 
-Transition to a system where hypertext is more distributed, as opposed to the client/server model.A
-* @wiil2002
+<!-- prospects of LDP and federated networks -->
+Arguably, the LDP and protocols such as ActivityPub attempt to mitigate this unequal distribution of resources: Federated networks and _ server-to-server communication between entities can improve 
+
+LDP and ActivityPub offer alternatives, yet still building on top of web technology fundamentals. On the web, there is little choice on where to store data in order to make them processable and shareable [@bizer2009; @mansour2016; @capadisli2017].
+
+<!-- annotations are discussion and thus personal data -->
+When considering annotation in this context . 
+
+* Annotations are of a personal, and even a social nature---commonly, annotations are personal notes onto something, and annotations are rarely public. Annotations are related to a profile, and just rarely made with the authority of an institution or group. Annotations enable sophisticated discussion [@marshall1997].
+
+Annotation is personal data. Personal data should be carefully considered when discussing ownership questions [@marshall1997; @marshall1998]. 
+
+<!-- modern peer-to-peer protocols increasingly grow in adoption in web browsers -->
+Let's face it: The web has a questionable ownership model for personal data. Local-first applications attempt to fix that, but they require novel protocols and networks. Browsers tend to adopt these protocols: Brave, Opera, Beaker.
 * @voss2019, IPFS, content-addressing
-* Secure Scuttlebutt: A distributed social network
 
-[^web-id]: <https://www.w3.org/2005/Incubator/webid/spec/>
+<!-- summarize: p2p for personal data. but even p2p systems have some kind of public infrastructure -->
+Remind that the web is still okay if you put authority into an entity---for instance, public services such as libraries or academic institutions. 
+
+Fully distributed P2P networks can help solving the ownership question 
 
 ## Public Infrastructure in Peer-to-Peer Systems {#sec:annotation:infrastructure}
 
-A brief introduction to peer-to-peer systems, a bit more in-depth and explanatory than the literature review (@sec:related:p2p).
-
-Supernodes, relays, pubs, pods, proxies, gateways, pinning, seeding: Many popular decentralized networks leverage infrastructures that provide resources for sustaining the networks’ operation. For establishing a stable and reliable overlay network, nodes can be promoted to _supernodes_ (or: relays) by their  available resources, such as computational power, uptime, and bandwidth [@guha2005]. This can be beneficial for real-time systems with high demands on bandwidth such as Skype. For systems that rather focus on file-sharing, mirroring (or: replicating) and indexing of data becomes highly relevant as opposed to an overlay network, because if the last node 
+_Supernodes, relays, pubs, pods, proxies, gateways, pinning, seeding, mirroring:_ Many popular decentralized networks leverage infrastructures that provide resources for sustaining the networks’ operation. For establishing a stable and reliable overlay network, nodes can be promoted to _supernodes_ based their available resources, such as computational power, uptime, and bandwidth [@guha2005]. This can be beneficial for real-time communication systems with high demands on bandwidth. Systems that provide file-sharing capabilities, replicating archives and indexing of data becomes highly relevant as; since personal devices commonly join networks on-demand and establish temporary connections, their data vanishes as they go offline. Many of the systems discussed in @sec:related:p2p leverage 
 
 In the following, I will use some terms interchangeably. While peers concern the abstract notion of homogeneous participants in a system, nodes are connoted rather technical. Supernodes commonly _relay_ or _tunnel_ data to a multitude of nodes. In file-sharing systems, data can be _replicated_ or _mirrored_, as multiple nodes provide a copy of a resource that is indexed under the same address, e.g., in a DHT. I call these kinds of services _public_: They often are of a _volatile_ or _ephemeral_ nature, but help to maintain a complex, distributed system.
 
@@ -55,19 +57,11 @@ In P2P systems, this power over data is distributed. The distinction of clients 
 
 This poses many questions when conceiving P2P architectures: Which parts do work well centralized? Which functionality does effectively when being distributed? How can certain control structures be realized?
 
-One trade-off of theoretically “pure” P2P systems is, considering all data is exchanged between genuine peers, that each peer is running on commodity hardware—regular consumer devices. Especially in these days, where an increasing number of our interactions with the digital world occurs via handheld devices such as smartphones, their lack of processing power compared to the enormous computational resources of a dedicated cluster is troublesome. Yet, with the wake of the more mature, “smarter” P2P systems, these inequalities were to be addressed. Skype, for instance, as research by @guha2005 showed, analyzed peers’ network performance and promoted particular peers to supernodes. These supernodes “maintain an overlay network network among themselves” [@guha2005, p. 2] and effectively outbalance the weaknesses of less powerful peers [@chawathe2003].
-
-(Textile cafés?). Scuttlebut pubs [@tarr2019].
-
-In the following, I will describe two attempts at an implementation for a system that bears a critical burden: Realizing a distributed system that bridges its data into the web via HTTP. The question of where to put that bridge shapes the distinction between both attempts: With the first attempt described in section X, the “Thick” Peer, that bridging is provided from within each peer, effectively ensuring the realization of distributed, independent publishing of one’s annotations. As I will lay out in the following, putting that much liability, and hence, network load, onto an independent peer, will quickly exhaust the given resources and hinder the scalability of this approach. With the second, more successful attempt presented in section Y, this liability is moved into institutional governance: While peers exchange their data within the P2P network, the task of bridging that data into the web is done by institutions who run quasi-centralized gateways. As tests showed, this attempt scales well with real-time updates, while individual peers are excused from responding to a growing number of HTTP requests.
+One trade-off of theoretically “pure” P2P systems is, considering all data is exchanged between genuine peers, that each peer is running on commodity hardware—regular consumer devices. Especially in these days, where an increasing number of our interactions with the digital world occurs via handheld devices such as smartphones, their lack of processing power compared to the enormous computational resources of a dedicated cluster is troublesome. Yet, with the wake of the more mature, “smarter” P2P systems, these inequalities were to be addressed. Skype, for instance, as research by @guha2005 showed, analyzed peers’ network performance and promoted particular peers to supernodes. These supernodes “maintain an overlay network network among themselves” [@guha2005] and effectively outbalance the weaknesses of less powerful peers [@chawathe2003].
 
 ## Distributing Ownership {#sec:annotation:ownership}
 
 Finally, come to the conclusion that personal data can _in fact_ be already stored on and exchanged with P2P networks. Make it concern digital libraries as manifestation of well-indexed, static sources.
-
-Multi-sign keys?
-
-_TODO:_ Take on how hypertext systems have been considered earlier (less monopolistic?) and how the distribution of data plays along with data ownership. Even further, establish the notion of a separation between institutional and personal data (along with the ownership question). Solid by @mansour2016 will surely help to support this hypothesis (technically). Solid, however, builds upon Web ID and RFD, among other standards issued by the W3C. Within the Web, IDs still are tied to servers, which again most people aren't able to provide for themselves.
 
 Analogies with libraries and personal notes [@wilensky2000].
 
