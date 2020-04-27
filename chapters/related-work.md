@@ -76,8 +76,6 @@ Listing: An example annotation in form of a JSON-LD-based Web Annotation, as pic
 }
 ```
 
-Give an overview of some Digital Humanities tools, such as Recogito or Ugarit [@yousef2019], to emphasize the distinction between institutional and personal research data. Hypothes.is!
-
 The Web Annotation specification emerged from the persistent lack of standardized annotation on the web and builds upon the previously defined concepts of LOD and LDPs [@sanderson2013]. The specification consists of two components: First, the Web Annotation Data Model, in which annotations are expressed using the JavaScript Object Notation (JSON), or more precisely the JSON-LD schema for use in LD environments. Following a versatile ontology similar to the observations from \citeauthor{marshall1997}, an annotation fundamentally consists of three properties, as pictured in @lst:web-annotation-model:
 
 * The annotation's _identifier_, which is a web resource specified via its Internationalized Uniform Identifier (IRI, similar to an URI).
@@ -101,48 +99,42 @@ Yet, the capabilities of Web Annotation are not limited to social interactions o
 [^dokieli]: <https://dokie.li/>.
 [^pelagios]: <https://pelagios.org/>.
 
-## Peer-to-Peer Technology {#sec:related:p2p}
+## Peer-to-Peer Networks {#sec:related:p2p}
 
 The earliest concepts of hypertext established client-server architectures for storing hypertext documents distributed among an array of hypertext servers [@nelson1993; @berners-lee1989a]. TODO Explain different network architectures.
 
-![Architectures of communication networks [@baran1964].](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
-
-TODO Explain what components of such a system requires: Discovery, security, ..., mechanisms for replication, protocols in general.
-
 @Fig:related:architectures depicts three different network layouts with each node of the network connected to others by particular strategies. The second architecture, a decentralized network, has … . In a way, the web (as of HTTP-web) … (client/server) . Despite the web’s tending towards openness, interoperability, and standardization, monopolistic platforms such as Facebook tend to channel all communications via themselves in an effort to generate ‘network effects’—user interactivity—in order to generate user profiles and, hence, income via targeted advertising [@srnicek2017].
 
-Comparing to the way computers communicate in the web, there are no definite sources of authority, and hence knowledge, on where to find which piece of data—a web browser can simply translate a domain name such as `eff.org` via the Dynamic Name System (DNS) into an IP address, connect to the respective machine via TCP/IP, and request data via the Hypertext Transport Protocol (HTTP). Consequently, it boils down to three particular issues for decentralized systems:
+![Architectures of communication networks [@baran1964].](figures/network-architectures.png){#fig:related:architectures short-caption="Architectures of communication networks"}
+
+Federated systems impose an interesting trade-off between decentralization and full distribution by designing the system as distributed among several instances, yet still composing one singular social network. \citeauthor{esguerra2011} surveys such federated social networks, motivated by issues on privacy and censorship of large-scale social networks such as Facebook and Twitter: "Federated social networks [...] are a vital step towards fulfilling values often lacking in the existing social networking ecosystem: user-control, diversity of services, innovation, and more" [@esguerra2011]. While the federated social network Diaspora[^diaspora] originally gained some traction, Mastodon[^mastodon] become increasingly popular over the recent years, with about 3.9 Million users across about 2.600 instances as of right now[^fediverse-network]. By implementing the ActivityPub protocol [@activitypub], 
+
+_TODO:_ Such federated systems strike the balance, as individuals can extend the network by hosting their own instances. These instances communicate with each other using the ActivityPub protocol (_TODO:_ explicate!) via server-to-server communication---whereas in fully distributed networks, peers (and thus, clients) communicate directly without middlemen, this approach of federation supports the presence of servers while providing users with choices on where they want to store their data.
+
+TODO Comparing to the way computers communicate in the web, there are no definite sources of authority, and hence knowledge, on where to find which piece of data—a web browser can simply translate a domain name such as `eff.org` via the Dynamic Name System (DNS) into an IP address, connect to the respective machine via TCP/IP, and request data via the Hypertext Transport Protocol (HTTP). Consequently, it boils down to three particular issues for decentralized systems:
 * Discovery: Where to find particular pieces of data?
 * Validity: As datasets are distributed among several nodes in the network, 
 * Authority
 
-_TODO:_ Distributed Hash Tables (DHTs) [@maymounkov2002].
+Distributed Hash Tables (DHTs) attempt to solve the issue of discoverability and can be propagated _within_ a distributed network or managed externally as an _overlay network_. A DHT stores connection information for nodes in a hash table that is distributed among nodes---as opposed to a more centralized solution like Domain Name System (DNS) commonly used on the web. Since the hash table is distributed, nodes may need multiple hops---i.e., connecting to a multitude of nodes for obtaining the required parts of the DHT---in order to resolve the data of a particular node [@maymounkov2002]. The amount of hops needed for retrieving information on particular nodes defines the distance between nodes and thus the efficieny of a DHT.
 
-P2P systems such as the file sharing systems introduced above establish less control structures and less authority: All peers in a network are alike and transmit data directly. This kind of topology is depicted in the third architecture of @fig:related:architectures.
+![Binary tree of a Kademlia DHT [@maymounkov2002]. Nodes are sorted within the tree by each their ID, a 160-bit number. In order to discover other nodes in other subtrees of the DHT, a node (black dot with ID `0011...`) needs to have contact with nodes of the other subtreets (gray ovals).](figures/kademlia-tree.png){#fig:kademlia-tree short-caption="Binary tree of a Kademlia DHT"}
 
-P2P systems are often associated with distributed networking and distributed databases. Essentially, systems such as the aforementioned BitTorrent [@legout2007; @loewenstern2020] and Gnutella [@chawathe2003] construct immensely scaled, distributed, and fragmented databases that communicate over a vast worldwide network instead of a Local Area Network (LAN).
+One such DHT is Kademlia [@maymounkov2002], pictured in @fig:kademlia-tree. A Kademlia-type DHT manages nodes of a network in a binary tree, sorted by their respective ID, which is a 160-bit number. These binary trees are divided into subtrees, and each subtree's nodes maintain connection information on each other. With this binary subtree separation, the Kademlia DHT defines the distance between peers as an an XOR metric based on their ID, i.e., the more different two nodes IDs are in terms of their bit representation, the more distant they become. For use in BitTorrent, \citeauthor{loewenstern2020} developed a DHT based on Kademlia that contains extensions related to torrents---i.e., distributed archives on BitTorrent---and the BitTorrent protocol [@loewenstern2020].
 
-Certain primitives known from highly efficient enterprise systems are applied to P2P systems,
+As data is increasingly distributed among P2P systems, applications demand for data structures to reflect distributed authority. An append-only log is a list-based data structure that exclusively allows the addition of entries: "A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time" [@kreps2013]. \citeauthor{nelson1993} previously described such a log for managing document histories on Xanadu [@nelson1993, 2/15]. Popularized by stream processing frameworks such as Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well as by collaborative systems such as the Git[^git] version control system, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. Append-only logs provide a particularly interesting prospect for their distribution, as malicious actors are not able to simply modify the history of a log. Furthermore, entries of a log reference to each other via their content---i.e., content-addressing via hashes---and thus, if an actor of a distributed system mutates an existing entry, all following entries' hashes will change subsequently and the log will break.
 
-_The Log_—or more precisely, the append-only log—is a list-based data structure that exclusively allows the addition of entries but no other mutations: "A log is perhaps the simplest possible storage abstraction. It is an append-only, totally-ordered sequence of records ordered by time" [@kreps2013]. Popularized by stream processing frameworks like Apache Kafka[^apache-kafka] and Apache Samza[^apache-samza], as well replication in databases cluster, append-only logs treat the current state of a database as a chronological sequence of changes rather than a definite state. A fundamental property of append-only logs is their distribution: Entries of a log reference to each other via their content-addressing hashes, and thus, if an actor of a distributed systems mutates a prior entry, all following hashes will change and the log will break. _TODO:_ Elaborate more?
+Such technologies are commonly utilized in file-sharing systems, with both Gnutella [@chawathe2003] and BitTorrent [@legout2007] being well-known contendants that have been frequently researched. Such systems emerged during the popularity of P2P applications in the early 2000s and were commonly used for sharing copyrighted content despite---or, possibly because of---their technological efficiency [@gearlog2010]. Contemporary approaches rather emphasize the development of decentralized applications for bypassing censorship, enabling end-to-end encryption, or facilitating real-time collaboration in day-to-day usecases. IPFS builds on top of the `libp2p`[^libp2p] library and creates a world-wide, distributed, and secure filesystem based on content-addressing [@benet2014]. Dat is a data-sharing protocol actively developed by the Dat Protocol foundation for use in civic and research technology [@robinson2018]. By leveraging a modularized technology stack implemented in JavaScript---such as the Hypercore[^hypercore] append-only log and the Hyperswarm[^hyperswarm] networking stack---Dat can be used in decentralized applications on the web and on the desktop alike. Secure Scuttlebutt (SSB) is a decentralized social network that uses a _gossip_ protocol under the assumption that by continuously broadcasting messages on the network, all peers will eventually obtain a consistent state [@tarr2019].
 
-Interestingly, append-only logs can be compared to Nelson's early concept of document processing on Xanadu, where documents were stored as their editing changes rather than an entire document for each version.
-
-CRDTs. Automerge.
-
-_TODO:_ Introduce contemporary systems that leverage these fundamentals: IPFS [@benet2014] and Dat [@robinson2018] (compare to Git[^git]). Build bridge over to supporting infrastructure for distributed networks. Secure Scuttlebutt [@tarr2019].
-
-Federated systems pose an interesting trade-off between decentralization and full distribution by designing the system as distributed among several instances, yet still composing one singular social network. @esguerra2011 surveys such federated social networks, as issues around privacy and censorship of large-scale social networks such as Facebook and Twitter arose: "Federated social networks [...] are a vital step towards fulfilling values often lacking in the existing social networking ecosystem: user-control, diversity of services, innovation, and more." While the federated social network Diaspora[^diaspora] originally gained some traction, Mastodon[^mastodon] become increasingly popular over the recent years, with about 3.9 Million users across about 2.600 instances as of right now[^fediverse-network]. By implementing the ActivityPub protocol [@activitypub], 
-
-_TODO:_ Such federated systems strike the balance, as individuals can extend the network by hosting their own instances. These instances communicate with each other using the ActivityPub protocol (_TODO:_ explicate!) via server-to-server communication---whereas in fully distributed networks, peers (and thus, clients) communicate directly without middlemen, this approach of federation supports the presence of servers while providing users with choices on where they want to store their data.
-
+[^apache-kafka]: <https://kafka.apache.org/>.
+[^apache-samza]: <https://samza.apache.org/>.
 [^git]: <https://git-scm.com/>.
 [^diaspora]: <https://diasporafoundation.org/>.
 [^mastodon]: <https://joinmastodon.org/>.
 [^fediverse-network]: The [fediverse.network](https://fediverse.network/) website provides various usage and network statistics on such as Mastodon, PeerTube, and WordPress: <https://fediverse.network/mastodon>. The statistics mentioned on Mastodon were current as of April 8, 2020.
-
-[^apache-kafka]: <https://kafka.apache.org/>.
-[^apache-samza]: <https://samza.apache.org/>.
+[^libp2p]: `libp2p` provides a modular stack for building decentralized applications: <https://libp2p.io/>.
+[^hypercore]: <https://github.com/mafintosh/hypercore>.
+[^hyperswarm]: <https://github.com/hyperswarm/hyperswarm>.
 
 ## Local-First Applications {#sec:related:local-first}
 
