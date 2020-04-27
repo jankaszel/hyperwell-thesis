@@ -87,14 +87,6 @@ $endif$
 
 \usepackage{graphicx}
 
-% git hash
-\usepackage{xstring}
-\usepackage{catchfile}
-\CatchFileDef{\HEAD}{.git/refs/heads/master}{}
-\newcommand{\gitrevision}{%
-  \StrLeft{\HEAD}{7}%
-}
-
 $for(header-includes)$
 $header-includes$
 $endfor$
