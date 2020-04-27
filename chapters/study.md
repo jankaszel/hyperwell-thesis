@@ -65,7 +65,7 @@ The second questionnaire emphasized feedback on the participants' scholarly expe
 [^google-forms]: Google Forms is a free service by Google that allows users to create surveys in their web browsers: <https://www.google.com/forms/about/>. Google Forms surveys can be distributed with each their unique URL and results are stored on Google Drive, Google's cloud file storage.
 [^recogito-gazetteers]: Recogito allows to import collections of referenceable places called gazetteers: <https://github.com/pelagios/recogito2/wiki/Importing-Gazetteers>. The import should be scheduled well ahead of the second session, as the import of large gazetteers will take a while for Recogito to process.
 
-### Digital Tracking {#sec:study:tracking}
+## Tracking Digital Workflows {#sec:study:tracking}
 
 In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 have utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be not limiting participants' creativity and the expected sample size has been relatively large---it would be hard to make out an individuals' actions in a group of ten people or more---, video recording was not suitable for this study. Instead, we opted for real-time aggregation of particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
 

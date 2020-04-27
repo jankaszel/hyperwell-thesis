@@ -145,7 +145,7 @@ _TODO_: Write about the modular UI extension, provide a screenshot, link to the 
 
 [^http-parser]: The code of the Node.js runtime’s built-in HTTP parser  is publicly available and being written in C++: <https://github.com/nodejs/http-parser>
 
-### Client Software Development Kit {#sec:thick:sdk}
+### Software Development Kit {#sec:thick:sdk}
 
 The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client Software Development Kit (SDK) should provide these missing components for abstracting the communication.
 
@@ -239,7 +239,7 @@ Some features such as archiving rely on an identity system. While the Hypercore 
 [^hypermerge-watch]: Automerge, the underlying CRDT of Hypermerge, provides a more low-level API that poses little assumption on how exactly changes are transmitted. With the `Automerge.getChanges()` method, changeset between two states can be propagated explicitly.
 [^uuid]: UUIDs have been specified on RFC 4122: <https://www.ietf.org/rfc/rfc4122.txt>
 
-### Supporting Hyperwell in Annotation Environments
+### Support in Annotation Environments {#sec:hyperwell:support}
 
 In order to validate the functionality of the Hyperwell gateway and its compliance with the Web Annotation specification, I have continuously attempted to feed existing annotation environments with the gateway annotation server. Initially, and due to the experience from the user testing study outlined in @sec:study, I have chosen Recogito for a proof-of-concept of supporting Hyperwell via the gateway.
 
@@ -298,13 +298,7 @@ _TODO:_ Technical architecture:
 [^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
 [^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming principles and uses a virtual DOM for only patching changed parts of the user interface. Next.js builds upon React and provides ready-to-use solutions for many common scenarios, such as pre-rendering and CSS-in-JS styling: <https://nextjs.org/>.
 
-### Gateway Performance
-
-_TODO:_ If time is left, run some artillery[^artillery] penetration tests on the gateway.
-
-[^artillery]: <https://artillery.io/>
-
-## Conclusion
+## Conclusion {#sec:implementation:conclusion}
 
 In @sec:bridging, I have outlined three approaches on bridging the web and decentralized networks for real-time replication of annotations. Two of these approaches utilize additional, centralized services—i.e., proxies or gateways—in order to translate network traffic into protocols commonly supported on the web. The former of these two approach involved  taking connections from web clients via the WebSocket protocol and forwarding an underlying novel HTTP-inspired protocol via duplex streams to peers on the decentralized network. This allows peers to publish annotations independently of any _particular_ bridge but entails the requirement of SDKs in order to support web applications using the above communication capabilities. The latter approach puts an even larger emphasis on a centralized network extension: With gateways, institutions can reliably provide annotations from affiliated users to annotation environments on the web.
 
