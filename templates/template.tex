@@ -172,14 +172,6 @@ $endif$
 
 \pagestyle{plain}
 
-% open chapters on the left
-% <https://tex.stackexchange.com/a/203721>
-\makeatletter
-\renewcommand*\cleardoublepage{\clearpage\if@twoside
-  \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
-  \newpage\fi\fi\fi}
-\makeatother
-
 \usepackage{wallpaper}
 \usepackage{ctable}
 
