@@ -2,14 +2,16 @@
 
 This thesis concerns collaboration and peer-to-peer systems and I certainly could not have achieved much of this without collaboration and the help of like-minded peers---physical ones, albeit sometimes connected remotely.
 
-First and foremost, I want to thank Dr. Thomas Köntges, my supervisor for this thesis. You have been influental to me on so many levels, being it writing, novel technologies, or the academic practice. Your feedback, patience, and repeated motivation made this thesis what it is today!
+First and foremost, I want to thank Dr. Thomas Köntges for his supervision on this thesis. He has been influental to me on many levels, being it writing, novel technologies, or the academic practice. His feedback, patience, and repeated motivation made this thesis what it is today.
 
-If it wasn't for Professor Gregory Crane, I would not actually have met Thomas Köntges. It was at the NEH 2019 workshop at Tufts University in Boston where we actually met first. Professor Crane puts an enormous amount of trust into his students, who frequently achieve astonishing projects and insights. With his trust, we accomplished an invitation to said workshop, an ACM publication, and various conference talks, which became an initial spark for this thesis.
+If it wasn't for Professor Gregory Crane, I would not actually have met Thomas Köntges; it was at the NEH 2019 workshop at Tufts University in Boston where we actually met first. Professor Crane puts an enormous amount of trust into his students, who frequently achieve astonishing projects and insights. With his trust, we accomplished an invitation to said workshop, an ACM publication, and various conference talks, which became an initial spark for this thesis.
 
-It has also been at said workshop where I initially met Chiara Palladino, Assistant Professor at Furman University. ... . Dr. Rainer Simon.
+I'd like to thank Chiara Palladino, Assistant Professor at Furman University. She convincedly suggested a collaboration eagerly recruited a group of students to participate in our study. Dr. Rainer Simon from AIT in Viena for his support on Recogito.
 
-Dat project, Edward Silverton, Eileen Wagner. Dino for the logo.
+I am very grateful to the Dat Protocol community. Edward Silverton for his frequent input on GLAM technology. Dino for the logo.
 
-Elisa & Mama & Papa.
+Elisa for her loving critique.
+
+Finally, I want to thank my parents for their continuous trust, support, and love. 
 
 \newpage
