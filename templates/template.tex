@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{book}
+\documentclass[11pt,a4paper,twoside]{book}
 
 % figure placement
 % <https://stackoverflow.com/a/33801326>
@@ -172,6 +172,14 @@ $endif$
 
 \pagestyle{plain}
 
+% open chapters on the left
+% <https://tex.stackexchange.com/a/203721>
+\makeatletter
+\renewcommand*\cleardoublepage{\clearpage\if@twoside
+  \ifodd\c@page \hbox{}\newpage\if@twocolumn\hbox{}%
+  \newpage\fi\fi\fi}
+\makeatother
+
 \usepackage{wallpaper}
 \usepackage{ctable}
 
@@ -334,7 +342,7 @@ Copyright 2020, Jan Kaßel.
 % table of contents
 \pagenumbering{gobble}
 \tableofcontents
-\newpage
+% \newpage
 
 $for(include-before)$
   $include-before$
