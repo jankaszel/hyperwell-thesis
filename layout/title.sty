@@ -1,0 +1,65 @@
+% title page
+\ProvidesPackage{title}[thesis title]
+\RequirePackage{graphicx}
+\RequirePackage{geometry}
+
+\renewcommand*{\maketitle}{%
+\newgeometry{margin=1in}
+\begin{titlepage}
+  \begin{center}
+    \vspace*{2.5cm}
+    
+    {\huge\@title\unskip\strut\par}
+    
+    \vspace{8mm}
+
+    \includegraphics[width=0.075\textwidth]{layout/asterism-ulysses.png}
+    \vspace{3mm}
+
+    A thesis presented for the degree of \\ \vspace{2mm}
+    {\Large Master of Science}
+    
+    \vspace{5mm}
+
+    \textit{by} \\ \vspace{2mm}
+    {\Large \@author} \\ \vspace{1mm}
+    jk43rije@studserv.uni-leipzig.de \\
+    \texttt{3724135}
+    
+    \vspace{5mm}
+
+    \textit{at the} \\ \vspace{1mm}
+    Institute of Computer Science \\
+    Universität Leipzig, Germany \\ \vspace{3mm}
+
+    \today\,— \texttt{\gitrevision} \\
+
+    \vspace{3mm}
+    \includegraphics[width=0.5\textwidth]{layout/leipzig-university.eps}
+
+    \vfill
+
+    % advisors  
+    \begin{tabular}{cc}
+      \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \textsb{Primary Advisor} \\
+        Dr. Thomas Köntges \\
+        Chair of Digital Humanities \\
+        Leipzig University
+      \end{minipage}
+
+      \begin{minipage}[c]{0.45\textwidth}
+        \centering
+        \textsb{Secondary Advisor} \\
+        Prof. Gregory Crane \\
+        Department of Classical Studies \\
+        Tufts University
+      \end{minipage}
+    \end{tabular}
+
+  \end{center}
+\end{titlepage}
+\restoregeometry
+}
+\endinput
