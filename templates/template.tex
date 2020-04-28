@@ -59,10 +59,21 @@
 
 % footnotes
 % <https://tex.stackexchange.com/a/54706>
-\usepackage[hang,multiple,bottom]{footmisc}
+\usepackage[hang,bottom]{footmisc}
 \setlength{\footnotemargin}{1.5mm}
 % <https://tex.stackexchange.com/a/141938>
 \addtolength{\footnotesep}{1mm}
+
+% fix multiple footnotes
+% <https://tex.stackexchange.com/a/62091>
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
 
 % continuous counting of footnotes
 % <https://tex.stackexchange.com/a/10449>
