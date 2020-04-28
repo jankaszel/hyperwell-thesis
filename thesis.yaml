@@ -9,7 +9,7 @@ input-files:
 - chapters/introduction.md
 - chapters/related-work.md
 - chapters/study.md
-- chapters/digital-annotations.md
+- chapters/p2p-annotation.md
 - chapters/implementation.md
 - chapters/discussion.md
 - chapters/conclusion.md

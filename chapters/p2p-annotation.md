@@ -1,25 +1,23 @@
 # Peer-to-Peer Annotation {#sec:annotation}
 
-> _Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.”_
-> 
-> --- @kleppmann2019
+> _Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.”_ [@kleppmann2019, p. 155]
 
-<!-- introduction - ? -->
+Despite its decentralized nature, resources on the web tend to be centralized on a small number of servers. This development intensified even more amidst the rise of Big Data and the continuous commiditization of personal data, threatening data ownership and autonomy on the web. Arguably, academia and particularly the Digital Humanities treat the web differently by embracing LD principles and establishing sustainable and self-organized infrastructures. Furthermore, with the Web Annotation specification issued by the W3C, academic annotation services can be provided interoperably by research environments and digital libraries. Considering annotation in the overall status quo, however, poses the following questions: Does annotation belong to the institutional domain? If not, where else other than the web to store and distribute them?
 
-In the following, I will argue for embracing an architectural separation between personal annotation and the respective annotated sources based on the assumption that annotations are social data. @Sec:annotation:web revisits characteristics of web. Questioning the role of the _cloud_ in today's internet services, I discuss the prospects of decentralization in federated networks and P2P systems on digital annotation. P2P systems commonly rely on high-availability infrastructures known as _supernodes_ or _mirrors_ for replication and indexing. @Sec:annotation:infrastructure examines these infrastructures and draws inspiration from public services such as libraries.
+In the following, I will argue for establishing an architectural separation between personal annotation and the respective sources based on the assumption that annotations are social data. @Sec:annotation:web revisits characteristics of web; questioning implications of cloud infrastructure in today's internet services, I discuss effects of decentralization in federated networks and P2P systems on digital annotation. P2P systems commonly rely on high-availability infrastructures known as _supernodes_ or _mirrors_ for replication and indexing. @Sec:annotation:infrastructure examines these infrastructures and draws inspiration from public services such as libraries.
 
-In @sec:annotation:ownership, I then define the distinctive terms of _notebook_ and _public institution_ for establishing a separation between personal data and public services in P2P networks. Subsequently, in the following chapter~\ref{sec:implementation}, I discuss proof-of-concept designs and implementations on how such a separation can be realized with P2P technology.
+In @sec:annotation:ownership, I then define the distinctive terms of _notebook_ and _public institution_ for establishing a separation between personal data and public services in P2P networks and the web. Subsequently, in the following chapter~\ref{sec:implementation}, I discuss proof-of-concept designs and implementations on how such a separation can be realized with P2P technology.
 
-## What's (Not) Wrong With Servers? {#sec:annotation:web}
+## What's (Not) Wrong with Servers? {#sec:annotation:web}
 
 The web establishes a decentralized network, as I have reported previously in this thesis, and hypertext systems commonly leverage a client-server model in order to distribute hypertext documents among a multitude of servers [@berners-lee1989a; @nelson1993]. This architectural decision brings its benefits and its flaws; smaller networks can benefit from this model by being easily scalable and predictable, yet large-scale networks---or even world-wide ones---can quickly outgrow their intention of being open, accessible, and collaborative:
 
-> _While the Web has the potential to enable full open access to knowledge, the code that powers the Web is not built for that. Instead, the Web uses a centralized data model optimized for use by commercial organizations. In other words, today’s Web values the access and voices of people who are valuable to corporate interests._ [@robinson2018]
+> _While the Web has the potential to enable full open access to knowledge, the code that powers the Web is not built for that. Instead, the Web uses a centralized data model optimized for use by commercial organizations. In other words, today’s Web values the access and voices of people who are valuable to corporate interests._ [@robinson2018, p. 2]
 
 <!-- web's issues with personal data -->
 Besides questionable practices on data privacy . Businesses became increasingly interested in harvesting personal data, which provides them with training data for targeted advertising. Data becoming economic assets for businesses spoon-fed the development of Big Data and the assembly of data silos [@srnicek2017]. This inequality led to a fundamental shift of the distribution of resources on the web:
 
-> _While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content._ [@capadisli2017]
+> _While the Web was originally conceived as a decentralised platform where every organisation and individual can participate, it became increasingly centralised with less than 1% of the servers serving more than 99% of the content._ [@capadisli2017, p. 469]
 
 <!-- personal data / static data -->
 I'd like to highlight while the web arguably lacks support for managing personal data. Yet, as work of @kleppmann2019 and @hardenberg2020 showed, local-first data can successfully be synchronized among peer-to-peer networks and benefit from sharing.
@@ -37,6 +35,8 @@ When considering annotation in this context .
 Annotation is personal data. Personal data should be carefully considered when discussing ownership questions [@marshall1997; @marshall1998]. 
 
 <!-- modern peer-to-peer protocols increasingly grow in adoption in web browsers -->
+The notion of _local-first software_ emerged from a critique on the status quo on the web [@kleppmann2019].
+
 Let's face it: The web has a questionable ownership model for personal data. Local-first applications attempt to fix that, but they require novel protocols and networks. Browsers tend to adopt these protocols: Brave, Opera, Beaker.
 * @voss2019, IPFS, content-addressing
 
