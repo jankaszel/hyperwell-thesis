@@ -69,7 +69,7 @@ When annotating, an editing overlay appears above the source, which is pictured 
 * **Close annotation:** A `close` event gets tracked when a user closes the editing overlay for an annotation.
 * **Delete annotation:** A `delete` event gets tracked when a user deletes a parent annotation (and thus, any subordinate annotation).
 
-For tracking these, we adapted parts of Recogito to our needs. As the UI of Recogito is written in JavaScript, we could easily identify the modules controlling Recogito's annotation editor and inject function calls to send the respective events to a backend server via HTTPS. Such an event---depicted in @lst:tracking-event---would include the event type, the acting user's ID, a timestamp, and the respective annotation to which the the event is related. On the server, a HTTP server written in JavaScript, too, and running on the Node.js runtime, would receive the events and insert them as JSON-encoded entry into a CouchDB[^couchdb] NoSQL database. In that database, all events would remain for later evaluation.
+For tracking these, I have adapted Recogito to our needs. As the UI of Recogito is written in JavaScript, I could easily identify the modules controlling Recogito's annotation editor and inject function calls to send the respective events to a backend server via HTTPS. Such an event---depicted in @lst:tracking-event---would include the event type, the acting user's ID, a timestamp, and the respective annotation to which the the event is related. On the server, a HTTP server written in JavaScript, too, and running on the Node.js runtime, would receive the events and insert them as JSON-encoded entry into a CouchDB[^couchdb] NoSQL database. In that database, all events would remain for later evaluation.
 
 Listing: Example JSON-encoded excerpt of a tracking event after querying from the CouchDB database. In this event, `user1` opens an annotation created by `user2`.
 
@@ -99,12 +99,12 @@ Listing: Example JSON-encoded excerpt of a tracking event after querying from th
 }
 ```
 
-For evaluating the events, we utilized two contemporary approaches for interactive notebooks. The Jupyter[^jupyter] notebook environment with a Node.js-based kernel[^ijavascript]for exploring the vast amount of events recorded during both study sessions [@kassel2020b]. After providing the notebook with a JSON-encoded dump of the CouchDB database used for storing events, it will guide users through preparation and processing of the data and ultimately present key insights into participants' workflows, as detailed in the results section below. With browser-based notebooks on Observable[^observable], we then generated visual insights into survey feedback we received from participants by exporting the Google Forms survey feedback to CSV-based data and processing it with D3[^d3].
+For evaluating the events, I have utilized two contemporary approaches for interactive notebooks. The Jupyter[^jupyter] notebook environment with a Node.js-based kernel[^ijavascript]for exploring the vast amount of events recorded during both study sessions [@kassel2020b]. After providing the notebook with a JSON-encoded dump of the CouchDB database used for storing events, it will guide users through preparation and processing of the data and ultimately present key insights into participants' workflows, as detailed in the results section below. With browser-based notebooks on Observable[^observable], I then generated visual insights into survey feedback we received from participants by exporting the Google Forms survey feedback to CSV-based data and processing it with D3[^d3].
 
-[^couchdb]: <https://couchdb.apache.org/>
-[^jupyter]: <https://jupyter.org/>
-[^ijavascript]: The Jupyter notebook environment supports various kernels for programming languages other than Python. `IJavaScript` is a kernel for running JavaScript snippets via the Node.js runtime: <https://github.com/n-riesco/ijavascript>
-[^observable]: <https://observablehq.com/>
+[^couchdb]: <https://couchdb.apache.org/>.
+[^jupyter]: <https://jupyter.org/>.
+[^ijavascript]: The Jupyter notebook environment supports various kernels for programming languages other than Python. `IJavaScript` is a kernel for running JavaScript snippets via the Node.js runtime: <https://github.com/n-riesco/ijavascript>.
+[^observable]: <https://observablehq.com/>.
 [^d3]: D3 is a JavaScript library for manipulating web documents based on data: <https://d3js.org/>. With interactive notebooks on Observable, pre-processed data can be visualized easily using D3.
 
 
@@ -119,10 +119,10 @@ During both sessions, the students worked all together in the Common Room of the
 
 For the task of georeferencing, we ingested the Digital Atlas of the Roman Empire [@ahlfeldt2013] into Recogito, providing students with plenty of resources for geospatial annotation.
 
-Throughout both sessions, we mostly follwed the previously detailed study framework. After the students received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito, they were told the assignments for each session. During the first session, they were instructed to primarily look for named entities in their sources and transcribe or translate them with appropriate tags, followed by the particular task of georeferencing in the second session. They were supervised by Chiara Palladino on-site and monitored by me remotely via video, yet the assignment was expressed very lose, enabling them to interact within each other and collaboratively explore the modalities of digital annotation. As an immediate reward, we provided everyone with pizza.
+Throughout both sessions, we mostly follwed the previously detailed study framework. After the students received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito, they were told the assignments for each session. During the first session, they were instructed to primarily look for named entities in their sources and transcribe or translate them with appropriate tags, followed by the particular task of georeferencing in the second session. They were supervised by Chiara Palladino on-site and monitored by me remotely via video, yet the assignment was expressed very loose, enabling them to interact within each other and collaboratively explore the modalities of digital annotation. As an immediate reward, we provided everyone with an abundant amount of pizza.
 
-[^ships]: <https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D2%3Acard%3D494>
-[^tabula]: : <https://www.tabula-peutingeriana.de/>
+[^ships]: <https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D2%3Acard%3D494>.
+[^tabula]: : <https://www.tabula-peutingeriana.de/>.
 
 ## Results {#sec:study:results}
 

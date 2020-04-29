@@ -1,6 +1,6 @@
 # Discussion {#sec:discussion}
 
-In the two previous chapters, I detailed the main work of this thesis: First, an open-ended user testing study, and the design and implementation of a P2P system for collaborative annotation.
+In the previous chapters, I detailed the main contributions of this thesis: First, an open-ended user testing study, and the design and implementation of a P2P system for collaborative annotation.
 
 The study validated some initial assumptions about the prospects of real-time synchronization of collaborative applications, which could further facilitate collaboration in shared workspaces. While the custom approach for tracking participants' actions during sessions featured some novel insights into workflows and usability of Recogito, the study design itself has been open-ended to some degree and lacks reproducibility. In the following @sec:discussion:usability, I discuss the emerging issues in more depth.
 
@@ -11,6 +11,8 @@ _TODO:_ While the second architecture proved itself stable during testing, it la
 ## Study and Usability Research {#sec:discussion:usability}
 
 _TODO:_ This study design has multiple drawbacks. It provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducibility of the study's results. Outline these drawbacks.
+
+The study described in chapter \ref{sec:study} ; we purposely designed both sessions as open settings where students could creatively annotate and explore the sources on Recogito. We aimed at
 
 _TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
 
@@ -31,17 +33,24 @@ In order to gain more sophisticated insights into the usability of real-time col
 
 ## Architecture {#sec:discussion:architecture}
 
+Conceptual issues with first approach:
+
+* Peers within the network are considered to be peoples' personal devices---commodity hardware: personal computers, tablets, smartphones. This poses two constraints: First, commodity hardware has limited computing power compared to enterprise, professional, or data center hardware. Second, personal devices don't share the amount of network bandwidth that is available for data center hardware---talking Megabit versus Gigabit connections.
+* Request/response protocol implements a client-server architecture within a P2P network
+* Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
+* This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
+
 Identification within distributed networks via the Decentralized Identifiers standard [@did2019].
 
 Some take-aways from both architectures:
 
-* Cloud computing and Content Delivery Networks[^cloudflare-edge] (CDNs) have made data constantly available, commonly driven by economic interests (such as, increasing profit on scale by reducing load times). This shifted a majority of computation on the web over to cloud providers such as AWS or GCP. While that can still benefit a legal entity, a corporation, or an institution, users accessing a website will still expect similar data availability—regarding response times as well as consistent availability—as for cloud-hosted content. Missing this caused a severe bottleneck during the first version of the implementation.
+* Cloud computing and content delivery networks[^cloudflare-edge] have made data constantly available, commonly driven by economic interests (such as, increasing profit on scale by reducing load times). This shifted a majority of computation on the web over to cloud providers such as AWS or GCP. While that can still benefit a legal entity, a corporation, or an institution, users accessing a website will still expect similar data availability—regarding response times as well as consistent availability—as for cloud-hosted content. Missing this caused a severe bottleneck during the first version of the implementation.
 * The requirement for a centralized instance in order to bridge data from decentralized systems into the web cannot be rectified: Today’s web browsers can just connect to IP addresses and not join swarms, like with DHTs.
 * Federated systems: provide an alternative; yet, in federated systems such as Mastodon (refer to @sec:related?), instances don’t necessarily mirror each others’ data, but refer to it and build a cohesive network altogether.
 	* Mirrors: Kind of a federated systems where mirrors provide an dispensable infrastructure; they merely provide a mirror of the data, but can be taken offline. Also, detail in @sec:related.
 * Gateways impose some sort of decentralized governance (as opposed to a fully distributed governance), yet they solve the aforementioned issues with a resulting unequal distribution of load in P2P systems. However, as browser vendors are increasingly adding support for P2P data-sharing protocols such as IPFS[^ipfs-opera] and Dat, providing gateway access to a P2P network could soon become legacy infrastructure.
 
-[^cloudflare-edge]: CDN providers such as Cloudflare, Akamai, and Fastly serve a wide array of clients by ensuring data availability anywhere on earth, which again reduces load times for users. So-called ‘edge servers’ are being deployed to the thousands in order to replicate clients’ assets: <https://www.cloudflare.com/learning/cdn/glossary/edge-server/>
+[^cloudflare-edge]: Content delivery network providers such as Cloudflare, Akamai, and Fastly serve a wide array of clients by ensuring data availability anywhere on earth, which again reduces load times for users. So-called ‘edge servers’ are being deployed to the thousands in order to replicate clients’ assets: <https://www.cloudflare.com/learning/cdn/glossary/edge-server/>
 [^ipfs-opera]: Opera for Android recently introduced support for IPFS URLs: <https://blog.ipfs.io/2020-03-30-ipfs-in-opera-for-android/>. While the proposed solution involved directing requests of IPFS URLs to the official IPFS gateway, other browser vendors include actual implementations of the protocols used, such as Beaker does with the Dat protocol: <https://beakerbrowser.com/>.
 
 ## Implementation {#sec:discussion:implementation}

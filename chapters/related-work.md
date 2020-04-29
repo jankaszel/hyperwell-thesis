@@ -27,7 +27,7 @@ Resources on the web are usually identified by Uniform Resource Locators (URL); 
 Alternative identification schemes such as Digital Object Identifiers[^doi] (DOIs) allow to establish end-to-end persistent referencing. Thereby, references to particular versions of a document with each their own DOI can be resolved independently of network hosts. The Canonical Text Service (CTS) system continues even further and provides a scheme for referencing individual passages of text [@koentges2020]. Originally developed for use with classic texts, CTS allows to reference passages of a work independently of its medium. Other distributed systems, such as Git and IPFS, commonly leverage content addressing mechanisms as I will detail later in this chapter.
 
 [^hypertext-timeline]: Jakob Voß prepared an interactive visualization of the timeline of hypertext, backend by structured knowledge on Wikidata: <http://jakobvoss.de/hypertext-timeline/>.
-[^doi]: <https://www.doi.org/>
+[^doi]: <https://www.doi.org/>.
 
 ## Digital Real-Time Collaboration {#sec:related:collaboration}
 
@@ -148,6 +148,6 @@ In a follow-up publication, \citeauthor{hardenberg2020} detail the implementatio
 
 [^crdt-website]: The [crdt.tech](https://crdt.tech/) website curates lists of various CRDT implementations complemented by related research papers and a brief documentation around CRDTs: <https://crdt.tech/>.
 [^automerge]: <https://github.com/automerge/>.
-[^hypermerge]: <https://github.com/hypermerge>.
+[^hypermerge]: <https://github.com/automerge/hypermerge>.
 [^noise-protocol]: <https://noiseprotocol.org/>
 
