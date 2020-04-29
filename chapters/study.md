@@ -56,13 +56,15 @@ The second questionnaire emphasized feedback on the participants' scholarly expe
 
 In order to evaluate the _actual_ use of a particular tool while performing tasks, the actions of participants can be recorded. @tang1991 have utilized video recordings of joint collaborative tasks during study sessions, but as our setting was designed to be not limiting participants' creativity and the expected sample size has been relatively large---it would be hard to make out an individuals' actions in a group of ten people or more---, video recording was not suitable for this study. Instead, we opted for real-time aggregation of particular user interactions. Modeling these interactions during an annotation workflow in Recogito as timestamped atomic actions enabled us to reconstruct each participant's actions afterwards. 
 
-![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization (1), creation (2), opening (3), editing (4), closing (5), and deleting (6). While opening or creating  will open the annotation editor overlay window, editing, closing, or deleting will close this window and reveal the underlying resource.](figures/recogito-workflow.pdf){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
+![Workflow for (collaborative) annotation in Recogito. The workflow consists of six actions: initialization (1), creation (2), opening (3), editing (4), closing (5), and deleting (6). While opening or creating  will open the annotation editor overlay window, editing, closing, or deleting will close this window and reveal the underlying resource.](figures/recogito-workflow.png){#fig:recogito-workflow short-caption="Workflow for annotation in Recogito"}
 
-This workflow is visualized in @fig:recogito-workflow and consists of the following six events:
+![Annotating classic Greek texts on Recogito. Annotations are distinctively highlighted in the source (a). When clicking such highlights, an annotation editor overlay appears (b), where users can add, edit, and delete related annotations.](figures/recogito-editor.png){#fig:recogito-editor short-caption="Annotating classic Greek texts on Recogito"}
+
+When annotating, an editing overlay appears above the source, which is pictured in @fig:recogito-editor. The derived annotation workflow is visualized in @fig:recogito-workflow and consists of the following six events:
 
 * **Initialization:** An `init` event gets tracked when Recogito initializes, i.e., either when opening a resource in Recogito after selecting it from the browser or reloading the annotation environment of that resource.
 * **Create annotation:** A `create` event gets tracked when a user creates a _new_ annotation on the current resource.
-* **Open annotation:** An `open` event gets tracked when a user accesses an _existing_ annotation on the current resource, which will open an editing overlay for that annotation in Recogito. This event is getting tracked independently of who created the annotation.
+* **Open annotation:** An `open` event gets tracked when a user accesses an _existing_ annotation on the current resource, which will open an editing overlay for that annotation in Recogito (pictured in @fig:recogito-editor). This event is getting tracked independently of who created the annotation.
 * **Edit annotation:** An `edit` event gets tracked when a user edits an existing annotation independently of its creator. Within the context of Recogito, editing entails either the original annotation, adding a subordinate annotation to this annotation, editing a subordinate annotation, or deleting a subordinate annotation.
 * **Close annotation:** A `close` event gets tracked when a user closes the editing overlay for an annotation.
 * **Delete annotation:** A `delete` event gets tracked when a user deletes a parent annotation (and thus, any subordinate annotation).
@@ -112,8 +114,8 @@ Through her teaching at Furman University, Chiara Palladino recruited a group of
 
 During both sessions, the students worked all together in the Common Room of the classics department at Furman University, which is accommodated with a large screen and a table with multiple chairs. Students have been asked to bring their own laptops and install recent versions of the Mozilla Firefox or Google Chrome browsers for ensuring compatibility with Recogito. To ensure their anonymity while filling out surveys, the students each were asked to pick a unique identifier consisting of alphanumerical characters. Additionally, the students had to sign up for an account on a private website running a modified version of Recogito; the account name was required to match said identifier. We provided two sources for them to work on during the sessions, both of which they were free to choose from:
 
-* Catalogue of Ships[^ships]: A Greek text passage from Homer's _Iliad_. 
-* Tabula Peutingeriana[^tabula]: A digital reconstruction of an ancient Roman roadmap of the same name. We imported the eleven segments of the map and added them to Recogito as a single collection of images. 
+* _Catalogue of Ships_[^ships]: A Greek text passage from Homer's _Iliad_. 
+* _Tabula Peutingeriana_[^tabula]: A digital reconstruction of an ancient Roman roadmap of the same name. We imported the eleven segments of the map and added them to Recogito as a single collection of images. 
 
 For the task of georeferencing, we ingested the Digital Atlas of the Roman Empire (DARE) [@ahlfeldt2013] into Recogito, providing students with plenty of resources for geospatial annotation.
 
