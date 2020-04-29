@@ -1,12 +1,8 @@
 # Implementation {#sec:implementation}
 
-> _I will comfort you / I'll take your part / When darkness comes / And pain is all around / Like a bridge over troubled water / I will lay me down_
->
-> --- Simon & Garfunkel: “Bridge Over Troubled Water”
+When I approached the design and subsequent implementation of a system that it should cons the previously defined concepts of digital notebooks and public entities that were introduced in chapter \ref{sec:annotation}. The architectured was required to comply with the technical assumption that web is a predominant way for a majority of people and institutions to interact with data, and thus the system should ensure interoperability with the web platform. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should leverage both for enabling interoperable semantic annotation.
 
-When approaching the design and subsequent implementation of a system that corresponds to the concepts on digital notebooks introduced in @sec:annotation, I have settled with the technical assumption that web is a predominant way of interacting with data for a majority of people. Hence, the system should support contemporary web protocols. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should comply with the specification for enabling interoperable semantic annotation.
-
-Design decisions on P2P systems commonly entail implications on usability, data availability, and user emancipation: As described in @sec:annotation:infrastructure, minor technical adjustments on network structures can affect peers and data on such a system. _TODO:_ Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
+Design decisions on P2P systems commonly entail implications on usability, data availability, and autonomy of users: As argued in @sec:annotation:infrastructure, minor technical adjustments on network structures can fundamentally affect the power of peers and the distribution of data on such a system. _TODO:_ Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
 
 I have previously discussed the role of gateways and overlay networks in P2P systems. The following @sec:bridging builds upon this perception and continues to put gateways in context with bridging decentralized networks and the web. With a focus on widely supported web technologies and protocols, I will suggest three strategies for realizing bridging web protocols and the Hyperswarm network.
 
@@ -16,21 +12,17 @@ TODO CLEANUP? In the following, I will describe two attempts at an implementatio
 
 ## Bridging Decentralized Networks and the Web {#sec:bridging}
 
-Web applications leverage technologies planned, audited, and released by the World Wide Web Consortium (W3C). These technologies are known as _web technologies_ and are commonly supported by web browsers such as Mozilla Firefox, Google Chrome, and macOS Safari. Web applications are a popular way of providing tools and services, as opposed to native applications executed directly by the user’s operating system, due to three factors:
 
-* User Experience (UX): Websites are accessible by entering Uniform Resource Locators (URLs). Users don’t have to manually download an application bundle and run it on their machine, as browsers download the application code and assets in-promptu.
-* Developer Experience (DX): Developers can choose from a variety of standardized, open technologies for realizing their applications: Building web documents with HTML, realizing complex business logics with JavaScript, 
-* Business Benefits: ...
 
 ![An architecture leveraging a gateway node for bridging resources from a P2P system into the Web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the Web"}
 
-_TODO:_ Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
+TODO: Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
 
-_TODO:_ Emphasize the limitations for modern JavaScript applications: With the Node.js runtime—in theory—,the same code can be executed isomorphically on both directly on a devices as well as in the browser. However, both platforms serve different environments: Node.js supports bindings to native code, such as libraries written in C++, while browsers provide separate APIs of the web platform, such as WebGL graphics and access to device sensors. Thus, having 
+TODO: Emphasize the limitations for modern JavaScript applications: With the Node.js runtime—in theory—,the same code can be executed isomorphically on both directly on a devices as well as in the browser. However, both platforms serve different environments: Node.js supports bindings to native code, such as libraries written in C++, while browsers provide separate APIs of the web platform, such as WebGL graphics and access to device sensors. Thus, having 
 
-*TODO:* Maybe give an introduction to Hyperswarm, swarms, and how replication commonly happens for Hyperswarm/Hypercore? Also, an introduction to *duplex streams* would be helpful. What is *replication*?
+TODO: Maybe give an introduction to Hyperswarm, swarms, and how replication commonly happens for Hyperswarm/Hypercore? Also, an introduction to *duplex streams* would be helpful. What is *replication*?
 
-_TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
+TODO: Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
 
 ![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.png){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
 
@@ -49,38 +41,34 @@ For the first iteration of this project, I focused on building an annotation pub
 
 Considering research around bridging data into the web from within a P2P system, this approach of developing a decentralized annotation system focused on legitimately _independent_ authoring and publishing of annotations. This aspect of usability and technological autonomy has been influenced by projects such as dokieli [@capadisli2017] and `biiif`[^biiif]. Such tools enable the use of personal storage---providers such as Solid, or even storage provided via a P2P network---for publishing, and eliminating the need for complex and expensive technical infrastructure. A supporting infrastructure could then mirror personal repositories within the P2P network and provide 24/7 availability, redundant backups, and an increased bandwidth for particular resources.
 
-![Architecture of the ‘thick peer’ implementation using an overlay network. Peers can replicate documents directly within the Hyperswarm network (1). On behalf of web clients, the protocol bridge connects to decentralized swarms as ephemeral peer and establishes a duplex stream tunnel (2). Then, web clients can transmit their requests via WebSocket connections (3), which are tunneled by the bridge.](figures/thick-architecture.png){#fig:thick-peer short-caption="Architecture of the 'thick peer' implementation using an overlay network"}
+![Architecture of the _thick-peer_ implementation using an overlay network. Peers can replicate documents directly within the Hyperswarm network (1). On behalf of web clients, the protocol bridge connects to decentralized swarms as ephemeral peer and establishes a duplex stream tunnel (2). Then, web clients can transmit their requests via WebSocket connections (3), which are tunneled by the bridge.](figures/thick-architecture.png){#fig:thick-peer short-caption="Architecture of the thick-peer implementation"}
 
 Technically, this has major implications for the resulting architecture of such a system. Fundamentally, clients can't arbitrarily serve content via HTTP and DNS---at least, not without a substantial amount of device-specific configuration. Hence, independent and decentralized publishing via HTTP is no viable approach and other protocols should be considered. Protocols such as IPFS and Dat recently gained experimental support in several web browsers[^opera-ipfs], but as major web browsers---Google Chrome, Apple Safari, and Mozilla Firefox---still have a joint market share of about 86%[^market-share], widespread adoption of such protocols is still a long time in the coming.
 
-With WebRTC[^webrtc], however, the W3C offers a solution for realizing decentralized communication in applications that are built upon web technologies. (_TODO:_ encryption, discovery via ICE/STUN/TURN). The WebSocket[^websocket] protocol has proven itself more stable and reliable during my testing and in the end led to a gateway-supported solution that bridges WebSocket connections into the Hyperswarm network.
+Integrating with the available stack of Web technologies, both the peer software running locally as well as the browser integration have been written in the JavaScript programming language. Modern versions of JavaScript---most notably, ECMAScript 7[^ecma7]---are widely supported by modern Web browsers. With the Node.js[^nodejs] JavaScript runtime, applications written in JavaScript can be executed locally via the V8 JavaScript runtime[^v8].
 
-Integrating with the stack of Web technologies at hand, both the peer application running locally as well as the browser integration have been written in the JavaScript programming language. Modern versions of JavaScript---most notably, ECMAScript 7[^ecma7]---are widely supported by modern Web browsers. With the Node.js[^nodejs] JavaScript runtime, applications written in JavaScript can be executed locally via the V8 JavaScript runtime[^v8] developed by Google for the Chrome browser.
+TODO: WebSocket connections
 
-_TODO:_ Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients [@frazee2019].
+TODO: Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients [@frazee2019].
 
-_TODO:_ Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
+TODO: Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
 
-* Introduce the terms of repositories (collections of notebooks) and documents (notebooks), and distinguish them from a single annotation.
-
-Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers], as explained in @sec:thick:protocols.
-
-_TODO:_ Extending the Recogito UI has been possible, but required a lot of effort because of complicated tooling around the Scala-based backend. Hence, all extensions, such as the resource discovery mechanism detailed in @sec:thick:discovery, were designed as standalone modules and bundled appropriately.
+TODO: Implemented a HTTP-like protocol based on Protocol Buffers[^protocol-buffers], as explained in @sec:thick:protocols.
 
 In the following, I will outline two characteristic contributions of this approach: First, a novel, HTTP-like protocol was created to enable client-server connections over multiplexed duplex socket connections. This protocol leverages the Protocol Buffers standard and is detailed in @sec:thick:protocols. Second, as peers within the network transfer data without higher-level supernodes—despite an overlay network—, a flat hierarchy is established. An approach for announcing work on particular resources with the intention of collaboration is described in @sec:thick:discovery. By establishing a new protocol for retrieving annotations from a distributed network, browsers need to be provided with libraries to support these protocols---one such library, a Software Development Kit (SDK), for integrating client applications, is detailed in @sec:thick:sdk.
 
 The approach of the first version, however, had several severe drawbacks. While an in-depth evaluation of this thesis' contributions will be discussed far below in @sec:discussion, I will give an outline of these drawbacks in the following @sec:thick:issues.
 
-[^ecma7]: <https://www.ecma-international.org/ecma-262/7.0/index.html>
-[^nodejs]: <https://nodejs.org/en/>
-[^v8]: <https://v8.dev/>
-[^iiif-id]: <https://iiif.io/api/presentation/2.0/#technical-properties>
-[^cts-urn]: <https://www.homermultitext.org/hmt-docs/cite/cts-urn-overview.html>
+[^ecma7]: <https://www.ecma-international.org/ecma-262/7.0/index.html>.
+[^nodejs]: <https://nodejs.org/en/>.
+[^v8]: <https://v8.dev/>.
+[^iiif-id]: <https://iiif.io/api/presentation/2.0/#technical-properties>.
+[^cts-urn]: <https://www.homermultitext.org/hmt-docs/cite/cts-urn-overview.html>.
 [^biiif]: `biiif` is a tool for independent publishing of IIIF manifests: <https://github.com/edsilv/biiif>. By generating a IIIF manifest from a filesystem-based image gallery and corresponding metadata, users can easily host IIIF galleries via P2P file-sharing protocols such as Dat or IPFS.
-[^opera-ipfs]: Opera has been branded as suited for "mainstream crypto-adoption", meaning to support Web3 technologies by interoperating with technologies such as the Ethereum blockchain and the IPFS network: <https://press.opera.com/2020/03/30/opera-introduces-major-updates-to-its-blockchain-browser-on-android/>
-[^market-share]: <https://gs.statcounter.com/browser-market-share#monthly-201902-202002>
-[^webrtc]: <https://www.w3.org/TR/webrtc/>
-[^websocket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>
+[^opera-ipfs]: Opera has been branded as suited for "mainstream crypto-adoption", meaning to support Web3 technologies by interoperating with technologies such as the Ethereum blockchain and the IPFS network: <https://press.opera.com/2020/03/30/opera-introduces-major-updates-to-its-blockchain-browser-on-android/>.
+[^market-share]: <https://gs.statcounter.com/browser-market-share#monthly-201902-202002>.
+[^webrtc]: <https://www.w3.org/TR/webrtc/>.
+[^websocket]: <https://html.spec.whatwg.org/multipage/web-sockets.html>.
 
 ### Protocols {#sec:thick:protocols}
 
@@ -114,8 +102,6 @@ message RequestEvent {
 }
 ```
 
-_TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compatibility, the resulting system didn't implement the Web Annotation protocol---in some way, it did, but not using HTTP---and made using an SDK in client applications mandatory.
-
 [^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
 [^protobuf]: <https://developers.google.com/protocol-buffers/>
 [^long-polling]: In contrast to conventional "short-polling", where clients send requests to servers on-demand, "long-polling" requests will hold a client-initiated connection open for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>
@@ -125,8 +111,6 @@ _TODO:_ Emphasize the trade-off made here: In order to realize Hyperswarm compat
 While evaluating the conditions on why Recogito has been chosen as a case study and reference environment for developing the technology presented in this chapter, several prospects around an open and distributed annotation storage have emerged. With Linked Data entities being available for client applications running locally, semantic relations could easily be examined outside of the annotation environment itself. Furthermore, as the UI of an application becomes increasingly _lean_ by decoupling from a heavy and centralized data-processing backend, user-facing functionality can be better integrated with workflows based on the data model itself.
 
 With that in mind, I have designed a functionality for discovering related work of other users based on the URL of the annotated resource. This approach is inherently decentralized: Each peer maintains its own ephemeral list of related work. By leveraging the decentralized networking of Hyperswarm similarly as in @sec:thick:protocols, peers join a swarm of peers based on a topic. In this case of discovering resources, this topic is a hashed representation of the annotated document's canonical identifier, such a CTS URN or a general URL. Once peers discover and connect to each other, they quickly exchange discovery messages. Such a message is defined more precisely in @lst:proto-discovery as a `DiscoveryEvent` message of type `ANNOUNCE`. Once a peer goes offline, it will broadcast an `UNANNOUNCE` type message.
-
-Explicitely broadcasting these messages is required, as opposed to implcitely announcing the available of a resource by joining the respective swarm based on the resource URL: By introducing 'consuming' peers, swarms don't resemble  
 
 ```{#lst:proto-discovery .protobuf caption="Protocol Buffer schema for a discovery message, announcing or unannouncing the availability of a resource on the sending peer."}
 enum DiscoveryEventType {
@@ -143,15 +127,11 @@ message DiscoveryEvent {
 
 For unique identification, each peer within a discovery swarm assigns itself an UUID upon joining. This identifier corresponds to the `id` field of a `DiscoveryMessage` message. However, this ad-hoc approach for solving decentralized discovery is critically flawed, the message's origin is currently not verified deterministically. This issue will be discussed---among other matters---in @sec:discussion.
 
-_TODO_: Write about the modular UI extension, provide a screenshot, link to the work and (even more TODO) release the module via Zenodo!
-
-[^http-parser]: The code of the Node.js runtime’s built-in HTTP parser  is publicly available and being written in C++: <https://github.com/nodejs/http-parser>
+[^http-parser]: The code of the Node.js runtime’s built-in HTTP parser is written in C++: <https://github.com/nodejs/http-parser>.
 
 ### Software Development Kit {#sec:thick:sdk}
 
-The above mentioned protocols resulted in a quite elaborate assembly: By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, simulating a distributed Web Annotation system via the distributed Hyperswarm network became achievable. One major drawback emerged immediately, though: By not using HTTP as a transfer protocol, communication capabilities for interfacing with the Hyperswarm network via the WebSocket protocol had to be provided with additional software. Consequently, a client Software Development Kit (SDK) should provide these missing components for abstracting the communication.
-
-_TODO:_ Both the annotation API as well as the related work discovery functionality are available via the JavaScript SDK in form of a standalone bundle
+By equipping the HTTP-like functionality of request and response messages with per-request identifiers and subscription capabilities, clients on the web _theoretically_ became capable of joining a simulated P2P Web Annotation system via the distributed Hyperswarm network. However, one  trade-off soon emerged: By not using the ubiquitous HTTP as a transfer protocol, the client had to be supplied with additional software components for interfacing with the Hyperswarm network via WebSocket connections. Software Development Kits (SDKs) commonly provide such missing components, and after equipping Recogito with such an SDK in form of a standalone JavaScript bundle, web clients were finally able to interact with peers on the decentralized network.
 
 Listing: Example code using the JavaScript client SDK for interacting with decentralized annotations on a high-level API.
 
@@ -177,14 +157,9 @@ The code in @lst:sdk-example shows an exemplary usage on how to use the JavaScri
 
 ### Architectural Issues {#sec:thick:issues}
 
-This approach bears fundamental issues:
+The development of a prototype of this software coincided with the timeframe of the study described in chapter \ref{sec:study}. Having established a testing group, I adapted a copy of Recogito to use the aforementioned SDK for storing annotations on the decentralized network. Throughout small-scale local testing with machines on the same network, annotations were transmitted in real-time between two clients running the modified Recogito software. Nevertheless, when the testing group joined from the Furman University network, the machine providing the annotations from Leipzig via Hyperswarm ceased to function.
 
-* Peers within the network are considered to be peoples' personal devices---commodity hardware: personal computers, tablets, smartphones. This poses two constraints: First, commodity hardware has limited computing power compared to enterprise, professional, or data center hardware. Second, personal devices don't share the amount of network bandwidth that is available for data center hardware---talking Megabit versus Gigabit connections.
-* Request/response protocol implements a client-server architecture within a P2P network
-* Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
-* This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
-
-Discuss this more detailed in @sec:discussion.
+The architecture poses a severe conceptual issue: By bridging the web and a P2P network, a multitude of clients gain access to data eventually stored on a small number of peers on the decentralized network, thus far exceeding their limited resources. Identifying this issue led to significant changes on the architecture, which I will discuss in the following @sec:hyperwell. In chapter \ref{sec:discussion}, I will further detail the issue of the current architecture.
 
 ## Second Version: Institutional Governance with Hyperwell {#sec:hyperwell}
 
@@ -198,7 +173,7 @@ Progressing from the first approach outlined in @sec:thick, separating the compo
 
 The Hyperwell gateway server manifests the separation of that translating component and represents an institutional entity in a P2P system. In a proof-of-concept implementation, I have outlined how such a gateway could be realized while considering both users’ needs as well as institutional requirements. Most fundamentally, the gateway translates JSON-encoded annotations of the Web Annotation Data Model between decentralized swarms of Hyperswarm and the web. Therefore, it exposes an HTTP API that complies with the REST-based Web Annotation Protocol and complements this API with further capabilities, such as subscribing to real-time updates of annotations via WebSocket connections and bulk operations on notebooks.
 
-Primarily, the gateway aims to provide the following functionalities for peers of the decentralized network:
+Primarily, a gateway on Hyperwell provides the following functionalities for peers on the decentralized network:
 
 * **Long-term archival**: Gateways support associated peers by continuously replicate their repositories for backup and archival.
 * **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade hardware. These environments can ensure high availability of repositories
@@ -228,18 +203,18 @@ Other than on-device peers of the thick-peer approach, gateways in Hyperwell don
 
 ![Calculating differences between sets by hashing their values. In a simple and commonly shorter representation as hash value, complex objects such as JSON dictionaries can be compared to each other more efficiently.](figures/notebook-diffing.pdf){#fig:notebook-diffing short-caption="Calculating differences between sets by hashing their values"}
 
-Providing real-time updates on changed Hypermerge documents proved itself complicated. By its design, the Hypermerge API allows to listen for updates on a particular document via the `RepoFrontend.watch()` method. However, this event handler will receive the entire state of the changed document rather than just the changes[^hypermerge-watch]. In the context of subscriptions on real-time changes in notebooks of Hyperwell, this means sending each subscriber the complete, updated notebook instead of a list of changes—i.e., additions, edits, and deletions. This practice would put an immense strain on the network bandwidth that quickly scales with the amount of subscriber, the notebook size, and the frequency of changes. Eventually, each subscriber had to calculate the differences by itself. By calculating the changeset between two states on the gateway instead, a drastically smaller amount of data will be published during each change. Illustrated in @fig:notebook-diffing, this changeset can be calculated quickly by mapping the value of each item of a notebook (i.e., a Web Annotation JSON object) to a data type that can be compared quickly, such as a hashed sequence of bytes. Two lists of hashes can then be compared with each other, which will result in a changeset of added, changed, and deleted items. For this cause, the implementation currently uses the SHA-256 hashing algorithm, which generates digests of 256 bit size.
+The distribution of real-time updates on changes of Hypermerge documents became a non-trivial challenge: By design, the Hypermerge API allows to listen for updates on a document via the `RepoFrontend.watch(callback)` method. However, this event handler will receive the entire state of the changed document rather than just the changes[^hypermerge-watch]. In the context of subscriptions on real-time changes in notebooks of Hyperwell, this entails sending each subscriber the entire updated notebook instead of a changeset—i.e., additions, edits, and deletions. This practice would put an immense strain on the network bandwidth that quickly scales with the amount of subscribers, the notebook size, and the frequency of changes. Eventually, each subscriber would be required to calculate the differences by itself. By calculating the changeset between two states on the gateway instead, a significantly smaller amount of data will be transmitted on each change. Illustrated in @fig:notebook-diffing, this changeset can be calculated by mapping the value of each item of a notebook---i.e., a Web Annotation JSON object---to a data type that can be compared more easily, such as a hashed sequence of bytes. Two lists of hashes can then be compared with each other, which will result in a changeset of added, changed, and deleted items. For hashing, the gateway implementation currently uses the SHA-256 hashing algorithm, which generates digests of 256 bit size.
 
-When considering data ownership and power structures in the Hyperwell architecture, it is important to note that notebooks should not be tied to a particular gateway. When creating an annotation by using the gateway’s REST API, it will issue a Universally Unique Identifier (UUID[^uuid]) for the previously undefined ID of this annotation. This ensures that each annotation is uniquely identifiable within a notebook, if not globally. However, the Web Annotation data model specifies that annotations are identified by their IRI and incorporating the parent notebook’s Hypermerge-issued URL into the annotation’s IRI will result in incompatibilities, as browsers are commonly not able to resolve Hyperwell-issued URLs. Hence, gateways translate between both: _TODO :)_.
+When considering data ownership and power structures in the Hyperwell architecture, it is important to note that notebooks should not depend on a particular gateway node. When creating an annotation by using the gateway’s REST API, it will issue a Universally Unique Identifier (UUID[^uuid]) for the previously undefined ID of this annotation. This ensures that each annotation is uniquely identifiable within a notebook. However, the Web Annotation data model specifies that annotations are identified by their host-dependent IRIs. Incorporating the parent notebook’s Hypermerge-issued URL into the annotation’s IRI will result in incompatibilities, as browsers are commonly not able to resolve Hyperwell-issued URLs. Hence, gateways translate between both schemes: Hyperwell internally identifies notebooks by their Hypermerge document URLs---e.g., `hypermerge:/abc123`---and gateways then translate these into IRIs by adding their hostname and the annotation ID to the encoded document URL---e.g., `https://gateway.example.com/annotations/def456/11-22-33`.
 
 Some features such as archiving rely on an identity system. While the Hypercore append-only log uses public key encryption for identity and security, Hypermerge currently does not expose such functionality out-of-the-box. With a focus on Linked Data and web technology, I will discuss this matter—among other shortcomings—in @sec:discussion.
 
 [^hapi]: Hapi is a production-ready web framework: <https://hapi.dev/>. Hapi is written in JavaScript and runs in the Node.js runtime. With a variety of plugins, its functionality can be extended, for example by adding support for the WebSocket protocol.
-[^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically: “Each resource created in the application or site is created within an instance of one of these container-like entities, and users can list the existing artifacts within one.”
+[^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically: “Each resource created in the application or site is created within an instance of one of these container-like entities, and users can list the existing artifacts within one”.
 
 [^websocket-subprotocols]: The WebSocket protocol supports the use of specific subprotocols [@fette2011, p. 12]. Frameworks and services can leverage these subprotocols for imposing their own structured communication paradigms. Yet, for the sake of simplicity and compatibility, the gateway subscription endpoint purely relies on the WebSocket protocol as a stream for pushing data to clients in real-time.
 [^hypermerge-watch]: Automerge, the underlying CRDT of Hypermerge, provides a more low-level API that poses little assumption on how exactly changes are transmitted. With the `Automerge.getChanges()` method, changeset between two states can be propagated explicitly.
-[^uuid]: UUIDs have been specified on RFC 4122: <https://www.ietf.org/rfc/rfc4122.txt>
+[^uuid]: UUIDs have been specified on RFC 4122: <https://www.ietf.org/rfc/rfc4122.txt>.
 
 ### Support in Annotation Environments {#sec:hyperwell:support}
 
@@ -275,24 +250,26 @@ I eventually ceased work on the Recogito integration, as its complex code base w
 In an experimental, yet simple annotation environment application for testing the Hyperwell gateway, RecogitoJS is utilized for annotating the first chapter of Goethe’s Faust. The UI of the application is pictured in @fig:test-environment. Prior to annotating the source, users have to specify an annotation server where they want to load annotations from. If this server is a Hyperwell gateway, the environment will establish a WebSocket connection and enable real-time collaboration of the source.
 
 [^js-prototypes]: The JavaScript specification just gained support for syntactic classes in recent years. While the referred object in Recogito functions as a class with instance methods and an instance-based state, JavaScript classes essentially are an abstraction of prototype-based objects: <https://tc39.es/ecma262/#sec-objects>.
-[^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>
+[^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>.
 [^react]: <https://reactjs.org/>.
 
 ### Notebook Application {#sec:hyperwell:notebook}
 
-_TODO:_ Implementation of a Local-First Annotation Application. Main features:
+The Hyperwell gateway repository provides tools for imitating clients that share notebooks on the network. Inspired by the work of @hardenberg2020, howerver, I have attempted at building a local-first application for managing notebooks on personal devices. Unfortunately, the temporal scope of this thesis did not allow for finishing a minimum viable prototype, but I desire to report the application's design and architecture nonetheless.
 
-* Managing notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
-* Backup: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
-* Searching notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
+![User interface of the notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the notebook application.](figures/hyperwell-notebook.png){#fig:notebook-ui short-caption="User interface of the Hyperwell notebook application"}
 
-![UI of the notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the notebook application.](figures/hyperwell-notebook.png){#fig:notebook short-caption="UI of the Hyperwell notebook application"}
+I've sketched a user interface, which is shown in @fig:notebook-ui.
+
+* **Managing** notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
+* **Replicating** notebooks: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
+* **Searching** notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
 ![Architecture of the Hyperwell notebook application.](figures/notebook-architecture.pdf){#fig:notebook-architecture short-caption="Architecture of the Hyperwell notebook application"}
 
-_TODO:_ Technical architecture:
+Using the Electront[^electron] framework, the application logic and the user interface can be developed using web technologies such as HTML, CSS, and JavaScript.  By shipping applications with a bundled copy of the Chromium web browser,
 
-* It's an Electron-based[^electron] application: By shipping applications with a bundled copy of the Chromium web browser, application logic and the UI can be developed using web technologies such as HTML, CSS, and JavaScript. A backend process runs via an included Node.js runtime.
+A backend process runs via an included Node.js runtime.
 * The user interface is being realized with the JavaScript-based React[^react] framework.
 * Akin to the gateway server, the application uses Hypermerge with Hyperswarm for exchanging distributed notebooks.
 * Search indexing?
