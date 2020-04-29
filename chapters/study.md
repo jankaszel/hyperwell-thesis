@@ -108,29 +108,16 @@ For evaluating the events, we utilized two contemporary approaches for interacti
 
 ## Setting and Observations {#sec:study:setting}
 
-Through her teaching at Furman University, Chiara Palladino recruited a group of students who were interested in participating in the study. They have been offered extra credits on their coursework when participating in both sessions and providing the required feedback. A group of size $n = 11$ students with various backgrounds such as classics, politics, and social sciences signed up for the study. The students had diverse experience with annotation: All of them were undergraduate students at Furman University and, arguably, almost all of them frequently annotate resources by hand. When asked about their use of real-time collaboration software such as Google Docs, a majority stated a frequent use of such software, but with a varying degree of collaboration. Annotating documents digitally has been less common, as just 54.5 \% of the students stated that they use digital annotation at least infrequently. None of them had any prior experience with Recogito itself.
+Through her teaching at Furman University, Chiara Palladino recruited a group of students who were interested in participating in the study. They have been offered extra credits on their coursework when participating in both sessions and providing the required feedback. A group of size $n = 11$ students with various backgrounds such as classics, politics, and social sciences signed up for the study. The students had diverse experience with annotation: All of them were undergraduate students at Furman University and almost all of them frequently annotate resources by hand. When asked about their use of real-time collaboration software such as Google Docs, a majority stated a frequent use of such software with a varying degree of collaboration. Annotating documents digitally was less common, as just 54.5% of the students stated that they use digital annotation at least infrequently. None of them had any prior experience with Recogito itself.
 
-During both sessions, the students worked all together in the Common Room of the classics department at Furman University, which is accommodated with a large screen and a table with multiple chairs. Students have been asked to bring their own laptops and install recent versions of the Mozilla Firefox or Google Chrome browsers for ensuring compatibility with Recogito. We provided two sources for them to work on during the sessions
-
-Additionally, participants had to sign up for an account on a private website running a modified version of Recogito. To ensure their anonymity while filling out surveys, participants each had to pick a unique identifier consisting of alphanumerical characters. 
+During both sessions, the students worked all together in the Common Room of the classics department at Furman University, which is accommodated with a large screen and a table with multiple chairs. Students have been asked to bring their own laptops and install recent versions of the Mozilla Firefox or Google Chrome browsers for ensuring compatibility with Recogito. To ensure their anonymity while filling out surveys, the students each were asked to pick a unique identifier consisting of alphanumerical characters. Additionally, the students had to sign up for an account on a private website running a modified version of Recogito; the account name was required to match said identifier. We provided two sources for them to work on during the sessions, both of which they were free to choose from:
 
 * Catalogue of Ships[^ships]: A Greek text passage from Homer's _Iliad_. 
 * Tabula Peutingeriana[^tabula]: A digital reconstruction of an ancient Roman roadmap of the same name. We imported the eleven segments of the map and added them to Recogito as a single collection of images. 
 
+For the task of georeferencing, we ingested the Digital Atlas of the Roman Empire (DARE) [@ahlfeldt2013] into Recogito, providing students with plenty of resources for geospatial annotation.
 
-TODO In the first session, the students have been introduced to the study subject of collaborative annotation with Recogito and have been set up with their accounts and the respective sources to annotate. In the following 45 minutes of 
-We mostly adhered to the study framework detailed previously, but some students were not able to access the provided resources. They received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito.
-
-TODO In the first session, they were instructed to look for named entities in their sources, transcribe or translate them with appropriate tags, and they georeferenced their findings in the second session.
-
-TODO They were supervised by Chiara Palladino on-site and monitored by me remotely via video, but the work assignment was intentionally very loose, to allow them a “face-to-face” approach to the concrete issues of annotating primary sources.
-
-* Gazetteer used: Digital Atlas of the Roman Empire (DARE) [@ahlfeldt2013]
-
-TODO To stimulate comradery, and also as a partial reward for the effort, we provided an abundant dose of pizza for everyone. During the whole time of the experiment, they lively engaged in discussions and helped each other as well, occasionally providing feedback on the spot and asking “big picture” questions about the sources. 
-
-* I have been present via video; more specificially, my video stream was being played back on a big screen directly in front of that table.
-* Students have been talking during both sessions; even more, they were encouraged to collaborate physically (by talking---not using others' computers) and creating annotations, exploring the user interface
+Throughout both sessions, we mostly follwed the previously detailed study framework. After the students received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito, they were told the assignments for each session. During the first session, they were instructed to primarily look for named entities in their sources and transcribe or translate them with appropriate tags, followed by the particular task of georeferencing in the second session. They were supervised by Chiara Palladino on-site and monitored by me remotely via video, yet the assignment was expressed very lose, enabling them to interact within each other and collaboratively explore the modalities of digital annotation. As an immediate reward, we provided everyone with pizza.
 
 [^ships]: <https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0133%3Abook%3D2%3Acard%3D494>
 [^tabula]: : <https://www.tabula-peutingeriana.de/>
