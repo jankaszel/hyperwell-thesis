@@ -5,6 +5,7 @@ data-dir: .
 input-files:
 - front/abstract.md
 - front/acknowledgements.md
+- front/abbreviations.md
 - front/list-of-figures.md
 - chapters/introduction.md
 - chapters/related-work.md
