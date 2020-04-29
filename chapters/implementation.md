@@ -32,7 +32,7 @@ _TODO:_ Emphasize the limitations for modern JavaScript applications: With the N
 
 _TODO:_ Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
 
-![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.pdf){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
+![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.png){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
 
 1. Connecting web clients via WebRTC and using WebRTC duplex connections to replicate data. Did not work, as WebRTC failed during testing and Hypermerge has dependencies that don’t work in web browsers (footnote on what that exactly means, comparing it to Node.js and native C++ libraries).
 2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers and using an overlay network for requesting resources.
