@@ -1,7 +1,7 @@
 # Abbreviations {#sec:abbreviations .unnumbered}
 
 \begin{tabbing}
-\textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\  
+\textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\
 \textbf{CRDT}   \> \textbf{C}onflict-free \textbf{R}replicated \textbf{D}ata \textbf{T}type \\
 \textbf{CTS}    \> \textbf{C}anonical \textbf{T}ext \textbf{S}ervices \\
 \textbf{DH}     \> \textbf{D}igital \textbf{H}umanities \\
