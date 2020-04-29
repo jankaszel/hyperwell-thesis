@@ -19,7 +19,7 @@ After reaching out to scholars with a background on Digital Humanities and digit
 Notably, Recogito allows researchers to collaborate and annotate resources on a shared workspace. However, collaboration is only supported to the extend that users have to refresh the website in order to see other's changes; collaboration on Recogito currently lacks the real-time transmission of data as considered by @dourish1992 and @schwartz1998. This leaves room for research on how such real-time capabilities could impact user experience. For the matter of this study we certainly focused on the existing modalities of collaboration:
 
 * **Digital workflow:** How do users actually behave during real-time collaboration? What are their micro-actions and patterns that emerge when there are no real-time updates? How often do they revisit others' work? 
-* **Individual experience:**: How have users' experience been like? How did they perceive the collaboration in a combined  online and offline setting?
+* **Individual experience:** How have users' experience been like? How did they perceive the collaboration in a combined  online and offline setting?
 
 In order to learn about these experiences and achieve further insights into the more complex aspects of collaboration, we have collected qualitative and quantitative feedback alike---some of which gathered implicitly, some explicitly. First, in order to learn the qualitative aspects of collaboration, we have handed out feedback questionnaires to participants asking about their individual experience using Likert-scale type and open-ended questions. I will describe these questionnaires in @sec:study:framework alongside the distinctive framework of the study. Implicit insights were gathered by tracking participants' workflows digitally during study sessions, which provided us with quantitative data on their concrete workflows and interactions. The technology behind this approach is outlined in @sec:study:tracking. Finally, I will discuss results from explicit questionnaire feedback and learnings from the tracking data.
 
@@ -32,8 +32,6 @@ The explorative nature of this study leaves room for discussion with regard to i
 [^pelagios-blog]: <https://medium.com/pelagios>.
 
 ## Study Framework {#sec:study:framework}
-
-_TODO:_ Put into present tense, passive voice?
 
 The study framework consists of six basic components: three questionnaires (demographic survey, first post-session survey, second post-session survey), a modified, self-hosted instance of Recogito, as well as two distinct study sessions during which participants are asked to annotate collaboratively. The questionnaires are partly inspired by a usability questionnaire design called User Experience Questionnaire, or short UEQ [@laugwitz2008]. The UEQ framework emphasizes feedback on the ergonomic and hedonic qualities of a piece of software and has been designed to quickly assess experiences of users. In the following, I will discuss the above components in their chronological order.
 
@@ -120,16 +118,16 @@ Additionally, participants had to sign up for an account on a private website ru
 * Tabula Peutingeriana[^tabula]: A digital reconstruction of an ancient Roman roadmap of the same name. We imported the eleven segments of the map and added them to Recogito as a single collection of images. 
 
 
-In the first session, the students have been introduced to the study subject of collaborative annotation with Recogito and have been set up with their accounts and the respective sources to annotate. In the following 45 minutes of 
+TODO In the first session, the students have been introduced to the study subject of collaborative annotation with Recogito and have been set up with their accounts and the respective sources to annotate. In the following 45 minutes of 
 We mostly adhered to the study framework detailed previously, but some students were not able to access the provided resources. They received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito.
 
-In the first session, they were instructed to look for named entities in their sources, transcribe or translate them with appropriate tags, and they georeferenced their findings in the second session.
+TODO In the first session, they were instructed to look for named entities in their sources, transcribe or translate them with appropriate tags, and they georeferenced their findings in the second session.
 
-They were supervised by Chiara Palladino on-site and monitored by me remotely via video, but the work assignment was intentionally very loose, to allow them a “face-to-face” approach to the concrete issues of annotating primary sources.
+TODO They were supervised by Chiara Palladino on-site and monitored by me remotely via video, but the work assignment was intentionally very loose, to allow them a “face-to-face” approach to the concrete issues of annotating primary sources.
 
 * Gazetteer used: Digital Atlas of the Roman Empire (DARE) [@ahlfeldt2013]
 
-To stimulate comradery, and also as a partial reward for the effort, we provided an abundant dose of pizza for everyone. During the whole time of the experiment, they lively engaged in discussions and helped each other as well, occasionally providing feedback on the spot and asking “big picture” questions about the sources. 
+TODO To stimulate comradery, and also as a partial reward for the effort, we provided an abundant dose of pizza for everyone. During the whole time of the experiment, they lively engaged in discussions and helped each other as well, occasionally providing feedback on the spot and asking “big picture” questions about the sources. 
 
 * I have been present via video; more specificially, my video stream was being played back on a big screen directly in front of that table.
 * Students have been talking during both sessions; even more, they were encouraged to collaborate physically (by talking---not using others' computers) and creating annotations, exploring the user interface
@@ -139,11 +137,11 @@ To stimulate comradery, and also as a partial reward for the effort, we provided
 
 ## Results {#sec:study:results}
 
+The tracking data showed that the students collaborated with each other offline---i.e., verbally---as well as online. The telemetry system collected 3.029 events throughout both sessions, of which 1218 events have been recorded during the first and 1811 events during the second session. They have created an accumulated corpus of 692 annotations on both sources, of which a majority of 559 has been created during the first session.
+
+Indicators for digital collaboration emerged from a fundamental difference between records from both sessions: During the first session, no annotations have been edited collaboratively---i.e., created by one user and edited by another---and just 70 annotations have been 
+
 While students verbally collaborated with each other within the group room, digital collaboration has just been measurable to a small extent: _TODO_. As it has been mentioned before, Recogito does not support real-time collaboration and will require a refresh of the website---similar to a restart of an application running natively---in order to display collaborators' recent changes. @dourish1992 note, that in order to realize environments for remote collaboration, colleagues' awareness has to be coordinated in real-time across the shared workspace.
-
-Overall, students created $X$ annotations during the first session (median: $X_1$ per student) and $Y$ annotations during the second session (median: $Y_1$ per student). 
-
-_TODO:_ Have graphs showing the results of the Likert scale experience-related questions---either boxplot charts, or stacked diverging bar charts.
 
 First questionnaire:
 
@@ -164,9 +162,9 @@ Second questionnaire:
 
 ![Results of the second questionnaire](figures/study-results.pdf)
 
-_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992.
+_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
 
-Annotating resources is a semi-synchronous task, one might argue, due to the fact that it requires focused, solitary insights into a particular resource. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate usage of communication channels depending on the nature of the workspace---being it private or actively shared. The results of this study clearly show a two-fold lack of awareness on collaborative work in Recogito if used in an shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
+Annotating resources is a semi-synchronous task, arguably, due to the fact that it requires focused, solitary insights into underlying source. While annotating a resource, focus is an important facilitator of the intellectual process. @dourish1992 anticipate the overhead of _informational awareness_ and emphasize considerate use of communication channels depending on the nature of the workspace, whether conducted privately or shared actively. The results of this study clearly show a two-fold lack of awareness on collaborative work on Recogito if used in a shared workspace that is used synchronously: First, the workspace _content_ is not synchronized in real-time. Second, if changes of others were to be synchronized, Recogito lacked the presentation of other users' activities.
 
 _TODO:_ Open publication containing the students' work; exported into various formats. However, Recogito is yet missing an import functionality that is easily accessible.
 
