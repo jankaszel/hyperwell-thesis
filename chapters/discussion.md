@@ -55,15 +55,12 @@ Some take-aways from both architectures:
 
 ## Implementation {#sec:discussion:implementation}
 
+The implementations described in chapter \ref{sec:implementation} are multifaceted and include a gateway server and a prototype annotation environment, with an annotation management application still in development. The current stage of all software is considered experimental 
+
 The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways, while privacy and security still are at large for local-first applications [@hardenberg2020]. Web Cryptography API could be a solution, but this doesn’t solve the architectural issue that we have with Hyperwell: Will encryption be terminated? If not—maintaining end-to-end encryption—, this will require us to find a solution that adheres both to Linked Data principles as well as ensure end-to-end encryption. Most ideally for security, encryption would not be terminated within the gateway (i.e., not within the architecture depicted in fig:gateway-architecture).
 
 Missing performance measuring. Gateways will have many open UDP connections and can just serve a particular amount of peers to the web.
 
-Gateways could introduce a TTL to remove or unwatch notebooks.
-
 Gateways can serve quasi-arbitrary content, as hypermerge does not enforce a particular schema—as gateways are intended to be run on an institutional infrastructure (and domain), they should be safe. Thus, these gateways should not be open. Hypermerge will introduce such functionality soon.
 
-The gateway does not support (proper) pinning.
-
 Subscription support poses a bottleneck for the gateway. While responding to HTTP requests is easily done---the gateway process has all data already available, as it's local-first, in some way---subscriptions need more information. In particular, with the current architecture and version of Hypermerge, we need to create a _diff_ for each repository update. This is done by calculating by creating SHA1 hashes of each annotation's JSON-encoded string representation. Many updates could easily exhaust a single gateway. However, transmitting a complete notebook for each update to _all_ subscribers could exceed the bandwidth quickly.
-

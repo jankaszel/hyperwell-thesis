@@ -66,15 +66,14 @@ Over the course of this whole project, I have had the opportunity to talk public
 
 Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
 
-I have utilized  user interface design and software development for building prototypes of novel technology and architectures---mainly of the P2P systems discussed in chapter \ref{sec:implementation}. While all of the respective code repositories are included on the digital media attached to the official print version of this thesis, a subset of these repositories---standalone software that is subject to future development sketched in @sec:future-work---are published online and are being mirrored by the Zenodo open-access repository for long-term archival. These repositories are provided with each its Digital Object Identifier[^doi] (DOI).
+I have utilized  user interface design and software development for building prototypes of novel technology and architectures---mainly of the P2P systems discussed in chapter \ref{sec:implementation}. While all of the respective code repositories are included on the digital media attached to the official print version of this thesis, a subset of these repositories---standalone software that is subject to future development sketched in @sec:future-work---are published online and are being mirrored by the Zenodo open-access repository for long-term archival. These repositories are provided with each its own Digital Object Identifier (DOI).
 
-[^dariah]: <https://www.dariah.eu/>
-[^dariah-campus]: <https://campus.dariah.eu/>
-[^doi]: <http://doi.org/>
+[^dariah]: <https://www.dariah.eu/>.
+[^dariah-campus]: <https://campus.dariah.eu/>.
 
 ## Thesis Structure {#sec:introduction:structure}
 
-The following @sec:related contains a discussion of related work and concerns research on hypertext, digital annotation, P2P applications, and Digital Humanities infrastructure. Focusing on scholarly research, I will cover fundamental and academically documented technology that is used in this thesis, and will state further technological decisions in footnotes throughout later parts of this thesis.
+The following chapter \ref{sec:related} contains a discussion of related work and concerns research on hypertext, digital annotation, P2P applications, and Digital Humanities infrastructure. Focusing on scholarly research, I will cover fundamental and academically documented technology that is used in this thesis, and will state further technological decisions in footnotes throughout later parts of this thesis.
 
 @Sec:annotation concerns the theory behind Hypertext, its relations to data ownership, and implications on digital annotation. With a focus on the collaboration aspects of collaboration, the design and results of a user testing study with collaborative annotating on the Recogito platform will be examined in @sec:study. @Sec:implementation concerns the technical part of this this with two iterations of an architecture for decentralized, collaborative annotation called Hyperwell.
 
