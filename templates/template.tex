@@ -34,6 +34,10 @@
 \usepackage{fixltx2e} % provides \textsubscript
 \usepackage[utf8]{inputenc}
 
+% <https://tex.stackexchange.com/a/10928>
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+
 \usepackage{fontspec}
 \usepackage{xltxtra,xunicode}
 \usepackage{eurosym}
