@@ -12,6 +12,8 @@ _TODO:_ While the second architecture proved itself stable during testing, it la
 
 _TODO:_ This study design has multiple drawbacks. It provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducibility of the study's results. Outline these drawbacks.
 
+_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
+
 The study was designed to explorative/open-ended and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:
 
 * It has not been a strict lab setting. Offline collaboration in the classroom (chatter) has been mixed with online collaboration.
