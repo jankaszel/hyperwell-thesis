@@ -137,11 +137,11 @@ TODO To stimulate comradery, and also as a partial reward for the effort, we pro
 
 ## Results {#sec:study:results}
 
-The tracking data showed that the students collaborated with each other offline---i.e., verbally---as well as online. The telemetry system collected 3.029 events throughout both sessions, of which 1218 events have been recorded during the first and 1811 events during the second session. They have created an accumulated corpus of 692 annotations on both sources, of which a majority of 559 has been created during the first session.
+The tracking data showed that the students collaborated with each other offline---i.e., verbally---as well as online. The telemetry system collected 3.029 events throughout both sessions, of which 1218 events have been recorded during the first and 1811 events during the second session. They have created an accumulated corpus of 692 annotations on both sources, of which a majority of 559 has been created during the first session. Initializations---i.e., reloading the webpage including others' recent work---occured 166 times during the first session and 74 times during the second one.
 
-Indicators for digital collaboration emerged from a fundamental difference between records from both sessions: During the first session, no annotations have been edited collaboratively---i.e., created by one user and edited by another---and just 70 annotations have been 
+Records related digital collaboration indicate significant differences between both sessions, though: During the first session, no annotations have been edited collaboratively---i.e., created by one user and edited by another---and students viewed others' annotations just 70 times. This changed during the second session, where students viewed others' annotations 901 times and issued 82 edits on existing annotations. However, this difference can hint at the preexisting annotations of the second run, whereas students initially started their work on a blank canvas at the first session.
 
-While students verbally collaborated with each other within the group room, digital collaboration has just been measurable to a small extent: _TODO_. As it has been mentioned before, Recogito does not support real-time collaboration and will require a refresh of the website---similar to a restart of an application running natively---in order to display collaborators' recent changes. @dourish1992 note, that in order to realize environments for remote collaboration, colleagues' awareness has to be coordinated in real-time across the shared workspace.
+This disparity could hint at a change in workflows once the shared workspace is filled with content; the students' actions shifted from creating towards editing annotations between both sessions. In order to perform editing, students required annotations to edit, which could hint at prospects for collaborative annotation workflows: Given that changes are transmitted in real-time, users could become aware of others' work and inspect it immediately.
 
 First questionnaire:
 
@@ -168,5 +168,5 @@ Annotating resources is a semi-synchronous task, arguably, due to the fact that 
 
 _TODO:_ Open publication containing the students' work; exported into various formats. However, Recogito is yet missing an import functionality that is easily accessible.
 
-_TODO:_ Verbal feedback of the students that we've gathered for that publication (just cite the blog post).
+TODO: refer to open publication, again.
 
