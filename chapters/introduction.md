@@ -1,8 +1,6 @@
 # Introduction {#introduction}
 
-> _EVERYTHING IS DEEPLY INTERTWINGLED. In an important sense there are no "subjects" at all; there is only all knowledge, since the cross-connections among the myriad topics of this world simply cannot be divided up neatly._
-> 
-> --- @nelson1987b
+> _EVERYTHING IS DEEPLY INTERTWINGLED. In an important sense there are no "subjects" at all; there is only all knowledge, since the cross-connections among the myriad topics of this world simply cannot be divided up neatly._ [@nelson1987b]
 
 _TODO/Ignore:_ In mid-2019, I learned about a joint venture between two large digital libraries of US universities to create an interoperable annotation system for their digital reading environments. While leveraging open web standards and Linked Data for this task sounded reasonable to me, 
 
