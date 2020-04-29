@@ -117,7 +117,7 @@ During both sessions, the students worked all together in the Common Room of the
 * _Catalogue of Ships_[^ships]: A Greek text passage from Homer's _Iliad_. 
 * _Tabula Peutingeriana_[^tabula]: A digital reconstruction of an ancient Roman roadmap of the same name. We imported the eleven segments of the map and added them to Recogito as a single collection of images. 
 
-For the task of georeferencing, we ingested the Digital Atlas of the Roman Empire (DARE) [@ahlfeldt2013] into Recogito, providing students with plenty of resources for geospatial annotation.
+For the task of georeferencing, we ingested the Digital Atlas of the Roman Empire [@ahlfeldt2013] into Recogito, providing students with plenty of resources for geospatial annotation.
 
 Throughout both sessions, we mostly follwed the previously detailed study framework. After the students received a basic introduction on their sources and their structure, and a very short tutorial on how to use Recogito, they were told the assignments for each session. During the first session, they were instructed to primarily look for named entities in their sources and transcribe or translate them with appropriate tags, followed by the particular task of georeferencing in the second session. They were supervised by Chiara Palladino on-site and monitored by me remotely via video, yet the assignment was expressed very lose, enabling them to interact within each other and collaboratively explore the modalities of digital annotation. As an immediate reward, we provided everyone with pizza.
 
