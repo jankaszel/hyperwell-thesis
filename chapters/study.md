@@ -20,9 +20,9 @@ Instead of developing a novel annotation environment---which would have extended
 
 After reaching out to scholars with a background on Digital Humanities and digital annotation, Chiara Palladino, Assistant Professor of Classics at Furman University, USA, announced interest on launching a joint project on this matter. Chiara Palladino teaches Classics with a focus on Digital Humanities and, as a member of the Pelagios Commons, previously conducted research on the use of Linked Open Data (LOD) tools in the classroom[^chiara-lod-post]. She motivated a group of undergraduate students at Furman University to participate in the study and managed both study sessions overseas. While I designed this study as part of this thesis, we have curated a joint open publication including the students' annotations and notes on the overall feedback (_TODO:_ add reference). This publication has been accompanied by an article on the Pelagios blog (_TODO:_ add reference). (_TODO:_ Communicate?) The work has also been featured on the Pelagios curation of case studies.
 
-* Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display work of collaborators in real-time. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration. @schwartz1998 describe such a system more precisely in their patent.
+TODO Highlight that Recogito currently does not provide real-time collaboration, and requires a refresh of the website in order to display work of collaborators in real-time. This plays well with the remark of @dourish1992---that the context of digital collaboration not just concerns the content of work, but also its character and expression throughout the ongoing collaboration. @schwartz1998 describe such a system more precisely in their patent.
 
-Aspects we wanted to learn about:
+TODO Aspects we wanted to learn about:
 
 * Digital workflow: How do users actually behave during real-time collaboration, what are their micro-actions and patterns that emerge when there is no real-time update, how often do they revisit others' work? Acquire these insights quantitatively and implicitly.
 	* Record actions
@@ -173,7 +173,7 @@ Second questionnaire:
 * Recogito: Cluttered (minimalist/overcharged)
 * Recogito: Creative (fanciless/stimulating)
 
-![Results of the second questionnaire](figures/survey-2.png)
+![Results of the second questionnaire](figures/study-results.pdf)
 
 _TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992.
 
