@@ -1,6 +1,7 @@
+\addtocontents{toc}{\protect\newpage}
 # Implementation {#sec:implementation}
 
-When I approached the design and subsequent implementation of a system that it should cons the previously defined concepts of digital notebooks and public entities that were introduced in chapter \ref{sec:annotation}. The architectured was required to comply with the technical assumption that web is a predominant way for a majority of people and institutions to interact with data, and thus the system should ensure interoperability with the web platform. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should leverage both for enabling interoperable semantic annotation.
+When I approached the design and subsequent implementation of a system that it should cons the previously defined concepts of digital notebooks and public entities that were introduced in chapter \ref{sec:annotation}. The architectured was required to comply with the technical assumption that web is a predominant way for a majority of people and institutions to interact with data, and thus the system should ensure interoperability with the web platform. The Web Annotation specification covers both a REST-based protocol and a data model. As both LOD and LDP are emerging factors in the Digital Humanities, the system should leverage both for enabling interoperable semantic annotation.
 
 Design decisions on P2P systems commonly entail implications on usability, data availability, and autonomy of users: As argued in @sec:annotation:infrastructure, minor technical adjustments on network structures can fundamentally affect the power of peers and the distribution of data on such a system. _TODO:_ Gateways as the solution for that (detailed in @sec:hyperwell), ensuring compliance with today’s standards as well as backwards compatibility.
 
@@ -157,9 +158,9 @@ The code in @lst:sdk-example shows an exemplary usage on how to use the JavaScri
 
 ### Architectural Issues {#sec:thick:issues}
 
-The development of a prototype of this software coincided with the timeframe of the study described in chapter \ref{sec:study}. Having established a testing group, I adapted a copy of Recogito to use the aforementioned SDK for storing annotations on the decentralized network. Throughout small-scale local testing with machines on the same network, annotations were transmitted in real-time between two clients running the modified Recogito software. Nevertheless, when the testing group joined from the Furman University network, the machine providing the annotations from Leipzig via Hyperswarm ceased to function.
+The development of a prototype of this software coincided with the timeframe of the study described in chapter \ref{sec:study}. Having established a testing group, I adapted a copy of Recogito to use the aforementioned SDK for storing annotations on the decentralized network. Throughout small-scale local testing with machines on the same network, annotations were transmitted in real-time between two clients running the modified Recogito software. Nevertheless, when the testing group joined from the Furman University network, the machine providing the annotations from Leipzig via Hyperswarm ceased to function.
 
-The architecture poses a severe conceptual issue: By bridging the web and a P2P network, a multitude of clients gain access to data eventually stored on a small number of peers on the decentralized network, thus far exceeding their limited resources. Identifying this issue led to significant changes on the architecture, which I will discuss in the following @sec:hyperwell. In chapter \ref{sec:discussion}, I will further detail the issue of the current architecture.
+The architecture poses a severe conceptual issue: By bridging the web and a P2P network, a multitude of clients gain access to data eventually stored on a small number of peers on the decentralized network, thus far exceeding their limited resources. Identifying this issue led to significant changes on the architecture, which I will discuss in the following @sec:hyperwell. In chapter \ref{sec:discussion}, I will further detail the issue of the current architecture.
 
 ## Second Version: Institutional Governance with Hyperwell {#sec:hyperwell}
 
@@ -175,13 +176,13 @@ The Hyperwell gateway server manifests the separation of that translating compon
 
 Primarily, a gateway on Hyperwell provides the following functionalities for peers on the decentralized network:
 
-* **Long-term archival**: Gateways support associated peers by continuously replicate their repositories for backup and archival.
+* **Long-term archiving**: Gateways support associated peers by continuously replicate their repositories for backup and archiving.
 * **High availability**: Other than personal devices, gateways can be deployed in data centers with high-bandwidth network connections, 24/7 uptime, and enterprise-grade hardware. These environments can ensure high availability of repositories
 * **Professional affiliation**: On the web, domains resolved via DNS can express affiliations with an official institution and hence, secure credibility. For example, domains in the context of academia commonly follow schemes such  `xyz.edu` or `uni-xyz.de`. Consequently, institutional gateways can assure a researcher’s or repository’s affiliation by following these naming schemes with, for example, `service.xyz.edu`.
 
 ![Architecture of the Hyperwell gateway server. While real-time replication of repositories happens via the Hyperswarm network (1), changes are also persisted to disk (2). Hypermerge (3) then applies uses the Automerge CRDT to merge different versions of a repository. The gateway caches recently accessed repositories (4) and performs a diff (5) if sequential updates are requested. Annotation IDs are then translated into LOD URIs (6) and served via HTTP (7) or WebSocket (8) connections.](figures/gateway-architecture.pdf){#fig:gateway-architecture short-caption="Architecture of the Hyperwell gateway server"}
 
-@Fig:gateway-architecture outlines the components of this gateway implementation. Some components could be adopted from the thick peer approach: Primarily, the Hyperwell gateway shares the general concept of distributing annotations via a combination of decentralized networking with Hyperswarm and handling distributed documents with Hypermerge. Yet, introducing an institution as neutral entity to the system has caused some additional components to appear. I will detail these components in the following.
+@Fig:gateway-architecture outlines the components of this gateway implementation. Some components could be adopted from the thick peer approach: Primarily, the Hyperwell gateway shares the general concept of distributing annotations via a combination of decentralized networking with Hyperswarm and handling distributed documents with Hypermerge. Nevertheless, introducing an institution as neutral entity to the system has caused some additional components to appear. I will detail these components in the following.
 
 Notebooks are replicated via the Hyperswarm network over TCP or uTP connections and then passed to Hypermerge for applying changesets. Bridging into the web, the gateway serves both HTTP requests and WebSocket connections by using the hapi[^hapi] web framework. The HTTP API implements a superset of the Web Annotation Protocol [@web-anno-protocol] by the providing the following URL endpoints:
 
@@ -212,7 +213,7 @@ Some features such as archiving rely on an identity system. While the Hypercore 
 [^hapi]: Hapi is a production-ready web framework: <https://hapi.dev/>. Hapi is written in JavaScript and runs in the Node.js runtime. With a variety of plugins, its functionality can be extended, for example by adding support for the WebSocket protocol.
 [^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically: “Each resource created in the application or site is created within an instance of one of these container-like entities, and users can list the existing artifacts within one”.
 
-[^websocket-subprotocols]: The WebSocket protocol supports the use of specific subprotocols [@fette2011, p. 12]. Frameworks and services can leverage these subprotocols for imposing their own structured communication paradigms. Yet, for the sake of simplicity and compatibility, the gateway subscription endpoint purely relies on the WebSocket protocol as a stream for pushing data to clients in real-time.
+[^websocket-subprotocols]: The WebSocket protocol supports the use of specific subprotocols [@fette2011, p. 12]. Frameworks and services can leverage these subprotocols for imposing their own structured communication paradigms. Yet for the sake of simplicity and compatibility, the gateway subscription endpoint purely relies on the WebSocket protocol as a stream for pushing data to clients in real-time.
 [^hypermerge-watch]: Automerge, the underlying CRDT of Hypermerge, provides a more low-level API that poses little assumption on how exactly changes are transmitted. With the `Automerge.getChanges()` method, changeset between two states can be propagated explicitly.
 [^uuid]: UUIDs have been specified on RFC 4122: <https://www.ietf.org/rfc/rfc4122.txt>.
 
@@ -257,17 +258,15 @@ In an experimental, yet simple annotation environment application for testing th
 
 The Hyperwell gateway repository provides tools for imitating clients that share notebooks on the network. Inspired by the work of @hardenberg2020, howerver, I have attempted at building a local-first application for managing notebooks on personal devices. Unfortunately, the temporal scope of this thesis did not allow for finishing a minimum viable prototype, but I desire to report the application's design and architecture nonetheless.
 
-![User interface of the notebook application when inspecting a topic-related notebook. While respective annotation environments will contextualize annotations visually upon each target, users can edit their annotations' JSON-LD data directly within the notebook application.](figures/hyperwell-notebook.png){#fig:notebook-ui short-caption="User interface of the Hyperwell notebook application"}
+![Architecture of the Hyperwell notebook application.](figures/notebook-architecture.pdf){#fig:notebook-architecture short-caption="Architecture of the Hyperwell notebook application"}
 
-I've sketched a user interface, which is shown in @fig:notebook-ui.
+I've sketched an architecture for this application, pictured in @fig:notebook-architecture:
 
 * **Managing** notebooks: collections of annotations for a particular resource (or a set of related resources). Project- or resource-based.
 * **Replicating** notebooks: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
 * **Searching** notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
 
-![Architecture of the Hyperwell notebook application.](figures/notebook-architecture.pdf){#fig:notebook-architecture short-caption="Architecture of the Hyperwell notebook application"}
-
-Using the Electront[^electron] framework, the application logic and the user interface can be developed using web technologies such as HTML, CSS, and JavaScript.  By shipping applications with a bundled copy of the Chromium web browser,
+Using the Electront[^electron] framework, the application logic and the user interface can be developed using web technologies such as HTML, CSS, and JavaScript. By shipping applications with a bundled copy of the Chromium web browser,
 
 A backend process runs via an included Node.js runtime.
 * The user interface is being realized with the JavaScript-based React[^react] framework.
@@ -275,7 +274,7 @@ A backend process runs via an included Node.js runtime.
 * Search indexing?
 
 [^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
-[^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming principles and uses a virtual DOM for only patching changed parts of the user interface. Next.js builds upon React and provides ready-to-use solutions for many common scenarios, such as pre-rendering and CSS-in-JS styling: <https://nextjs.org/>.
+[^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming (FRP) principles and uses a virtual DOM for only patching changed parts of the user interface. Next.js builds upon React and provides ready-to-use solutions for many common scenarios, such as pre-rendering and CSS-in-JS styling: <https://nextjs.org/>.
 
 ## Conclusion {#sec:implementation:conclusion}
 
