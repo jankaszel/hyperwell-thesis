@@ -1,13 +1,16 @@
 # Introduction {#introduction}
 
-Introduce to digital annotation. Hypothes.is. Dokieli.
-
-Annotation.
-
-
 Describing the complixity of digital knowledge, taking inspiration from Ted Nelson:
 
 > _EVERYTHING IS DEEPLY INTERTWINGLED. In an important sense there are no "subjects" at all; there is only all knowledge, since the cross-connections among the myriad topics of this world simply cannot be divided up neatly._ [@nelson1987b]
+
+By its fundamental definition, hypertext is defined by Ted Nelson as non-sequential writing, bearing opportunities of non-deterministic exploration for writers and readers alike [@nelson1993].
+
+Introduce to digital annotation.
+
+Annotation.
+
+The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
 
 How to relate data to each other? Linked Data.
 
@@ -19,47 +22,44 @@ _TODO:_ Transitioning to collaboration---offline as well as online. Being an umb
 
 In the wake of the new web, the wake of technological development that happened after the bust of the dot-com bubble in 2001, the internet became more open and accessible to the common people, as opposed to purely experts (Davidson, 2008). Collaboration, again, has been facilitated by this change, as the web tended towards social media, sharing of resources, and semantic description of data.
 
-## Motivation: A Question of Ownership
+## Motivation: A Question of Ownership {#sec:intro:motivation}
 
-> Well, by ‘hypertext’ I mean non-sequential writing--text that branches and allows choices to the reader, best read at an interactive screen. [@nelson1993]
+Ever since its birth in the early 1990s, the web has been a facilitator to economic growth: The dot-com bubble of the early 2000s and the rise of the Silicon Valley during the 2010s were founded on the sudden possibilities of near-instant, worldwide communication (besides piles of venture capital). The commercialization of the web nevertheless entails threats to its fundamental principles: An increasing amount of data is stored on the _cloud_---an ubiquitous, mystic entity---with few prospects on ownership and privacy. As \citeauthor{kleppmann2019} put it:
 
-The way humanity treats its expression sets implications on how research can reflect on these. @marshall1997 introduced a fundamental notion on this in regard to books and readers’ markings: The physical representation of a book bears the respective physical limitations of adding further information to paper-based text—being it highlights or marginal notes, for instance. The digital medium, however, lifts those physical limitations. Almost encouragingly, adding annotations to a digital text is just a matter of switching bits from zero to one. (…)
+> _Although they let you access your data anywhere, all data access must go via the server, and you can only do the things that the server will let you do. In a sense, you don’t have full ownership of that data --- the cloud provider does. In the words of a bumper sticker: “There is no cloud, it’s just someone else’s computer.”_ [@kleppmann2019, p. 155]
 
-The Web has historically considered the client-server architecture a natural part of its architecture.
+Arguably, there exists a difference between _practical_ and _theoretical_ ownership of data. Practically, I own data whilst it remains on my computer. If stored on the cloud, I could ask customer support to send me all the data I have provided them with. Theoretically, however, I can prove ownership of data by cryptographic means. Signing or encrypting data with cryptographic keys allows me to mathematically validate the signature or even prevent third parties from accessing it.
 
-> When data is stored on “someone else’s computer”, that third party assumes a degree of control over that data. Cloud apps are provided as a service; if the service is unavailable, you cannot use the software, and you can no longer access your data created with that software. If the service shuts down, even though you might be able to export your data, without the servers there is normally no way for you to continue running your own copy of that software. Thus, you are at the mercy of the company providing the service. [@kleppmann2019]
+The question of ownership in regard to data availability on a personally-owned device remains, though. Peer-to-Peer (P2P) systems commonly address this issue by establishing communication channels directly between two parties with no intermediaries involved (except for relaying data). Initially popularized among file-sharing services of the early 2000s such as _Napster_, applications nowadays increasingly leverage P2P principles for eliminating the need for third parties in their systems. Blockchain technology and Decentralized Autonomous Organizations (DAOs) incentivize this development by pleding for free and global trade.
 
-Give a note on how the internet benefits businesses rather than individuals [@robinson2018]. Platforms bear a very strong notion of servers in the client-server model---technically as well as strategically. Issues on data ownership arise when storing personal data on centralized services.
+Whether motivated by crypto-economic aspects or not, decentralized applications demand for new technological frameworks and revisited concerns of usability. With _local-first software_, @kleppmann2019 introduced a manifesto for collaborative applications that store data locally.
 
-_Introduce decentralized, distributed systems_
+Could this serve as a foundation for rediscovering hypertext annotation?
 
-TODO: PROSPECTS OF P2P SYSTEMS
+## Research Goals and Related Publications {#sec:intro:meta}
 
-## Research Goals and Related Publications {#sec:introduction:research}
+The initial research question for this thesis emerged out of a personal frustration about the status quo of platform-centric tools, affecting the modalities of annotation on the web: Could P2P networks and local-first software serve as a foundation for rediscovering hypertext annotation?
 
-During the very early phase of this work, the initial research question emerged out of a personal frustration about the status quo of platform-centric tools in the Digital Humanities:
+Arguably, P2P systems have their downsides, which I will outline later in this thesis. During last year, I had the opportunity of joining various academic gatherings, one of which was the ACM Hypertext Conference in Hof, Germany. This left me with plenty of room for discussing digital annotation with scholars of the Digital Humanities and Computer Science. Some approved my concerns on digital ownership, others objected the use of P2P systems and less authorative control. After all, academia is a highly hierarchical structure with countless authorities involved. This left me with posing the research questions around the actual _feasibility_ of such systems by exploring benefits for digital, scholarly workflows:
 
-> How could a P2P systems for annotations be realized in the environment of tools and platforms in Digital Humanities research?
+1. How do users perceive collaborative workflows on digital annotation in contemporary Digital Humanities tools?
+2. How can personal ownership and institutional governance be considered in a P2P architecture with distributed governance?
+3. How could a system be realized technically with such considerations?
 
-This open-ended question carries the belief that decentralized storage for users, computer scientists commonly tend to approach technical solutions before questioning user needs. However, research and feedback showed that platforms—as they are servers—are not necessarily evil: Federated services
+Throughout this project, I had the opportunity to talk and write publicly about the contribution of this thesis: an architecture for distributed digital annotation called _Hyperwell_. First, I gave a talk titled _From Me to You: Peer-to-Peer Collaboration With Linked Data_ at the second DARIAH Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the Hyperwell architecture (co-authored by my thesis supervisor, Dr. Thomas Köntges) was published in the workshop proceedings [@kassel2020a] as an open publication on the newly released DARIAH Campus[^dariah-campus] website. 
 
-1. _ How do users perceive real-time collaboration on digital annotation in contemporary Digital Humanities tools?
-2. Does there exist an architectural issue regarding ownership with personal data such as annotations in contemporary services on the web?
-3. How could kind of architecture could provide personal, distributed storage, and fit the requirements of academic Digital Humanities research?
+Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in chapter \ref{sec:study} yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. A forthcoming open publication and an accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with insights on how (digital) classes could benefit from using collaborative environments such as Recogito.
 
-Over the course of this whole project, I have had the opportunity to talk publicly about the architecture of Hyperwell, as well as publish openly on particular results of this thesis. First, I gave a talk titled _From Me to You: Peer-to-Peer Collaboration With Linked Data_ at the second DARIAH Digital Humanities workshop at the University of Neuchâtel, Switzerland. A short paper about the Hyperwell architecture---co-authored by my thesis supervisor, Dr. Thomas Koentges---was published in the conference proceedings [@kassel2020a] as an open publication on the newly released DARIAH Campus[^dariah-campus] website. 
-
-Second, Chiara Palladino from Furman University and I collaborated on a joint open publication on using Recogito, an open annotation environment, for collaborative learning in classrooms. The results of the study described in @sec:study yielded not only feedback on collaborative annotation in general, but also on how students could collaborate with digital tools in classrooms. The open publication (forthcoming) and accompanying blog post[^pelagios-blog-post] on the Pelagios blog set out to provide educators with fundamental insights on how (digital) classes could benefit from using collaborational tools such as Recogito.
-
-I have utilized  user interface design and software development for building prototypes of novel technology and architectures---mainly of the P2P systems discussed in chapter \ref{sec:implementation}. While all of the respective code repositories are included on the digital media attached to the official print version of this thesis, a subset of these repositories---standalone software that is subject to future development sketched in @sec:future-work---are published online and are being mirrored by the Zenodo open-access repository for long-term archival. These repositories are provided with each its own Digital Object Identifier (DOI).
+In order to build Hyperwell, I have sketched user interfaces using graphics tools and created prototypical implementations. The centerpiece of Hyperwell is---as I will explain later---a gateway server that bridges the P2P network into the web. While the the official print version of this thesis contains all affiliated code repositories, I have decided to separately openly publish the gateway server [@kassel2020]. Further affiliated software is available on the Hyperwell project's page on GitHub[^hyperwell-project].
 
 [^dariah-campus]: <https://campus.dariah.eu/>.
+[^hyperwell-project]: <https://github.com/hyperwell>.
 
 ## Synopsis {#sec::synopsis}
 
 This thesis is aimed towards readers with an affinity for computer technology, but not _necessarily_ computer scientists. While my own practice resides in computer science, this work involves research on digital collaborative systems, collaborative research workflows, and digital ownership. By incorporating novel technologies that effectively concern research data management, I attempt to _convince_ readers with a non-technical background to reflect on their digital practice. For this matter, parts of this thesis with less technical ambition will be highlighted below.
 
-Throughout parts of this thesis, I will use a technological vocabulary and related terminology; _P2P, DHT, TCP_, these acronyms majorly describe concepts and technology related to computer networks. I aspire to successively introduce such terms as I progress, yet readers may find it helpful to conduct the list of abbreviations in the front matter of this thesis.
+Throughout parts of this thesis, I will use a technological vocabulary and related terminology. _P2P, DHT, TCP_, such acronyms majorly describe concepts and technology related to computer networks. I aspire to successively introduce such terms as I progress, yet readers may find it helpful to conduct the list of abbreviations in the front matter of this thesis.
 
 Followign this introduction, chapter \ref{sec:related} contains a discussion of related work that concerns hypertext, digital annotation, P2P applications, and research infrastructure in the Digital Humanities. Mostly focusing on scholarly research, I will cover fundamental and academically documented technology that is used in this thesis throughout that chapter. I will state further technological decisions in footnotes in later parts of this thesis.
 
