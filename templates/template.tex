@@ -229,6 +229,12 @@ $for(bibliography)$
 \addbibresource{$bibliography$}
 $endfor$
 
+\DeclareCiteCommand{\citeyearref}
+  {}
+  {\bibhyperref{\printdate}}
+  {\multicitedelim}
+  {}
+
 % tables
 \usepackage{booktabs}
 \usepackage{threeparttable}
@@ -253,6 +259,7 @@ $endfor$
 \usepackage{layout/title}
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \title{$title$}
+\date{\today}
 
 \begin{document}
 
