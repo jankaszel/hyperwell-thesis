@@ -1,4 +1,4 @@
-# Abbreviations {#sec:abbreviations .unnumbered}
+# List of Abbreviations {#sec:abbreviations .unnumbered}
 
 \begin{tabbing}
 \textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\

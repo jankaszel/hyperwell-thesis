@@ -12,7 +12,7 @@ _TODO:_ While the second architecture proved itself stable during testing, it la
 
 _TODO:_ This study design has multiple drawbacks. It provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducibility of the study's results. Outline these drawbacks.
 
-The study described in chapter \ref{sec:study} ; we purposely designed both sessions as open settings where students could creatively annotate and explore the sources on Recogito. We aimed at
+The study described in chapter \ref{sec:study} ; we purposely designed both sessions as open settings where students could creatively annotate and explore the sources on Recogito. We aimed at
 
 _TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
 
@@ -47,7 +47,7 @@ Some take-aways from both architectures:
 * Cloud computing and content delivery networks[^cloudflare-edge] have made data constantly available, commonly driven by economic interests (such as, increasing profit on scale by reducing load times). This shifted a majority of computation on the web over to cloud providers such as AWS or GCP. While that can still benefit a legal entity, a corporation, or an institution, users accessing a website will still expect similar data availability—regarding response times as well as consistent availability—as for cloud-hosted content. Missing this caused a severe bottleneck during the first version of the implementation.
 * The requirement for a centralized instance in order to bridge data from decentralized systems into the web cannot be rectified: Today’s web browsers can just connect to IP addresses and not join swarms, like with DHTs.
 * Federated systems: provide an alternative; yet, in federated systems such as Mastodon (refer to @sec:related?), instances don’t necessarily mirror each others’ data, but refer to it and build a cohesive network altogether.
-	* Mirrors: Kind of a federated systems where mirrors provide an dispensable infrastructure; they merely provide a mirror of the data, but can be taken offline. Also, detail in @sec:related.
+	* Mirrors: Kind of a federated systems where mirrors provide a dispensable infrastructure; they merely provide a mirror of the data, but can be taken offline. Also, detail in @sec:related.
 * Gateways impose some sort of decentralized governance (as opposed to a fully distributed governance), yet they solve the aforementioned issues with a resulting unequal distribution of load in P2P systems. However, as browser vendors are increasingly adding support for P2P data-sharing protocols such as IPFS[^ipfs-opera] and Dat, providing gateway access to a P2P network could soon become legacy infrastructure.
 
 [^cloudflare-edge]: Content delivery network providers such as Cloudflare, Akamai, and Fastly serve a wide array of clients by ensuring data availability anywhere on earth, which again reduces load times for users. So-called ‘edge servers’ are being deployed to the thousands in order to replicate clients’ assets: <https://www.cloudflare.com/learning/cdn/glossary/edge-server/>
@@ -55,7 +55,7 @@ Some take-aways from both architectures:
 
 ## Implementation {#sec:discussion:implementation}
 
-The implementations described in chapter \ref{sec:implementation} are multifaceted and include a gateway server and a prototype annotation environment, with an annotation management application still in development. The current stage of all software is considered experimental 
+The implementations described in chapter \ref{sec:implementation} are multifaceted and include a gateway server and a prototype annotation environment, with an annotation management application still in development. The current stage of all software is considered experimental 
 
 The system currently does not provide authentication nor encryption. There is no idea on how to realize end-to-end encryption using gateways, while privacy and security still are at large for local-first applications [@hardenberg2020]. Web Cryptography API could be a solution, but this doesn’t solve the architectural issue that we have with Hyperwell: Will encryption be terminated? If not—maintaining end-to-end encryption—, this will require us to find a solution that adheres both to Linked Data principles as well as ensure end-to-end encryption. Most ideally for security, encryption would not be terminated within the gateway (i.e., not within the architecture depicted in fig:gateway-architecture).
 
