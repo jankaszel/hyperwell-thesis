@@ -1,6 +1,5 @@
 CHAPTERS = $(shell find front chapters appendix -name '*.md')
 FIGURES = $(shell find figures)
-CHARTS = $(shell find figures/charts -name '*.pdf')
 
 TEXFLAGS =  \
 	--defaults thesis.yaml \
@@ -13,7 +12,10 @@ TEXFLAGS =  \
 pdf: thesis.tex references.bib
 	latexmk -pdf -xelatex thesis.tex
 
-thesis.tex: thesis.yaml templates/template.tex $(CHAPTERS) $(FIGURES) $(CHARTS)
+docx: thesis.yaml $(CHAPTERS) $(FIGURES)
+	pandoc --defaults thesis.yaml -o thesis.docx
+
+thesis.tex: thesis.yaml templates/template.tex $(CHAPTERS) $(FIGURES)
 	pandoc -o $@ $(TEXFLAGS) 2>pandoc.log 
 
 clean:

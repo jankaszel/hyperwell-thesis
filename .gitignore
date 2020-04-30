@@ -62,6 +62,7 @@ node_modules/
 # output
 thesis.tex
 thesis.pdf
+thesis.docx
 
 # from <https://github.com/github/gitignore/blob/6c87d249af5f2b3f8ab65ae0a2648682ee4e8a2d/TeX.gitignore>
 
