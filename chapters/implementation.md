@@ -256,15 +256,15 @@ In an experimental, yet simple annotation environment application for testing th
 
 ### Notebook Application {#sec:hyperwell:notebook}
 
-The Hyperwell gateway repository provides tools for imitating clients that share notebooks on the network. Inspired by the work of @hardenberg2020, howerver, I have attempted at building a local-first application for managing notebooks on personal devices. Unfortunately, the temporal scope of this thesis did not allow for finishing a minimum viable prototype, but I desire to report the application's design and architecture nonetheless.
+The Hyperwell gateway repository provides tools for imitating clients that share notebooks on the network. Inspired by the work of @hardenberg2020, I have attempted building a local-first application for managing notebooks on personal devices. The temporal scope of this thesis did not allow for finishing a minimum viable prototype, yet I desire to report the application's design and architecture nonetheless.
 
 ![Architecture of the Hyperwell notebook application.](figures/notebook-architecture.pdf){#fig:notebook-architecture short-caption="Architecture of the Hyperwell notebook application"}
 
-I've sketched an architecture for this application, pictured in @fig:notebook-architecture:
+The Notebook application is intended to manifests the local ownership of annotations on a user's device, taking from the metaphor of a physical notebook. By maintaining all entries locally, the application can provide the following services:
 
-* **Managing** notebooks: collections of annotations on a particular resource (or a set of related resources). Project- or resource-based.
-* **Replicating** notebooks: The application is local-first, so all annotations are available on the user's computer. It serves as a storage node, too, and even receives updates from applications that provide real-time collaboration.
-* **Searching** notebooks: As all data is available, it is readily available for search. The notebook applications runs a local search index that get's updated as soon as changes occur, so users can search all their annotations in an instant---that includes Linked Data (without resolving, though, but could be?) and, thus, annotation targets.
+* **Managing** notebooks: The Notebook application maintains a local copy of entire digital notebooks. Users can choose to create new notebooks or delete existing ones. Furthermore, they can control with whom to share a notebook; this could be private collaboration with selective write access or read-only public access. While particular semantics of annotations may depend on the respective annotation environment used, the application can rely on standardized parts of the Web Annotation data model and visually highlight the annotated sources.
+* **Replicating** notebooks: By default, the application runs as a daemon (i.e., a system-managed background process). Thereby, it provides uptime to the notebooka and can receive all changes by collaborators in real-time. 
+* **Searching** notebooks: Maintaing an entire search index locally provides users instant results on full-text search on annotation bodies, as well as extended searching capabilities on annotation targets and collaborators.
 
 Using the Electron[^electron] framework, the application logic and the user interface can be developed using web technologies such as HTML, CSS, and JavaScript. By shipping applications with a bundled copy of the Chromium web browser,
 
