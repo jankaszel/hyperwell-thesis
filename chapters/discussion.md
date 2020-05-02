@@ -14,6 +14,8 @@ _TODO:_ This study design has multiple drawbacks. It provided me with viable inf
 
 The study described in chapter \ref{sec:study} ; we purposely designed both sessions as open settings where students could creatively annotate and explore the sources on Recogito. We aimed at
 
+Furthermore, future studies could analyze the usability differences of private and public collaboration; which implications (e.g., public pressure) could both modalities entail for its users?
+
 _TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
 
 The study was designed to explorative/open-ended and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:

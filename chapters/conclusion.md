@@ -1,12 +1,10 @@
 # Conclusion {#sec:conclusion}
 
-## Thesis Summary {#sec:summary}
-
-In summary, pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.
+TODO. In summary, pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.
 
 ## Future Work {#sec:future-work}
 
-Future prospects:
+TODO. Future prospects:
 
 * As it turned out while working on the implementation of Hyperwell: Building an annotation system is complicated, being it distributed or not. It depends on at least two major components: An annotation environment, as well as a component for storage and inspection. The software presented in @sec:hyperwell does not cover all of this; the Hyperwell gateway and Notebook notebook application lack an annotation environment that supports real-time shared workspaces. In future work, I aim to realize such an environment---if possible, with support of Recogito.
 * Leverage Linked Data prospects even further. Especially in the Notebook application, Linked Data could be used to interact with a resource as whole---for instance, when doing georeferencing. Web Annotations can provide an intent and a type, so the application could provide various modes of visualization. The Hyperwell Notebook application could help with that, and implement some annotation target resolvers directly.
