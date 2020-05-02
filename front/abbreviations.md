@@ -22,6 +22,7 @@
 \textbf{REST}   \> \textbf{Re}presentational \textbf{S}tate \textbf{T}ransfer \\
 \textbf{RDF}    \> \textbf{R}esource \textbf{D}escription \textbf{F}ramework \\
 \textbf{SDK}    \> \textbf{S}oftware \textbf{D}evelopment \textbf{K}it \\
+\textbf{TCP}    \> \textbf{T}ransmission \textbf{C}ontrol \textbf{P}rotocol \\
 \textbf{TTL}    \> \textbf{T}ime \textbf{T}o \textbf{L}ive \\
 \textbf{URI}    \> \textbf{U}niform \textbf{R}esource \textbf{Id}entifier \\
 \textbf{URL}    \> \textbf{U}niform \textbf{R}esource \textbf{L}ocator \\
