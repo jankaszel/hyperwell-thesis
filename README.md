@@ -55,5 +55,8 @@ There are some minor annoyances:
 Some useful points, in a random order:
 - add two spaces at the end of a line to force a line break.
 
-### How to cite
+### How to Cite
 
+## License
+
+The thesis itself is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/). The related open-source code of the [Hyperwell project](https://github.com/hyperwell) is licensed under a more permissive MIT license.
