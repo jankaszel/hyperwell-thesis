@@ -1,10 +1,11 @@
 # Abstract {.unnumbered}
 
-TODO.
+Highlights, scribbling, and marginal notes: Annotation is often a private practice that we only occasionally share with others, or even more rarely share publicly. Once considered fundamental to hypertext systems, the potential of annotating digital documents is often overlooked in today's technology. As data commonly leaves our devices when collaborating, further questions arise on digital ownership and privacy. In this thesis, I examine the question of how both ownership and privacy can be ensured in the context of Digital Humanities research, which increasingly leverages interoperable infrastructures and Linked Open Data. 
 
-_Abstract of the DARIAH paper:_ In recent years, Digital Humanities’ collaborative nature caused an awakening of digitally native research practice, where interdisciplinary workflows commonly feed into centralized data repositories. Connecting these repositories, the W3C’s Web Annotation specification builds upon Linked Data principles for targeting any web resource or Linked Data entity with syntactic and semantic annotation. However, today’s platform-centric infrastructure diminishes the distinction between institutions’ and individuals’ data. This poses issues of digital ownership, interoperability, and privacy of data stored on centralized services. With Hyperwell, we aim to address these issues by introducing a novel architecture that offers real-time, distributed synchronization of Web Annotations, leveraging contemporary peer-to-peer technology. Extending the peer-to-peer network, institutions provide Hyperwell gateways that bridge peers’ annotations into the web. These gateways affirm a researcher’s affiliation while acting as a mere mirror of researchers’ data and maintaining digital ownership.
+In an explorative study, I first investigate the aspects of real-time collaboration in research tools, followed by an examination of institutional services on Peer-to-Peer (P2P) networks. By establishing interoperability between such networks and the web, I then propose two approaches for bridging those networks and strengthening privacy, ownership, and private collaboration following the paradigm of local-first software.
 
-<!-- Mention that the requirement is two-fold: On the one hand, gateways can provide functionality for users on the web, such as affiliation and archiving. But additionally, gateways ensure interoperability in -->
+I argue that by balancing the autonomy of peers and the determinism of the web, concluding that gateways can manifest the strict separation of both networks while supporting peers by providing archiving and data availability. Future work concerns the viability of this approach in actual workflows and further research on the usability of distributed systems in research.
 
 \pagenumbering{roman}
 \setcounter{page}{1}
+
