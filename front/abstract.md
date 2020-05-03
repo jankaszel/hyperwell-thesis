@@ -4,8 +4,7 @@ Highlights, scribbling, and marginal notes: Annotation is often a private practi
 
 In an explorative study, I first investigate the aspects of real-time collaboration in research tools, followed by an examination of institutional services on Peer-to-Peer (P2P) networks. By establishing interoperability between such networks and the web, I then propose two approaches for bridging those networks and strengthening privacy, ownership, and private collaboration following the paradigm of local-first software.
 
-I argue that by balancing the autonomy of peers and the determinism of the web, concluding that gateways can manifest the strict separation of both networks while supporting peers by providing archiving and data availability. Future work concerns the viability of this approach in actual workflows and further research on the usability of distributed systems in research.
+I argue that by balancing the autonomy of peers and the determinism of the web, gateways can translate across the separation of both networks while supporting peers by providing archiving and data availability. This enables researchers to perform private and collaborative annotation, while the underlying data can be embedded into existing workflows due to the connection of both systems. Future work concerns the viability of this approach in scholarly environments and further research on the usability of distributed systems in research.
 
 \pagenumbering{roman}
 \setcounter{page}{1}
-
