@@ -42,8 +42,6 @@ Conceptual issues with first approach:
 * Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
 * This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
 
-Identification within distributed networks via the Decentralized Identifiers standard [@did2019].
-
 Some take-aways from both architectures:
 
 * Cloud computing and content delivery networks[^cloudflare-edge] have made data constantly available, commonly driven by economic interests (such as, increasing profit on scale by reducing load times). This shifted a majority of computation on the web over to cloud providers such as AWS or GCP. While that can still benefit a legal entity, a corporation, or an institution, users accessing a website will still expect similar data availability—regarding response times as well as consistent availability—as for cloud-hosted content. Missing this caused a severe bottleneck during the first version of the implementation.

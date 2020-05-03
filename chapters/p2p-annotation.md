@@ -8,7 +8,7 @@ In @sec:annotation:ownership, I then define the distinctive terms of _notebooks_
 
 ## What's (Not) Wrong with Servers? {#sec:annotation:web}
 
-The web establishes a decentralized network---as reported previously in this thesis---since hypertext systems commonly use a client-server model in order to distribute hypertext documents among a multitude of servers on the network [@berners-lee1989a; @nelson1993]. This architectural decision brings its pros and cons: smaller networks can benefit from this model by being easily scalable and distributing resources predictably, yet large networks of world-wide scale can quickly outgrow their intention of being open, accessible, and collaborative, threatening their heterogeneity:
+The web establishes a decentralized network---as reported previously in this thesis---since hypertext systems commonly use a client-server model in order to distribute hypertext documents among a multitude of servers on the network [@berners-lee1989; @nelson1993]. This architectural decision brings its pros and cons: smaller networks can benefit from this model by being easily scalable and distributing resources predictably, yet large networks of world-wide scale can quickly outgrow their intention of being open, accessible, and collaborative, threatening their heterogeneity:
 
 > _While the Web has the potential to enable full open access to knowledge, the code that powers the Web is not built for that. Instead, the Web uses a centralized data model optimized for use by commercial organizations. In other words, today’s Web values the access and voices of people who are valuable to corporate interests._ [@robinson2018, p. 2]
 
