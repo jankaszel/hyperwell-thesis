@@ -5,9 +5,6 @@
 \listoffigures
 \makeatother
 
-\pagenumbering{roman}
-\setcounter{page}{3}
-
 \newpage
 
 \setcounter{page}{1}

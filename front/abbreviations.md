@@ -1,4 +1,9 @@
+\begingroup
+\clearpage
+\let\clearpage\relax
+\vspace*{-13mm}
 # List of Abbreviations {#sec:abbreviations .unnumbered}
+\endgroup
 
 \begin{tabbing}
 \textbf{API}~~~~~~~~~~~~ \= \textbf{A}pplication \textbf{P}rogramming \textbf{I}nterface \\

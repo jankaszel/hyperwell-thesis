@@ -1,7 +1,7 @@
 \begingroup
 \clearpage
 \let\clearpage\relax
-\vspace*{-1cm}
+\vspace*{-13mm}
 # Acknowledgements {.unnumbered}
 \endgroup
 
