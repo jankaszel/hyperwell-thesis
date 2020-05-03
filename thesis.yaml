@@ -16,6 +16,7 @@ input-files:
 - chapters/conclusion.md
 - chapters/references.md
 - appendix/questionnaires.md
+- appendix/annotation-environment.md
 
 bibliography: references.bib
 resource-path:
