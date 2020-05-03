@@ -35,7 +35,7 @@ In order to gain more sophisticated insights into the usability of real-time col
 [^simply-secure-kb]: <https://simplysecure.org/knowledge-base/>
 [^lots]: <https://decentpatterns.xyz/>
 
-## Architecture {#sec:discussion:architecture}
+## Architectural Challenges {#sec:discussion:architecture}
 
 Conceptual issues with first approach:
 
@@ -55,7 +55,7 @@ Some take-aways from both architectures:
 [^cloudflare-edge]: Content delivery network providers such as Cloudflare, Akamai, and Fastly serve a wide array of clients by ensuring data availability anywhere on earth, which again reduces load times for users. So-called ‘edge servers’ are being deployed to the thousands in order to replicate clients’ assets: <https://www.cloudflare.com/learning/cdn/glossary/edge-server/>
 [^ipfs-opera]: Opera for Android recently introduced support for IPFS URLs: <https://blog.ipfs.io/2020-03-30-ipfs-in-opera-for-android/>. While the proposed solution involved directing requests of IPFS URLs to the official IPFS gateway, other browser vendors include actual implementations of the protocols used, such as Beaker does with the Dat protocol: <https://beakerbrowser.com/>.
 
-## Implementation {#sec:discussion:implementation}
+## Hyperwell, Hyperbetter {#sec:discussion:implementation}
 
 TODO.
 
