@@ -1,37 +1,37 @@
 \addtocontents{toc}{\protect\newpage}
 # Implementation {#sec:implementation}
 
-With end-to-end encryption, optional networking, and real-time collaboration, the paradigm of local-first software provides an appropriate foundation for establishing private collaboration between peers. While local-first applications can synchronize via arbitrary means of communication, I have argued in the previous chapter \ref{sec:annotation} in favor of P2P networks when introducing digital _notebooks_: By leveraging direct connections between peers, systems can overcome centralized infrastructures, emphasize local-first data, and thus sustain digital, personal ownership. Local-first software, however, majorly concerns how _applications_ maintain and distribute data; an additional architecture is further required to address the aforementioned questions about _public entities_ distributed networks network, which can offer services such as increased data availability and long-term archiving.
+With end-to-end encryption, optional networking, and real-time collaboration, the paradigm of local-first software provides an appropriate foundation for establishing private collaboration between peers. While local-first applications can synchronize via arbitrary means of communication, I have argued in the previous chapter \ref{sec:annotation} in favor of P2P networks when introducing digital _notebooks_: By leveraging direct connections between peers, systems can avoid centralized infrastructures, emphasize local-first data, and thus sustain digital, personal ownership. Local-first software majorly concerns how _applications_ maintain and distribute data; an architecture is further required to address the aforementioned questions on _public entities_ in distributed systems, which can provide peers with services such as increased data availability and long-term archiving.
 
-In chapter \ref{sec:study}, we have explored how collaboration and LOD can be leveraged in DH tools. The study results hint---while estimated in an explorative setting---at possible prospects for real-time collaboration in contemporary workflows: By reflecting changes on the underlying shared workspace in the user interface in real-time, users can promptly interact with each others' work.
+In chapter \ref{sec:study}, we have explored how collaboration and LOD can be leveraged in DH software. While estimated in an explorative setting, the study results hint at possible prospects for real-time collaboration in contemporary workflows: By instantly reflecting changes on the underlying shared workspace within the user interface, users can promptly interact with others' work.
 
-The use of LOD data sets, such as digital gazetteers, supports the requirement for canonical data services. Furthermore, the Web Annotation protocol specification intends REST-based APIs for editing annotations. In order to ensure interoperability between P2P networks and the web, gateways can provide services for bridging between both. While they fit the concept of a _public entity_ in a distributed network as defined in @sec:annotations:ownership, gateways raise further questions on authoring and ownership as data leaves the distributed realm. The following @sec:bridging builds upon the previous discussion and continues to contextualize gateways for bridging distributed networks and the web. 
+The use of LOD data sets, such as digital gazetteers, supports the need for canonical data services. Furthermore, common LD and LDP standards---such as the Web Annotation protocol---specify REST-based APIs for interacting with resources. Hence, in order to ensure interoperability between P2P networks and the web, gateways need provide additional services for bridging resources between both. While gateways fit into the concept of a _public entity_ in a distributed network as defined in @sec:annotation:ownership, they raise further questions on authoring and ownership as they relay data beyond the distributed realm. The following @sec:bridging builds upon the previous discussion by providing three technological approaches.
 
-Drawing from this discussion, I then detail two architectures of P2P systems for personal, local-first annotation, and their respective implementations: First, a system that emphasizes independent authoring of notebooks (@sec:thick) by leveraging an HTTP-inspired overlay network protocol and deep integration into annotation environments. A redesigned system called _Hyperwell_ (@sec:hyperwell) emerged from this approach, introducing institutional gateways for data availability, archiving, and interoperability with the web.
+Drawing from these approaches, I then detail two architectures of P2P systems intended for personal, local-first annotation as well as their respective implementations: First, a system that emphasizes independent authoring of notebooks on the web (@sec:thick) by leveraging an HTTP-inspired overlay network protocol and deep integration into annotation environments. A redesigned system called _Hyperwell_ emerged from this approach (@sec:hyperwell), introducing institutional gateways for data availability, archiving, and interoperability with the web.
 
-## Bridging Decentralized Networks and the Web {#sec:bridging}
+## Bridging P2P Networks and the Web {#sec:bridging}
 
 ![An architecture leveraging a gateway node for bridging resources from a P2P system into the web [@matsubara2010]. For providing access to a P2P network, the gateway acts as both a peer within the P2P network and as a HTTP server. Gateway logic translates between both systems.](figures/matsubara-p2p-gateway.png){#fig:p2p-gateway short-caption="Architecture for bridging resources from a P2P system into the web"}
 
-TODO previously detailed the prospects of such a system in @kassel2020a.
+P2P systems and client-server architectures operate fundamentally different from each other and commonly utilize different protocols for communication. I have previously proposed the notion of _public entities_ on P2P networks for services that support the network's operation, yet do not set up themselves as a critical part of the network's infrastructure. A type of public entity, Gateway services can interface both P2P systems and the web as we have argued previously in @kassel2020a by joining as both a peer on the P2P network and a HTTP server on the web. A gateway logic then translates resources and connections between both networks, as described in a patent from @matsubara2010 and pictured in @fig:p2p-gateway. This effectively provides interoperability between both networks and makes resources available to a wider audience of nodes. Further communication protocols such as WebRTC or those used by overlay networks could pose an alternative to gateways by directly connectin peers and web clients. Nonetheless, these protocols would require technological support on both systems.
 
-TODO: Make it explicit that the work done in this chapter (and for the thesis) has been to build an architecture that serves in two ways: First, it has to be built around hypermerge—the library itself does not provide any de-facto requirement of how data should be distributed. It facilitates data distribution. Second, the architecture should resemble the notion that I have imposed in @sec:annotation.
+The Hyperswarm networking stack establishes connections via TCP and uTP [@frazee2018]; peers discover each other via the Kademlia-based DHT, organize themselves in _swarms_ (i.e., groups of peers based on a topic), and communicate with each other via duplex streams. Furthermore, Hyperswarm adds additional support for establishing connections behind firewalls (hole punching) and NAT. A proxy server[^hyperswarm-web] finally allows to relay Hyperswarm connections to web clients via WebRTC.
 
-TODO: Emphasize the limitations for modern JavaScript applications: With the Node.js runtime—in theory—,the same code can be executed isomorphically on both directly on a devices as well as in the browser. However, both platforms serve different environments: Node.js supports bindings to native code, such as libraries written in C++, while browsers provide separate APIs of the web platform, such as WebGL graphics and access to device sensors. Thus, having 
+The respective approaches will be shaped by further technological constraints. Modern JavaScript is essentially supported in native environments and the web alike, yet both the popular Node.js JavaScript runtime and the web are situated with different requirements. Native environments often require deeper integration with the underlying operating system, thus Node.js supports bindings with binary modules (e.g., C++ libraries) and OS-level APIs such as for networking and file-system access. Hypermerge and its affiliated libraries (Hypercore and Hyperswarm) entail such dependencies for networking purposes or cryptographical methods and hence, web clients can not run the Hypermerge library. This calls for alternative approaches on data exchange when not using gateways for separating both networks.
 
-TODO: Maybe give an introduction to Hyperswarm, swarms, and how replication commonly happens for Hyperswarm/Hypercore? Also, an introduction to *duplex streams* would be helpful. What is *replication*?
+Based on the above constraints, I have conceived three approaches for bridging the P2P network and the web for sharing annotations in real-time:
 
-TODO: Three approaches to bridging decentralized networks and the web by using web technologies supported by contemporary web browsers (@fig:bridging-approaches):
+1. **WebRTC:** Establish connections between web clients and peers on the P2P network via WebRTC. Using the established connections, annotations can be exchanged via an overlay network using additional protocols, such as HTTP. This would peers on the P2P network require to adapt WebRTC as their communication protocol or use proxy servers[^hyperswarm-web] for relaying connections.
+2. **Custom overlay network:** Translate WebSocket-based connections from web clients into Hyperswarm connections with a set of proxy servers. Similar to the WebRTC approach, an overlay network would then be used for handling data exchange between web clients and peers.
+3. **Gateways:** Enforce a strict separation between both networks by using gateway servers to properly translate between both realms. Gateway acts like a full peer on the P2P network and implements a specification-compliant Web Annotation API as a server on the web.
 
-![Approaches for bridging between decentralized file-sharing networks and the web.](figures/bridging-approaches.png){#fig:bridging-approaches short-caption="Approaches for bridging between decentralized file-sharing networks and the web"}
+In preliminary tests, I have frequently encountered issues with WebRTC connections due to variations in browser support or challenging network conditions (where WebRTC has to rely on additional technologies for establishing connections). Because of these concerns on stability, I have ultimately decided against the first approach.
 
-TODO: Maybe just remove the figure and the first approach, since I can't actually verify my issues with WebRTC (except that I _actually have encoutered them_).
+Nevertheless, both the second and third approach promised viable architectures for bridging resources between P2P networks and the web. In the following, I will detail architecture designs and implementations for each approach, embedding them into collaborative environments.
 
-1. Connecting web clients via WebRTC and using WebRTC duplex connections to replicate data. Did not work, as WebRTC failed during testing and Hypermerge has dependencies that don’t work in web browsers (footnote on what that exactly means, comparing it to Node.js and native C++ libraries).
-2. Connecting web clients via WebSocket connections which are being terminated/translated by a set of proxy servers and using an overlay network for requesting resources.
-3. Enforcing a “hard” separation between both networks and making the gateway properly translate between both protocols rather that “repacking” it. This will make the gateway act like a full peer in the decentralized network and would enable the use of HTTP and an implementation of the REST-based Web Annotation Protocol.
+[^hyperswarm-web]: <https://github.com/RangerMauve/hyperswarm-web>.
 
-## First Version: Resource Exhaustion and Thick Peers {#sec:thick}
+## First Implementation: Thick Peers {#sec:thick}
 
 For the first iteration of this project, I focused on building an annotation publishing system for realizing an end-to-end annotation workflow. As a case study for an annotation environment, I've chosen the Recogito semantic annotation tool. By supporting the Web Annotation data model, Recogito ensures interoperability with other annotation systems. The conceived workflow considered the following functionalities:
 
@@ -50,7 +50,7 @@ Integrating with the available stack of Web technologies, both the peer software
 
 TODO: WebSocket connections
 
-TODO: Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients [@frazee2019].
+TODO: Use Hyperswarm as a decentralized networking solution for swarming, and a WebRTC bridge to connect to browser clients [@frazee2018].
 
 TODO: Use Hypermerge as a CRDT-equipped data structure backed by the Hypercore append-only log. Integrates with Hyperswarm to exchange changes with peers operating on copies of the same data structure and merge changes automatically and conflict-free.
 
@@ -75,7 +75,7 @@ The approach of the first version, however, had several severe drawbacks. While 
 
 By utilizing a server that bridges WebSocket connections into the TCP or uTP socket-based Hyperswarm network connections, web clients are able to join swarms in the Hyperswarm network and connect to other peers of a swarm. This has been achieved by utilizing the fact that the WebSocket protocol establishes a duplex stream—that is, readable as well as writable—between client and server. By using the `hyperswarm-proxy`[^hyperswarm-proxy] library, this duplex stream can then be forwarded to peers of the respective Hyperswarm peers.
 
-In @sec:bridging, I have outlined possible approaches for connecting web clients into the Hyperswarm network. A major limitation of the CRDT-backed Hypermerge library is its incompatibility with the web platform, as it entails native code dependencies. Hence, using WebRTC connections to directly connect web clients with Hyperswarm peers—approach 1 of @fig:bridging-approaches—is not a viable solution for this context. However, creating a separate overlay network enabled web clients to communicate with Hyperswarm peers independently of Hypermerge.
+In @sec:bridging, I have outlined possible approaches for connecting web clients into the Hyperswarm network. A major limitation of the CRDT-backed Hypermerge library is its incompatibility with the web platform, as it entails native code dependencies. Hence, using WebRTC connections to directly connect web clients with Hyperswarm peers is not a viable solution for this context. However, creating a separate overlay network enabled web clients to communicate with Hyperswarm peers independently of Hypermerge.
 
 In order to request and mutate resources on this network, a separate application protocol was then required. The HTTP protocol would actually have met the needs of this overlay network, as it is a well-established and extensively documented foundation of the web. HTTP would furthermore have allowed for an actual implementation of the Web Annotation Protocol between participants of this network. However, I have faced two severe issues: First, there exist no established JavaScript-based implementations of HTTP parsers that could be utilized on web clients[^http-parser]. Second, the nature of Hyperswarm connections is not deterministic as peers continuously join and leave a swarm—thus, connections can not be established on-demand as easily as directly via DNS-based URLs and should be used as efficiently as possible. HTTP supports pipelining of multiple requests over the same TCP connection, yet it is explicitly being advised against this practice [@fielding1999, p. 46].
 
@@ -103,9 +103,9 @@ message RequestEvent {
 }
 ```
 
-[^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>
-[^protobuf]: <https://developers.google.com/protocol-buffers/>
-[^long-polling]: In contrast to conventional "short-polling", where clients send requests to servers on-demand, "long-polling" requests will hold a client-initiated connection open for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>
+[^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>.
+[^protobuf]: <https://developers.google.com/protocol-buffers/>.
+[^long-polling]: In contrast to conventional _short-polling_, where clients send requests to servers on-demand, "long-polling" requests will hold a client-initiated connection open for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>.
 
 ### Resource Discovery {#sec:thick:discovery}
 
@@ -162,7 +162,7 @@ The development of a prototype of this software coincided with the timeframe of 
 
 The architecture poses a severe conceptual issue: By bridging the web and a P2P network, a multitude of clients gain access to data eventually stored on a small number of peers on the decentralized network, thus far exceeding their limited resources. Identifying this issue led to significant changes on the architecture, which I will discuss in the following @sec:hyperwell. In chapter \ref{sec:discussion}, I will further detail the issue of the current architecture.
 
-## Second Version: Institutional Governance with Hyperwell {#sec:hyperwell}
+## Second Implementation: Hyperwell {#sec:hyperwell}
 
 The initial attempt at realizing a distributed annotation authoring system outlined in @sec:thick provided promising prospects on independent publishing as well as novel technologies and protocols, but also highlighted one major challenge for such systems: While P2P systems can distribute network and computational load onto a multitude of peers---as data is replicated among peers---, interfacing a distributed system with less decentralized systems will lead to unpredictable and less distributed requests on resources, essentially putting a strain onto a minority of peers. This realization resulted in the following conclusion: In order to ensure efficiency and integrity for the P2P network, the _translating component_ has to be externalized in terms of infrastructure and governance. Such gateways can translate between both networks, and be scaled separately. This gateway infrastructure makes an essential part of the architecture, but, nevertheless, should be of a volatile nature.
 
@@ -252,7 +252,7 @@ In an experimental, yet simple annotation environment application for testing th
 
 [^js-prototypes]: The JavaScript specification just gained support for syntactic classes in recent years. While the referred object in Recogito functions as a class with instance methods and an instance-based state, JavaScript classes essentially are an abstraction of prototype-based objects: <https://tc39.es/ecma262/#sec-objects>.
 [^recogito-js]: RecogitoJS is <https://github.com/pelagios/recogito-text-js>.
-[^react]: <https://reactjs.org/>.
+[^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages Functional Reactive Programming (FRP) principles and uses a virtual DOM for only patching changed parts of the user interface.
 
 ### Notebook Application {#sec:hyperwell:notebook}
 
@@ -282,7 +282,6 @@ While this Notebook application is an early, non-functioning prototype, its arch
 [^react-native]: <http://reactnative.dev/>.
 [^dat-automerge-rs]: While the fundamental modules of the Dat technology stack, such as Hypercore and Hyperswarm, as well as Automerge and Hypermerge are implemented in JavaScript, there have been recent efforts in porting some systems to native environments using the Rust programming language: <https://github.com/automerge/automerge-rs>, <https://github.com/datrs>. Rust software can interface with JavaScript using the interoperable WebAssembly binary format.
 [^electron]: Electron is a framework for building desktop applications with web technologies: <https://www.electronjs.org/>. Electron applications ship their own copy of the Chromium browser as well as the Node.js runtime. They are packed as native executables, can be build cross-platform, and have their application logic written in JavaScript.
-[^react]: React is a popular framework for building interactive web applications: <https://www.reactjs.org/>. Maintained by Facebook, React leverages functional reactive programming (FRP) principles and uses a virtual DOM for only patching changed parts of the user interface.
 
 ## Conclusion {#sec:implementation:conclusion}
 
