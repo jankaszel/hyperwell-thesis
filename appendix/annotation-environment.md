@@ -10,7 +10,7 @@ In @sec:hyperwell:support I have presented an experimental annotation environmen
 4. Navigate the first terminal to the gateway directory and start a dummy node via `node tools/touch.js`. This script will create a new notebook and subsequently replicate it on the network. Copy the gateway ID of the newly created notebook, which is a sequence of hexadecimal characters.
 5. Navigate the second terminal to the gateway directory and start a gateway server via `./bin/server.js`. The server will listen for connections on the local machine (localhost), defaulting to port 3000.
 6. Navigate the third terminal to the annotation environment directory and start the development server via `npm run dev`. The annotation environment will be available on port 5000 by default.
-7. Assemble the IRI of the previuosly created notebook by appending its hexadecimal ID to the base URL of the gateway, `http://localhost:3000/annotations/`.
+7. Assemble the IRI of the previously created notebook by appending its hexadecimal ID to the base URL of the gateway, `http://localhost:3000/annotations/`.
 8. After accessing the annotation environment via `http://localhost:5000/` on a web browser such as Mozilla Firefox, enter the notebook IRI in the upper input field and make sure to check the _Hyperwell Gateway_ option for receiving collaborative changes in real-time.
 9. By clicking _Load Annotations_, the annotation environment will connect to the gateway server, which again will relay any created annotations to the notebook created in step 4. Users can validate the real-time collaborative capabilities by opening the annotation environments in multiple browser windows on the same machine.
 
