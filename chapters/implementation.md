@@ -80,7 +80,7 @@ message RequestEvent {
 
 [^hyperswarm-proxy]: <https://github.com/RangerMauve/hyperswarm-proxy>.
 [^protobuf]: <https://developers.google.com/protocol-buffers/>.
-[^long-polling]: In contrast to conventional _short-polling_, where clients send requests to servers on-demand, _long-polling_ requests will hold a client-initiated connection for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>.
+[^long-polling]: In contrast to conventional _short-polling_, where clients send requests to servers on demand, _long-polling_ requests will hold a client-initiated connection for a longer period of time and expects the server to continuously deliver messages: <https://www.hjp.at/doc/rfc/rfc6202.html#sec_2.1>.
 
 ### Resource Discovery {#sec:thick:discovery}
 
