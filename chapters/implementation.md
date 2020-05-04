@@ -101,7 +101,7 @@ message DiscoveryEvent {
 }
 ```
 
-For unique identification, each peer within a discovery swarm assigns itself an UUID upon joining. This identifier corresponds to the `id` field of a `DiscoveryMessage` message. However, this ad-hoc approach for solving decentralized discovery is bears challenges on security and privacy, since the origin of the message is currently not verified deterministically. This issue will be further discussed in @sec:discussion.
+For unique identification, each peer within a discovery swarm assigns itself an UUID upon joining. This identifier corresponds to the `id` field of a `DiscoveryMessage` message. However, this ad-hoc approach for solving decentralized discovery is bears challenges on security and privacy, since the origin of the message is currently not verified deterministically.
 
 [^http-parser]: The code of the Node.js runtime’s built-in HTTP parser is written in C++: <https://github.com/nodejs/http-parser>.
 
@@ -183,7 +183,7 @@ The distribution of real-time updates on Hypermerge documents beared a non-trivi
 
 When considering data ownership and power structures in the Hyperwell architecture, I want to emphasize that notebooks should not depend on a particular gateway node. When creating an annotation by using a gateway’s REST API, it will issue a Universally Unique Identifier (UUID[^uuid]) for the previously undefined ID of this annotation. This ensures that each annotation is uniquely identifiable within a notebook. However, the Web Annotation data model demands that annotations are identified by their host-dependent IRIs. Taking the parent notebook’s Hypermerge-issued URL as the annotation’s IRI will result in incompatibilities when switching between gateways, as browsers are commonly not able to resolve Hyperwell-issued URLs. Hence, gateways translate between both schemes: Hyperwell internally identifies notebooks by their Hypermerge document URLs (e.g., `hypermerge:/abc123`) and gateways then translate these into IRIs by adding their hostname and the annotation ID to the encoded document URL (e.g., `https://gateway.example.com/annotations/def456/11-22-33`). Either way, peers can switch between gateways by changing the URL host while the notebook ID remains the same.
 
-Some features such as archiving rely on an identity system. While the Hypercore append-only log uses public key encryption for identity and security, Hypermerge currently does not expose such functionalities out-of-the-box. With a focus on Linked Data and web technology, I will discuss this matter in @sec:discussion.
+Some features such as archiving rely on an identity system. While the Hypercore append-only log uses public key encryption for identity and security, Hypermerge currently does not expose such functionalities out-of-the-box. With a focus on Linked Data and web technology, I will discuss this matter in chapter \ref{sec:discussion}.
 
 [^hapi]: Hapi is a production-ready web framework: <https://hapi.dev/>. Hapi is written in JavaScript and runs in the Node.js runtime. With a variety of plugins, its functionality can be extended, for example by adding support for the WebSocket protocol.
 [^ldp-containers]: With Linked Data, resources can be grouped into containers: <https://www.w3.org/TR/ldp/#ldpc>. These containers can assort entities semantically.
