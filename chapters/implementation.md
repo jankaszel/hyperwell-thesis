@@ -129,7 +129,7 @@ swarm.on('ready', async () => {
 })
 ```
 
-The code in @lst:sdk-example shows an exemplary usage of the JavaScript SDK for retrieving annotations (`swarm.getAnnotations()`), querying for related work (`swarm.getRelated()`), and subscribing to changes of an annotation (`swarm.getAnnotations()` with a `subscribe` option). For a more complete documentation of the SDK, I refer to the respective code repository called TODO. The repository contains an example project that uses the SDK as well as a full documentation of the provided SDK functionality.
+The code in @lst:sdk-example shows an exemplary usage of the JavaScript SDK for retrieving annotations (`swarm.getAnnotations()`), querying for related work (`swarm.getRelated()`), and subscribing to changes of an annotation (`swarm.getAnnotations()` with a `subscribe` option). For a more complete documentation of the SDK, I refer to the respective code repository [@kassel2020]. The repository contains an example project that uses the SDK as well as a full documentation of the provided SDK functionality.
 
 ### Performance Evaluation {#sec:thick:evaluation}
 
