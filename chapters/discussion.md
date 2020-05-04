@@ -1,35 +1,23 @@
 # Discussion {#sec:discussion}
 
-TODO: Revisit research questions!
+In the previous chapters, I detailed the main contributions of this thesis: First, the results of an open-ended user testing study that explored the means of collaborative workflows in DH tools. Second, the design and implementation of two P2P systems for collaborative annotation. These contributions originated from the initial research questions posed in @sec:intro:meta on the aspects of collaborative workflows and the technical feasibility of P2P systems in the context of DH infrastructure.
 
-In the previous chapters, I detailed the main contributions of this thesis: First, an open-ended user testing study, and the design and implementation of a P2P system for collaborative annotation.
+Throughout this thesis I have emphasized possible shortcomings on the execution and the results. The following chapters will iterate over all contributions and discuss them in detail. @Sec:discussion:usability concerns the study on collaborative annotatation workflows and implications for future usability research on distributed systems.
 
-The study validated some initial assumptions about the prospects of real-time synchronization of collaborative applications, which could further facilitate collaboration in shared workspaces. While the custom approach for tracking participants' actions during sessions featured some novel insights into workflows and usability of Recogito, the study design itself has been open-ended to some degree and lacks reproducibility. In the following section, \ref{sec:discussion:usability}, I discuss the emerging issues in more depth.
 
-_TODO:_ There have been severe issues with the first version of the architecture, which led to the development of a second version with fundamental changes. These will be discussed in @sec:discussion:architecture.
 
-_TODO:_ While the second architecture proved itself stable during testing, it lacks features such as many features that local-first applications require---most notably, encryption, privacy, and security. While this is partly due to the work-in-progress of underlying technology, a polished system is expected to provide these and hence, the Hyperwell technology is subject to future enhancements.
 
 ## Study and Usability Research {#sec:discussion:usability}
 
-_TODO:_ This study design has multiple drawbacks. It provided me with viable information for this particular thesis, but in order to learn more about remote collaboration generally, or, more particular, usability of (peer-to-peer) collaborative systems, a more strict environment has to be established. Furthermore, this would enforce a lab setting and improve reproducibility of the study's results. Outline these drawbacks.
+The results of the study presented in chapter \ref{sec:study} indicate at validations of initial assumptions on the prospects of real-time synchronization of collaborative applications. While the approach for tracking participants' atomic actions during sessions featured novel insights into their workflows and usability patterns on Recogito, the study design itself has been loose and explorative, which can threaten the reproducibility of its results. In the following, I will address these concerns.
 
-The study described in chapter \ref{sec:study} ; we purposely designed both sessions as open settings where students could creatively annotate and explore the sources on Recogito. We aimed at
+By creating a loose setting, participants could freely explore the means of collaborative annotation on Recogito. Nevertheless, given the open-ended environment, this did not allow to articulate specific hypotheses that we could validate. In that regard, students interacted frequently through chatter and physical interactions, which can distort observations focused purely on online collaboration. Our decision to conduct an explorative study posed a trade-off and required us to provide the participants with a loose environment to explore the sources and annotate "naturally", as opposed to executing highly specified tasks. We also interacted with them during the sessions, although just briefly. Instead of specifying a strict lab setting, we detailed a study framework and our observations. After all, the results presented in @sec:study:results are manyfold and fundamentally shaped the design of the subsequent implementations of chapter \ref{sec:implementation}.
 
-Furthermore, future studies could analyze the usability differences of private and public collaboration; which implications (e.g., public pressure) could both modalities entail for its users?
+Nevertheless, the method of reconstructing participants' workflows by tracking atomic actions promise further insights into small-scale aspects of digital coolaboration. When reconstructing workflows, researchers are able to not only visualize the exact sequence of actions, but also examine the data acted upon. Considering the concept of _shared feedback_ by @dourish1992, this records would allow to validate collaborative workspaces in terms of how users are able to grasp real-time data. Further work on this method could state key insights, such as the average _age_ of data (i.e., when it has been last modified) in order to estimate the information flow within such a workspace.
 
-_TODO:_ Technical evaluation: This will give us insights into the age of the watched annotations. If the data allows for this, create a graph for comparison ('youngest annotation considered at point x'). Even further, it would be great to have some kind of indicator of the average age as well as age range a system allowed (during testing!) to work with in a certain period of time. This is in relation to @dourish1992. Give this outlook in @sec:discussion.
+Further work could concern a revised study framework with an emphasis on reproducibility and more specific hypothesis validation. By further isolating participants, less noise could be imposed on the resulting data. This could be achieved by establishing strictly-separated remote settings or simply limiting individual interactions within lab. Furthermore, tasks could be expressed more precisely while still considering the aspects of "natural" annotation. Limiting the sample size per session could finally contribute to reducing noise and overall overhead.
 
-The study was designed to be explorative/open-ended and learn about the multi-faceted experiences of young students. However, the study was limited in some ways:
-
-* It has not been a strict lab setting. Offline collaboration in the classroom (chatter) has been mixed with online collaboration.
-* Students have been provided individual assistance.
-* The amount of students has not been easy to handle, as they heavily interacted verbally during the sessions. This not only caused possible noise in the students' experience, but also in our measurements.
-* The required tasks were intended to provide room for exploration, and thus, haven’t been expressed too strictly
-
-With the above issues in mind and a focus on better reproducibility, a second study could be conducted. Similar to studies on collaboration by @tang1991 and @dourish1992, the group size should be reduced to about three to five people in order to resemble common collaboration settings.  Furthermore, multiple study groups could be formed to establish between-group frameworks, e.g., with a focus on real-time collaboration.
-
-In order to gain more sophisticated insights into the usability of real-time collaboration in conjunction with P2P systems, further work is required. There already exist research as well as best-practices on data security and usability of data-based systems[^if-library] [^simply-secure-kb], yet there has been just little research on the dedicated topic of P2P usability (_TODO:_ Emphasize useful patterns for encryption, network status, multiple hosts, P2P as social instead of a technical problem, ...). @kleppmann2019 provide a valuable set of prospects of local-first applications---such as locally available data, security & privacy, and offline capabilities, among others---, yet these provide no hands-on recommendations for professionals. Pattern libraries have been popular among designers and developers alike for providing accessible and modular best-practices of user interface and interaction design [@borchers2000]. In an ongoing work, Simply Secure, a US-registered 501(c)3 nonprofit organization, curates a library[^lots] of hands-on patterns and metaphors suited for applications that employ protocols and user interfaces with P2P technology and is due to be released soon.
+In order to gain more sophisticated insights into the usability aspects of real-time collaboration in relation with P2P systems, further work is required. While research on best-practices of data security and usability of data-based systems was already conducted,[^if-library][^simply-secure-kb] there was published just few research on the dedicated topic of P2P usability design and patterns. @kleppmann2019 provide a valuable set of practices for realizing local-first applications---such as locally available data, security & privacy, and offline capabilities---yet these provide no practical recommendations for professionals in terms of usability and user interface design. Pattern libraries are popular tools among designers and developers alike for providing accessible and modular best-practices of user interface and interaction design [@borchers2000]. In forthcoming work, a group of researchers from Simply Secure curate a library[^lots] of hands-on patterns and metaphors suited for applications that employ protocols and user interfaces with P2P technology.
 
 [^if-library]: <https://catalogue.projectsbyif.com/>
 [^simply-secure-kb]: <https://simplysecure.org/knowledge-base/>
@@ -37,12 +25,16 @@ In order to gain more sophisticated insights into the usability of real-time col
 
 ## Architectural Challenges {#sec:discussion:architecture}
 
+_TODO:_ There have been severe issues with the first version of the architecture, which led to the development of a second version with fundamental changes. These will be discussed in @sec:discussion:architecture.
+
 Conceptual issues with first approach:
 
 * Peers within the network are considered to be peoples' personal devices---commodity hardware: personal computers, tablets, smartphones. This poses two constraints: First, commodity hardware has limited computing power compared to enterprise, professional, or data center hardware. Second, personal devices don't share the amount of network bandwidth that is available for data center hardware---talking Megabit versus Gigabit connections.
 * Request/response protocol implements a client-server architecture within a P2P network
 * Pure clients (not serving any data) also become part of the P2P network, imposing an imbalance between data availability and peer connections
 * This again leads to bottlenecks around bandwidth and network capacity, with many clients requesting data from a small number of serving peers
+
+TODO: Announce/unannounce methods of the first implememtation.
 
 Some take-aways from both architectures:
 
@@ -56,6 +48,8 @@ Some take-aways from both architectures:
 [^ipfs-opera]: Opera for Android recently introduced support for IPFS URLs: <https://blog.ipfs.io/2020-03-30-ipfs-in-opera-for-android/>. While the proposed solution involved directing requests of IPFS URLs to the official IPFS gateway, other browser vendors include actual implementations of the protocols used, such as Beaker does with the Dat protocol: <https://beakerbrowser.com/>.
 
 ## Hyperwell, Hyperbetter {#sec:discussion:implementation}
+
+_TODO:_ While the second architecture proved itself stable during testing, it lacks features such as many features that local-first applications require---most notably, encryption, privacy, and security. While this is partly due to the work-in-progress of underlying technology, a polished system is expected to provide these and hence, the Hyperwell technology is subject to future enhancements.
 
 TODO.
 
@@ -72,3 +66,4 @@ Missing performance measuring. Gateways will have many open UDP connections and 
 Gateways can serve quasi-arbitrary content, as hypermerge does not enforce a particular schema—as gateways are intended to be run on an institutional infrastructure (and domain), they should be safe. Thus, these gateways should not be open. Hypermerge will introduce such functionality soon.
 
 Subscription support poses a bottleneck for the gateway. While responding to HTTP requests is easily done---the gateway process has all data already available, as it's local-first, in some way---subscriptions need more information. In particular, with the current architecture and version of Hypermerge, we need to create a _diff_ for each repository update. This is done by calculating by creating SHA1 hashes of each annotation's JSON-encoded string representation. Many updates could easily exhaust a single gateway. However, transmitting a complete notebook for each update to _all_ subscribers could exceed the bandwidth quickly.
+
