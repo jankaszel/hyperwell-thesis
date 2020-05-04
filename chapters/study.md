@@ -8,7 +8,7 @@ Remote collaboration is not limited to video conferencing. Workplaces can be und
 
 Developing a novel annotation environment would have extended the scope of this thesis. Insteadn, I have chosen to find an existing environment learning about users' habits when collaborating with digital tools. Arbitrary design choices in the UI should be a minor factor. Already established environments commonly raised feedback from their users and adjusted its user interface (UI) and user experience (UI) accordingly. Among various candidates such as Hypothes.is[^hypothesis] and the Mirador IIIF viewer,[^mirador-viewer] I elected the Recogito annotation software for the setting of this study. Recogito met the following requirements:
 
-* **Technical and academic documentation:** The Recogito team published their development process [@simon2017]. The source code of Recogito is available publicly.[^recogito-repo] The UI of Recogito is extensible and written in JavaScript for use within web browsers. While the Pelagios network[^pelagios] provides an official instance of Recogito[^recogito-pelagios], Recogito supports to run an individual instance within the Docker[^docker] container virtualization environment. Additionally, the team behind Recogito was responsive and supported me while setting up the individual instance.
+* **Technical and academic documentation:** The Recogito team published their development process [@simon2017]. The source code of Recogito is available publicly.[^recogito-repo] The UI of Recogito is extensible and written in JavaScript for use within web browsers. While the Pelagios network maintains an official instance of Recogito[^recogito-pelagios], Recogito supports to run an individual instance within the Docker[^docker] container virtualization environment. Additionally, the team behind Recogito was responsive and supported me while setting up the individual instance.
 * **Interoperability with Web Annotation:** While Recogito does not support external annotation storage, its annotation data model is _partially_ compliant with the Web Annotation data model.
 * **Collaborative workflows:** On Recogito, resources can be shared with other users, allowing for collaborative annotation. I will discuss the modalities of collaboration on Recogito in the following.
 * **Annotation capabilities:** Recogito offers an environment for annotating textual resources, including classic Greek or Latin texts, and annotating images. Furthermore, users can import canonical resources from CTS repositories and IIIF manifests. With a focus on georeferencing, Recogito emphasizes the use of Linked Data references for annotations.
@@ -27,7 +27,6 @@ The explorative nature of this study leaves room for discussion with regard to i
 
 [^mirador-viewer]: <https://projectmirador.org/>.
 [^recogito-repo]: <https://github.com/pelagios/recogito2>.
-[^pelagios]: <https://pelagios.org/>.
 [^docker]: <https://www.docker.com/>.
 [^recogito-pelagios]: <https://recogito.pelagios.org/>.
 [^chiara-lod-post]: In a course on Classical Archeology, Chiara Palladino conducted an experimental project to learn about the use of LOD collections and an LOD search engine while researching historical Graeco-Roman sites: <https://medium.com/pelagios/linked-open-data-to-navigate-the-past-using-peripleo-in-class-4286b3089bf3>.
