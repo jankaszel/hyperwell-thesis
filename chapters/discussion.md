@@ -1,4 +1,4 @@
-# Discussion {#sec:discussion}
+# Discussion and Future Work {#sec:discussion}
 
 In the previous chapters, I have detailed the main contributions of this thesis: First, the results of an open-ended user testing study that explored the means of collaborative workflows in DH tools. Second, the design and implementation of two P2P systems for collaborative annotation. These contributions originated from the initial research questions posed in @sec:intro:meta on the aspects of collaborative workflows and the technical feasibility of local-first software in the context of DH infrastructure.
 

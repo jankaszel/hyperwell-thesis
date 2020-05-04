@@ -1,16 +1,5 @@
 # Conclusion {#sec:conclusion}
 
-TODO. In summary, pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc eleifend, ex a luctus porttitor, felis ex suscipit tellus, ut sollicitudin sapien purus in libero. Nulla blandit eget urna vel tempus. Praesent fringilla dui sapien, sit amet egestas leo sollicitudin at.
+In this thesis, I have argued that personal data and particularly annotations are not treated accordingly on the web. Local-first applications pose a viable solution for increasing both digital ownership and privacy, effectively facilitating the modalities of private collaboration. This could benefit workflows in Digital Humanities, as scholars commonly annotate sources. An explorative study on the aspects of collaborative annotation in Digital Humanities software hinted at prospects for real-time collaboration capabilities, while it also manifested the need for supporting the web and LOD. 
 
-## Future Work {#sec:future-work}
-
-TODO. Future prospects:
-
-* As it turned out while working on the implementation of Hyperwell: Building an annotation system is complicated, being it distributed or not. It depends on at least two major components: An annotation environment, as well as a component for storage and inspection. The software presented in @sec:hyperwell does not cover all of this; the Hyperwell gateway and Notebook notebook application lack an annotation environment that supports real-time shared workspaces. In future work, I aim to realize such an environment---if possible, with support of Recogito.
-* Leverage Linked Data prospects even further. Especially in the Notebook application, Linked Data could be used to interact with a resource as whole---for instance, when doing georeferencing. Web Annotations can provide an intent and a type, so the application could provide various modes of visualization. The Hyperwell Notebook application could help with that, and implement some annotation target resolvers directly.
-  * Linked Data Notifications
-  * WebID
-* Resource Discovery: While working on the 'thick peer' approach, a discovery mechanism has been developed for the protocol that has been used in this particular approach: Users working on a resource could easily spot other users' notebooks that target this resource.
-* Research into pinning in conjunction with institution-provided gateways
-* Referencing of particular versions via an extension of the Web Annotation Protocol, e.g., `https://xyz.edu/annotations/<doc>/<annotation>/<version>`. Or, simply use the approach of @vandesompel2010.
-
+Subsequently, I have conceived two types of architectures for incorporating both clients on the web and local-first applications via P2P networks. Both attempts were complemented with implementations, yet the second attempt called Hyperwell proved itself a viable solution for balancing autonomy on P2P networks and determinism on the web. With some parts of Hyperwell still in the making, future work on Hyperwell could integrate LD infrastructure with P2P technology even more to ensure interoperability with the web's LDP. For realizing such workflows in the academic context, studies on the usability of P2P applications and collaborative aspects of shared workspaces could further support the development of collaborative, decentralized applications.
