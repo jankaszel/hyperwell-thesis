@@ -45,7 +45,7 @@ In order to build Hyperwell, I have sketched user interfaces using graphics tool
 [^pelagios-blog]: <https://medium.com/pelagios>.
 [^hyperwell-project]: <https://github.com/hyperwell>.
 
-## Synopsis {#sec::synopsis}
+## Synopsis {#sec:synopsis}
 
 This thesis is aimed at readers with an affinity for computer technology, but not _necessarily_ computer scientists. The given subject concerns collaborative workflows and digital ownership questions alike, with far-ranging prospects on how we can improve our treatment of scholarly annotation in Digital Humanities and beyond. Therefore, the proposed solutions heavily depend on feedback and insights from the scientific community. I successively introduce the related topics---collaborative workflows, Linked Data, and P2P networks---throughout chapters \ref{sec:related} to \ref{sec:annotation}, followed by details on the actual implementation.
 
