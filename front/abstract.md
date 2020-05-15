@@ -1,4 +1,9 @@
+\begingroup
+\clearpage
+\let\clearpage\relax
+\vspace*{-13mm}
 # Abstract {.unnumbered}
+\endgroup
 
 Highlights, scribbling, and marginal notes: Annotation is often a private practice that we only occasionally share with others, or even more rarely share publicly. Once considered fundamental to hypertext systems, the potential of annotating digital documents is often overlooked in today's technology. As data commonly leaves our devices when collaborating, further questions arise on digital ownership and privacy. In this thesis, I examine the question of how both ownership and privacy can be ensured in the context of Digital Humanities research, which increasingly leverages interoperable infrastructures and Linked Open Data. 
 
@@ -8,3 +13,5 @@ I argue that by balancing the autonomy of peers and the determinism of the web, 
 
 \pagenumbering{roman}
 \setcounter{page}{1}
+
+\newpage

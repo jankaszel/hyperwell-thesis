@@ -1,4 +1,9 @@
+\begingroup
+\clearpage
+\let\clearpage\relax
+\vspace*{-13mm}
 # List of Figures {.unnumbered}
+\endgroup
 
 \makeatletter
 \let\@cftmakeloftitle\relax
