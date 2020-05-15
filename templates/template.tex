@@ -130,11 +130,13 @@ $endfor$
 
 \hypersetup{
   bookmarks=true,
-  colorlinks=true,
+  $if(print)$
+  $else$ colorlinks=true,
   linkcolor=teal,
   filecolor=gray,
   urlcolor=gray,
   citecolor=cyan,
+  $endif$
   pdfborder={0 0 0},
 }
 
@@ -158,8 +160,6 @@ $if(numbersections)$
 $else$
   \setcounter{secnumdepth}{0}
 $endif$
-
-\date{$date$}
 
 % Table of contents formatting
 \renewcommand{\contentsname}{Table of Contents}
@@ -259,13 +259,18 @@ $endfor$
 \usepackage{layout/title}
 \author{$for(author)$$author$$sep$ \and $endfor$}
 \title{$title$}
-\date{\today}
+\date{$date$}
 
 \begin{document}
 
 \maketitle
 
 \pagebreak
+
+% conditional empty page
+$if(print)$
+\newpage\null\thispagestyle{empty}\newpage
+$endif$
 
 % license
 \pagenumbering{gobble}
@@ -280,7 +285,6 @@ The source code of all Hyperwell repositories is available as open-source softwa
 Copyright 2020, Jan Kaßel.
 
 \pagebreak
-
 
 % table of contents
 \pagenumbering{gobble}

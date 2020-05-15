@@ -36,6 +36,10 @@ metadata:
   title: "Hyperwell: Local-First, Collaborative Notebooks for Digital Annotation"
   author:
   - Jan Kaßel
+  date: May 4, 2020
+
+  # set to true for print-related adjustments
+  print: false
 
   # pandoc-crossref prefixes
   # use `pairDelim` for ‘and’ as a delimeter between two refs?
