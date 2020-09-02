@@ -12,7 +12,7 @@ I argue that by balancing the autonomy of peers and the determinism of the web, 
 
 ## Building the Document
 
-Creating a PDF of this thesis is harder than it should be. I wouldn't recommend anyone to attempt building this, as I've run into countless issues with particular versions of Pandoc and XeLaTeX. If you nevertheless insist on doing this, you'll need the following software installed: `make`, [Pandoc](https://pandoc.org/), and [LaTeX](https://tug.org/mactex/) (with XeLaTeX).
+Creating a PDF of this thesis is harder than it should be. I wouldn't recommend anyone to attempt building this, as I've run into countless issues with particular versions of Pandoc and XeLaTeX. If you nevertheless insist on doing this, you'll need the following software installed: `make`, [Pandoc](https://pandoc.org/), [`pandoc-crossref`](https://github.com/lierdakil/pandoc-crossref), and [LaTeX](https://tug.org/mactex/) (with XeLaTeX).
 
 You will also need additional typefaces: This thesis is typeset in Suisse Works and Suisse Int'l of the [Suisse family](https://www.swisstypefaces.com/fonts/suisse/), as well as IBM Plex Mono of the [IBM Plex family](https://github.com/IBM/plex). You'll need to purchase a license for Suisse family fonts and install them locally on your computer.
 
